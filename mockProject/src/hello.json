@@ -1,0 +1,37 @@
+[
+	{
+		"description":"mock列子",
+		"request":{
+			"uri":"/get",
+			"method":"get",
+			"cookies":{
+				"gaihongwei":"one",
+				"gaihongwei01":"two"
+				
+			}
+		},
+		"response":{
+			"status":10,
+			"json":{
+				"text":"this is my moco and cookie......",
+				"code":"0",
+				"message":"success"
+			}
+		}
+	},
+	{
+		"description":"mock列子",
+		"request":{
+			"uri":"/getCookie",
+			"method":"get"
+		},
+		"response":{
+			"cookies":{
+        		"login":"true",
+       			"token":"1234567890"
+
+      		},
+		"text":"this is my moco......"
+		}
+	}
+]

@@ -1,0 +1,24 @@
+{"result":null,"error":{"code":-32601,"message":"Method not found"},"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-32601,"message":"Method not found"},"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-32601,"message":"Method not found"},"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-32601,"message":"Method not found"},"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-32601,"message":"Method not found"},"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-32601,"message":"Method not found"},"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-1,"message":"JSON value is not a string as expected"},"id":"curltest"}
+----------------------
+{"result":{"hex":"02000000015fec2361d71b018f0597eb56849692c1deb44471677629b84985b699e7b413960000000000ffffffff010032df11000000001976a914816620b9325a6f24e9a64a9ea3653a9b011237a488ac00000000","complete":false,"errors":[{"txid":"9613b4e799b68549b82976677144b4dec192968456eb97058f011bd76123ec5f","vout":0,"scriptSig":"","sequence":4294967295,"error":"Operation not valid with the current stack size"}]},"error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-26,"message":"16: mandatory-script-verify-flag-failed (Operation not valid with the current stack size)"},"id":"curltest"}
+----------------------
+{"result":{"hex":"0200000001fffec86355e7fe35313e539101f1861d8427a241a9020deb20b5aa58b582ff330000000048473044022076a34709dcff0c5490cc020791e1887f4a1474214b5b2eacca6b3c69a4ad94eb02207effc0d5ed5eeeeca299bddbbd526c0d77bd0c26892c18f2cbc2c8af43128d5c01ffffffff01f0f26f09080000001976a914816620b9325a6f24e9a64a9ea3653a9b011237a488ac00000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":"87c31a7adeb83562ccee22f2d5023b7a507069799629208e3e9f3dbdff7ea4ee","error":null,"id":"curltest"}
+----------------------
+{"result":{"hex":"0200000001ff9b0961d7fe46528f68f05b7eb358cebc0f3562c675ce44d89a1804a1e8c663010000006a4730440220510b34f1a1d64325d58afdb12bca106eb8d6bd93c37e382751ff0cbef6e1405b0220227a67a4f23f2d9eddff846f278ae3eca6f2b9a5906163b6bb8b0b156688bbfb012103b95cabe7d6c34413df3a9675808eafc0e87f84db716605e3df65f064054bb815ffffffff01b03a25a10800000017a9143b5bb5f945318f5dce37df95d143b0a0fd1a8abb8700000000","complete":true},"error":null,"id":"curltest"}
+----------------------

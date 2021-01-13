@@ -1,0 +1,24 @@
+select sum(profit) from tb_swaps_fill_close_detail where  contract_id=1 and user_id=
+select sum(profit) from tb_swaps_fill_close_detail where  contract_id=2 and user_id=
+select contract_id from tb_swaps_fill_close_detail where user_id=333387939 GROUP BY contract_id ORDER BY contract_id asc
+
+
+select sum(profit) from tb_future_fill_close_detail where  contract_id=1001 and user_id=
+select sum(profit) from tb_future_fill_close_detail where  contract_id=1002 and user_id=
+select sum(profit) from tb_future_fill_close_detail where  contract_id=1003 and user_id=
+select contract_id from tb_future_fill_close_detail where user_id=333387939 GROUP BY contract_id ORDER BY contract_id asc
+
+select sum(profit) from tb_regular_future_fill_close_detail where  contract_id=1001 and user_id=
+select contract_id from tb_regular_future_fill_close_detail where user_id=333387939 GROUP BY contract_id ORDER BY contract_id asc
+
+select sum(profit) from tb_mix_fill_close_detail where  contract_id=4001 and user_id=
+select sum(profit) from tb_mix_fill_close_detail where  contract_id=4002 and user_id=
+select sum(profit) from tb_mix_fill_close_detail where  contract_id=4003 and user_id=
+select contract_id from tb_future_fill_close_detail where user_id=333387939 GROUP BY contract_id ORDER BY contract_id asc
+
+
+select tt.currency_id,tt.action,sum(tt.sum_amount) as amount from (select currency_id,action ,sum(amount) as sum_amount from tb_system_ledger where user_id=333387939  and action in (25,26) GROUP BY currency_id,action
+union all
+select currency_id,action ,sum(amount) as sum_amount from tb_system_ledger_history where user_id=333387939  and action in (25,26) GROUP BY currency_id,action ) as tt GROUP BY tt.currency_id,tt.action ORDER BY tt.action asc
+
+
