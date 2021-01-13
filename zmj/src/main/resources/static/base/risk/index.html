@@ -1,0 +1,799 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>58coin工具集</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+</head>
+<body>
+<div class="layui-tab layui-tab-brief" lay-filter="publicTool" style="width: 96%;margin:3px 6px 0 8px">
+    <ul class="layui-tab-title">
+        <li data-status="0" class="layui-this">58COIN短信</li>
+        <li data-status="1" id="mainMailLi">58COIN邮箱</li>
+        <li data-status="2" id="documentarySms">跟单王短信</li>
+        <li data-status="3" id="fexSms">FEX短信</li>
+        <li data-status="4" id="fexMailLi">FEX邮箱</li>
+        <li data-status="5" id="rechargeLi">充值</li>
+        <li data-status="6" id="swapLi">币本位</li>
+    </ul>
+    <div class="layui-tab-content">
+        <!--58coin短信验证码-->
+        <div class="layui-tab-item layui-show">
+            <table id="main_sms_table" lay-filter="mainSms_filter"></table>
+        </div>
+        <!--58coin邮箱验证码-->
+        <div class="layui-tab-item">
+            <table id="main_mail_table" lay-filter="mainMail_filter"></table>
+        </div>
+        <!--跟单王短信验证码-->
+        <div class="layui-tab-item">
+            <table id="documentary_sms_table" lay-filter="documentarySms_filter"></table>
+        </div>
+        <!--FEX短信验证码-->
+        <div class="layui-tab-item">
+            <table id="fex_sms_table" lay-filter="fexSms_filter"></table>
+        </div>
+        <!--FEX邮箱验证码-->
+        <div class="layui-tab-item">
+            <table id="fex_mail_table" lay-filter="fexMail_filter"></table>
+        </div>
+
+        <!--充值-->
+        <div class="layui-tab-item">
+            <div style="display: table;width: 100%">
+                <div style="display: table-cell">
+                    <fieldset class="layui-elem-field">
+                        <legend style="margin-top:6px;"><span class="layui-badge" style="background-color: #8b8583;">58COIN充值</span></legend>
+                        <form class="layui-form" id="recharge_form_58ex">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">选择币种</label>
+                                <div class="layui-input-block">
+                                    <select id="currencyNameMain" name="currencyName" lay-filter="currencyRecharge"
+                                            lay-verify="required"
+                                            lay-search="">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">金&emsp;&emsp;额</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="rechargeAmount" required lay-verify="required|number"
+                                           placeholder="请输入充值金额" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item" style="margin-bottom: 15px">
+                                <label class="layui-form-label">账户类型</label>
+                                <div class="layui-input-inline">
+                                    <input type="radio" name="rechargeUserType" value="mobile" title="手机号" checked>
+                                    <input type="radio" name="rechargeUserType" value="userId" title="用户ID">
+
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">选择用户ID可以批量充值，格式：10001-10009</div>
+                            </div>
+
+                            <div class="layui-form-item" style="margin-bottom: 15px">
+                                <label class="layui-form-label">账户信息</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="rechargeUserVal" required lay-verify="required"
+                                           placeholder="请输入手机号或者用户ID" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="recharge_58ex">立即充值
+                                    </button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重&emsp;&emsp;置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
+                <div style="display: table-cell">
+                    <fieldset class="layui-elem-field">
+                        <legend style="margin-top:6px;"><span class="layui-badge" style="background-color: #8b8583;">FEX充值</span></legend>
+                        <form class="layui-form" id="recharge_form">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">选择币种</label>
+                                <div class="layui-input-block">
+                                    <select id="currencyNameFex" name="currencyName" lay-filter="currencyRecharge"
+                                            lay-verify="required" lay-search="">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">金&emsp;&emsp;额</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="rechargeAmount" required lay-verify="required|number"
+                                           placeholder="请输入充值金额" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item" style="margin-bottom: 15px">
+                                <label class="layui-form-label">账户类型</label>
+                                <div class="layui-input-inline">
+                                    <input type="radio" name="rechargeUserType" value="mobile" title="手机号" checked>
+                                    <input type="radio" name="rechargeUserType" value="userId" title="用户ID">
+
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">选择用户ID可以批量充值，格式：10001-10009</div>
+                            </div>
+
+                            <div class="layui-form-item" style="margin-bottom: 15px">
+                                <label class="layui-form-label">账户信息</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="rechargeUserVal" required lay-verify="required"
+                                           placeholder="请输入手机号或者用户ID" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="recharge_fex">立即充值</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重&emsp;&emsp;置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+            <div>
+                <fieldset class="layui-elem-field" style="display:none;color:green" id="currencyField">
+                    <legend style="margin-bottom: 8px;"><span class="layui-badge">响应结果</span></legend>
+                    <div class="layui-field-box"><p id="currencyResult" style="padding-left: 15px"></p></div>
+                </fieldset>
+            </div>
+        </div>
+
+        <!--币本位-->
+        <div class="layui-tab-item" lay-filter="swap_click">
+            <div style="display: table;width: 98%">
+                <div style="display: table-cell;width: 50%">
+                    <table id="deth_asks_table" lay-filter="deth_asks_filter"></table>
+                    <table id="deth_bids_table" lay-filter="deth_bids_filter"></table>
+                    <form class="layui-form" action="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">合约</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="contract" value="101" title="BTC" lay-filter="contractId"
+                                       checked>
+                                <input type="radio" name="contract" value="102" title="EOS" lay-filter="contractId">
+                                <input type="radio" name="contract" value="103" title="ETH" lay-filter="contractId">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div style="display: table-cell;width: 50%">
+                    <form class="layui-form" action="">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">token</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="token" required lay-verify="required" placeholder="请输入token"
+                                       autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">合约</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="contractId" value="101" title="BTC" checked>
+                                <input type="radio" name="contractId" value="102" title="EOS">
+                                <input type="radio" name="contractId" value="103" title="ETH">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">开平</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="close" value="0" title="开仓" checked>
+                                <input type="radio" name="close" value="1" title="平仓">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">类型</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="type" value="1" title="限价" checked>
+                                <input type="radio" name="type" value="2" title="市价">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">方向</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="side" value="1" title="买入" checked>
+                                <input type="radio" name="side" value="2" title="卖出">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">价格</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="price" required placeholder="请输入价格" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">手数</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="size" required lay-verify="required" placeholder="请输入手数"
+                                       autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">杠杆</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="leverage" value="2" title="2">
+                                <input type="radio" name="leverage" value="3" title="3">
+                                <input type="radio" name="leverage" value="5" title="5">
+                                <input type="radio" name="leverage" value="10" title="10">
+                                <input type="radio" name="leverage" value="33" title="33">
+                                <input type="radio" name="leverage" value="50" title="50">
+                                <input type="radio" name="leverage" value="100" title="100" checked>
+                                <input type="radio" name="leverage" value="150" title="150">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn" lay-submit lay-filter="place_submit">立即提交</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../layui/layui.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/jquery-2.1.1.min.js"></script>
+
+<!--58coin短信头部工具-->
+<script type="text/html" id="main_sms_headerBar">
+    <!--搜索框-->
+    <div style="display: table">
+        <div style="display: table-cell">
+            <form class="layui-form" id="main_sms_search">
+                <div class="layui-input-inline" class="layui-form-item" style="width: 260px">
+<!--                    <label>手机号&ensp;</label>-->
+                    <div class="layui-inline">
+                        <div class="layui-input-inline" style="width: 100px;">
+                            <select name="interest" lay-filter="college" id="superviseDept" >
+<!--                                <option value="">类型</option>-->
+                                <option value="0">手机号</option>
+                                <option value="1">昵&ensp;&ensp;称</option>
+                                <option value="2">用户ID</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-input-inline" style="width: 150px">
+                        <input type="text" name="mobile" placeholder="请输入"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="mainSmsSearch"><i
+                        class="layui-icon">&#xe615;</i>搜&emsp;索
+                </button>
+                <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">
+                    <i class="layui-icon">&#xe631;</i>重&emsp;置
+                </button>
+            </form>
+        </div>
+        <div style="display: table-cell">
+            <!--刷新-->
+            <div style="display: table-cell;">
+                <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh" style=" margin-left: 15px">
+                    <i class="layui-icon">&#xe669;</i> 刷&emsp;新
+                </button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--跟单王短信头部工具-->
+<script type="text/html" id="documentary_code_headerBar">
+    <!--搜索框-->
+    <div style="display: table">
+        <div style="display: table-cell">
+            <form class="layui-form" id="documentary_sms_search">
+                <div class="layui-input-inline" class="layui-form-item" style="width: 260px">
+                    <label>手机号&ensp;</label>
+                    <div class="layui-input-inline" style="width: 200px">
+                        <input type="text" name="mobile" placeholder="请输入手机号"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="documentarySmsSearch"><i
+                        class="layui-icon">&#xe615;</i>搜&emsp;索
+                </button>
+                <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">
+                    <i class="layui-icon">&#xe631;</i>重&emsp;置
+                </button>
+            </form>
+        </div>
+        <div style="display: table-cell">
+            <!--刷新-->
+            <div style="display: table-cell;">
+                <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh" style=" margin-left: 15px">
+                    <i class="layui-icon">&#xe669;</i> 刷&emsp;新
+                </button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--FEX短信头部工具-->
+<script type="text/html" id="fex_code_headerBar">
+    <!--搜索框-->
+    <div style="display: table">
+        <div style="display: table-cell">
+            <form class="layui-form" id="fex_sms_search">
+                <div class="layui-input-inline" class="layui-form-item" style="width: 260px">
+                    <label>手机号&ensp;</label>
+                    <div class="layui-input-inline" style="width: 200px">
+                        <input type="text" name="mobile" placeholder="请输入手机号"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="fexSmsSearch"><i
+                        class="layui-icon">&#xe615;</i>搜&emsp;索
+                </button>
+                <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">
+                    <i class="layui-icon">&#xe631;</i>重&emsp;置
+                </button>
+            </form>
+        </div>
+        <div style="display: table-cell">
+            <!--刷新-->
+            <div style="display: table-cell;">
+                <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh" style=" margin-left: 15px">
+                    <i class="layui-icon">&#xe669;</i> 刷&emsp;新
+                </button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--58coin邮箱头部工具-->
+<script type="text/html" id="main_mail_headerBar">
+    <!--搜索框-->
+    <div style="display: table">
+        <div style="display: table-cell">
+            <form class="layui-form" id="main_mail_search">
+                <div class="layui-input-inline" class="layui-form-item" style="width: 260px">
+                    <label>用户ID&ensp;</label>
+                    <div class="layui-input-inline" style="width: 200px">
+                        <input type="text" name="userId" placeholder="请输入用户ID"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="mainMailSearch"><i
+                        class="layui-icon">&#xe615;</i>搜&emsp;索
+                </button>
+                <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">
+                    <i class="layui-icon">&#xe631;</i>重&emsp;置
+                </button>
+            </form>
+        </div>
+        <div style="display: table-cell">
+            <!--刷新-->
+            <div style="display: table-cell;">
+                <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh" style=" margin-left: 15px">
+                    <i class="layui-icon">&#xe669;</i> 刷&emsp;新
+                </button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--fex邮箱头部工具-->
+<script type="text/html" id="fex_mail_headerBar">
+    <!--搜索框-->
+    <div style="display: table">
+        <div style="display: table-cell">
+            <form class="layui-form" id="fex_mail_search">
+                <div class="layui-input-inline" class="layui-form-item" style="width: 260px">
+                    <label>用户ID&ensp;</label>
+                    <div class="layui-input-inline" style="width: 200px">
+                        <input type="text" name="userId" placeholder="请输入用户ID"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="fexMailSearch"><i
+                        class="layui-icon">&#xe615;</i>搜&emsp;索
+                </button>
+                <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">
+                    <i class="layui-icon">&#xe631;</i>重&emsp;置
+                </button>
+            </form>
+        </div>
+        <div style="display: table-cell">
+            <!--刷新-->
+            <div style="display: table-cell;">
+                <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh" style=" margin-left: 15px">
+                    <i class="layui-icon">&#xe669;</i> 刷&emsp;新
+                </button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="mainMailToolBar">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">绑定邮箱</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">更换邮箱</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">设置资金密码</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改密码</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">重置密码</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">添加信任地址</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">货币提现</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改绑定手机</a>
+</script>
+<script>
+    layui.use(['form', 'element', 'table'], function () {
+        var form = layui.form;
+        var element = layui.element;
+        var table = layui.table;
+        var value = 0;
+        form.on('select(college)', function (data){
+             value = data.value;
+// <!--             console.log(value);-->
+        });
+// <!--        console.log(value);-->
+
+        element.on('tab(publicTool)', function () {
+            var status = $(this).attr('data-status');
+
+            switch (status) {
+                case '0':
+                    smsTable("#main_sms_table", "mainSmsReload", "/main/sms/list", "#main_sms_headerBar");
+                    break;
+                case '1':
+                    mailTable("#main_mail_table", "mainMailReload", "/main/mail/list", "#main_mail_headerBar");
+                    break;
+                case '2':
+                    smsTable("#documentary_sms_table", "documentarySmsReload", "/documentary/sms/list", "#documentary_code_headerBar");
+                    break;
+                case '3':
+                    smsTable("#fex_sms_table", "fexSmsReload", "/fex/sms/list", "#fex_code_headerBar");
+                    break;
+                case '4':
+                    mailTable("#fex_mail_table", "fexMailReload", "/fex/mail/list", "#fex_mail_headerBar");
+                    break;
+                case '6':
+                    swapDethTable(101);
+                    break;
+                default:
+
+            }
+        });
+
+        function smsTable(elem, id, url, toolBar) {
+            // 跟单王短信验证码
+            table.render({
+                elem: elem
+                , id: id
+                , skin: 'line' //行边框风格
+                , even: true //开启隔行背景
+                , url: url
+                , request: {
+                    pageName: 'pageNum',
+                    limitName: 'pageSize'
+                }
+                , toolbar: toolBar
+                , page:
+                    true //开启分页
+                , limit: 10
+                , limits: [1, 5, 10, 20, 50, 100]
+                , cols:
+                    [[{field: 'number', title: '序号', width: 65, align: 'center', type: 'numbers'}
+                        , {field: 'mobile', title: '手机号', width: '30%', align: 'center'}
+                        , {field: 'keywords', title: '验证码', width: '25%', align: 'center'}
+                        , {field: 'sendTime', title: '发送时间', align: 'center'}
+                    ]]
+            });
+        }
+
+        function mailTable(elem, id, url, toolBar) {
+            table.render({
+                elem: elem
+                , id: id
+                , skin: 'line' //行边框风格
+                , toolbar: toolBar
+                , even: true //开启隔行背景
+                , url: url
+                , request: {
+                    pageName: 'pageNum',
+                    limitName: 'pageSize'
+                }
+                , page:
+                    true //开启分页
+                , limit: 10
+                , limits: [1, 5, 10, 20, 50, 100]
+                , cols:
+                    [[{field: 'number', title: '序号', width: 65, align: 'center', type: 'numbers'}
+                        , {field: 'userId', title: '用户id', width: '8%', align: 'center'}
+                        , {field: 'email', title: '邮箱地址', width: '16%', align: 'center'}
+                        , {field: 'keywords', title: '验证码', width: '16%', align: 'center', hide: true}
+                        , {field: 'code', title: 'code', width: '8%', align: 'center'}
+                        , {field: 'sendTime', title: '发送时间', align: 'center'}
+                        , {fixed: 'right', title: '操作', toolbar: '#mainMailToolBar', width: 700, align: 'center'}
+                    ]]
+            });
+        }
+
+        function swapDethTable(contractId) {
+            $.ajax({
+                type: 'get',
+                url: '/swap/deth?contractId=' + contractId,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",//返回的数据类型格式
+                success: function (result) {
+                    table.render({
+                        elem: '#deth_asks_table'
+                        , id: 'deth_asks'
+                        , skin: 'nob' //行边框风格
+                        // , even: true //开启隔行背景
+                        , data: result.data.askList
+                        , cols:
+                            [[
+                                {
+                                    field: 'price',
+                                    title: '价&emsp;格',
+                                    width: '50%',
+                                    templet: function (data) {
+                                        return '<span style="color: red; ">' + data.price + '</span>';
+                                    },
+                                    align: 'center'
+                                }
+                                , {field: 'size', title: '数&emsp;量', width: '50%', align: 'center'}
+                            ]]
+                    });
+                    table.render({
+                        elem: '#deth_bids_table'
+                        , id: 'deth_bids'
+                        , skin: 'nob' //行边框风格
+                        , data: result.data.bidList
+                        , cols:
+                            [[
+                                {
+                                    field: 'price',
+                                    title: '价&emsp;格',
+                                    width: '50%',
+                                    templet: function (data) {
+                                        return '<span style="color: green; ">' + data.price + '</span>';
+                                    },
+                                    align: 'center'
+                                }
+                                , {field: 'size', title: '数&emsp;量', width: '50%', align: 'center'}
+                            ]]
+                    });
+                }
+            });
+        }
+
+        // 58coin短信验证码
+        smsTable("#main_sms_table", "mainSmsReload", "/main/sms/list", "#main_sms_headerBar");
+
+        // 58coin短信验证码刷新
+        table.on('toolbar(mainSms_filter)', function (obj) {
+            switch (obj.event) {
+                case 'refresh':
+                    tableReload('mainSmsReload', '', 'application/x-www-form-urlencoded', '/main/sms/list', 'get');
+                    break;
+            }
+        });
+
+        // 58coin短信验证码搜索
+        form.on('submit(mainSmsSearch)', function (data) {
+            var count = checkForm("main_sms_search");
+            if (count != 0) {
+                tableReload('mainSmsReload', data.field, "application/json; charset=utf-8", '/main/sms/search', 'post');
+            } else {
+                parent.layer.msg('请先选择查询条件！', {icon: 2, time: 1500});
+            }
+            return false;
+        });
+
+        // 跟单王短信验证码刷新
+        table.on('toolbar(documentarySms_filter)', function (obj) {
+            switch (obj.event) {
+                case 'refresh':
+                    tableReload('documentarySmsReload', '', 'application/x-www-form-urlencoded', '/documentary/sms/list', 'get');
+                    break;
+            }
+        });
+
+        // 跟单王短信验证码搜索
+        form.on('submit(documentarySmsSearch)', function (data) {
+            var count = checkForm("documentary_sms_search");
+            if (count != 0) {
+                tableReload('documentarySmsReload', data.field, "application/json; charset=utf-8", '/documentary/sms/search', 'post');
+            } else {
+                parent.layer.msg('请先选择查询条件！', {icon: 2, time: 1500});
+            }
+            return false;
+        });
+
+        /**
+         * FEX交易所
+         */
+
+        // FEX短信验证码刷新
+        table.on('toolbar(fexSms_filter)', function (obj) {
+            switch (obj.event) {
+                case 'refresh':
+                    tableReload('fexSmsReload', '', 'application/x-www-form-urlencoded', '/fex/sms/list', 'get');
+                    break;
+            }
+        });
+
+        // FEX短信验证码搜索
+        form.on('submit(fexSmsSearch)', function (data) {
+            var count = checkForm("fex_sms_search");
+            if (count != 0) {
+                tableReload('fexSmsReload', data.field, "application/json; charset=utf-8", '/fex/sms/search', 'post');
+            } else {
+                parent.layer.msg('请先选择查询条件！', {icon: 2, time: 1500});
+            }
+            return false;
+        });
+
+        /**
+         * 58coin邮箱验证码
+         */
+
+        // 58coin邮箱验证码刷新
+        table.on('toolbar(mainMail_filter)', function (obj) {
+            switch (obj.event) {
+                case 'refresh':
+                    tableReload('mainMailReload', '', 'application/x-www-form-urlencoded', '/main/mail/list', 'get');
+                    break;
+            }
+        });
+
+        // 58coin邮箱验证码搜索
+        form.on('submit(mainMailSearch)', function (data) {
+            var count = checkForm("main_mail_search");
+            if (count != 0) {
+                tableReload('mainMailReload', data.field, "application/json; charset=utf-8", '/main/mail/search', 'post');
+            } else {
+                parent.layer.msg('请先选择查询条件！', {icon: 2, time: 1500});
+            }
+            return false;
+        });
+
+        /**
+         * FEX邮箱验证码
+         */
+
+        // FEX邮箱验证码刷新
+        table.on('toolbar(fexMail_filter)', function (obj) {
+            switch (obj.event) {
+                case 'refresh':
+                    tableReload('fexMailReload', '', 'application/x-www-form-urlencoded', '/fex/mail/list', 'get');
+                    break;
+            }
+        });
+
+        // FEX邮箱验证码搜索
+        form.on('submit(fexMailSearch)', function (data) {
+            var count = checkForm("fex_mail_search");
+            if (count != 0) {
+                tableReload('fexMailReload', data.field, "application/json; charset=utf-8", '/main/mail/search', 'post');
+            } else {
+                parent.layer.msg('请先选择查询条件！', {icon: 2, time: 1500});
+            }
+            return false;
+        });
+
+        // 58EX用户充值
+        form.on('submit(recharge_58ex)', function (data) {
+            $.ajax({
+                type: 'post',  //数据提交方式(post/get/put)
+                url: "/main/recharge",  //提交到的url
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data.field),//提交的数据
+                dataType: "json",//返回的数据类型格式
+                success: function (result) {
+                    $("#currencyField").css("display", "block");
+                    $("#currencyResult").html(result.msg);
+                }
+            });
+            return false;
+        });
+
+        // fex用户充值
+        form.on('submit(recharge_fex)', function (data) {
+            $.ajax({
+                type: 'post',  //数据提交方式(post/get/put)
+                url: "/fex/recharge",  //提交到的url
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data.field),//提交的数据
+                dataType: "json",//返回的数据类型格式
+                success: function (result) {
+                    $("#currencyField").css("display", "block");
+                    $("#currencyResult").html(result.msg);
+                }
+            });
+            return false;
+        });
+
+        /**
+         * 充值
+         */
+        $("#rechargeLi").click(function () {
+            selectInit('/main/getCurrencyNames', $("select[id='currencyNameMain']"), '请选择币种');
+            selectInit('/fex/getCurrencyNames', $("select[id='currencyNameFex']"), '请选择币种');
+            // selectInit('/main/getSites', $("select[name*='Site']"), '请选择账户');
+        });
+
+        // 下单
+        form.on('submit(place_submit)', function (data) {
+            $.ajax({
+                type: 'post',  //数据提交方式(post/get/put)
+                url: "/swap/place",  //提交到的url
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data.field),//提交的数据
+                dataType: "json",//返回的数据类型格式
+                success: function (result) {
+                    layer.msg(result.msg, {icon: 1, time: 2000});
+                    setTimeout($.ajax({
+                        type: 'get',
+                        url: '/swap/deth',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",//返回的数据类型格式
+                        success: function () {
+                            table.reload('deth_bids', {
+                                url: '/swap/deth',
+                                parseData: function (res) { //res 即为原始返回的数据
+                                    return {
+                                        "code": res.code, //解析接口状态
+                                        "data": res.data.bidList //解析数据列表
+                                    };
+                                }
+                            });
+                            table.reload('deth_asks', {
+                                url: '/swap/deth',
+                                parseData: function (res) { //res 即为原始返回的数据
+                                    return {
+                                        "code": res.code, //解析接口状态
+                                        "data": res.data.askList //解析数据列表
+                                    };
+                                }
+                            });
+                        }
+                    }), 2000);
+                }
+            });
+            return false;
+        });
+
+        // 监听合约种类选择事件
+        form.on("radio(contractId)", function (data) {
+            var contractId = data.value;
+            console.log("contractId---->", contractId);
+            swapDethTable(contractId);
+            // $.ajax({
+            //     type: 'get',
+            //     url: '/swap/deth?contractId=' + contractId,
+            //     contentType: "application/json; charset=utf-8",
+            //     success: function (result) {
+            //         if (result.code === "0") {
+            //             swapDethTable();
+            //         }
+            //     }, error: function (e) {
+            //         console.log(e, 'error');
+            //     }
+            // });
+        });
+    });
+
+</script>
+
+</body>
+</html>

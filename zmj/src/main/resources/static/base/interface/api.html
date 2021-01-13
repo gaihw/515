@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+   
+	<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+	<style>
+		body .demo-class .layui-layer-content{
+			height: 240px!important;
+		}
+		
+	</style>
+</head>
+<body>
+<table class="layui-hide" id="test" lay-filter="test"></table>
+
+<script type="text/html" id="toolbarDemo">
+	<div class="demoTable" id="search">
+		<div class="layui-input-inline" style=" float:left">
+			<input id="demoReload" type="text" name="pro" placeholder="请输入接口名称" autocomplete="off" class="layui-input" style="width: 130px;;height:36px">
+		</div>
+		<div class="layui-btn-container" style=" float:left; padding-left:5px;" >
+			<button class="layui-btn layui-btn-sm" lay-event="searchData" data-type="reload"><i class="layui-icon">&#xe615;</i> 查询</button>
+		</div>
+	</div>
+<!--	<div class="demoTable">-->
+<!--		搜索ID：-->
+<!--		<div class="layui-inline">-->
+<!--			<input class="layui-input" name="id" id="demoReload" autocomplete="off">-->
+<!--		</div>-->
+<!--		<button class="layui-btn" data-type="reload">搜索</button>-->
+<!--	</div>-->
+	<div class="layui-btn-container" style=" float:left; padding-left:5px;" >
+		<button class="layui-btn layui-btn-sm" lay-event="getCheckLength"  style="display:none">获取选中数目</button>
+		<button class="layui-btn layui-btn-sm" lay-event="isAll"  style="display:none">验证是否全选</button>
+		<button class="layui-btn layui-btn-sm" lay-event="addData"><i class="layui-icon">&#xe61f;</i> 新增</button>
+		<button class="layui-btn layui-btn-sm" lay-event="flushData"><i class="layui-icon">&#xe9aa;</i> 刷新</button>
+		<button class="layui-btn layui-btn-sm" lay-event="getCheckData"><i class="layui-icon">&#xe6b2;</i> 获取选中行数据</button>
+	</div>
+</script>
+
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+</script>
+<script type="text/html" id="num">
+	{{d.LAY_TABLE_INDEX+1}}
+</script>
+
+<!-- 悬停在模块上方时，显示ip -->
+<script type="text/html" id="moduleIp">
+    <a href="javascript:;" data-d="{{layui.data('platform')[d.platformId]}}" onmouseover="show_module_ip(this)" onmouseout="close_module_ip(this)">{{d.module}}</a>
+</script>
+
+<script src="../../layui/layui.all.js"></script>
+<script src="../../js/jquery-2.1.1.min.js"></script>
+<script src="../../js/tools/common.js"></script>
+
+<script>
+	var layer_tips = 0;
+	//显示描述，悬停在模块上方时，显示ip
+	function show_module_ip(t){
+		var row=$(t).attr('data-d'); //获取显示内容
+		//小tips
+		layer_tips = layer.tips(row,t,{
+			// tips位置：1上；2右；3下；4左,字体的颜色
+			tips:[2,'#3595CC']
+			,time:0
+		})
+	}
+	//鼠标移开，tips消失
+	function close_module_ip(t){
+		layer.close(layer_tips);
+	}
+	layui.use(['form','table','jquery'], function(){
+	var table = layui.table;
+	var form = layui.form;
+	var $ = layui.jquery;
+	var tmp_platform='';
+	var tmp_project='';
+	var tmp_module_id='';
+
+	table.render({
+		elem: '#test'
+		,url:'/api/project/api/list'
+		,method:'post'
+		,headers: {"token":layui.data('setter')['token']}
+		,contentType: 'application/json'
+		,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+		, even: true //开启隔行背景
+		,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+		title: '提示'
+		,layEvent: 'LAYTABLE_TIPS'
+		,icon: 'layui-icon-tips'
+		}]
+		// ,title: '项目信息表'
+		// ,height: '400px'
+		,cols: [[
+		{type: 'checkbox', fixed: 'left'}
+		,{title:'ID', width:'5%', fixed: 'left', unresize: true, sort: true,align:'center',templet:'#num'}
+		,{field:'id', title:'主键id', align:'center',hide:true,templet:function(data){
+			layui.data('api', {
+				key: data.id,
+				value: data.isToken
+			});
+			layui.data('api', {
+				key: String(data.platform+data.project+data.module+data.name).toLocaleUpperCase(),
+				value: data.param
+			});
+			return data.id
+	  	}}
+		,{field:'platformId', title:'关联外键',align:'center',hide:true}
+		,{field:'platform', title:'平台', width:'8%',align:'center'}
+		,{field:'project', title:'项目', width:'8%',align:'center'}
+		,{field:'module', title:'模块', width:'12%',align:'center',templet:'#moduleIp'}
+		,{field:'name', title:'接口名称', width:'14%',align:'center'}
+		,{field:'path', title:'接口路径', width:'18%',align:'center'}
+		,{field:'method', title:'方法', width:'6%',align:'center'}
+		,{field:'param', title:'类型', width:'6%',align:'center',templet:function(data){
+				if(parseInt(data.param) == 0)
+					return "json"
+				else if(parseInt(data.param) == 1)
+					return "form"
+				else if(parseInt(data.param) == 2)
+					return "text"
+				else
+					return "无"
+		}}
+		,{field:'isToken', title:'token', width:'6%',align:'center',templet:function(data){
+				if(parseInt(data.isToken) == 0)
+					return "不需要"
+				else if(parseInt(data.isToken) == 1)
+					return "需要"
+		}}
+		,{field:'state', title:'备注', width:'12%',align:'center'}
+		,{field:'creator', title:'操作者', width:'12%',align:'center'}
+		,{field:'createDate', title:'创建时间', align:'center',hide:true}
+		,{field:'modifyDate', title:'修改时间', width:'18%',align:'center'}
+		,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:'14%'}
+		]]
+		,done:function(res,page,count){
+			if(res.code == 401){
+				layer.msg("token失效,请重新登录!", {  
+						offset: '15px',  
+						icon: 5,  
+						time: 1000  
+					}, function () {  
+						window.top.location.href = "../../login.html";
+					});
+			}
+		}
+		,page: true
+		, limit: 10
+		, limits: [1, 5, 10, 20, 50, 100]
+	});
+		//监听平台下拉框
+		form.on('select(platfromfilter)',function(data){
+			// console.log(data.value);
+			tmp_platform = data.value;
+			$("select[id='idproject']").empty();
+			$("select[id='idproject']").append(new Option("请选择项目",""));
+			$("select[id='idmodule']").empty();
+			$("select[id='idmodule']").append(new Option("请选择模块",""));
+			$.ajax({
+				type: 'get',
+				url: "/api/project/api/list/project?platform="+tmp_platform,
+				headers: {"token":layui.data('setter')['token']},
+				success: function (data) {
+					// $("select[id='idproject']").empty();
+					// $("select[id='idproject']").append(new Option("请选择项目",""));
+					for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+						var content = $('<option value="' + data.data[i] + '">' + data.data[i] + '</option>');
+						$("select[id='idproject']").append(content);
+					}
+					layui.form.render();//菜单渲染 把内容加载进去
+				}, error: function (e) {//响应不成功时返回的函数
+					console.log(e, 'error');
+				}
+			});
+		});
+		//监听项目下拉框
+		form.on('select(projectfilter)',function(data){
+			// console.log(data.value);
+			tmp_project = data.value;
+			$("select[id='idmodule']").empty();
+			$("select[id='idmodule']").append(new Option("请选择模块",""));
+			$.ajax({
+				type: 'get',
+				url: "/api/project/api/list/module?platform="+tmp_platform+"&project="+tmp_project,
+				headers: {"token":layui.data('setter')['token']},
+				success: function (data) {
+					
+					for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+						var content = $('<option value="' + data.data[i].id + '">' + data.data[i].module + '</option>');
+						$("select[id='idmodule']").append(content);
+					}
+					layui.form.render();//菜单渲染 把内容加载进去
+				}, error: function (e) {//响应不成功时返回的函数
+					console.log(e, 'error');
+				}
+			});
+		});
+		//监听项目下拉框
+		// form.on('select(modulefilter)',function(data){
+		// 	tmp_module_id = data.value;
+		// });
+
+	//头工具栏事件
+	table.on('toolbar(test)', function(obj){
+		var checkStatus = table.checkStatus(obj.config.id);
+		switch(obj.event){
+		case 'getCheckData':
+			var data = checkStatus.data;
+			layer.alert(JSON.stringify(data));
+		break;
+		case 'getCheckLength':
+			var data = checkStatus.data;
+			layer.msg('选中了：'+ data.length + ' 个');
+		break;
+		case 'isAll':
+			layer.msg(checkStatus.isAll ? '全选': '未全选');
+		break;
+		case 'searchData':
+			var type = $(this).data('type');
+			active[type] ? active[type].call(this) : '';
+		break;
+		case 'addData':
+				//点击添加接口时，清空下拉框内容
+				$("select[id='idplatform']").empty();
+				$("select[id='idplatform']").append(new Option("请选择平台",""));
+				$("select[id='idproject']").empty();
+				$("select[id='idproject']").append(new Option("请选择项目",""));
+				$("select[id='idmodule']").empty();
+				$("select[id='idmodule']").append(new Option("请选择模块",""));
+				$("select[id='idmethod']").val("");
+				$("select[id='idparam']").val("");
+
+				//渲染平台下拉框
+				$.ajax({
+					type: 'get',
+					url: "/api/project/api/list/platform",
+					headers: {"token":layui.data('setter')['token']},
+					success: function (data) {
+						for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+							var content = $('<option value="' + data.data[i] + '">' + String(data.data[i]) + '</option>');
+							$("select[id='idplatform']").append(content);
+						}
+						layui.form.render();//菜单渲染 把内容加载进去
+					}, error: function (e) {//响应不成功时返回的函数
+						console.log(e, 'error');
+					}
+				});
+			//点击新增，渲染表单，下拉框不显示问题
+			// form.render();
+			layer.open({
+				skin: 'demo-class',
+				type: 1,
+				title: '新增接口',
+				closeBtn: 1,
+				content:  $("#window"),
+				offset: '150px',
+				// btnAlign: 'c',
+				resize: true,
+				scrollbar: true,
+				area:['900px','350px'],
+				btn: ['提交', '取消'],
+				yes: function (index,layero) {
+					$.ajax({
+						type: 'POST',
+						url: '/api/project/api/add',
+						headers: {"token":layui.data('setter')['token']},
+						contentType: "application/json; charset=utf-8",
+						data: JSON.stringify({'platformId':parseInt($('#idmodule').val()),
+												'platform':$('#idplatform').val(),
+												'project':$('#idproject').val(),
+												'module':$('#idmodule option:selected').text(),
+												'name':$('#idname').val(),
+												'method':$('#idmethod').val(),
+												'param':$('#idparam').val(),
+												'isToken':$('#idtoken').is(':checked') ? 1:0,
+												'path':$('#path').val(),
+												'state':$('#state').val()}),
+						dataType: "json",
+						success: function (data) {
+							if(data.code == 0){
+								layer.close(index);//关闭弹出层
+								layer.msg("添加成功！");
+								$("#projectform")[0].reset();//重置form
+								layui.form.render();
+								$("#window").css("display","none");
+								table.reload('test', {
+									method:'post'
+									,url:'/api/project/api/list'
+									,headers: {"token":layui.data('setter')['token']}
+									,contentType: 'application/json'
+									,where: null
+								}, 'data');
+							}else if(data.code == 401){
+								layer.msg("token失效,请重新登录!", {  
+										offset: '15px',  
+										icon: 5,  
+										time: 1000  
+									}, function () {  
+										window.top.location.href = "../../login.html";
+									});
+							}
+						}
+					});
+				}
+				,btn2:function(index, layero){
+					layer.close(index);//关闭弹出层
+					layui.form.render();
+					$("#window").css("display","none");
+				}
+				,cancel:function(){
+					layui.form.render();
+					$("#window").css("display","none");
+				}
+			});
+			
+			break;
+			case 'flushData':
+				table.reload('test', {
+					method:'post'
+					,url:'/api/project/api/list'
+					,headers: {"token":layui.data('setter')['token']}
+					,contentType: 'application/json'			
+					,where: null
+				}, 'data');
+			break;
+			//自定义头工具栏右侧图标 - 提示
+			case 'LAYTABLE_TIPS':
+				layer.alert('这是工具栏右侧自定义的一个图标按钮');
+			break;
+		};
+	});
+
+	//监听行工具事件
+	table.on('tool(test)', function(obj){
+		var data = obj.data;//得到所在行所有键值
+		//console.log(obj)
+		if(obj.event === 'del'){
+		layer.confirm('真的删除行么', function(index){
+			$.ajax({
+				type: 'POST',
+				url: '/api/project/api/delete',
+				headers: {"token":layui.data('setter')['token']},
+				contentType: "application/json; charset=utf-8",
+				data: JSON.stringify({'id':data.id}),
+				dataType: "json",
+				success: function (data) {
+					if(data.code == 0){
+						obj.del();
+						layer.close(index);
+					}else if(data.code == 401){
+						layer.msg("token失效,请重新登录!", {  
+								offset: '15px',  
+								icon: 5,  
+								time: 1000  
+							}, function () {  
+								window.top.location.href = "../../login.html";
+							});
+					}
+				}
+			});
+
+		});
+		} else if(obj.event === 'edit'){
+			// console.log(data);
+			layer.open({
+				skin: 'demo-class',
+				type: 1,
+				closeBtn: 1,
+				shift: 7,
+				//shadeClose: true,
+				content: $("#window"),
+				offset: '150px',
+				title:"编辑接口",
+				// btnAlign: 'c',
+				area:['900px','350px'],
+				btn:['提交','取消']
+				,success:function(layero,index){
+					// var platformRole=data.platform;
+					tmp_platform = data.platform;
+					// var projectRole=data.project;
+					tmp_project = data.project;
+					var modulemRole=data.platformId;
+					$("select[id='idplatform']").empty();
+					$("select[id='idplatform']").append(new Option("请选择平台",""));
+					$("select[id='idproject']").empty();
+					$("select[id='idproject']").append(new Option("请选择项目",""));
+					$("select[id='idmodule']").empty();
+					$("select[id='idmodule']").append(new Option("请选择模块",""));
+					//渲染平台下拉框，进行回显
+					$.ajax({
+						type: 'get',
+						url: "/api/project/api/list/platform",
+						headers: {"token":layui.data('setter')['token']},
+						success: function (data) {
+							for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+								var content = $('<option value="' + data.data[i] + '">' + String(data.data[i])+ '</option>');
+								$("select[id='idplatform']").append(content);
+							}
+							//点击编辑，渲染表单，下拉框不显示问题
+							$("#idplatform").each(function() {
+								// this代表的是<option></option>，对option再进行遍历
+								$(this).children("option").each(function() {
+									// 判断需要对那个选项进行回显
+									if (this.value == tmp_platform) {
+										// 进行回显
+										$(this).attr("selected","selected");
+									}
+								});
+							});
+							layui.form.render();//菜单渲染 把内容加载进去
+						}, error: function (e) {//响应不成功时返回的函数
+							console.log(e, 'error');
+						}
+					});
+					//项目下拉框回显
+					$.ajax({
+						type: 'get',
+						url: "/api/project/api/list/project?platform="+tmp_platform,
+						headers: {"token":layui.data('setter')['token']},
+						success: function (data) {
+							// $("select[id='idproject']").empty();
+							// $("select[id='idproject']").append(new Option("请选择项目",""));
+							for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+								var content = $('<option value="' + data.data[i] + '">' + String(data.data[i]) + '</option>');
+								$("select[id='idproject']").append(content);
+							}
+							$("#idproject").each(function() {
+								// this代表的是<option></option>，对option再进行遍历
+								$(this).children("option").each(function() {
+									// 判断需要对那个选项进行回显
+									if (this.value == tmp_project) {
+										// 进行回显
+										$(this).attr("selected","selected");
+									}
+								});
+							});
+							layui.form.render();//菜单渲染 把内容加载进去
+						}, error: function (e) {//响应不成功时返回的函数
+							console.log(e, 'error');
+						}
+					});
+					//模块下拉框回显
+					$.ajax({
+						type: 'get',
+						url: "/api/project/api/list/module?platform="+tmp_platform+"&project="+tmp_project,
+						headers: {"token":layui.data('setter')['token']},
+						success: function (data) {
+							for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+								var content = $('<option value="' + data.data[i].id + '">' + String(data.data[i].module) + '</option>');
+								$("select[id='idmodule']").append(content);
+							}
+							$("#idmodule").each(function() {
+								// this代表的是<option></option>，对option再进行遍历
+								$(this).children("option").each(function() {
+									// 判断需要对那个选项进行回显
+									if (this.value == modulemRole) {
+										// 进行回显
+										$(this).attr("selected","selected");
+									}
+								});
+							});
+							layui.form.render();//菜单渲染 把内容加载进去
+						}, error: function (e) {//响应不成功时返回的函数
+							console.log(e, 'error');
+						}
+					});
+					$('#idname').val(data.name);
+					$('#path').val(data.path);
+					//开关显示
+					if(data.isToken == 1){
+						$("#idtoken").prop("checked",true);
+					}else{
+						$("#idtoken").prop("checked",false);
+					}
+					//方法下拉框回显
+					$("#idmethod").each(function() {
+						// this代表的是<option></option>，对option再进行遍历
+						$(this).children("option").each(function() {
+							// 判断需要对那个选项进行回显
+							if (this.value == data.method) {
+								// 进行回显
+								$(this).attr("selected","selected");
+							}
+						});
+					});
+					//参数格式下拉框回显
+					$("#idparam").each(function() {
+						// this代表的是<option></option>，对option再进行遍历
+						$(this).children("option").each(function() {
+							// 判断需要对那个选项进行回显
+							if (this.value == data.param) {
+								// 进行回显
+								$(this).attr("selected","selected");
+							}
+						});
+					});
+					$('#state').val(data.state);
+					layui.form.render();
+				},yes:function(index,layero){
+						$.ajax({
+							type: 'POST',
+							url: '/api/project/api/edit',
+							headers: {"token":layui.data('setter')['token']},
+							contentType: "application/json; charset=utf-8",
+							data: JSON.stringify({'platformId':parseInt($('#idmodule').val()),
+													'platform':$('#idplatform').val(),
+													'project':$('#idproject').val(),
+													'module':$('#idmodule option:selected').text(),
+													'name':$('#idname').val(),
+													'method':$('#idmethod').val(),
+													'param':$('#idparam').val(),
+													'isToken':$('#idtoken').is(':checked') ? 1:0,
+													'path':$('#path').val(),
+													'state':$('#state').val(),
+													'id':data.id}),
+							dataType: "json",
+							success: function (data) {
+								if(data.code == 0){
+	// <!--								layer.alert('编辑成功',{icon:1,title:'提示'},function(i){-->
+	// <!--									layer.close(i);-->
+										layer.close(index);//关闭弹出层
+										$("#projectform")[0].reset();//重置form
+										layui.form.render();
+										$("#window").css("display","none");
+	// <!--								});-->
+									table.reload('test',{//重载表格
+										page:{
+											curr:1
+										}
+									});
+								}else if(data.code == 401){
+									layer.msg("token失效,请重新登录!", {  
+										offset: '15px',  
+										icon: 5,  
+										time: 1000  
+									}, function () {  
+										window.top.location.href = "../../login.html";
+									});
+								}
+							}
+						});
+					}
+				,btn2:function(index, layero){
+					layer.close(index);//关闭弹出层
+					$("#projectform")[0].reset();//重置form
+					layui.form.render();
+					$("#window").css("display","none");
+				}
+				,cancel:function(){
+					$("#projectform")[0].reset();//重置form
+					layui.form.render();
+					$("#window").css("display","none");
+				}
+			});
+		}
+	});
+	var $ = layui.$, active = {
+		reload: function(){
+		var demoReload = $('#demoReload');     
+		//执行重载
+		table.reload('test', {
+	// <!--        page: {-->
+	// <!--          curr: 1 //重新从第 1 页开始-->
+	// <!--        },-->
+			method:'post'
+			,url:'/api/project/api/list'
+			,headers: {"token":layui.data('setter')['token']}
+			,contentType: 'application/json'
+			,where: {
+	// <!--          key: {-->
+				project: demoReload.val()
+	// <!--          }-->
+			}
+		}, 'data');
+		}
+	};
+	});
+
+</script>
+<div class="site-text" style="margin: 4% 5% 0% 5% ; display: none;" id="window"  target="test">	
+	<form class="layui-form" id="projectform" method="post" lay-filter="example">
+		<div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">平&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;台</label>
+				<div class="layui-input-block" style="width: 170px;">
+					<select id="idplatform" name="platformname" lay-filter="platfromfilter" lay-verify="required" lay-search >
+						<option value="">请选择平台</option>
+						<!-- <option value="1">58ex</option>
+						 <option value="2" disabled="">test</option>
+						<option value="2">fex</option> -->
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目</label>
+				<div class="layui-input-block" style="width: 170px;">
+					<select id="idproject" name="projectname" lay-filter="projectfilter" lay-verify="required" lay-search >
+						<option value="">请选择项目</option>
+						<!-- <option value="1">钱包</option>
+						<option value="2">基础组</option> -->
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item layui-input-inline">
+				<label class="layui-form-label">模&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;块</label>
+				<div class="layui-input-block" style="width: 170px;">
+					<select id="idmodule" name="modulename" lay-filter="modulefilter" lay-verify="required" lay-search >
+						<option value="">请选择模块</option>
+						<!-- <option value="1">充值</option>
+						<option value="2">登录</option> -->
+					</select>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">接口名称</label>
+				<div class="layui-input-block" style="width: 170px;">
+				  <input type="text" id="idname" name="name" lay-verify="namefilter" autocomplete="off" placeholder="请输入接口名称" class="layui-input" >
+				</div>
+			</div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">请求方法</label>
+				<div class="layui-input-block" style="width: 170px;">
+					<select id="idmethod" name="methodname" lay-filter="methodfilter" lay-verify="required" lay-search >
+						<option value="" >请选择方法</option>
+						<option value="GET">GET</option>
+						<option value="POST">POST</option>
+						<option value="PUT">PUT</option>
+						<option value="DELETE">DELETE</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">参数类型</label>
+				<div class="layui-input-block" style="width: 170px;">
+					<select id="idparam" name="paramname" lay-filter="paramfilter" lay-verify="required" lay-search >
+						<option value="">请选择类型</option>
+						<option value="0">JSON</option>
+						<option value="1">FORM</option>
+						<option value="2">TEXT</option>
+						<option value="3">无</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">接口路径</label>
+				<div class="layui-input-block" style="width: 545px;">
+				  <input type="text" id="path" name="path" lay-verify="title" autocomplete="off" placeholder="请输入接口路径" class="layui-input" >
+				</div>
+			</div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">token</label>
+				<div class="layui-input-block" style="width: 80px;">
+					<input type="checkbox" id="idtoken" lay-skin="switch" lay-text="ON|OFF" checked>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label>
+				<div class="layui-input-block" style="width: 700px;">
+					<input type="text" id="state" name="state" lay-verify="title" autocomplete="off" placeholder="请输入备注" class="layui-input" >
+				</div>
+			</div>
+		</div>
+		
+	</form>
+</div>
+</body>
+</html>

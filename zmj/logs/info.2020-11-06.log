@@ -1,0 +1,281 @@
+2020-11-06 15:11:23.173 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 13341 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-11-06 15:11:23.178 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-11-06 15:11:24.725 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:11:24.725 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:11:24.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:11:24.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:11:24.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:11:24.726 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-11-06 15:11:25.188 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-11-06 15:11:25.198 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-11-06 15:11:25.308 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50ms. Found 0 Redis repository interfaces.
+2020-11-06 15:11:26.739 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19112 (http)
+2020-11-06 15:11:26.771 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:11:26.772 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-06 15:11:26.773 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-06 15:11:27.089 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-06 15:11:27.090 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3721 ms
+2020-11-06 15:11:28.714 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:11:28.960 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-11-06 15:11:30.567 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:11:30.722 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19112 (http) with context path ''
+2020-11-06 15:11:30.748 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 9.104 seconds (JVM running for 10.332)
+2020-11-06 15:11:39.434 [http-nio-19112-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-06 15:11:39.435 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-06 15:11:39.456 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 21 ms
+2020-11-06 15:12:28.658 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:12:36.551 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 13354 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-11-06 15:12:36.563 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-11-06 15:12:37.790 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:12:37.791 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:12:37.791 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:12:37.792 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:12:37.792 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:12:37.792 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-11-06 15:12:38.038 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-11-06 15:12:38.044 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-11-06 15:12:38.107 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38ms. Found 0 Redis repository interfaces.
+2020-11-06 15:12:39.085 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19112 (http)
+2020-11-06 15:12:39.108 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:12:39.109 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-06 15:12:39.110 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-06 15:12:39.357 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-06 15:12:39.359 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2601 ms
+2020-11-06 15:12:40.646 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:12:40.790 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-11-06 15:12:41.605 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:12:41.678 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19112 (http) with context path ''
+2020-11-06 15:12:41.701 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 6.42 seconds (JVM running for 7.422)
+2020-11-06 15:12:43.408 [http-nio-19112-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-06 15:12:43.409 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-06 15:12:43.424 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 15 ms
+2020-11-06 15:13:55.970 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:14:04.382 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 13358 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-11-06 15:14:04.387 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-11-06 15:14:05.804 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:14:05.805 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:14:05.805 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:14:05.805 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:14:05.806 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:14:05.806 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-11-06 15:14:06.055 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-11-06 15:14:06.060 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-11-06 15:14:06.138 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47ms. Found 0 Redis repository interfaces.
+2020-11-06 15:14:07.136 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19112 (http)
+2020-11-06 15:14:07.160 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:14:07.161 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-06 15:14:07.162 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-06 15:14:07.414 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-06 15:14:07.416 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2841 ms
+2020-11-06 15:14:09.012 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:14:09.233 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-11-06 15:14:09.970 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:14:10.039 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19112 (http) with context path ''
+2020-11-06 15:14:10.064 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 6.655 seconds (JVM running for 7.676)
+2020-11-06 15:14:26.587 [http-nio-19112-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-06 15:14:26.588 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-06 15:14:26.606 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 17 ms
+2020-11-06 15:14:40.714 [http-nio-19112-exec-10] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-06 15:14:41.398 [http-nio-19112-exec-10] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-06 15:14:54.413 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:14:54.415 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-06 15:14:54.426 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-06 15:17:00.577 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 13365 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-11-06 15:17:00.588 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-11-06 15:17:01.870 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:17:01.871 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:17:01.871 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:17:01.871 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:17:01.871 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:17:01.872 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-11-06 15:17:02.120 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-11-06 15:17:02.125 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-11-06 15:17:02.185 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37ms. Found 0 Redis repository interfaces.
+2020-11-06 15:17:03.236 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19112 (http)
+2020-11-06 15:17:03.257 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:17:03.259 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-06 15:17:03.260 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-06 15:17:03.485 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-06 15:17:03.486 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2764 ms
+2020-11-06 15:17:04.834 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:17:04.979 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-11-06 15:17:05.577 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:17:05.631 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19112 (http) with context path ''
+2020-11-06 15:17:05.649 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 6.276 seconds (JVM running for 7.153)
+2020-11-06 15:17:11.273 [http-nio-19112-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-06 15:17:11.274 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-06 15:17:11.291 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2020-11-06 15:17:18.581 [http-nio-19112-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-06 15:17:19.101 [http-nio-19112-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-06 15:20:22.778 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:20:22.780 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-06 15:20:22.787 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-06 15:20:28.153 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 13372 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-11-06 15:20:28.164 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-11-06 15:20:29.630 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:20:29.631 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:20:29.631 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:20:29.631 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:20:29.632 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:20:29.632 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-11-06 15:20:29.885 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-11-06 15:20:29.889 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-11-06 15:20:29.966 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53ms. Found 0 Redis repository interfaces.
+2020-11-06 15:20:30.954 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19112 (http)
+2020-11-06 15:20:30.978 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:20:30.979 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-06 15:20:30.980 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-06 15:20:31.261 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-06 15:20:31.262 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2885 ms
+2020-11-06 15:20:32.611 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:20:32.772 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-11-06 15:20:33.374 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:20:33.429 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19112 (http) with context path ''
+2020-11-06 15:20:33.447 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 6.589 seconds (JVM running for 7.658)
+2020-11-06 15:20:36.974 [http-nio-19112-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-06 15:20:36.975 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-06 15:20:36.994 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 18 ms
+2020-11-06 15:20:44.427 [http-nio-19112-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-06 15:20:44.958 [http-nio-19112-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-06 15:23:10.382 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:23:10.384 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-06 15:23:10.391 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-06 15:23:16.203 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 13392 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-11-06 15:23:16.210 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-11-06 15:23:17.938 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:23:17.938 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:23:17.939 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:23:17.939 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:23:17.939 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:23:17.939 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-11-06 15:23:18.220 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-11-06 15:23:18.226 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-11-06 15:23:18.293 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45ms. Found 0 Redis repository interfaces.
+2020-11-06 15:23:19.686 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19112 (http)
+2020-11-06 15:23:19.707 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:23:19.708 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-06 15:23:19.709 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-06 15:23:20.081 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-06 15:23:20.081 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3631 ms
+2020-11-06 15:23:21.749 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:23:21.909 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-11-06 15:23:22.680 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:23:22.734 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19112 (http) with context path ''
+2020-11-06 15:23:22.753 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 7.986 seconds (JVM running for 9.137)
+2020-11-06 15:23:32.726 [http-nio-19112-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-06 15:23:32.727 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-06 15:23:32.740 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 13 ms
+2020-11-06 15:23:38.285 [http-nio-19112-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-06 15:23:38.669 [http-nio-19112-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-06 15:23:55.387 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:23:55.390 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-06 15:23:55.397 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-06 15:24:00.439 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 13399 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-11-06 15:24:00.444 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-11-06 15:24:01.623 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:24:01.623 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:24:01.623 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:24:01.623 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:24:01.623 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:24:01.624 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-11-06 15:24:01.876 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-11-06 15:24:01.880 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-11-06 15:24:01.971 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57ms. Found 0 Redis repository interfaces.
+2020-11-06 15:24:02.984 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19112 (http)
+2020-11-06 15:24:03.006 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:24:03.007 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-06 15:24:03.007 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-06 15:24:03.234 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-06 15:24:03.235 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2673 ms
+2020-11-06 15:24:04.576 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:24:04.725 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-11-06 15:24:05.318 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:24:05.372 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19112 (http) with context path ''
+2020-11-06 15:24:05.389 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 6.091 seconds (JVM running for 6.974)
+2020-11-06 15:24:13.500 [http-nio-19112-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-06 15:24:13.500 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-06 15:24:13.519 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 19 ms
+2020-11-06 15:24:18.840 [http-nio-19112-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-06 15:24:19.453 [http-nio-19112-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-06 15:27:11.764 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:27:11.766 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-06 15:27:11.772 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-06 15:27:17.800 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 13415 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-11-06 15:27:17.804 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-11-06 15:27:19.350 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:27:19.351 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:27:19.351 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:27:19.351 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:27:19.352 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:27:19.352 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-11-06 15:27:19.695 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-11-06 15:27:19.701 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-11-06 15:27:19.802 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49ms. Found 0 Redis repository interfaces.
+2020-11-06 15:27:21.323 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19112 (http)
+2020-11-06 15:27:21.351 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:27:21.352 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-06 15:27:21.353 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-06 15:27:21.610 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-06 15:27:21.610 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3665 ms
+2020-11-06 15:27:23.099 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:27:23.341 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-11-06 15:27:24.022 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:27:24.109 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19112 (http) with context path ''
+2020-11-06 15:27:24.132 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 7.64 seconds (JVM running for 8.74)
+2020-11-06 15:27:32.083 [http-nio-19112-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-06 15:27:32.083 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-06 15:27:32.102 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 18 ms
+2020-11-06 15:27:37.305 [http-nio-19112-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-06 15:27:37.733 [http-nio-19112-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-06 15:29:13.105 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:29:13.108 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-06 15:29:13.114 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-06 15:29:18.008 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 13424 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-11-06 15:29:18.013 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-11-06 15:29:19.219 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:29:19.220 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:29:19.221 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:29:19.221 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:29:19.221 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:29:19.221 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-11-06 15:29:19.476 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-11-06 15:29:19.481 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-11-06 15:29:19.553 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46ms. Found 0 Redis repository interfaces.
+2020-11-06 15:29:20.563 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19112 (http)
+2020-11-06 15:29:20.585 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:29:20.586 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-06 15:29:20.587 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-06 15:29:20.835 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-06 15:29:20.836 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2690 ms
+2020-11-06 15:29:22.214 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:29:22.398 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-11-06 15:29:23.110 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19112"]
+2020-11-06 15:29:23.173 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19112 (http) with context path ''
+2020-11-06 15:29:23.188 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 6.532 seconds (JVM running for 7.441)
+2020-11-06 15:29:29.032 [http-nio-19112-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-06 15:29:29.032 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-11-06 15:29:29.052 [http-nio-19112-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 19 ms
+2020-11-06 15:29:35.221 [http-nio-19112-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-06 15:29:35.860 [http-nio-19112-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-06 15:29:55.920 [http-nio-19112-exec-8] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2020-11-06 15:29:56.065 [http-nio-19112-exec-8] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2020-11-06 15:30:12.199 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:30:12.201 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2020-11-06 15:30:12.210 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2020-11-06 15:30:12.211 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-11-06 15:30:12.215 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-11-06 15:30:53.232 [main] INFO  com.zmj.ZmjApplicationTests - Starting ZmjApplicationTests on gaihongweideMacBook-Air.local with PID 13458 (started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-11-06 15:30:53.235 [main] INFO  com.zmj.ZmjApplicationTests - No active profile set, falling back to default profiles: default
+2020-11-06 15:30:54.545 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:30:54.546 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:30:54.548 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:30:54.549 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:30:54.550 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-11-06 15:30:54.552 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-11-06 15:30:54.998 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-11-06 15:30:55.010 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-11-06 15:30:55.151 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 74ms. Found 0 Redis repository interfaces.
+2020-11-06 15:30:58.228 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-06 15:30:58.532 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-11-06 15:31:00.016 [main] INFO  com.zmj.ZmjApplicationTests - Started ZmjApplicationTests in 7.707 seconds (JVM running for 9.942)
+2020-11-06 15:31:00.722 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'

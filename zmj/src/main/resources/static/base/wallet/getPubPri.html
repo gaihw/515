@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>钱包测试管理平台</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <style>
+        table {
+            table-layout: fixed;  /*fiexed 列宽由表格宽度和列宽度设定。 默认。列宽度由单元格内容设定。*/
+            word-break: break-all;   /*允许在单词内换行*/
+        }
+        td {
+            word-wrap:break-word;
+            overflow:auto;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+    <div class="layui-body" style="left: 1px;">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">文件名:</label>
+                    <div class="layui-input-block" style="width: 150px;">
+                        <select id="fileNameMain" name="fileName" lay-filter="fileName" lay-verify="required" lay-search >
+                            <option value="0"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                    <input type="checkbox" name="yyy" lay-skin="switch" lay-filter="swithPassword" lay-text="ON|OFF" checked>
+                </div>
+                <div class="layui-form-item" style="display: block;" id="pd">
+                    <label class="layui-form-label">密码框:</label>
+                    <div class="layui-input-block" >
+                        <div>
+                            <input class="layui-input clear-input" type="text" name="password" lay-filter="password" placeholder="请输入密码" style="width: 50%;" >
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block " style="margin-left: 45px; min-height: 24px">
+                        <button class="layui-btn layui-bg-cyan" lay-submit lay-filter="formDemo">查询公私钥</button>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <fieldset class="layui-elem-field" style="display:none;color:green" id="priPubField">
+                    <legend style="margin-bottom: 8px;margin-left: 32px;"><span class="layui-badge ">响应结果</span></legend>
+                    <div class="layui-field-box" style="display:none;"><p id="priPubResult" style="padding-left: 15px"></p></div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+<script src="../../layui/layui.all.js"></script>
+<script src="../../js/jquery-2.1.1.min.js"></script>
+<script src="../../js/tools/common.js"></script>
+<script>
+layui.use(['form', 'element', 'table','layer'], function(){
+    var form = layui.form;
+    var element = layui.element;
+    var table = layui.table;
+    var layer = layui.layer;
+    var fn ;
+    var password;
+    layer.ready(function(){
+      $.ajax({
+            type: 'get',
+            url: "/api"+"/eth/getFileList",
+            contentType: "application/json; charset=utf-8",
+            headers: {"token":layui.data('setter')['token']},
+            success: function (data) {
+                if(data.code == 0){
+                    for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+                        var content = $('<option >' + String(data.data[i]) + '</option>');
+                        $("select[id='fileNameMain']").append(content);
+                    }
+                    layui.form.render();//菜单渲染 把内容加载进去
+                }else if(data.code == 401){
+                    layer.msg("token失效,请重新登录!", {  
+                            offset: '15px',  
+                            icon: 5,  
+                            time: 1000  
+                        }, function () {  
+                            window.top.location.href = "../../login.html";
+                        });
+                }
+            }, error: function (e) {//响应不成功时返回的函数
+                console.log(e, 'error');
+            }
+        })
+    });
+    //是否开启密码输入框 
+    form.on('switch(swithPassword)',function (data) {
+            //开关是否开启，true或者false
+            var checked = data.elem.checked;
+            //获取所需属性值
+            // console.log(checked);
+            if(checked){
+                $("#pd").css("display","block");
+            }else{
+                $("#pd").css("display", "none");
+            }
+            //清空密码输入框内容
+            $(".clear-input").val("");
+    });
+//   <!--  监听提交 -->
+    form.on('submit(formDemo)', function(data){
+      fn = data.field.fileName;
+      pd = data.field.password;
+      console.log(fn);
+      console.log(pd);
+        var url_tmp = "/eth/getPubPri";
+        $.ajax({
+            type: 'Get',
+            url: "/api"+url_tmp+"?fileName="+fn+"&password="+pd,
+            headers: {"token":layui.data('setter')['token']},
+    // <!--        contentType: "application/json; charset=utf-8",-->
+    // <!--        data: JSON.stringify(data.field),提交的数据-->
+            dataType: "json",
+            success: function (result) {
+                //解析失败的话，单独展示
+                if(result.code==202){
+                    $("#priPubField").css("display", "block");
+                    $("#priPubResult").html("查询信息："+JSON.stringify(result.msg));
+                }else if(result.code == 401){
+                    layer.msg("token失效,请重新登录!", {  
+                            offset: '15px',  
+                            icon: 5,  
+                            time: 1000  
+                        }, function () {  
+                            window.top.location.href = "../../login.html";
+                        });
+                }else{
+                    $("#priPubField").css("display", "none");
+                    layer.alert('<div><table><tr><td style="width: 200px;">&nbsp;&nbsp;&nbsp;&nbsp;address&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="width: 800px;text-align: left;" id="one">'+result.address
+                    +'</td></tr><tr><td style="width: 200px;">&nbsp;&nbsp;&nbsp;&nbsp;priv_16&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="width: 800px;text-align: left;" id="two">'+result.priv_16
+                    +'</td></tr><tr><td style="width: 200px;">&nbsp;&nbsp;&nbsp;&nbsp;pub_16&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="width: 800px;text-align: left;" id="three">'+result.pub_16
+                    +'</td></tr><tr><td style="width: 200px;">&nbsp;&nbsp;&nbsp;&nbsp;priv&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="width: 800px;text-align: left;" id="four">'+result.priv
+                    +'</td></tr><tr><td style="width: 200px;">&nbsp;&nbsp;&nbsp;&nbsp;pub&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="width: 800px;text-align: left;" id="five">'+result.pub
+                    +'</td></tr></table></div>', {
+                        closeBtn: 1,
+                        title: "结果",
+                        area : [ "800px", '400px' ],
+                        offset: '10px',
+                        btn: ['关闭']
+                    });
+                }
+            }
+        });
+    return false;
+    });
+
+});
+
+
+</script>
+</body>
+</html>

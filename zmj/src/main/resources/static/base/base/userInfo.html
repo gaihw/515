@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>钱包测试管理平台</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <style>
+        table {
+            table-layout: fixed;  /*fiexed 列宽由表格宽度和列宽度设定。 默认。列宽度由单元格内容设定。*/
+            word-break: break-all;   /*允许在单词内换行*/
+        }
+        td {
+            word-wrap:break-word;
+            overflow:auto;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+    <div class="layui-body" style="left: 1px;">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <fieldset class="layui-elem-field">
+                <legend style="margin-top:6px;"><span class="layui-badge" style="background-color: #8b8583;">用户信息查询</span></legend>
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">选择:</label>
+                        <div class="layui-input-block" >
+                            <input type="radio" name="action" value="1" title="手机号" lay-filter="action" checked>
+                            <input type="radio" name="action" value="2" title="用户id" lay-filter="action">
+                            <input type="radio" name="action" value="3" title="虚拟id" lay-filter="action">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="layui-form-label">信息:</label>
+                        <div class="layui-input-block" >
+                                <input class="layui-input clear-input" type="text" name="id" placeholder="请输入正整数" style="width: 30%;" lay-verify="required">
+                        </div>
+                        <br>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block " style="margin-left: 45px; min-height: 24px">
+                            <button class="layui-btn layui-bg-cyan" lay-submit lay-filter="formDemo">查询</button>
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+            <div>
+                <fieldset class="layui-elem-field" style="display:none;color:green" id="userField">
+                    <legend style="margin-bottom: 8px;margin-left: 32px;"><span class="layui-badge ">响应结果</span></legend>
+                    <div class="layui-field-box" id="userResult">
+                </fieldset>
+            </div>
+        </div>
+    </div>
+<script src="../../layui/layui.all.js"></script>
+<script src="../../js/jquery-2.1.1.min.js"></script>
+<script src="../../js/tools/common.js"></script>
+<script>
+layui.use(['form', 'element', 'table'], function(){
+    var form = layui.form;
+    var element = layui.element;
+    var table = layui.table;
+    var action = 1;
+    // 监听获取块高选择的是哪个币种
+    // form.on('radio(currencyId)', function (data) {
+    //     cId = data.value;
+    //     return false;
+    // });
+
+//   <!--  监听提交 -->
+    form.on('submit(formDemo)', function(data){
+    //   console.log(data.field);
+      action = data.field.action;
+      id = data.field.id;
+    var url_tmp = "/main/userinfo?action="+action+"&id="+id;
+    
+        $.ajax({
+            type: 'Get',
+            url: url_tmp,
+    // <!--        contentType: "application/json; charset=utf-8",-->
+    // <!--        data: JSON.stringify(data.field),提交的数据-->
+            dataType: "json",
+            headers: {"token":layui.data('setter')['token']},
+            success: function (result) {
+                if(result.code == 0){
+                    $("#userField").css("display", "block");
+                    if(result.data.length != 0){
+                        $("#userResult").html("<table >"
+                                    +"<tr>"
+                                        +"<td style=\"width: 200px;\">&nbsp;&nbsp;&nbsp;&nbsp;用户id&nbsp;&nbsp;&nbsp;&nbsp;</td>"
+                                        +"<td style=\"width: 200px;text-align: center;\">"+result.data[0].id+"</td>"
+                                    +"</tr>"
+                                    +"<tr>"
+                                        +"<td style=\"width: 200px;\">&nbsp;&nbsp;&nbsp;&nbsp;手机号&nbsp;&nbsp;&nbsp;&nbsp;</td>"
+                                        +"<td style=\"width: 200px;text-align: center;\">"+result.data[0].mobile+"</td>"
+                                    +"</tr>"
+                                    +"<tr>"
+                                        +"<td style=\"width: 200px;\">&nbsp;&nbsp;&nbsp;&nbsp;虚拟id&nbsp;&nbsp;&nbsp;&nbsp;</td>"
+                                        +"<td style=\"width: 200px;text-align: center;\">"+result.data[0].uid+"</td>"
+                                    +"</tr>"
+                                    +"<tr>"
+                                        +"<td style=\"width: 200px;\">&nbsp;&nbsp;&nbsp;&nbsp;googlekey&nbsp;&nbsp;&nbsp;&nbsp;</td>"
+                                        +"<td style=\"width: 200px;text-align: center;\">"+result.data[0].google_key+"</td>"
+                                    +"</tr>"
+                                +"</table>");//"用户id:"+result.data[0].id+";手机号:"+result.data[0].mobile+";虚拟id:"+result.data[0].uid);
+                    }else{
+                        $("#userResult").html("无信息！");
+                    }
+                }else if(result.code == 401){
+                    layer.msg("token失效,请重新登录!", {  
+                                offset: '15px',  
+                                icon: 5,  
+                                time: 1000  
+                            }, function () {  
+                                window.top.location.href = "../../login.html";
+                            });
+                }
+            }
+
+        });
+    return false;
+    });
+});
+
+</script>
+</body>
+</html>

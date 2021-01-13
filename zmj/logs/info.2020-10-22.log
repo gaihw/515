@@ -1,0 +1,267 @@
+2020-10-22 20:10:55.880 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5003 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-10-22 20:11:00.895 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 10445 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-10-22 20:11:00.897 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-10-22 20:11:03.093 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:11:03.093 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:11:03.095 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:11:03.095 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:11:03.096 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:11:03.096 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-10-22 20:11:04.063 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-22 20:11:04.074 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-22 20:11:04.324 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 135ms. Found 0 Redis repository interfaces.
+2020-10-22 20:11:07.204 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-10-22 20:11:07.302 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-10-22 20:11:07.306 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-10-22 20:11:07.306 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-22 20:11:07.923 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-10-22 20:11:07.923 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6859 ms
+2020-10-22 20:11:12.621 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-22 20:11:13.121 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-10-22 20:11:15.156 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-10-22 20:11:15.347 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-10-22 20:11:15.383 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 36.272 seconds (JVM running for 37.498)
+2020-10-22 20:11:27.212 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-22 20:11:27.214 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-10-22 20:11:27.227 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 13 ms
+2020-10-22 20:11:45.274 [http-nio-19111-exec-4] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at com.zmj.service.impl.BtcServiceImpl.sendtoaddress(BtcServiceImpl.java:53)
+	at com.zmj.controller.btcd.BtcController.transactino(BtcController.java:55)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-10-22 20:12:14.974 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-22 20:12:37.087 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5008 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-10-22 20:12:42.099 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 10479 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-10-22 20:12:42.101 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-10-22 20:12:43.134 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:12:43.134 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:12:43.134 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:12:43.135 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:12:43.135 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:12:43.135 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-10-22 20:12:43.358 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-22 20:12:43.362 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-22 20:12:43.428 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45ms. Found 0 Redis repository interfaces.
+2020-10-22 20:12:44.528 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-10-22 20:12:44.549 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-10-22 20:12:44.550 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-10-22 20:12:44.551 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-22 20:12:44.850 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-10-22 20:12:44.850 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2655 ms
+2020-10-22 20:12:46.269 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-22 20:12:46.502 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-10-22 20:12:47.288 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-10-22 20:12:47.340 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-10-22 20:12:47.360 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 26.124 seconds (JVM running for 27.035)
+2020-10-22 20:12:51.173 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-22 20:12:51.175 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-10-22 20:12:51.187 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2020-10-22 20:12:53.034 [http-nio-19111-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-10-22 20:12:54.012 [http-nio-19111-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-10-22 20:12:54.271 [http-nio-19111-exec-3] INFO  c.zmj.controller.currency.TbCurrencyInfoController - [TbCurrencyInfo(id=1, currencyId=1, type=1, name=btc, alarmBalance=10.00000000, receiveNum=2-1-1, statusFlag=1, rpcUrl=192.168.112.214@@18443@@btctest@@btctest, feeFactor=1.00000000, signType=0, coldBalance=0E-8, rpcUrlBk=192.168.112.66@@18443@@btctest@@btctest), TbCurrencyInfo(id=2, currencyId=2, type=1, name=ltc, alarmBalance=100.00000000, receiveNum=3-2-3, statusFlag=0, rpcUrl=192.168.112.68@@19443@@btctest@@btctest, feeFactor=1.00000000, signType=0, coldBalance=0E-8, rpcUrlBk=192.168.112.66@@19443@@btctest@@btctest), TbCurrencyInfo(id=3, currencyId=3, type=3, name=eth, alarmBalance=-1.00000000, receiveNum=2-1-3, statusFlag=0, rpcUrl=http://192.168.112.214:8546, feeFactor=1.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=http://192.168.112.214:8546), TbCurrencyInfo(id=4, currencyId=5, type=1, name=dash, alarmBalance=10.00000000, receiveNum=2-3-4, statusFlag=0, rpcUrl=192.168.112.68@@6332@@btctest@@btctest, feeFactor=5.00000000, signType=0, coldBalance=0E-8, rpcUrlBk=192.168.112.66@@6332@@btctest@@btctest), TbCurrencyInfo(id=5, currencyId=6, type=3, name=etc, alarmBalance=-1.00000000, receiveNum=2-2-3, statusFlag=0, rpcUrl=http://192.168.112.66:8647, feeFactor=1.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=http://192.168.112.66:8647), TbCurrencyInfo(id=6, currencyId=8, type=2, name=usdt, alarmBalance=30000.00000000, receiveNum=2-1-1, statusFlag=0, rpcUrl=192.168.112.68@@9338@@btctest@@btctest, feeFactor=1.00000000, signType=0, coldBalance=173.88164244, rpcUrlBk=192.168.112.66@@9338@@btctest@@btctest), TbCurrencyInfo(id=7, currencyId=22, type=9, name=eos, alarmBalance=100.00000000, receiveNum=10-10-12, statusFlag=0, rpcUrl=http://192.168.112.214:8888, feeFactor=5.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=http://192.168.112.135:8888), TbCurrencyInfo(id=8, currencyId=191, type=6, name=xrp, alarmBalance=-1.00000000, receiveNum=5, statusFlag=0, rpcUrl=https://s.altnet.rippletest.net:51234, feeFactor=5.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=https://s.altnet.rippletest.net:51234), TbCurrencyInfo(id=9, currencyId=196, type=1, name=bchabc, alarmBalance=-1.00000000, receiveNum=3-1-1, statusFlag=0, rpcUrl=192.168.112.68@@9332@@btctest@@btctest, feeFactor=1.00000000, signType=0, coldBalance=0E-8, rpcUrlBk=192.168.112.66@@9332@@btctest@@btctest), TbCurrencyInfo(id=10, currencyId=197, type=1, name=bchsv, alarmBalance=-1.00000000, receiveNum=3-2-2, statusFlag=0, rpcUrl=192.168.112.214@@9332@@btctest@@btctest, feeFactor=1.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=), TbCurrencyInfo(id=11, currencyId=200, type=4, name=usdt-erc20, alarmBalance=160.00000000, receiveNum=2-1-3, statusFlag=0, rpcUrl=http://192.168.112.214:8546, feeFactor=5.00000000, signType=1, coldBalance=277.84281400, rpcUrlBk=http://59.110.61.106:18775), TbCurrencyInfo(id=12, currencyId=201, type=1, name=zec, alarmBalance=100.00000000, receiveNum=2-3-3, statusFlag=0, rpcUrl=192.168.112.211@@18232@@btctest@@btctest, feeFactor=1.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=192.168.112.211@@18232@@btctest@@btctest), TbCurrencyInfo(id=13, currencyId=199, type=4, name=HT, alarmBalance=200.00000000, receiveNum=2-1-3, statusFlag=0, rpcUrl=http://192.168.112.214:8546, feeFactor=5.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=), TbCurrencyInfo(id=14, currencyId=202, type=4, name=OKB, alarmBalance=200.00000000, receiveNum=2-1-3, statusFlag=0, rpcUrl=http://59.110.61.106:18775, feeFactor=5.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=)]
+2020-10-22 20:12:59.872 [http-nio-19111-exec-4] INFO  c.zmj.controller.currency.TbCurrencyInfoController - [TbCurrencyInfo(id=1, currencyId=1, type=1, name=btc, alarmBalance=10.00000000, receiveNum=2-1-1, statusFlag=1, rpcUrl=192.168.112.214@@18443@@btctest@@btctest, feeFactor=1.00000000, signType=0, coldBalance=0E-8, rpcUrlBk=192.168.112.66@@18443@@btctest@@btctest), TbCurrencyInfo(id=2, currencyId=2, type=1, name=ltc, alarmBalance=100.00000000, receiveNum=3-2-3, statusFlag=0, rpcUrl=192.168.112.68@@19443@@btctest@@btctest, feeFactor=1.00000000, signType=0, coldBalance=0E-8, rpcUrlBk=192.168.112.66@@19443@@btctest@@btctest), TbCurrencyInfo(id=3, currencyId=3, type=3, name=eth, alarmBalance=-1.00000000, receiveNum=2-1-3, statusFlag=0, rpcUrl=http://192.168.112.214:8546, feeFactor=1.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=http://192.168.112.214:8546), TbCurrencyInfo(id=4, currencyId=5, type=1, name=dash, alarmBalance=10.00000000, receiveNum=2-3-4, statusFlag=0, rpcUrl=192.168.112.68@@6332@@btctest@@btctest, feeFactor=5.00000000, signType=0, coldBalance=0E-8, rpcUrlBk=192.168.112.66@@6332@@btctest@@btctest), TbCurrencyInfo(id=5, currencyId=6, type=3, name=etc, alarmBalance=-1.00000000, receiveNum=2-2-3, statusFlag=0, rpcUrl=http://192.168.112.66:8647, feeFactor=1.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=http://192.168.112.66:8647), TbCurrencyInfo(id=6, currencyId=8, type=2, name=usdt, alarmBalance=30000.00000000, receiveNum=2-1-1, statusFlag=0, rpcUrl=192.168.112.68@@9338@@btctest@@btctest, feeFactor=1.00000000, signType=0, coldBalance=173.88164244, rpcUrlBk=192.168.112.66@@9338@@btctest@@btctest), TbCurrencyInfo(id=7, currencyId=22, type=9, name=eos, alarmBalance=100.00000000, receiveNum=10-10-12, statusFlag=0, rpcUrl=http://192.168.112.214:8888, feeFactor=5.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=http://192.168.112.135:8888), TbCurrencyInfo(id=8, currencyId=191, type=6, name=xrp, alarmBalance=-1.00000000, receiveNum=5, statusFlag=0, rpcUrl=https://s.altnet.rippletest.net:51234, feeFactor=5.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=https://s.altnet.rippletest.net:51234), TbCurrencyInfo(id=9, currencyId=196, type=1, name=bchabc, alarmBalance=-1.00000000, receiveNum=3-1-1, statusFlag=0, rpcUrl=192.168.112.68@@9332@@btctest@@btctest, feeFactor=1.00000000, signType=0, coldBalance=0E-8, rpcUrlBk=192.168.112.66@@9332@@btctest@@btctest), TbCurrencyInfo(id=10, currencyId=197, type=1, name=bchsv, alarmBalance=-1.00000000, receiveNum=3-2-2, statusFlag=0, rpcUrl=192.168.112.214@@9332@@btctest@@btctest, feeFactor=1.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=), TbCurrencyInfo(id=11, currencyId=200, type=4, name=usdt-erc20, alarmBalance=160.00000000, receiveNum=2-1-3, statusFlag=0, rpcUrl=http://192.168.112.214:8546, feeFactor=5.00000000, signType=1, coldBalance=277.84281400, rpcUrlBk=http://59.110.61.106:18775), TbCurrencyInfo(id=12, currencyId=201, type=1, name=zec, alarmBalance=100.00000000, receiveNum=2-3-3, statusFlag=0, rpcUrl=192.168.112.211@@18232@@btctest@@btctest, feeFactor=1.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=192.168.112.211@@18232@@btctest@@btctest), TbCurrencyInfo(id=13, currencyId=199, type=4, name=HT, alarmBalance=200.00000000, receiveNum=2-1-3, statusFlag=0, rpcUrl=http://192.168.112.214:8546, feeFactor=5.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=), TbCurrencyInfo(id=14, currencyId=202, type=4, name=OKB, alarmBalance=200.00000000, receiveNum=2-1-3, statusFlag=0, rpcUrl=http://59.110.61.106:18775, feeFactor=5.00000000, signType=1, coldBalance=0E-8, rpcUrlBk=)]
+2020-10-22 20:13:08.765 [http-nio-19111-exec-5] INFO  com.zmj.controller.btcd.BtcController - {"result":"289dce8be44a55407a02639b190be227d33446a40fa338dc91283d542b34d4be","error":null,"id":"curltest"}
+2020-10-22 20:13:51.237 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-22 20:13:51.239 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-10-22 20:13:51.251 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-10-22 20:24:22.390 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5003 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-10-22 20:24:27.404 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 10494 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-10-22 20:24:27.406 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-10-22 20:24:28.856 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:24:28.856 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:24:28.856 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:24:28.857 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:24:28.857 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:24:28.857 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-10-22 20:24:29.258 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-22 20:24:29.269 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-22 20:24:29.379 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49ms. Found 0 Redis repository interfaces.
+2020-10-22 20:24:30.664 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-10-22 20:24:30.691 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-10-22 20:24:30.691 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-10-22 20:24:30.692 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-22 20:24:30.949 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-10-22 20:24:30.949 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3408 ms
+2020-10-22 20:24:31.690 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'omniController': Unsatisfied dependency expressed through field 'OmniService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.zmj.service.OmniService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-10-22 20:24:31.698 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-10-22 20:24:31.721 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-22 20:24:32.098 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field OmniService in com.zmj.controller.btcd.OmniController required a bean of type 'com.zmj.service.OmniService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.zmj.service.OmniService' in your configuration.
+
+2020-10-22 20:26:02.813 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5005 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-10-22 20:26:07.824 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 10497 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-10-22 20:26:07.825 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-10-22 20:26:08.848 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:26:08.848 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:26:08.848 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:26:08.849 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:26:08.850 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:26:08.850 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-10-22 20:26:09.080 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-22 20:26:09.085 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-22 20:26:09.151 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45ms. Found 0 Redis repository interfaces.
+2020-10-22 20:26:10.022 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-10-22 20:26:10.041 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-10-22 20:26:10.042 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-10-22 20:26:10.043 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-22 20:26:10.278 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-10-22 20:26:10.280 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2375 ms
+2020-10-22 20:26:11.700 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-22 20:26:11.923 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-10-22 20:26:12.904 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-10-22 20:26:12.967 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-10-22 20:26:12.988 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 26.015 seconds (JVM running for 26.951)
+2020-10-22 20:26:57.547 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-22 20:26:57.550 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-10-22 20:26:57.567 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 17 ms
+2020-10-22 20:26:58.160 [http-nio-19111-exec-1] INFO  com.zmj.controller.btcd.OmniController - {"result":"0b39ff2e2ca8ab78b2e15713d2dbc58a43d98bd07f5d888fabeb8c6fbd63076a","error":null,"id":"curltest"}
+2020-10-22 20:27:53.511 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-22 20:37:06.829 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-10-22 20:37:11.845 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 10512 (/Users/gaihongwei/tools/eclipse/workspace/zmj02/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj02)
+2020-10-22 20:37:11.847 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-10-22 20:37:13.383 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:37:13.383 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:37:13.383 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:37:13.383 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:37:13.384 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-10-22 20:37:13.384 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-10-22 20:37:13.769 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-22 20:37:13.779 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-22 20:37:13.891 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52ms. Found 0 Redis repository interfaces.
+2020-10-22 20:37:15.182 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-10-22 20:37:15.213 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-10-22 20:37:15.214 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-10-22 20:37:15.215 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-22 20:37:15.481 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-10-22 20:37:15.481 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3477 ms
+2020-10-22 20:37:16.987 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-22 20:37:17.234 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-10-22 20:37:18.201 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-10-22 20:37:18.287 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-10-22 20:37:18.313 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 27.936 seconds (JVM running for 29.238)
+2020-10-22 20:37:22.219 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-22 20:37:22.221 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-10-22 20:37:22.236 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 14 ms
+2020-10-22 20:37:42.606 [http-nio-19111-exec-2] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at com.zmj.commom.eos.EosUtils.unlock(EosUtils.java:251)
+	at com.zmj.commom.eos.EosUtils.createTransaction(EosUtils.java:44)
+	at com.zmj.service.impl.EosServiceImpl.transaction(EosServiceImpl.java:35)
+	at com.zmj.controller.eos.EosController.transaction(EosController.java:46)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-10-22 20:38:34.320 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'

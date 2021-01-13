@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+    <title>58coin工具集</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+</head>
+<body >
+    <div style="font-size: 40px;font-family: 'Times New Roman', Times, serif;color: #FFB800;width: 1000px;padding: 25px 20px;">
+        <p>欢迎登录后台系统！</p>
+    </div>
+    <script src="js/jquery-2.1.1.min.js"></script>
+<script src="layui/layui.all.js"></script>
+<script src="js/tools/common.js"></script>
+<script>
+layui.use(['element', 'layer', 'jquery','form'], function () {
+    var element = layui.element;
+    var form = layui.form;
+    var layer = layui.layer;
+    var $ = layui.jquery;
+    //判断是否登录
+    layer.ready(function(){
+      $.ajax({
+            type: 'get',
+            url: "/index",
+            headers: {"token":layui.data('setter')['token']},
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                if(result.code == 200){
+                    console.log("登录成功！");
+                }else if(result.code == 401){
+                    layer.msg("token失效,请重新登录!", {  
+                            offset: '15px',  
+                            icon: 5,  
+                            time: 1000  
+                        }, function () {  
+                            window.top.location.href = "login.html";
+                        });
+                }
+            }, error: function (e) {//响应不成功时返回的函数
+                console.log(e, 'error');
+            }
+        })
+    }); 
+ });
+
+</script>
+</body>
+</html>

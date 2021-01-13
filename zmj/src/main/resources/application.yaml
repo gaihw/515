@@ -1,0 +1,94 @@
+#actuator
+#management:
+#  port: 9001
+#  security:
+#    enabled: false
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      #defaultZone: http://192.168.112.149:8761/eureka/,http://192.168.112.160:8765/eureka/
+#      defaultZone: http://192.168.112.21:8765/eureka/,http://192.168.112.18:8765/eureka/
+##      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    lease-expiration-duration-in-seconds: 5
+#    lease-renewal-interval-in-seconds: 5
+#    appname: TEST-SERVICE-ONE
+
+#服务器配置
+server:
+  port: 19113
+
+## 数据源配置
+spring :
+  application:
+    name: SPRING-BOOT-ZMJPROJECT01
+  rabbitmq:
+    host: 192.168.112.170
+    port: 5672
+    username: admin
+    password: 123456
+  base:
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.112.36:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+      username: root
+      password: 58test
+  future:
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.200.86:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+      username: root
+      password: 123456
+  regular:
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.112.17:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+      username: appuser
+      password: 976xmX5kKuRNjnIy
+
+  platform:
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.112.17:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+      username: appuser
+      password: 976xmX5kKuRNjnIy
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+  redis:
+    host: 192.168.112.170
+    port: 6379
+    database: 0
+#    password: wC3Xo8E5mlmgMb
+  main:
+    allow-bean-definition-overriding: true
+
+
+web3j:
+  clientAddress: http://192.168.112.214:8545
+
+
+## Mybatis 配置
+mybatis :
+  typeAliasesPackage : com.zmj.domain
+  mapperLocations : classpath:mapper/*.xml
+
+#日志配置
+#logging :
+##  path : /Users/gaihongwei/tools/eclipse/workspace/zmj/logs
+#  file : logs/info.log
+#  level :
+#    root: INFO
+#  pattern :
+#    console : "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
+#    file : "%d{yyyy/MM/dd-HH:mm} [%thread] %-5level %logger- %msg%n"
+
+
+

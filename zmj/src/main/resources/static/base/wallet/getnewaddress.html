@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>钱包测试管理平台</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+</head>
+<body class="layui-layout-body">
+    <div class="layui-body" style="left: 1px;">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">币种:</label>
+                    <div class="layui-input-block" >
+                        <div>
+                            <input type="radio" name="currencyId" value="1" title="BTC" lay-filter="currencyId" checked>
+                            <input type="radio" name="currencyId" value="8" title="OMNI" lay-filter="currencyId">
+                            <input type="radio" name="currencyId" value="2" title="LTC" lay-filter="currencyId">
+                            <input type="radio" name="currencyId" value="5" title="DASH" lay-filter="currencyId">
+                            <input type="radio" name="currencyId" value="196" title="BCH" lay-filter="currencyId">
+                            <input type="radio" name="currencyId" value="197" title="BSV" lay-filter="currencyId">
+                            <input type="radio" name="currencyId" value="201" title="ZEC" lay-filter="currencyId">
+                        </div>
+                        <div>
+                            <input type="radio" name="currencyId" value="3" title="ETH" lay-filter="currencyId">
+                            <input type="radio" name="currencyId" value="6" title="ETC" lay-filter="currencyId">
+                            <input type="radio" name="currencyId" value="200" title="ERC20" lay-filter="currencyId">
+                        </div>
+                        <div>
+                            <input type="radio" name="currencyId" value="22" title="EOS" lay-filter="currencyId">
+                            <input type="radio" name="currencyId" value="191" title="XRP" lay-filter="currencyId">
+                            <input type="radio" name="currencyId" value="212" title="TRC20" lay-filter="currencyId">
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block " style="margin-left: 45px; min-height: 24px">
+                        <button class="layui-btn layui-bg-cyan" lay-submit lay-filter="formDemo">生成地址</button>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <fieldset class="layui-elem-field" style="display:none;color:green" id="currencyField">
+                    <legend style="margin-bottom: 8px;margin-left: 32px;"><span class="layui-badge ">响应结果</span></legend>
+                    <div class="layui-field-box"><p id="currencyResult" style="padding-left: 15px"></p></div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+<script src="../../layui/layui.all.js"></script>
+<script src="../../js/jquery-2.1.1.min.js"></script>
+<script src="../../js/tools/common.js"></script>
+<script>
+layui.use(['form', 'element', 'table'], function(){
+    var form = layui.form;
+    var element = layui.element;
+    var table = layui.table;
+    var cId = 1;
+    // 监听获取块高选择的是哪个币种
+    // form.on('radio(currencyId)', function (data) {
+    //     cId = data.value;
+    //     return false;
+    // });
+
+//   <!--  监听提交 -->
+    form.on('submit(formDemo)', function(data){
+    //   console.log(data.field);
+      cId = data.field.currencyId;
+      txid = data.field.txid;
+    var url_tmp = "/btc/getnewaddress";
+    switch (cId) {
+        //btcd
+        case "1":
+            url_tmp = "/btc/getnewaddress";
+            break;
+        case "8":
+            url_tmp = "/omni/getnewaddress";
+            break;
+        case "2":
+            url_tmp = "/ltc/getnewaddress";
+            break;
+        case "5":
+            url_tmp = "/dash/getnewaddress";
+            break;
+        case "196":
+            url_tmp = "/bch/getnewaddress";
+            break;
+        case "197":
+            url_tmp = "/bsv/getnewaddress";
+            break;
+        case "201":
+            url_tmp = "/zec/getnewaddress";
+            break;
+        //eth
+        case "3":
+            url_tmp = "/eth/getnewaddress";
+            break;
+        case "6":
+            url_tmp = "/etc/getnewaddress";
+            break;
+        case "200":
+            url_tmp = "/erc20/getnewaddress";
+            break;
+        //eos
+        case "22":
+            url_tmp = "/eos/getnewaddress";
+            break;
+        //xrp
+        case "191":
+            url_tmp = "/xrp/getnewaddress";
+            break;
+        //trc20
+        case "212":
+            url_tmp = "/trc20/getnewaddress";
+            break;
+        default:
+            url_tmp = "/btc/getnewaddress";
+            break;
+        
+      }
+    //   console.log(cId);
+    //   console.log(txid);
+        $.ajax({
+            type: 'Get',
+            url: "/api"+url_tmp,
+            headers: {"token":layui.data('setter')['token']},
+    // <!--        contentType: "application/json; charset=utf-8",-->
+    // <!--        data: JSON.stringify(data.field),提交的数据-->
+            dataType: "json",
+            success: function (result) {
+                // console.log(result);
+                if(result.code == 0){
+                    $("#currencyField").css("display", "block");
+                    $("#currencyResult").html("新地址："+result.data);
+                }else if(result.code == 401){
+                    layer.msg("token失效,请重新登录!", {  
+                            offset: '15px',  
+                            icon: 5,  
+                            time: 1000  
+                        }, function () {  
+                            window.top.location.href = "../../login.html";
+                        });
+                }
+            }
+        });
+    return false;
+    });
+});
+
+</script>
+</body>
+</html>

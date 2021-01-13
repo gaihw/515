@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="../../css/index.css">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+  <style>
+    table tbody {
+        max-height: 500px;
+        display: block;
+        overflow-y: auto;
+        height: 500px;
+        overflow-y: scroll;
+    }
+    table thead, table tbody tr {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+    }
+    table thead {
+        width: calc(100% - 3px); /* 减去默认滚动条的宽度，让thead 与tbody 对齐 */
+    }
+    table tbody::-webkit-scrollbar { width: 3px;}  /*设置滚动条的宽度，让thead 与tbody 对齐*/
+    /* 改变滚动条的宽度和样式 */
+    /* table tbody::-webkit-scrollbar { width: 3px;} */
+    table tbody::-webkit-scrollbar-track{background-color:#fff;}
+    /* table tbody::-webkit-scrollbar-thumb{background-color:#CCCCCC;} */
+    /* table tbody::-webkit-scrollbar-thumb:hover {background-color:#CCCCCC;} */
+    /* table tbody::-webkit-scrollbar-thumb:active {background-color:#CCCCCC;} */
+  </style>
+</head>
+<body>
+<div class="layui-upload">
+  <button type="button" class="layui-btn layui-btn-primary" id="testList"><i class="layui-icon">&#xe654;</i>选择文件</button> 
+  <button type="button" class="layui-btn" id="testListAction"><i class="layui-icon"></i>批量上传</button>
+  <button type="button" class="layui-btn" id="table-clear" style="float: right;background-color:#FF5722"><i class="layui-icon">&#xe640;</i>全部清空</button>
+  <div class="layui-upload-list">
+    <table class="layui-table">
+      <thead>
+        <tr>
+            <!-- <th lay-data="{type:'checkbox', fixed: 'left'}"></th> -->
+            <!-- <th lay-data="{field:'id', width:80, sort: true, fixed: true}">ID</th> -->
+            <th lay-data="{field:'name', width:80}">文件名</th>
+            <th lay-data="{field:'size', width:80, sort: true}">大小</th>
+            <th lay-data="{field:'status', width:80}">状态</th>
+            <th lay-data="{field:'action', width:160}">操作</th>
+      </tr>
+    </thead>
+    <tbody id="demoList" ></tbody>
+    </table>
+  </div>
+</div> 
+          
+<script src="../../layui/layui.all.js"></script>
+<script src="../../js/jquery-2.1.1.min.js"></script>
+<script src="../../js/tools/common.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+layui.use(['upload','table'], function(){
+  var $ = layui.jquery
+  ,upload = layui.upload;
+//   var table = layui.table;
+//   table.render();
+  // var num = 0 ;
+  var flag = 0;//0-未上传；1-已上传
+  //多文件列表示例
+  var demoListView = $('#demoList')
+  ,uploadListIns = upload.render({
+    elem: '#testList'
+    ,url: "/api"+'/eth/upload' //改成您自己的上传接口
+    ,headers: {"token":layui.data('setter')['token']}
+    ,accept: 'file'
+    ,multiple: true
+    ,auto: false
+    ,bindAction: '#testListAction'
+    ,choose: function(obj){  
+      // num = num + 1;
+      var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+      //读取本地文件
+      obj.preview(function(index, file, result){
+          var tr_num = $('table tbody tr').length;//获取tbody的长度
+          if(tr_num!=0){//如果tr_num不为零，说明已上传过文件
+              for (let index = 0; index < tr_num; index++) {
+                  //已上传的文件，看状态是否为“等待上传”，如果为“等待上传”，则更新flag，标示为已上传
+                  //"123".search(1)=0；"123".search(2)=1；"123".search(3)=2；"123".search(4)=-1
+                    if($('table tbody tr').children()[0+4*index].innerText.search(file.name)!=-1
+                        &&$('table tbody tr').children()[2+4*index].innerText.search("上传成功")==-1){
+                            flag = 1;
+                        }
+              }
+          }
+          //如果未上传，则执行上传代码
+        if(flag==0){
+            var tr = $(['<tr id="upload-'+ index +'">'
+            // ,'<td>'+ num +'</td>'
+            ,'<td>'+ file.name +'</td>'
+            ,'<td>'+ (file.size/1024).toFixed(1) +'kb</td>'
+            ,'<td>等待上传</td>'
+            ,'<td>'
+                ,'<button class="layui-btn layui-btn-xs demo-load "><i class="layui-icon">&#xe62f;</i>上传</button>'
+                ,'<button class="layui-btn layui-btn-xs demo-reload layui-hide"><i class="layui-icon">&#xe62f;</i>重传</button>'
+                ,'<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete"><i class="layui-icon">&#xe640;</i>删除</button>'
+            ,'</td>'
+            ,'</tr>'].join(''));
+            //单个重传
+            tr.find('.demo-reload').on('click', function(){
+            obj.upload(index, file);
+            });
+            //单个上传
+            tr.find('.demo-load').on('click', function(){
+            obj.upload(index, file);
+            });
+            
+            //删除
+            tr.find('.demo-delete').on('click', function(){
+            delete files[index]; //删除对应的文件
+            tr.remove();
+            uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
+            });
+            
+            demoListView.append(tr);
+        }
+        //更新flag标示
+        flag=0;
+      });
+    }
+    ,done: function(res, index, upload){
+      if(res.code == 0){ //上传成功
+        var tr = demoListView.find('tr#upload-'+ index)
+        ,tds = tr.children();
+        tds.eq(2).html('<span style="color: #5FB878;">上传成功</span>');
+        tds.eq(3).html(''); //清空操作
+        return delete this.files[index]; //删除文件队列已经上传成功的文件
+      }else if(res.code == 401){
+        layer.msg("token失效,请重新登录!", {  
+              offset: '15px',  
+              icon: 5,  
+              time: 1000  
+          }, function () {  
+              window.top.location.href = "../../login.html";
+          });
+      }
+      this.error(index, upload);
+    }
+    ,error: function(index, upload){
+      var tr = demoListView.find('tr#upload-'+ index)
+      ,tds = tr.children();
+      tds.eq(2).html('<span style="color: #FF5722;">上传失败</span>');
+      tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
+      tds.eq(3).find('.demo-load').addClass('layui-hide'); //隐藏上传
+    }
+  });
+  //清空列表数据
+  $('#table-clear').on('click', function () {
+    $('table tbody').html('');
+    // num = 1;
+  }); 
+});
+</script>
+
+</body>
+</html>

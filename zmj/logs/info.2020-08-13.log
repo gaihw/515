@@ -1,0 +1,1309 @@
+2020-08-13 11:39:16.714 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5005 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 11:39:21.729 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 46009 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 11:39:21.731 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 11:39:23.355 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 11:39:23.366 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 11:39:23.463 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39ms. Found 0 Redis repository interfaces.
+2020-08-13 11:39:24.797 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 11:39:24.827 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 11:39:24.828 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 11:39:24.828 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 11:39:25.144 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 11:39:25.144 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3256 ms
+2020-08-13 11:39:26.799 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 11:39:27.459 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 11:39:27.526 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 11:39:27.548 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 27.705 seconds (JVM running for 29.271)
+2020-08-13 11:39:27.600 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 11:39:28.283 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 11:39:28.461 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-08-13 11:39:28.469 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute ApplicationRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.zmj.ZmjApplication.main(ZmjApplication.java:15)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 1
+	at com.zmj.init.Construct.btc(Construct.java:51)
+	at com.zmj.init.Construct.run(Construct.java:40)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:786)
+	... 5 common frames omitted
+2020-08-13 11:39:28.564 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 11:39:28.566 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 11:39:28.616 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 11:43:47.440 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 11:43:52.454 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 46100 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 11:43:52.456 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 11:43:53.834 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 11:43:53.839 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 11:43:53.893 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25ms. Found 0 Redis repository interfaces.
+2020-08-13 11:43:55.013 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 11:43:55.047 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 11:43:55.048 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 11:43:55.048 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 11:43:55.378 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 11:43:55.378 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2818 ms
+2020-08-13 11:43:56.813 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 11:43:57.400 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 11:43:57.464 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 11:43:57.482 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 26.226 seconds (JVM running for 27.288)
+2020-08-13 11:43:57.537 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 11:43:58.265 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 11:43:58.486 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-08-13 11:43:58.497 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute ApplicationRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.zmj.ZmjApplication.main(ZmjApplication.java:15)
+Caused by: java.lang.ClassCastException: java.util.ArrayList cannot be cast to java.lang.String
+	at org.springframework.data.redis.serializer.StringRedisSerializer.serialize(StringRedisSerializer.java:36)
+	at org.springframework.data.redis.core.AbstractOperations.rawValue(AbstractOperations.java:127)
+	at org.springframework.data.redis.core.DefaultValueOperations.set(DefaultValueOperations.java:235)
+	at com.zmj.init.Construct.btc(Construct.java:61)
+	at com.zmj.init.Construct.run(Construct.java:40)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:786)
+	... 5 common frames omitted
+2020-08-13 11:43:58.537 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 11:43:58.538 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 11:43:58.571 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 11:49:16.056 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5009 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 11:49:21.071 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 46113 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 11:49:21.073 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 11:49:22.850 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 11:49:22.857 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 11:49:22.920 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29ms. Found 0 Redis repository interfaces.
+2020-08-13 11:49:24.258 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 11:49:24.295 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 11:49:24.296 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 11:49:24.297 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 11:49:24.624 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 11:49:24.624 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3403 ms
+2020-08-13 11:49:26.104 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 11:49:26.723 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 11:49:26.781 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 11:49:26.803 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 27.098 seconds (JVM running for 28.39)
+2020-08-13 11:49:26.848 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 11:49:27.485 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 11:49:27.655 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-08-13 11:49:27.662 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute ApplicationRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.zmj.ZmjApplication.main(ZmjApplication.java:15)
+Caused by: java.lang.ClassCastException: java.util.ArrayList cannot be cast to java.lang.String
+	at org.springframework.data.redis.serializer.StringRedisSerializer.serialize(StringRedisSerializer.java:36)
+	at org.springframework.data.redis.core.AbstractOperations.rawValue(AbstractOperations.java:127)
+	at org.springframework.data.redis.core.DefaultValueOperations.set(DefaultValueOperations.java:235)
+	at com.zmj.init.Construct.btc(Construct.java:64)
+	at com.zmj.init.Construct.run(Construct.java:40)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:786)
+	... 5 common frames omitted
+2020-08-13 11:49:27.716 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 11:49:27.717 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 11:49:27.729 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 11:50:23.581 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5005 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 11:50:28.594 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 46116 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 11:50:28.596 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 11:50:29.924 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 11:50:29.929 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 11:50:29.985 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28ms. Found 0 Redis repository interfaces.
+2020-08-13 11:50:31.106 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 11:50:31.141 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 11:50:31.142 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 11:50:31.143 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 11:50:31.443 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 11:50:31.443 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2750 ms
+2020-08-13 11:50:32.853 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 11:50:33.481 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 11:50:33.568 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 11:50:33.589 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 26.512 seconds (JVM running for 28.012)
+2020-08-13 11:50:33.631 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 11:50:34.266 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 12:06:37.145 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 12:06:37.150 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 12:06:37.162 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 12:07:00.576 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5006 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 12:07:05.588 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 46141 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 12:07:05.590 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 12:07:06.661 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 12:07:06.665 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 12:07:06.722 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30ms. Found 0 Redis repository interfaces.
+2020-08-13 12:07:07.720 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 12:07:07.743 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 12:07:07.743 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 12:07:07.744 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 12:07:08.028 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 12:07:08.029 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2349 ms
+2020-08-13 12:07:09.387 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 12:07:09.857 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 12:07:09.914 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 12:07:09.935 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 25.245 seconds (JVM running for 26.209)
+2020-08-13 12:07:09.975 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 12:07:10.767 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 12:07:52.870 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 12:07:52.871 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 12:07:52.892 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 20 ms
+2020-08-13 12:07:53.246 [http-nio-19111-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.alibaba.fastjson.JSONException: syntax error, expect [, actual {, pos 0] with root cause
+com.alibaba.fastjson.JSONException: syntax error, expect [, actual {, pos 0
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseArray(DefaultJSONParser.java:1060)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseArray(DefaultJSONParser.java:1047)
+	at com.alibaba.fastjson.JSON.parseArray(JSON.java:330)
+	at com.zmj.commom.btcd.BtcUtils.getblockcount(BtcUtils.java:117)
+	at com.zmj.service.impl.BtcServiceImpl.getblockcount(BtcServiceImpl.java:46)
+	at com.zmj.controller.btcd.BtcController.getblockcount(BtcController.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-13 12:08:01.947 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 12:08:01.948 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 12:08:01.955 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 12:10:13.690 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5003 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 12:10:18.706 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 46143 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 12:10:18.709 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 12:10:20.280 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 12:10:20.286 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 12:10:20.361 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41ms. Found 0 Redis repository interfaces.
+2020-08-13 12:10:21.907 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 12:10:21.945 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 12:10:21.946 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 12:10:21.946 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 12:10:22.283 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 12:10:22.284 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3474 ms
+2020-08-13 12:10:23.931 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 12:10:24.642 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 12:10:24.711 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 12:10:24.733 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 27.126 seconds (JVM running for 28.145)
+2020-08-13 12:10:24.778 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 12:10:25.597 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 12:10:32.164 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 12:10:32.164 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 12:10:32.186 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 21 ms
+2020-08-13 12:10:32.484 [http-nio-19111-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.alibaba.fastjson.JSONException: expect ':' at 0, actual =] with root cause
+com.alibaba.fastjson.JSONException: expect ':' at 0, actual =
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:279)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parse(DefaultJSONParser.java:1287)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parse(DefaultJSONParser.java:1253)
+	at com.alibaba.fastjson.JSON.parse(JSON.java:109)
+	at com.alibaba.fastjson.JSON.parse(JSON.java:100)
+	at com.alibaba.fastjson.JSON.parseObject(JSON.java:171)
+	at com.zmj.commom.btcd.BtcUtils.getblockcount(BtcUtils.java:117)
+	at com.zmj.service.impl.BtcServiceImpl.getblockcount(BtcServiceImpl.java:46)
+	at com.zmj.controller.btcd.BtcController.getblockcount(BtcController.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-13 12:10:42.440 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 12:10:42.444 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 12:10:42.454 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 12:57:07.710 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5005 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 12:57:12.723 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 46657 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 12:57:12.725 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 12:57:14.159 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 12:57:14.165 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 12:57:14.226 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27ms. Found 0 Redis repository interfaces.
+2020-08-13 12:57:15.403 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 12:57:15.443 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 12:57:15.444 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 12:57:15.445 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 12:57:15.765 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 12:57:15.766 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2937 ms
+2020-08-13 12:57:17.311 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 12:57:18.020 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 12:57:18.084 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 12:57:18.102 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 26.693 seconds (JVM running for 27.959)
+2020-08-13 12:57:18.159 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 12:57:19.131 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 12:57:40.798 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 12:57:40.803 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 12:57:40.819 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 13:35:33.459 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47006 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 13:35:33.483 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 13:35:35.134 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 13:35:35.142 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 13:35:35.218 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38ms. Found 0 Redis repository interfaces.
+2020-08-13 13:35:36.479 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 13:35:36.513 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 13:35:36.514 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 13:35:36.515 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 13:35:36.780 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 13:35:36.781 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3111 ms
+2020-08-13 13:35:38.363 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 13:35:39.072 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 13:35:39.139 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 13:35:39.163 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 7.142 seconds (JVM running for 8.26)
+2020-08-13 13:35:39.214 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 13:35:40.683 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 13:36:06.129 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 13:36:06.131 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 13:36:06.155 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 23 ms
+2020-08-13 13:36:06.335 [http-nio-19111-exec-1] INFO  com.zmj.commom.btcd.BtcUtils - {OKB={url=http://59.110.61.106:18775}, EOS={url=http://192.168.112.214:8888}, USDT={password=btctest, port=9338, url=192.168.112.68, username=btctest}, BCHABC={password=btctest, port=9332, url=192.168.112.68, username=btctest}, BCHSV={password=btctest, port=9332, url=192.168.112.214, username=btctest}, HT={url=http://192.168.112.214:8546}, DASH={password=btctest, port=6332, url=192.168.112.68, username=btctest}, BTC={password=btctest, port=18443, url=192.168.112.214, username=btctest}, ETC={url=http://192.168.112.66:8647}, XRP={url=https://s.altnet.rippletest.net:51234}, ETH={url=http://192.168.112.214:8546}, ZEC={password=btctest, port=18232, url=192.168.112.211, username=btctest}, LTC={password=btctest, port=19443, url=192.168.112.68, username=btctest}, USDT_ERC20={url=http://192.168.112.214:8546}}
+2020-08-13 13:36:06.519 [http-nio-19111-exec-1] INFO  com.zmj.controller.btcd.BtcController - {"result":16587,"error":null,"id":"curltest"}
+2020-08-13 13:36:19.141 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 13:36:19.144 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 13:36:19.156 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 13:48:45.759 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47092 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 13:48:45.764 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 13:48:48.289 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 13:48:48.297 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 13:48:48.369 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38ms. Found 0 Redis repository interfaces.
+2020-08-13 13:48:49.576 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 13:48:49.618 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 13:48:49.621 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 13:48:49.622 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 13:48:49.954 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 13:48:49.956 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4011 ms
+2020-08-13 13:48:51.440 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 13:48:52.093 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 13:48:52.159 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 13:48:52.181 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 7.831 seconds (JVM running for 8.994)
+2020-08-13 13:48:52.235 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 13:48:52.927 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 13:51:06.029 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 13:51:06.031 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 13:51:06.044 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 13:53:35.737 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47102 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 13:53:35.753 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 13:53:37.581 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 13:53:37.588 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 13:53:37.662 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35ms. Found 0 Redis repository interfaces.
+2020-08-13 13:53:38.924 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 13:53:38.966 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 13:53:38.967 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 13:53:38.968 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 13:53:39.312 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 13:53:39.312 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3380 ms
+2020-08-13 13:53:40.810 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 13:53:41.532 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 13:53:41.599 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 13:53:41.624 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 7.422 seconds (JVM running for 8.46)
+2020-08-13 13:53:41.677 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 13:53:42.444 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 13:53:43.146 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-08-13 13:53:43.152 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute ApplicationRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.zmj.ZmjApplication.main(ZmjApplication.java:15)
+Caused by: com.alibaba.fastjson.JSONException: expect ':' at 0, actual =
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:279)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parse(DefaultJSONParser.java:1287)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parse(DefaultJSONParser.java:1253)
+	at com.alibaba.fastjson.JSON.parse(JSON.java:109)
+	at com.alibaba.fastjson.JSON.parse(JSON.java:100)
+	at com.alibaba.fastjson.JSON.parseObject(JSON.java:171)
+	at com.zmj.init.Construct.btc(Construct.java:62)
+	at com.zmj.init.Construct.run(Construct.java:41)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:786)
+	... 5 common frames omitted
+2020-08-13 13:53:43.204 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 13:53:43.206 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 13:53:43.271 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 13:54:11.057 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47104 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 13:54:11.071 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 13:54:12.476 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 13:54:12.481 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 13:54:12.542 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31ms. Found 0 Redis repository interfaces.
+2020-08-13 13:54:13.630 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 13:54:13.658 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 13:54:13.659 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 13:54:13.659 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 13:54:13.892 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 13:54:13.893 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2581 ms
+2020-08-13 13:54:15.394 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 13:54:15.929 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 13:54:15.987 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 13:54:16.005 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 6.312 seconds (JVM running for 7.348)
+2020-08-13 13:54:16.042 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 13:54:16.537 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 13:54:44.765 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 13:54:44.768 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 13:54:44.791 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 14:03:34.042 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47316 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 14:03:34.051 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 14:03:36.326 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 14:03:36.333 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 14:03:36.416 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36ms. Found 0 Redis repository interfaces.
+2020-08-13 14:03:38.142 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 14:03:38.185 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:03:38.186 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 14:03:38.186 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 14:03:38.541 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 14:03:38.542 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4263 ms
+2020-08-13 14:03:40.566 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:03:41.392 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:03:41.487 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 14:03:41.518 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 9.314 seconds (JVM running for 10.718)
+2020-08-13 14:03:41.587 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 14:03:42.448 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 14:04:25.731 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 14:04:25.732 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 14:04:25.761 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 28 ms
+2020-08-13 14:04:26.249 [http-nio-19111-exec-1] INFO  com.zmj.commom.btcd.BtcUtils - {OKB={url=http://59.110.61.106:18775}, EOS={url=http://192.168.112.214:8888}, USDT={password=btctest, port=9338, url=192.168.112.68, username=btctest}, BCHABC={password=btctest, port=9332, url=192.168.112.68, username=btctest}, BCHSV={password=btctest, port=9332, url=192.168.112.214, username=btctest}, HT={url=http://192.168.112.214:8546}, DASH={password=btctest, port=6332, url=192.168.112.68, username=btctest}, BTC={password=btctest, port=18443, url=192.168.112.214, username=btctest}, ETC={url=http://192.168.112.66:8647}, XRP={url=https://s.altnet.rippletest.net:51234}, ETH={url=http://192.168.112.214:8546}, ZEC={password=btctest, port=18232, url=192.168.112.211, username=btctest}, LTC={password=btctest, port=19443, url=192.168.112.68, username=btctest}, USDT_ERC20={url=http://192.168.112.214:8546}}
+2020-08-13 14:04:26.598 [http-nio-19111-exec-1] INFO  com.zmj.controller.btcd.BtcController - {"result":16587,"error":null,"id":"curltest"}
+2020-08-13 14:04:40.358 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:04:40.360 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 14:04:40.369 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 14:05:38.381 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47334 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 14:05:38.389 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 14:05:40.614 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 14:05:40.621 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 14:05:40.699 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40ms. Found 0 Redis repository interfaces.
+2020-08-13 14:05:42.327 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 14:05:42.364 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:05:42.365 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 14:05:42.367 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 14:05:42.763 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 14:05:42.763 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4200 ms
+2020-08-13 14:05:44.843 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:05:45.645 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:05:45.711 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 14:05:45.731 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 9.067 seconds (JVM running for 10.46)
+2020-08-13 14:05:45.796 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 14:05:46.530 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 14:05:52.244 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 14:05:52.245 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 14:05:52.273 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 28 ms
+2020-08-13 14:05:53.015 [http-nio-19111-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.alibaba.fastjson.JSONException: expect ':' at 0, actual =] with root cause
+com.alibaba.fastjson.JSONException: expect ':' at 0, actual =
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:279)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parse(DefaultJSONParser.java:1287)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parse(DefaultJSONParser.java:1253)
+	at com.alibaba.fastjson.JSON.parse(JSON.java:109)
+	at com.alibaba.fastjson.JSON.parse(JSON.java:100)
+	at com.alibaba.fastjson.JSON.parseObject(JSON.java:171)
+	at com.zmj.commom.btcd.BtcUtils.getblockcount(BtcUtils.java:119)
+	at com.zmj.service.impl.BtcServiceImpl.getblockcount(BtcServiceImpl.java:46)
+	at com.zmj.controller.btcd.BtcController.getblockcount(BtcController.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-13 14:06:18.093 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:06:18.097 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 14:06:18.114 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 14:31:55.191 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5007 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 14:32:00.207 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47602 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 14:32:00.209 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 14:32:01.566 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 14:32:01.571 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 14:32:01.632 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28ms. Found 0 Redis repository interfaces.
+2020-08-13 14:32:02.914 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 14:32:02.951 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:32:02.953 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 14:32:02.954 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 14:32:03.301 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 14:32:03.302 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2993 ms
+2020-08-13 14:32:04.662 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:32:05.252 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:32:05.308 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 14:32:05.327 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 26.209 seconds (JVM running for 27.216)
+2020-08-13 14:32:05.381 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 14:32:06.011 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 14:32:12.472 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 14:32:12.473 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 14:32:12.493 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 20 ms
+2020-08-13 14:32:12.619 [http-nio-19111-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: java.util.LinkedHashMap cannot be cast to com.alibaba.fastjson.JSONObject] with root cause
+java.lang.ClassCastException: java.util.LinkedHashMap cannot be cast to com.alibaba.fastjson.JSONObject
+	at com.zmj.commom.btcd.BtcUtils.getblockcount(BtcUtils.java:119)
+	at com.zmj.service.impl.BtcServiceImpl.getblockcount(BtcServiceImpl.java:46)
+	at com.zmj.controller.btcd.BtcController.getblockcount(BtcController.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-13 14:34:21.573 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:34:21.576 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 14:34:21.588 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 14:34:45.197 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5006 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 14:34:50.211 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47618 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 14:34:50.213 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 14:34:51.404 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 14:34:51.408 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 14:34:51.498 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58ms. Found 0 Redis repository interfaces.
+2020-08-13 14:34:52.467 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 14:34:52.491 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:34:52.492 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 14:34:52.493 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 14:34:52.760 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 14:34:52.761 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2428 ms
+2020-08-13 14:34:54.215 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:34:54.764 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:34:54.822 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 14:34:54.839 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 25.665 seconds (JVM running for 26.566)
+2020-08-13 14:34:54.884 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 14:34:55.379 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 14:35:02.244 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 14:35:02.246 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 14:35:02.270 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 23 ms
+2020-08-13 14:35:02.570 [http-nio-19111-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.alibaba.fastjson.JSONException: expect ':' at 0, actual =] with root cause
+com.alibaba.fastjson.JSONException: expect ':' at 0, actual =
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:279)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parse(DefaultJSONParser.java:1287)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parse(DefaultJSONParser.java:1253)
+	at com.alibaba.fastjson.JSON.parse(JSON.java:109)
+	at com.alibaba.fastjson.JSON.parse(JSON.java:100)
+	at com.alibaba.fastjson.JSON.parseObject(JSON.java:171)
+	at com.zmj.commom.btcd.BtcUtils.getblockcount(BtcUtils.java:122)
+	at com.zmj.service.impl.BtcServiceImpl.getblockcount(BtcServiceImpl.java:46)
+	at com.zmj.controller.btcd.BtcController.getblockcount(BtcController.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-13 14:35:05.985 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:35:05.991 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 14:35:06.009 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 14:37:23.165 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5003 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 14:37:28.178 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47628 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 14:37:28.180 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 14:37:29.217 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 14:37:29.220 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 14:37:29.274 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27ms. Found 0 Redis repository interfaces.
+2020-08-13 14:37:30.182 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 14:37:30.206 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:37:30.207 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 14:37:30.208 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 14:37:30.424 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 14:37:30.425 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2154 ms
+2020-08-13 14:37:31.633 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:37:32.186 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:37:32.236 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 14:37:32.252 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 24.97 seconds (JVM running for 25.889)
+2020-08-13 14:37:32.294 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 14:37:32.748 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 14:37:43.156 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 14:37:43.159 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 14:37:43.180 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 21 ms
+2020-08-13 14:37:43.411 [http-nio-19111-exec-1] INFO  com.zmj.commom.btcd.BtcUtils - btctest
+2020-08-13 14:37:43.558 [http-nio-19111-exec-1] INFO  com.zmj.controller.btcd.BtcController - {"result":16587,"error":null,"id":"curltest"}
+2020-08-13 14:38:42.857 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:38:42.863 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 14:38:42.874 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 14:47:08.715 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5006 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 14:47:13.729 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47637 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 14:47:13.731 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 14:47:15.068 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 14:47:15.074 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 14:47:15.134 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30ms. Found 0 Redis repository interfaces.
+2020-08-13 14:47:16.238 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 14:47:16.268 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:47:16.268 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 14:47:16.268 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 14:47:16.522 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 14:47:16.522 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2688 ms
+2020-08-13 14:47:18.005 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:47:18.578 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:47:18.633 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 14:47:18.649 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 26.137 seconds (JVM running for 27.242)
+2020-08-13 14:47:18.700 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 14:47:19.244 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 14:47:25.026 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 14:47:25.033 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 14:47:25.058 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 24 ms
+2020-08-13 14:47:25.224 [http-nio-19111-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at com.alibaba.fastjson.JSONObject.getJSONObject(JSONObject.java:103)
+	at com.zmj.commom.btcd.BtcUtils.getblockcount(BtcUtils.java:123)
+	at com.zmj.service.impl.BtcServiceImpl.getblockcount(BtcServiceImpl.java:46)
+	at com.zmj.controller.btcd.BtcController.getblockcount(BtcController.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-13 14:47:45.679 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:47:45.681 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 14:47:45.708 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 14:51:35.735 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 14:51:40.748 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47645 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 14:51:40.750 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 14:51:42.019 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 14:51:42.023 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 14:51:42.076 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31ms. Found 0 Redis repository interfaces.
+2020-08-13 14:51:43.078 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 14:51:43.101 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:51:43.102 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 14:51:43.103 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 14:51:43.366 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 14:51:43.367 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2462 ms
+2020-08-13 14:51:44.577 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:51:45.093 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:51:45.153 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 14:51:45.172 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 25.445 seconds (JVM running for 26.315)
+2020-08-13 14:51:45.213 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 14:51:45.730 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 14:51:58.317 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 14:51:58.321 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 14:51:58.337 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2020-08-13 14:51:58.425 [http-nio-19111-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: java.lang.String cannot be cast to java.util.Map] with root cause
+java.lang.ClassCastException: java.lang.String cannot be cast to java.util.Map
+	at com.zmj.commom.btcd.BtcUtils.getblockcount(BtcUtils.java:121)
+	at com.zmj.service.impl.BtcServiceImpl.getblockcount(BtcServiceImpl.java:46)
+	at com.zmj.controller.btcd.BtcController.getblockcount(BtcController.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-13 14:52:18.548 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:52:18.551 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 14:52:18.560 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 14:59:10.494 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5006 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 14:59:15.509 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47648 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 14:59:15.511 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 14:59:16.839 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 14:59:16.844 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 14:59:16.904 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30ms. Found 0 Redis repository interfaces.
+2020-08-13 14:59:17.977 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 14:59:18.008 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:59:18.008 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 14:59:18.009 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 14:59:18.312 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 14:59:18.312 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2698 ms
+2020-08-13 14:59:19.797 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 14:59:20.433 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 14:59:20.496 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 14:59:20.515 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 26.193 seconds (JVM running for 27.101)
+2020-08-13 14:59:20.568 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 14:59:21.100 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 14:59:28.591 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 14:59:28.593 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 14:59:28.610 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2020-08-13 14:59:28.696 [http-nio-19111-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: java.lang.String cannot be cast to java.util.Map] with root cause
+java.lang.ClassCastException: java.lang.String cannot be cast to java.util.Map
+	at com.zmj.commom.btcd.BtcUtils.getblockcount(BtcUtils.java:122)
+	at com.zmj.service.impl.BtcServiceImpl.getblockcount(BtcServiceImpl.java:46)
+	at com.zmj.controller.btcd.BtcController.getblockcount(BtcController.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-13 15:00:07.491 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 15:00:07.493 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 15:00:07.500 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 15:01:26.308 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 15:01:31.318 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47652 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 15:01:31.319 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 15:01:32.353 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 15:01:32.358 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 15:01:32.416 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30ms. Found 0 Redis repository interfaces.
+2020-08-13 15:01:33.277 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 15:01:33.294 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 15:01:33.295 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 15:01:33.295 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 15:01:33.479 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 15:01:33.480 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2061 ms
+2020-08-13 15:01:34.644 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 15:01:35.105 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 15:01:35.171 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 15:01:35.193 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 24.703 seconds (JVM running for 25.56)
+2020-08-13 15:01:35.244 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 15:01:35.738 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 15:01:44.214 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 15:01:44.216 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 15:01:44.229 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 13 ms
+2020-08-13 15:01:44.551 [http-nio-19111-exec-1] INFO  com.zmj.controller.btcd.BtcController - {"result":16587,"error":null,"id":"curltest"}
+2020-08-13 15:01:51.726 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 15:01:51.728 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 15:01:51.735 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 15:52:32.299 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 15:52:37.324 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47843 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 15:52:37.327 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 15:52:39.347 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 15:52:39.355 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 15:52:39.419 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34ms. Found 0 Redis repository interfaces.
+2020-08-13 15:52:40.922 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 15:52:40.957 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 15:52:40.958 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 15:52:40.959 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 15:52:41.425 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 15:52:41.426 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3827 ms
+2020-08-13 15:52:43.095 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 15:52:43.758 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 15:52:43.867 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 15:52:43.889 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 27.897 seconds (JVM running for 28.932)
+2020-08-13 15:52:43.962 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 15:52:44.668 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 15:53:42.554 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 15:53:42.560 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 15:53:42.594 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 33 ms
+2020-08-13 15:53:42.907 [http-nio-19111-exec-1] INFO  com.zmj.controller.btcd.BtcController - {"result":16587,"error":null,"id":"curltest"}
+2020-08-13 15:54:08.913 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 15:54:08.914 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 15:54:08.924 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 17:56:34.853 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5006 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 17:56:39.866 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 47992 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 17:56:39.870 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 17:56:41.389 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 17:56:41.399 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 17:56:41.499 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42ms. Found 0 Redis repository interfaces.
+2020-08-13 17:56:42.697 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 17:56:42.732 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 17:56:42.734 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 17:56:42.735 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 17:56:43.030 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 17:56:43.031 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3033 ms
+2020-08-13 17:56:44.684 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 17:56:45.343 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 17:56:45.407 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 17:56:45.427 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 27.38 seconds (JVM running for 28.834)
+2020-08-13 17:56:45.480 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 17:56:46.144 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 17:58:09.771 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 17:58:09.779 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 17:58:09.811 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 30 ms
+2020-08-13 17:58:12.228 [http-nio-19111-exec-1] INFO  com.zmj.controller.xrp.XrpController - {"result":{"account_data":{"Account":"rfRBucPC5mPASNb9Nn2MxaXxPggTdUCNjn","Balance":"785819610","Flags":0,"LedgerEntryType":"AccountRoot","OwnerCount":0,"PreviousTxnID":"F53A69724D9BBDA1B7C537092A8DF288CAD7D26553583253C61690B1C7D43427","PreviousTxnLgrSeq":9641390,"Sequence":8298896,"index":"D5B0C0E33D2B927687EF7B0A596780EB858F2C054B85A11F715B4BDD0115D79C"},"ledger_current_index":9673498,"queue_data":{"txn_count":0},"status":"success","validated":false}}
+2020-08-13 17:58:29.725 [http-nio-19111-exec-2] INFO  com.zmj.controller.xrp.XrpController - {"result":{"Account":"rfRBucPC5mPASNb9Nn2MxaXxPggTdUCNjn","Amount":"10110000","Destination":"raDPvocc8DQbDNfqG4DLRyWmL98PhLPY4f","DestinationTag":100186,"Fee":"10","Flags":2147483648,"LastLedgerSequence":96413904,"Sequence":8298895,"SigningPubKey":"02AB5DD85E66DF588D57657C31CB314CB71634B4D00B66A1CF10AFDB5F3920D0A7","TransactionType":"Payment","TxnSignature":"3045022100F2A025BB466210B4202DBE19D8B46915F155859F8D7570C3F5AD4B62041FAB8C022063128EAB3852213B3493AD2AC46BFAFC54DE013FE6A1D58B1706BE6B505AA8CE","date":650530400,"hash":"F53A69724D9BBDA1B7C537092A8DF288CAD7D26553583253C61690B1C7D43427","inLedger":9641390,"ledger_index":9641390,"meta":{"AffectedNodes":[{"ModifiedNode":{"FinalFields":{"Account":"rfRBucPC5mPASNb9Nn2MxaXxPggTdUCNjn","Balance":"785819610","Flags":0,"OwnerCount":0,"Sequence":8298896},"LedgerEntryType":"AccountRoot","LedgerIndex":"D5B0C0E33D2B927687EF7B0A596780EB858F2C054B85A11F715B4BDD0115D79C","PreviousFields":{"Balance":"795929620","Sequence":8298895},"PreviousTxnID":"24871BBE836B5F784CF0B233D807805CA4DE782B7A228540217F0BFDCFBD1830","PreviousTxnLgrSeq":9638358}},{"ModifiedNode":{"FinalFields":{"Account":"raDPvocc8DQbDNfqG4DLRyWmL98PhLPY4f","Balance":"665842852","Flags":0,"OwnerCount":0,"Sequence":1},"LedgerEntryType":"AccountRoot","LedgerIndex":"D6F1DF57B60B7C72F2A2362674D3466FEAC4E23D4113BBE1E15E466AE695A43D","PreviousFields":{"Balance":"655732852"},"PreviousTxnID":"24871BBE836B5F784CF0B233D807805CA4DE782B7A228540217F0BFDCFBD1830","PreviousTxnLgrSeq":9638358}}],"TransactionIndex":0,"TransactionResult":"tesSUCCESS","delivered_amount":"10110000"},"status":"success","validated":true}}
+2020-08-13 18:18:31.988 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 18:18:31.992 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 18:18:32.003 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 18:23:37.554 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5003 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 18:23:42.567 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 48009 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 18:23:42.570 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 18:23:43.916 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 18:23:43.925 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 18:23:44.005 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35ms. Found 0 Redis repository interfaces.
+2020-08-13 18:23:45.135 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 18:23:45.170 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 18:23:45.171 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 18:23:45.172 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 18:23:45.454 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 18:23:45.454 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2778 ms
+2020-08-13 18:23:46.951 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 18:23:47.544 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 18:23:47.603 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 18:23:47.624 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 26.3 seconds (JVM running for 27.246)
+2020-08-13 18:23:47.675 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 18:23:48.363 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 18:24:02.468 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 18:24:02.470 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 18:24:02.492 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 20 ms
+2020-08-13 18:24:02.743 [http-nio-19111-exec-1] INFO  com.zmj.controller.eos.EosController - {"code":404,"message":"Not Found","error":{"code":0,"name":"exception","what":"unspecified","details":[{"message":"Unknown Endpoint","file":"http_plugin.cpp","line_number":570,"method":"handle_http_request"}]}}
+2020-08-13 18:24:23.535 [http-nio-19111-exec-2] INFO  com.zmj.controller.eos.EosController - {"code":404,"message":"Not Found","error":{"code":0,"name":"exception","what":"unspecified","details":[{"message":"Unknown Endpoint","file":"http_plugin.cpp","line_number":570,"method":"handle_http_request"}]}}
+2020-08-13 18:24:35.096 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 18:24:35.098 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 18:24:35.106 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 18:31:38.403 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5007 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 18:31:43.421 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 48016 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 18:31:43.423 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 18:31:44.635 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 18:31:44.641 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 18:31:44.719 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48ms. Found 0 Redis repository interfaces.
+2020-08-13 18:31:45.808 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 18:31:45.838 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 18:31:45.840 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 18:31:45.841 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 18:31:46.073 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 18:31:46.074 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2509 ms
+2020-08-13 18:31:47.534 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 18:31:48.107 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 18:31:48.192 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 18:31:48.209 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 25.827 seconds (JVM running for 26.736)
+2020-08-13 18:31:48.249 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 18:31:48.861 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 18:32:05.731 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 18:32:05.736 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 18:32:05.757 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 20 ms
+2020-08-13 18:32:06.021 [http-nio-19111-exec-1] INFO  com.zmj.controller.eos.EosController - {}
+2020-08-13 18:32:12.644 [http-nio-19111-exec-2] INFO  com.zmj.controller.eos.EosController - ["EOS4x6q9YA8NAz3o7BByogoJuyLVV7QQNVeHyPdYhaNgPZQ8EHYF5","EOS53nDvwVR9AG4Wo3SoTVAiTpesSnFHabwmcti7U4dGztxivvgQh","EOS54FRPCYMZYmaLm9RfrgAP96EzgDoMtpaJa3FD6uM75ix9c4LDt","EOS5DQAiGN5DG27AH2VQwP22gHMZbXixAz4VUzFZyPuvFVbVxp9cn","EOS5Me4QQpyv3f4eohwB3pz64erbticXyNcKyzGWm9Dk9t7bGmDvw","EOS5RLenYfMBRbJC8b3HfKy5dPr7jBKJYsQWFKaNuWjuJNejHppgU","EOS5WceMsoi3PKxaR8mFxb8bWgYHzv95j6CGG8o1EdYMQJWgj3UWb","EOS5bpmFammnPCW1UhuAgKZ7eSgi4qVqwAa159wKZRXnLbY7HEutq","EOS5d5GYFMCpuUimvmmREmcQoN9oMhuoiN4neQ3Yuuz8s6TC6V3C9","EOS5iUZoPv7GedoZZxZLgxjmHEt7xMYpUhzdmNq6wPM2QsLoiy6fM","EOS5pdeWguwWSWe9LhkPJ2JK3wFRbEp7At5oWD5Q1xX7EoRPp9Vzv","EOS5xtRr86NejgZNkBiGUiLFTsNEPbgaPXeSJyb4d9WMmxwZsEhV6","EOS67CjjHoApEyrKJiee5Gqysix4jjfNxhSaECo1Um7iRgQH6e6hV","EOS6Cj3PyovT3aeA3HjSn4ZYKhJEmTRN7zHX7RQnfmFmyB4UzoSKo","EOS6DnUoHmagyvRVoi2GziYVPXTthKUiJh7MfQ8zcAm1B4oCbisXF","EOS6F6QdUs1Yu81BA733FovrkgVh89jBPMDdnkBw7BSbSS2eqT2dB","EOS6HJqmVTiDr125MkRHGE9Kvyh8gN3o1bEFtEWe8yXCtEUp1Npht","EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","EOS6NLb55SMeEKyg3gy7Sr8fZrZj8uyqixemwKXYg6K3c5QYJYWhe","EOS6a8PzY2T5DdHXLS92aZmSGoVhDh7XoDaZWPeP4uXgjYRztCyok","EOS6dVA925bFmdtojo4agXJGKojTKXP7zGKgo5QAMAVptehk3CEeh","EOS6eY9FrpSh4GgxaebFVHJzF5VFAxijB1WsJRCBasoRumoBQz5bq","EOS6gmteTeaQ89Qfm74FDY6jQWyvkYEnXMBuYud1RKmson6KMD2tH","EOS6pXBtrT7BaZitXgJVPSKd4d4C1b4zsHXExAF6iDHoQAnrcFLUa","EOS6sQHpKX783MdzCQrNmNUFcvENEyNtR4tHuLYfk9TPfxkEFUgfJ","EOS771sDoLRKXSUNoYKZTU54G7fEJC6hsVvk7mqATbVnekD4gik9b","EOS7XtreCLPL1A18qTmgAFhEZ9VCgZ9wKB4Qx8KAh2sQ9ifNmbB2W","EOS7YNzVvFVq7DbJDKozFgfNaut9zWSsr7aNmwZ5hDXAeVHf36fCK","EOS7YQT5tv6DAwDmxdosAiz6BqMn7Gy3NrgqpERTxEyfSK1dhQKSh","EOS7jmUb4zSLu18dPVQkkVCPkTegSwi5KW96iRP3BPGfyFpU146gr","EOS7k35WFYc94HKu3ajha3bQn9d9dgtULRg5iYX1dHcSd2CU45bhp","EOS7tTBeRFcdZNqY9fEEZujeCeJLFcMjp2aeadMNWdzL4quARehRW","EOS7uG2t9npGKrf6SKQfyFgbbT1jPS1EyDmKy8Y1KZtJaYLKEdgD6","EOS7vAes8aepJ15JWAdfNKKtLpJK1m1Y83pLiT2DTG5HWPxKstmcx","EOS87u6nTZaBAR6H6d4c4KTqKRT7p63JcWZEQE251fHkCULnatNRq","EOS8FiAgDEWH3g9CyZTjHAkTsHMWX9xD5NkPpe4reec7SFfPb97sj","EOS8YgMFUiJwRyNFKjbWs4F7TZ5RKqhBJTzjJXV4ziFuGpai3EqVv","EOS8aPw4CdCQMH4KLaXLMocoU15VGwd7FkHsuF8vnZcQnNqMVyjfN","EOS8aZbXRiznzmNJk8SGeJq7rKTjvhEYSzbUR4gYvkKQN2jP6Vjey"]
+2020-08-13 18:35:35.924 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 18:35:35.927 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 18:35:35.934 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 20:49:21.273 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5007 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 20:49:26.290 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 48184 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 20:49:26.299 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 20:49:29.823 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 20:49:29.833 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 20:49:29.935 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53ms. Found 0 Redis repository interfaces.
+2020-08-13 20:49:31.591 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 20:49:31.635 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 20:49:31.636 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 20:49:31.637 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 20:49:32.026 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 20:49:32.027 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5214 ms
+2020-08-13 20:49:34.230 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 20:49:35.100 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 20:49:35.188 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 20:49:35.212 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 30.187 seconds (JVM running for 31.34)
+2020-08-13 20:49:35.289 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 20:49:36.065 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 20:50:17.500 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 20:50:17.503 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 20:50:17.520 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 17 ms
+2020-08-13 20:50:17.709 [http-nio-19111-exec-1] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (PushbackInputStream); line: 5, column: 2]]
+2020-08-13 20:50:24.026 [http-nio-19111-exec-3] INFO  com.zmj.controller.eos.EosController - {"code":500,"message":"Internal Service Error","error":{"code":3120002,"name":"wallet_nonexistent_exception","what":"Nonexistent wallet","details":[{"message":"Unable to open file: /root/eosio-wallet/./null.wallet","file":"wallet_manager.cpp","line_number":101,"method":"open"}]}}
+2020-08-13 20:51:09.020 [http-nio-19111-exec-5] INFO  com.zmj.controller.eos.EosController - {"code":500,"message":"Internal Service Error","error":{"code":3120002,"name":"wallet_nonexistent_exception","what":"Nonexistent wallet","details":[{"message":"Unable to open file: /root/eosio-wallet/./null.wallet","file":"wallet_manager.cpp","line_number":101,"method":"open"}]}}
+2020-08-13 20:52:09.683 [http-nio-19111-exec-8] INFO  com.zmj.controller.eos.EosController - {"code":500,"message":"Internal Service Error","error":{"code":3120002,"name":"wallet_nonexistent_exception","what":"Nonexistent wallet","details":[{"message":"Unable to open file: /root/eosio-wallet/./null.wallet","file":"wallet_manager.cpp","line_number":101,"method":"open"}]}}
+2020-08-13 20:54:06.260 [http-nio-19111-exec-10] INFO  com.zmj.controller.eos.EosController - {"code":500,"message":"Internal Service Error","error":{"code":3120003,"name":"wallet_locked_exception","what":"Locked wallet","details":[{"message":"You don't have any unlocked wallet!","file":"wallet_manager.cpp","line_number":149,"method":"get_public_keys"}]}}
+2020-08-13 20:54:19.431 [http-nio-19111-exec-1] INFO  com.zmj.controller.eos.EosController - {"code":500,"message":"Internal Service Error","error":{"code":3120002,"name":"wallet_nonexistent_exception","what":"Nonexistent wallet","details":[{"message":"Unable to open file: /root/eosio-wallet/./null.wallet","file":"wallet_manager.cpp","line_number":101,"method":"open"}]}}
+2020-08-13 20:55:15.947 [http-nio-19111-exec-5] INFO  com.zmj.controller.eos.EosController - {"code":500,"message":"Internal Service Error","error":{"code":3120002,"name":"wallet_nonexistent_exception","what":"Nonexistent wallet","details":[{"message":"Unable to open file: /root/eosio-wallet/./null.wallet","file":"wallet_manager.cpp","line_number":101,"method":"open"}]}}
+2020-08-13 20:55:58.792 [http-nio-19111-exec-6] INFO  com.zmj.controller.eos.EosController - {"code":500,"message":"Internal Service Error","error":{"code":3120007,"name":"wallet_unlocked_exception","what":"Already unlocked","details":[{"message":"Wallet is already unlocked: dev","file":"wallet_manager.cpp","line_number":182,"method":"unlock"}]}}
+2020-08-13 20:57:06.991 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 20:57:06.992 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 20:57:07.004 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 20:58:19.911 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5003 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 20:58:24.924 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 48210 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 20:58:24.927 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 20:58:25.987 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 20:58:25.991 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 20:58:26.041 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29ms. Found 0 Redis repository interfaces.
+2020-08-13 20:58:26.985 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 20:58:27.013 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 20:58:27.013 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 20:58:27.014 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 20:58:27.316 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 20:58:27.316 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2300 ms
+2020-08-13 20:58:28.675 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 20:58:29.208 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 20:58:29.269 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 20:58:29.289 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 25.292 seconds (JVM running for 26.192)
+2020-08-13 20:58:29.330 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 20:58:29.975 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 20:58:41.336 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 20:58:41.339 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 20:58:41.359 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 20 ms
+2020-08-13 20:58:41.855 [http-nio-19111-exec-1] INFO  com.zmj.controller.eos.EosController - ["EOS4x6q9YA8NAz3o7BByogoJuyLVV7QQNVeHyPdYhaNgPZQ8EHYF5","EOS53nDvwVR9AG4Wo3SoTVAiTpesSnFHabwmcti7U4dGztxivvgQh","EOS54FRPCYMZYmaLm9RfrgAP96EzgDoMtpaJa3FD6uM75ix9c4LDt","EOS5DQAiGN5DG27AH2VQwP22gHMZbXixAz4VUzFZyPuvFVbVxp9cn","EOS5Me4QQpyv3f4eohwB3pz64erbticXyNcKyzGWm9Dk9t7bGmDvw","EOS5RLenYfMBRbJC8b3HfKy5dPr7jBKJYsQWFKaNuWjuJNejHppgU","EOS5WceMsoi3PKxaR8mFxb8bWgYHzv95j6CGG8o1EdYMQJWgj3UWb","EOS5bpmFammnPCW1UhuAgKZ7eSgi4qVqwAa159wKZRXnLbY7HEutq","EOS5d5GYFMCpuUimvmmREmcQoN9oMhuoiN4neQ3Yuuz8s6TC6V3C9","EOS5iUZoPv7GedoZZxZLgxjmHEt7xMYpUhzdmNq6wPM2QsLoiy6fM","EOS5pdeWguwWSWe9LhkPJ2JK3wFRbEp7At5oWD5Q1xX7EoRPp9Vzv","EOS5xtRr86NejgZNkBiGUiLFTsNEPbgaPXeSJyb4d9WMmxwZsEhV6","EOS67CjjHoApEyrKJiee5Gqysix4jjfNxhSaECo1Um7iRgQH6e6hV","EOS6Cj3PyovT3aeA3HjSn4ZYKhJEmTRN7zHX7RQnfmFmyB4UzoSKo","EOS6DnUoHmagyvRVoi2GziYVPXTthKUiJh7MfQ8zcAm1B4oCbisXF","EOS6F6QdUs1Yu81BA733FovrkgVh89jBPMDdnkBw7BSbSS2eqT2dB","EOS6HJqmVTiDr125MkRHGE9Kvyh8gN3o1bEFtEWe8yXCtEUp1Npht","EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","EOS6NLb55SMeEKyg3gy7Sr8fZrZj8uyqixemwKXYg6K3c5QYJYWhe","EOS6a8PzY2T5DdHXLS92aZmSGoVhDh7XoDaZWPeP4uXgjYRztCyok","EOS6dVA925bFmdtojo4agXJGKojTKXP7zGKgo5QAMAVptehk3CEeh","EOS6eY9FrpSh4GgxaebFVHJzF5VFAxijB1WsJRCBasoRumoBQz5bq","EOS6gmteTeaQ89Qfm74FDY6jQWyvkYEnXMBuYud1RKmson6KMD2tH","EOS6pXBtrT7BaZitXgJVPSKd4d4C1b4zsHXExAF6iDHoQAnrcFLUa","EOS6sQHpKX783MdzCQrNmNUFcvENEyNtR4tHuLYfk9TPfxkEFUgfJ","EOS771sDoLRKXSUNoYKZTU54G7fEJC6hsVvk7mqATbVnekD4gik9b","EOS7XtreCLPL1A18qTmgAFhEZ9VCgZ9wKB4Qx8KAh2sQ9ifNmbB2W","EOS7YNzVvFVq7DbJDKozFgfNaut9zWSsr7aNmwZ5hDXAeVHf36fCK","EOS7YQT5tv6DAwDmxdosAiz6BqMn7Gy3NrgqpERTxEyfSK1dhQKSh","EOS7jmUb4zSLu18dPVQkkVCPkTegSwi5KW96iRP3BPGfyFpU146gr","EOS7k35WFYc94HKu3ajha3bQn9d9dgtULRg5iYX1dHcSd2CU45bhp","EOS7tTBeRFcdZNqY9fEEZujeCeJLFcMjp2aeadMNWdzL4quARehRW","EOS7uG2t9npGKrf6SKQfyFgbbT1jPS1EyDmKy8Y1KZtJaYLKEdgD6","EOS7vAes8aepJ15JWAdfNKKtLpJK1m1Y83pLiT2DTG5HWPxKstmcx","EOS87u6nTZaBAR6H6d4c4KTqKRT7p63JcWZEQE251fHkCULnatNRq","EOS8FiAgDEWH3g9CyZTjHAkTsHMWX9xD5NkPpe4reec7SFfPb97sj","EOS8YgMFUiJwRyNFKjbWs4F7TZ5RKqhBJTzjJXV4ziFuGpai3EqVv","EOS8aPw4CdCQMH4KLaXLMocoU15VGwd7FkHsuF8vnZcQnNqMVyjfN","EOS8aZbXRiznzmNJk8SGeJq7rKTjvhEYSzbUR4gYvkKQN2jP6Vjey"]
+2020-08-13 20:59:10.007 [http-nio-19111-exec-2] INFO  com.zmj.controller.eos.EosController - ["EOS4x6q9YA8NAz3o7BByogoJuyLVV7QQNVeHyPdYhaNgPZQ8EHYF5","EOS53nDvwVR9AG4Wo3SoTVAiTpesSnFHabwmcti7U4dGztxivvgQh","EOS54FRPCYMZYmaLm9RfrgAP96EzgDoMtpaJa3FD6uM75ix9c4LDt","EOS5DQAiGN5DG27AH2VQwP22gHMZbXixAz4VUzFZyPuvFVbVxp9cn","EOS5Me4QQpyv3f4eohwB3pz64erbticXyNcKyzGWm9Dk9t7bGmDvw","EOS5RLenYfMBRbJC8b3HfKy5dPr7jBKJYsQWFKaNuWjuJNejHppgU","EOS5WceMsoi3PKxaR8mFxb8bWgYHzv95j6CGG8o1EdYMQJWgj3UWb","EOS5bpmFammnPCW1UhuAgKZ7eSgi4qVqwAa159wKZRXnLbY7HEutq","EOS5d5GYFMCpuUimvmmREmcQoN9oMhuoiN4neQ3Yuuz8s6TC6V3C9","EOS5iUZoPv7GedoZZxZLgxjmHEt7xMYpUhzdmNq6wPM2QsLoiy6fM","EOS5pdeWguwWSWe9LhkPJ2JK3wFRbEp7At5oWD5Q1xX7EoRPp9Vzv","EOS5xtRr86NejgZNkBiGUiLFTsNEPbgaPXeSJyb4d9WMmxwZsEhV6","EOS67CjjHoApEyrKJiee5Gqysix4jjfNxhSaECo1Um7iRgQH6e6hV","EOS6Cj3PyovT3aeA3HjSn4ZYKhJEmTRN7zHX7RQnfmFmyB4UzoSKo","EOS6DnUoHmagyvRVoi2GziYVPXTthKUiJh7MfQ8zcAm1B4oCbisXF","EOS6F6QdUs1Yu81BA733FovrkgVh89jBPMDdnkBw7BSbSS2eqT2dB","EOS6HJqmVTiDr125MkRHGE9Kvyh8gN3o1bEFtEWe8yXCtEUp1Npht","EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","EOS6NLb55SMeEKyg3gy7Sr8fZrZj8uyqixemwKXYg6K3c5QYJYWhe","EOS6a8PzY2T5DdHXLS92aZmSGoVhDh7XoDaZWPeP4uXgjYRztCyok","EOS6dVA925bFmdtojo4agXJGKojTKXP7zGKgo5QAMAVptehk3CEeh","EOS6eY9FrpSh4GgxaebFVHJzF5VFAxijB1WsJRCBasoRumoBQz5bq","EOS6gmteTeaQ89Qfm74FDY6jQWyvkYEnXMBuYud1RKmson6KMD2tH","EOS6pXBtrT7BaZitXgJVPSKd4d4C1b4zsHXExAF6iDHoQAnrcFLUa","EOS6sQHpKX783MdzCQrNmNUFcvENEyNtR4tHuLYfk9TPfxkEFUgfJ","EOS771sDoLRKXSUNoYKZTU54G7fEJC6hsVvk7mqATbVnekD4gik9b","EOS7XtreCLPL1A18qTmgAFhEZ9VCgZ9wKB4Qx8KAh2sQ9ifNmbB2W","EOS7YNzVvFVq7DbJDKozFgfNaut9zWSsr7aNmwZ5hDXAeVHf36fCK","EOS7YQT5tv6DAwDmxdosAiz6BqMn7Gy3NrgqpERTxEyfSK1dhQKSh","EOS7jmUb4zSLu18dPVQkkVCPkTegSwi5KW96iRP3BPGfyFpU146gr","EOS7k35WFYc94HKu3ajha3bQn9d9dgtULRg5iYX1dHcSd2CU45bhp","EOS7tTBeRFcdZNqY9fEEZujeCeJLFcMjp2aeadMNWdzL4quARehRW","EOS7uG2t9npGKrf6SKQfyFgbbT1jPS1EyDmKy8Y1KZtJaYLKEdgD6","EOS7vAes8aepJ15JWAdfNKKtLpJK1m1Y83pLiT2DTG5HWPxKstmcx","EOS87u6nTZaBAR6H6d4c4KTqKRT7p63JcWZEQE251fHkCULnatNRq","EOS8FiAgDEWH3g9CyZTjHAkTsHMWX9xD5NkPpe4reec7SFfPb97sj","EOS8YgMFUiJwRyNFKjbWs4F7TZ5RKqhBJTzjJXV4ziFuGpai3EqVv","EOS8aPw4CdCQMH4KLaXLMocoU15VGwd7FkHsuF8vnZcQnNqMVyjfN","EOS8aZbXRiznzmNJk8SGeJq7rKTjvhEYSzbUR4gYvkKQN2jP6Vjey"]
+2020-08-13 20:59:15.356 [http-nio-19111-exec-3] INFO  com.zmj.controller.eos.EosController - ["EOS4x6q9YA8NAz3o7BByogoJuyLVV7QQNVeHyPdYhaNgPZQ8EHYF5","EOS53nDvwVR9AG4Wo3SoTVAiTpesSnFHabwmcti7U4dGztxivvgQh","EOS54FRPCYMZYmaLm9RfrgAP96EzgDoMtpaJa3FD6uM75ix9c4LDt","EOS5DQAiGN5DG27AH2VQwP22gHMZbXixAz4VUzFZyPuvFVbVxp9cn","EOS5Me4QQpyv3f4eohwB3pz64erbticXyNcKyzGWm9Dk9t7bGmDvw","EOS5RLenYfMBRbJC8b3HfKy5dPr7jBKJYsQWFKaNuWjuJNejHppgU","EOS5WceMsoi3PKxaR8mFxb8bWgYHzv95j6CGG8o1EdYMQJWgj3UWb","EOS5bpmFammnPCW1UhuAgKZ7eSgi4qVqwAa159wKZRXnLbY7HEutq","EOS5d5GYFMCpuUimvmmREmcQoN9oMhuoiN4neQ3Yuuz8s6TC6V3C9","EOS5iUZoPv7GedoZZxZLgxjmHEt7xMYpUhzdmNq6wPM2QsLoiy6fM","EOS5pdeWguwWSWe9LhkPJ2JK3wFRbEp7At5oWD5Q1xX7EoRPp9Vzv","EOS5xtRr86NejgZNkBiGUiLFTsNEPbgaPXeSJyb4d9WMmxwZsEhV6","EOS67CjjHoApEyrKJiee5Gqysix4jjfNxhSaECo1Um7iRgQH6e6hV","EOS6Cj3PyovT3aeA3HjSn4ZYKhJEmTRN7zHX7RQnfmFmyB4UzoSKo","EOS6DnUoHmagyvRVoi2GziYVPXTthKUiJh7MfQ8zcAm1B4oCbisXF","EOS6F6QdUs1Yu81BA733FovrkgVh89jBPMDdnkBw7BSbSS2eqT2dB","EOS6HJqmVTiDr125MkRHGE9Kvyh8gN3o1bEFtEWe8yXCtEUp1Npht","EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","EOS6NLb55SMeEKyg3gy7Sr8fZrZj8uyqixemwKXYg6K3c5QYJYWhe","EOS6a8PzY2T5DdHXLS92aZmSGoVhDh7XoDaZWPeP4uXgjYRztCyok","EOS6dVA925bFmdtojo4agXJGKojTKXP7zGKgo5QAMAVptehk3CEeh","EOS6eY9FrpSh4GgxaebFVHJzF5VFAxijB1WsJRCBasoRumoBQz5bq","EOS6gmteTeaQ89Qfm74FDY6jQWyvkYEnXMBuYud1RKmson6KMD2tH","EOS6pXBtrT7BaZitXgJVPSKd4d4C1b4zsHXExAF6iDHoQAnrcFLUa","EOS6sQHpKX783MdzCQrNmNUFcvENEyNtR4tHuLYfk9TPfxkEFUgfJ","EOS771sDoLRKXSUNoYKZTU54G7fEJC6hsVvk7mqATbVnekD4gik9b","EOS7XtreCLPL1A18qTmgAFhEZ9VCgZ9wKB4Qx8KAh2sQ9ifNmbB2W","EOS7YNzVvFVq7DbJDKozFgfNaut9zWSsr7aNmwZ5hDXAeVHf36fCK","EOS7YQT5tv6DAwDmxdosAiz6BqMn7Gy3NrgqpERTxEyfSK1dhQKSh","EOS7jmUb4zSLu18dPVQkkVCPkTegSwi5KW96iRP3BPGfyFpU146gr","EOS7k35WFYc94HKu3ajha3bQn9d9dgtULRg5iYX1dHcSd2CU45bhp","EOS7tTBeRFcdZNqY9fEEZujeCeJLFcMjp2aeadMNWdzL4quARehRW","EOS7uG2t9npGKrf6SKQfyFgbbT1jPS1EyDmKy8Y1KZtJaYLKEdgD6","EOS7vAes8aepJ15JWAdfNKKtLpJK1m1Y83pLiT2DTG5HWPxKstmcx","EOS87u6nTZaBAR6H6d4c4KTqKRT7p63JcWZEQE251fHkCULnatNRq","EOS8FiAgDEWH3g9CyZTjHAkTsHMWX9xD5NkPpe4reec7SFfPb97sj","EOS8YgMFUiJwRyNFKjbWs4F7TZ5RKqhBJTzjJXV4ziFuGpai3EqVv","EOS8aPw4CdCQMH4KLaXLMocoU15VGwd7FkHsuF8vnZcQnNqMVyjfN","EOS8aZbXRiznzmNJk8SGeJq7rKTjvhEYSzbUR4gYvkKQN2jP6Vjey"]
+2020-08-13 21:00:52.704 [http-nio-19111-exec-6] INFO  com.zmj.controller.eos.EosController - ["EOS4x6q9YA8NAz3o7BByogoJuyLVV7QQNVeHyPdYhaNgPZQ8EHYF5","EOS53nDvwVR9AG4Wo3SoTVAiTpesSnFHabwmcti7U4dGztxivvgQh","EOS54FRPCYMZYmaLm9RfrgAP96EzgDoMtpaJa3FD6uM75ix9c4LDt","EOS5DQAiGN5DG27AH2VQwP22gHMZbXixAz4VUzFZyPuvFVbVxp9cn","EOS5Me4QQpyv3f4eohwB3pz64erbticXyNcKyzGWm9Dk9t7bGmDvw","EOS5RLenYfMBRbJC8b3HfKy5dPr7jBKJYsQWFKaNuWjuJNejHppgU","EOS5WceMsoi3PKxaR8mFxb8bWgYHzv95j6CGG8o1EdYMQJWgj3UWb","EOS5bpmFammnPCW1UhuAgKZ7eSgi4qVqwAa159wKZRXnLbY7HEutq","EOS5d5GYFMCpuUimvmmREmcQoN9oMhuoiN4neQ3Yuuz8s6TC6V3C9","EOS5iUZoPv7GedoZZxZLgxjmHEt7xMYpUhzdmNq6wPM2QsLoiy6fM","EOS5pdeWguwWSWe9LhkPJ2JK3wFRbEp7At5oWD5Q1xX7EoRPp9Vzv","EOS5xtRr86NejgZNkBiGUiLFTsNEPbgaPXeSJyb4d9WMmxwZsEhV6","EOS67CjjHoApEyrKJiee5Gqysix4jjfNxhSaECo1Um7iRgQH6e6hV","EOS6Cj3PyovT3aeA3HjSn4ZYKhJEmTRN7zHX7RQnfmFmyB4UzoSKo","EOS6DnUoHmagyvRVoi2GziYVPXTthKUiJh7MfQ8zcAm1B4oCbisXF","EOS6F6QdUs1Yu81BA733FovrkgVh89jBPMDdnkBw7BSbSS2eqT2dB","EOS6HJqmVTiDr125MkRHGE9Kvyh8gN3o1bEFtEWe8yXCtEUp1Npht","EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","EOS6NLb55SMeEKyg3gy7Sr8fZrZj8uyqixemwKXYg6K3c5QYJYWhe","EOS6a8PzY2T5DdHXLS92aZmSGoVhDh7XoDaZWPeP4uXgjYRztCyok","EOS6dVA925bFmdtojo4agXJGKojTKXP7zGKgo5QAMAVptehk3CEeh","EOS6eY9FrpSh4GgxaebFVHJzF5VFAxijB1WsJRCBasoRumoBQz5bq","EOS6gmteTeaQ89Qfm74FDY6jQWyvkYEnXMBuYud1RKmson6KMD2tH","EOS6pXBtrT7BaZitXgJVPSKd4d4C1b4zsHXExAF6iDHoQAnrcFLUa","EOS6sQHpKX783MdzCQrNmNUFcvENEyNtR4tHuLYfk9TPfxkEFUgfJ","EOS771sDoLRKXSUNoYKZTU54G7fEJC6hsVvk7mqATbVnekD4gik9b","EOS7XtreCLPL1A18qTmgAFhEZ9VCgZ9wKB4Qx8KAh2sQ9ifNmbB2W","EOS7YNzVvFVq7DbJDKozFgfNaut9zWSsr7aNmwZ5hDXAeVHf36fCK","EOS7YQT5tv6DAwDmxdosAiz6BqMn7Gy3NrgqpERTxEyfSK1dhQKSh","EOS7jmUb4zSLu18dPVQkkVCPkTegSwi5KW96iRP3BPGfyFpU146gr","EOS7k35WFYc94HKu3ajha3bQn9d9dgtULRg5iYX1dHcSd2CU45bhp","EOS7tTBeRFcdZNqY9fEEZujeCeJLFcMjp2aeadMNWdzL4quARehRW","EOS7uG2t9npGKrf6SKQfyFgbbT1jPS1EyDmKy8Y1KZtJaYLKEdgD6","EOS7vAes8aepJ15JWAdfNKKtLpJK1m1Y83pLiT2DTG5HWPxKstmcx","EOS87u6nTZaBAR6H6d4c4KTqKRT7p63JcWZEQE251fHkCULnatNRq","EOS8FiAgDEWH3g9CyZTjHAkTsHMWX9xD5NkPpe4reec7SFfPb97sj","EOS8YgMFUiJwRyNFKjbWs4F7TZ5RKqhBJTzjJXV4ziFuGpai3EqVv","EOS8aPw4CdCQMH4KLaXLMocoU15VGwd7FkHsuF8vnZcQnNqMVyjfN","EOS8aZbXRiznzmNJk8SGeJq7rKTjvhEYSzbUR4gYvkKQN2jP6Vjey"]
+2020-08-13 21:00:55.217 [http-nio-19111-exec-7] INFO  com.zmj.controller.eos.EosController - ["EOS4x6q9YA8NAz3o7BByogoJuyLVV7QQNVeHyPdYhaNgPZQ8EHYF5","EOS53nDvwVR9AG4Wo3SoTVAiTpesSnFHabwmcti7U4dGztxivvgQh","EOS54FRPCYMZYmaLm9RfrgAP96EzgDoMtpaJa3FD6uM75ix9c4LDt","EOS5DQAiGN5DG27AH2VQwP22gHMZbXixAz4VUzFZyPuvFVbVxp9cn","EOS5Me4QQpyv3f4eohwB3pz64erbticXyNcKyzGWm9Dk9t7bGmDvw","EOS5RLenYfMBRbJC8b3HfKy5dPr7jBKJYsQWFKaNuWjuJNejHppgU","EOS5WceMsoi3PKxaR8mFxb8bWgYHzv95j6CGG8o1EdYMQJWgj3UWb","EOS5bpmFammnPCW1UhuAgKZ7eSgi4qVqwAa159wKZRXnLbY7HEutq","EOS5d5GYFMCpuUimvmmREmcQoN9oMhuoiN4neQ3Yuuz8s6TC6V3C9","EOS5iUZoPv7GedoZZxZLgxjmHEt7xMYpUhzdmNq6wPM2QsLoiy6fM","EOS5pdeWguwWSWe9LhkPJ2JK3wFRbEp7At5oWD5Q1xX7EoRPp9Vzv","EOS5xtRr86NejgZNkBiGUiLFTsNEPbgaPXeSJyb4d9WMmxwZsEhV6","EOS67CjjHoApEyrKJiee5Gqysix4jjfNxhSaECo1Um7iRgQH6e6hV","EOS6Cj3PyovT3aeA3HjSn4ZYKhJEmTRN7zHX7RQnfmFmyB4UzoSKo","EOS6DnUoHmagyvRVoi2GziYVPXTthKUiJh7MfQ8zcAm1B4oCbisXF","EOS6F6QdUs1Yu81BA733FovrkgVh89jBPMDdnkBw7BSbSS2eqT2dB","EOS6HJqmVTiDr125MkRHGE9Kvyh8gN3o1bEFtEWe8yXCtEUp1Npht","EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","EOS6NLb55SMeEKyg3gy7Sr8fZrZj8uyqixemwKXYg6K3c5QYJYWhe","EOS6a8PzY2T5DdHXLS92aZmSGoVhDh7XoDaZWPeP4uXgjYRztCyok","EOS6dVA925bFmdtojo4agXJGKojTKXP7zGKgo5QAMAVptehk3CEeh","EOS6eY9FrpSh4GgxaebFVHJzF5VFAxijB1WsJRCBasoRumoBQz5bq","EOS6gmteTeaQ89Qfm74FDY6jQWyvkYEnXMBuYud1RKmson6KMD2tH","EOS6pXBtrT7BaZitXgJVPSKd4d4C1b4zsHXExAF6iDHoQAnrcFLUa","EOS6sQHpKX783MdzCQrNmNUFcvENEyNtR4tHuLYfk9TPfxkEFUgfJ","EOS771sDoLRKXSUNoYKZTU54G7fEJC6hsVvk7mqATbVnekD4gik9b","EOS7XtreCLPL1A18qTmgAFhEZ9VCgZ9wKB4Qx8KAh2sQ9ifNmbB2W","EOS7YNzVvFVq7DbJDKozFgfNaut9zWSsr7aNmwZ5hDXAeVHf36fCK","EOS7YQT5tv6DAwDmxdosAiz6BqMn7Gy3NrgqpERTxEyfSK1dhQKSh","EOS7jmUb4zSLu18dPVQkkVCPkTegSwi5KW96iRP3BPGfyFpU146gr","EOS7k35WFYc94HKu3ajha3bQn9d9dgtULRg5iYX1dHcSd2CU45bhp","EOS7tTBeRFcdZNqY9fEEZujeCeJLFcMjp2aeadMNWdzL4quARehRW","EOS7uG2t9npGKrf6SKQfyFgbbT1jPS1EyDmKy8Y1KZtJaYLKEdgD6","EOS7vAes8aepJ15JWAdfNKKtLpJK1m1Y83pLiT2DTG5HWPxKstmcx","EOS87u6nTZaBAR6H6d4c4KTqKRT7p63JcWZEQE251fHkCULnatNRq","EOS8FiAgDEWH3g9CyZTjHAkTsHMWX9xD5NkPpe4reec7SFfPb97sj","EOS8YgMFUiJwRyNFKjbWs4F7TZ5RKqhBJTzjJXV4ziFuGpai3EqVv","EOS8aPw4CdCQMH4KLaXLMocoU15VGwd7FkHsuF8vnZcQnNqMVyjfN","EOS8aZbXRiznzmNJk8SGeJq7rKTjvhEYSzbUR4gYvkKQN2jP6Vjey"]
+2020-08-13 21:00:56.417 [http-nio-19111-exec-8] INFO  com.zmj.controller.eos.EosController - ["EOS4x6q9YA8NAz3o7BByogoJuyLVV7QQNVeHyPdYhaNgPZQ8EHYF5","EOS53nDvwVR9AG4Wo3SoTVAiTpesSnFHabwmcti7U4dGztxivvgQh","EOS54FRPCYMZYmaLm9RfrgAP96EzgDoMtpaJa3FD6uM75ix9c4LDt","EOS5DQAiGN5DG27AH2VQwP22gHMZbXixAz4VUzFZyPuvFVbVxp9cn","EOS5Me4QQpyv3f4eohwB3pz64erbticXyNcKyzGWm9Dk9t7bGmDvw","EOS5RLenYfMBRbJC8b3HfKy5dPr7jBKJYsQWFKaNuWjuJNejHppgU","EOS5WceMsoi3PKxaR8mFxb8bWgYHzv95j6CGG8o1EdYMQJWgj3UWb","EOS5bpmFammnPCW1UhuAgKZ7eSgi4qVqwAa159wKZRXnLbY7HEutq","EOS5d5GYFMCpuUimvmmREmcQoN9oMhuoiN4neQ3Yuuz8s6TC6V3C9","EOS5iUZoPv7GedoZZxZLgxjmHEt7xMYpUhzdmNq6wPM2QsLoiy6fM","EOS5pdeWguwWSWe9LhkPJ2JK3wFRbEp7At5oWD5Q1xX7EoRPp9Vzv","EOS5xtRr86NejgZNkBiGUiLFTsNEPbgaPXeSJyb4d9WMmxwZsEhV6","EOS67CjjHoApEyrKJiee5Gqysix4jjfNxhSaECo1Um7iRgQH6e6hV","EOS6Cj3PyovT3aeA3HjSn4ZYKhJEmTRN7zHX7RQnfmFmyB4UzoSKo","EOS6DnUoHmagyvRVoi2GziYVPXTthKUiJh7MfQ8zcAm1B4oCbisXF","EOS6F6QdUs1Yu81BA733FovrkgVh89jBPMDdnkBw7BSbSS2eqT2dB","EOS6HJqmVTiDr125MkRHGE9Kvyh8gN3o1bEFtEWe8yXCtEUp1Npht","EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","EOS6NLb55SMeEKyg3gy7Sr8fZrZj8uyqixemwKXYg6K3c5QYJYWhe","EOS6a8PzY2T5DdHXLS92aZmSGoVhDh7XoDaZWPeP4uXgjYRztCyok","EOS6dVA925bFmdtojo4agXJGKojTKXP7zGKgo5QAMAVptehk3CEeh","EOS6eY9FrpSh4GgxaebFVHJzF5VFAxijB1WsJRCBasoRumoBQz5bq","EOS6gmteTeaQ89Qfm74FDY6jQWyvkYEnXMBuYud1RKmson6KMD2tH","EOS6pXBtrT7BaZitXgJVPSKd4d4C1b4zsHXExAF6iDHoQAnrcFLUa","EOS6sQHpKX783MdzCQrNmNUFcvENEyNtR4tHuLYfk9TPfxkEFUgfJ","EOS771sDoLRKXSUNoYKZTU54G7fEJC6hsVvk7mqATbVnekD4gik9b","EOS7XtreCLPL1A18qTmgAFhEZ9VCgZ9wKB4Qx8KAh2sQ9ifNmbB2W","EOS7YNzVvFVq7DbJDKozFgfNaut9zWSsr7aNmwZ5hDXAeVHf36fCK","EOS7YQT5tv6DAwDmxdosAiz6BqMn7Gy3NrgqpERTxEyfSK1dhQKSh","EOS7jmUb4zSLu18dPVQkkVCPkTegSwi5KW96iRP3BPGfyFpU146gr","EOS7k35WFYc94HKu3ajha3bQn9d9dgtULRg5iYX1dHcSd2CU45bhp","EOS7tTBeRFcdZNqY9fEEZujeCeJLFcMjp2aeadMNWdzL4quARehRW","EOS7uG2t9npGKrf6SKQfyFgbbT1jPS1EyDmKy8Y1KZtJaYLKEdgD6","EOS7vAes8aepJ15JWAdfNKKtLpJK1m1Y83pLiT2DTG5HWPxKstmcx","EOS87u6nTZaBAR6H6d4c4KTqKRT7p63JcWZEQE251fHkCULnatNRq","EOS8FiAgDEWH3g9CyZTjHAkTsHMWX9xD5NkPpe4reec7SFfPb97sj","EOS8YgMFUiJwRyNFKjbWs4F7TZ5RKqhBJTzjJXV4ziFuGpai3EqVv","EOS8aPw4CdCQMH4KLaXLMocoU15VGwd7FkHsuF8vnZcQnNqMVyjfN","EOS8aZbXRiznzmNJk8SGeJq7rKTjvhEYSzbUR4gYvkKQN2jP6Vjey"]
+2020-08-13 21:00:57.532 [http-nio-19111-exec-9] INFO  com.zmj.controller.eos.EosController - ["EOS4x6q9YA8NAz3o7BByogoJuyLVV7QQNVeHyPdYhaNgPZQ8EHYF5","EOS53nDvwVR9AG4Wo3SoTVAiTpesSnFHabwmcti7U4dGztxivvgQh","EOS54FRPCYMZYmaLm9RfrgAP96EzgDoMtpaJa3FD6uM75ix9c4LDt","EOS5DQAiGN5DG27AH2VQwP22gHMZbXixAz4VUzFZyPuvFVbVxp9cn","EOS5Me4QQpyv3f4eohwB3pz64erbticXyNcKyzGWm9Dk9t7bGmDvw","EOS5RLenYfMBRbJC8b3HfKy5dPr7jBKJYsQWFKaNuWjuJNejHppgU","EOS5WceMsoi3PKxaR8mFxb8bWgYHzv95j6CGG8o1EdYMQJWgj3UWb","EOS5bpmFammnPCW1UhuAgKZ7eSgi4qVqwAa159wKZRXnLbY7HEutq","EOS5d5GYFMCpuUimvmmREmcQoN9oMhuoiN4neQ3Yuuz8s6TC6V3C9","EOS5iUZoPv7GedoZZxZLgxjmHEt7xMYpUhzdmNq6wPM2QsLoiy6fM","EOS5pdeWguwWSWe9LhkPJ2JK3wFRbEp7At5oWD5Q1xX7EoRPp9Vzv","EOS5xtRr86NejgZNkBiGUiLFTsNEPbgaPXeSJyb4d9WMmxwZsEhV6","EOS67CjjHoApEyrKJiee5Gqysix4jjfNxhSaECo1Um7iRgQH6e6hV","EOS6Cj3PyovT3aeA3HjSn4ZYKhJEmTRN7zHX7RQnfmFmyB4UzoSKo","EOS6DnUoHmagyvRVoi2GziYVPXTthKUiJh7MfQ8zcAm1B4oCbisXF","EOS6F6QdUs1Yu81BA733FovrkgVh89jBPMDdnkBw7BSbSS2eqT2dB","EOS6HJqmVTiDr125MkRHGE9Kvyh8gN3o1bEFtEWe8yXCtEUp1Npht","EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","EOS6NLb55SMeEKyg3gy7Sr8fZrZj8uyqixemwKXYg6K3c5QYJYWhe","EOS6a8PzY2T5DdHXLS92aZmSGoVhDh7XoDaZWPeP4uXgjYRztCyok","EOS6dVA925bFmdtojo4agXJGKojTKXP7zGKgo5QAMAVptehk3CEeh","EOS6eY9FrpSh4GgxaebFVHJzF5VFAxijB1WsJRCBasoRumoBQz5bq","EOS6gmteTeaQ89Qfm74FDY6jQWyvkYEnXMBuYud1RKmson6KMD2tH","EOS6pXBtrT7BaZitXgJVPSKd4d4C1b4zsHXExAF6iDHoQAnrcFLUa","EOS6sQHpKX783MdzCQrNmNUFcvENEyNtR4tHuLYfk9TPfxkEFUgfJ","EOS771sDoLRKXSUNoYKZTU54G7fEJC6hsVvk7mqATbVnekD4gik9b","EOS7XtreCLPL1A18qTmgAFhEZ9VCgZ9wKB4Qx8KAh2sQ9ifNmbB2W","EOS7YNzVvFVq7DbJDKozFgfNaut9zWSsr7aNmwZ5hDXAeVHf36fCK","EOS7YQT5tv6DAwDmxdosAiz6BqMn7Gy3NrgqpERTxEyfSK1dhQKSh","EOS7jmUb4zSLu18dPVQkkVCPkTegSwi5KW96iRP3BPGfyFpU146gr","EOS7k35WFYc94HKu3ajha3bQn9d9dgtULRg5iYX1dHcSd2CU45bhp","EOS7tTBeRFcdZNqY9fEEZujeCeJLFcMjp2aeadMNWdzL4quARehRW","EOS7uG2t9npGKrf6SKQfyFgbbT1jPS1EyDmKy8Y1KZtJaYLKEdgD6","EOS7vAes8aepJ15JWAdfNKKtLpJK1m1Y83pLiT2DTG5HWPxKstmcx","EOS87u6nTZaBAR6H6d4c4KTqKRT7p63JcWZEQE251fHkCULnatNRq","EOS8FiAgDEWH3g9CyZTjHAkTsHMWX9xD5NkPpe4reec7SFfPb97sj","EOS8YgMFUiJwRyNFKjbWs4F7TZ5RKqhBJTzjJXV4ziFuGpai3EqVv","EOS8aPw4CdCQMH4KLaXLMocoU15VGwd7FkHsuF8vnZcQnNqMVyjfN","EOS8aZbXRiznzmNJk8SGeJq7rKTjvhEYSzbUR4gYvkKQN2jP6Vjey"]
+2020-08-13 21:00:58.716 [http-nio-19111-exec-10] INFO  com.zmj.controller.eos.EosController - ["EOS4x6q9YA8NAz3o7BByogoJuyLVV7QQNVeHyPdYhaNgPZQ8EHYF5","EOS53nDvwVR9AG4Wo3SoTVAiTpesSnFHabwmcti7U4dGztxivvgQh","EOS54FRPCYMZYmaLm9RfrgAP96EzgDoMtpaJa3FD6uM75ix9c4LDt","EOS5DQAiGN5DG27AH2VQwP22gHMZbXixAz4VUzFZyPuvFVbVxp9cn","EOS5Me4QQpyv3f4eohwB3pz64erbticXyNcKyzGWm9Dk9t7bGmDvw","EOS5RLenYfMBRbJC8b3HfKy5dPr7jBKJYsQWFKaNuWjuJNejHppgU","EOS5WceMsoi3PKxaR8mFxb8bWgYHzv95j6CGG8o1EdYMQJWgj3UWb","EOS5bpmFammnPCW1UhuAgKZ7eSgi4qVqwAa159wKZRXnLbY7HEutq","EOS5d5GYFMCpuUimvmmREmcQoN9oMhuoiN4neQ3Yuuz8s6TC6V3C9","EOS5iUZoPv7GedoZZxZLgxjmHEt7xMYpUhzdmNq6wPM2QsLoiy6fM","EOS5pdeWguwWSWe9LhkPJ2JK3wFRbEp7At5oWD5Q1xX7EoRPp9Vzv","EOS5xtRr86NejgZNkBiGUiLFTsNEPbgaPXeSJyb4d9WMmxwZsEhV6","EOS67CjjHoApEyrKJiee5Gqysix4jjfNxhSaECo1Um7iRgQH6e6hV","EOS6Cj3PyovT3aeA3HjSn4ZYKhJEmTRN7zHX7RQnfmFmyB4UzoSKo","EOS6DnUoHmagyvRVoi2GziYVPXTthKUiJh7MfQ8zcAm1B4oCbisXF","EOS6F6QdUs1Yu81BA733FovrkgVh89jBPMDdnkBw7BSbSS2eqT2dB","EOS6HJqmVTiDr125MkRHGE9Kvyh8gN3o1bEFtEWe8yXCtEUp1Npht","EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","EOS6NLb55SMeEKyg3gy7Sr8fZrZj8uyqixemwKXYg6K3c5QYJYWhe","EOS6a8PzY2T5DdHXLS92aZmSGoVhDh7XoDaZWPeP4uXgjYRztCyok","EOS6dVA925bFmdtojo4agXJGKojTKXP7zGKgo5QAMAVptehk3CEeh","EOS6eY9FrpSh4GgxaebFVHJzF5VFAxijB1WsJRCBasoRumoBQz5bq","EOS6gmteTeaQ89Qfm74FDY6jQWyvkYEnXMBuYud1RKmson6KMD2tH","EOS6pXBtrT7BaZitXgJVPSKd4d4C1b4zsHXExAF6iDHoQAnrcFLUa","EOS6sQHpKX783MdzCQrNmNUFcvENEyNtR4tHuLYfk9TPfxkEFUgfJ","EOS771sDoLRKXSUNoYKZTU54G7fEJC6hsVvk7mqATbVnekD4gik9b","EOS7XtreCLPL1A18qTmgAFhEZ9VCgZ9wKB4Qx8KAh2sQ9ifNmbB2W","EOS7YNzVvFVq7DbJDKozFgfNaut9zWSsr7aNmwZ5hDXAeVHf36fCK","EOS7YQT5tv6DAwDmxdosAiz6BqMn7Gy3NrgqpERTxEyfSK1dhQKSh","EOS7jmUb4zSLu18dPVQkkVCPkTegSwi5KW96iRP3BPGfyFpU146gr","EOS7k35WFYc94HKu3ajha3bQn9d9dgtULRg5iYX1dHcSd2CU45bhp","EOS7tTBeRFcdZNqY9fEEZujeCeJLFcMjp2aeadMNWdzL4quARehRW","EOS7uG2t9npGKrf6SKQfyFgbbT1jPS1EyDmKy8Y1KZtJaYLKEdgD6","EOS7vAes8aepJ15JWAdfNKKtLpJK1m1Y83pLiT2DTG5HWPxKstmcx","EOS87u6nTZaBAR6H6d4c4KTqKRT7p63JcWZEQE251fHkCULnatNRq","EOS8FiAgDEWH3g9CyZTjHAkTsHMWX9xD5NkPpe4reec7SFfPb97sj","EOS8YgMFUiJwRyNFKjbWs4F7TZ5RKqhBJTzjJXV4ziFuGpai3EqVv","EOS8aPw4CdCQMH4KLaXLMocoU15VGwd7FkHsuF8vnZcQnNqMVyjfN","EOS8aZbXRiznzmNJk8SGeJq7rKTjvhEYSzbUR4gYvkKQN2jP6Vjey"]
+2020-08-13 21:01:21.512 [http-nio-19111-exec-1] INFO  com.zmj.controller.eos.EosController - {"code":500,"message":"Internal Service Error","error":{"code":3120003,"name":"wallet_locked_exception","what":"Locked wallet","details":[{"message":"You don't have any unlocked wallet!","file":"wallet_manager.cpp","line_number":149,"method":"get_public_keys"}]}}
+2020-08-13 21:01:25.826 [http-nio-19111-exec-3] INFO  com.zmj.controller.eos.EosController - {}
+2020-08-13 21:01:31.803 [http-nio-19111-exec-4] INFO  com.zmj.controller.eos.EosController - ["EOS4x6q9YA8NAz3o7BByogoJuyLVV7QQNVeHyPdYhaNgPZQ8EHYF5","EOS53nDvwVR9AG4Wo3SoTVAiTpesSnFHabwmcti7U4dGztxivvgQh","EOS54FRPCYMZYmaLm9RfrgAP96EzgDoMtpaJa3FD6uM75ix9c4LDt","EOS5DQAiGN5DG27AH2VQwP22gHMZbXixAz4VUzFZyPuvFVbVxp9cn","EOS5Me4QQpyv3f4eohwB3pz64erbticXyNcKyzGWm9Dk9t7bGmDvw","EOS5RLenYfMBRbJC8b3HfKy5dPr7jBKJYsQWFKaNuWjuJNejHppgU","EOS5WceMsoi3PKxaR8mFxb8bWgYHzv95j6CGG8o1EdYMQJWgj3UWb","EOS5bpmFammnPCW1UhuAgKZ7eSgi4qVqwAa159wKZRXnLbY7HEutq","EOS5d5GYFMCpuUimvmmREmcQoN9oMhuoiN4neQ3Yuuz8s6TC6V3C9","EOS5iUZoPv7GedoZZxZLgxjmHEt7xMYpUhzdmNq6wPM2QsLoiy6fM","EOS5pdeWguwWSWe9LhkPJ2JK3wFRbEp7At5oWD5Q1xX7EoRPp9Vzv","EOS5xtRr86NejgZNkBiGUiLFTsNEPbgaPXeSJyb4d9WMmxwZsEhV6","EOS67CjjHoApEyrKJiee5Gqysix4jjfNxhSaECo1Um7iRgQH6e6hV","EOS6Cj3PyovT3aeA3HjSn4ZYKhJEmTRN7zHX7RQnfmFmyB4UzoSKo","EOS6DnUoHmagyvRVoi2GziYVPXTthKUiJh7MfQ8zcAm1B4oCbisXF","EOS6F6QdUs1Yu81BA733FovrkgVh89jBPMDdnkBw7BSbSS2eqT2dB","EOS6HJqmVTiDr125MkRHGE9Kvyh8gN3o1bEFtEWe8yXCtEUp1Npht","EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV","EOS6NLb55SMeEKyg3gy7Sr8fZrZj8uyqixemwKXYg6K3c5QYJYWhe","EOS6a8PzY2T5DdHXLS92aZmSGoVhDh7XoDaZWPeP4uXgjYRztCyok","EOS6dVA925bFmdtojo4agXJGKojTKXP7zGKgo5QAMAVptehk3CEeh","EOS6eY9FrpSh4GgxaebFVHJzF5VFAxijB1WsJRCBasoRumoBQz5bq","EOS6gmteTeaQ89Qfm74FDY6jQWyvkYEnXMBuYud1RKmson6KMD2tH","EOS6pXBtrT7BaZitXgJVPSKd4d4C1b4zsHXExAF6iDHoQAnrcFLUa","EOS6sQHpKX783MdzCQrNmNUFcvENEyNtR4tHuLYfk9TPfxkEFUgfJ","EOS771sDoLRKXSUNoYKZTU54G7fEJC6hsVvk7mqATbVnekD4gik9b","EOS7XtreCLPL1A18qTmgAFhEZ9VCgZ9wKB4Qx8KAh2sQ9ifNmbB2W","EOS7YNzVvFVq7DbJDKozFgfNaut9zWSsr7aNmwZ5hDXAeVHf36fCK","EOS7YQT5tv6DAwDmxdosAiz6BqMn7Gy3NrgqpERTxEyfSK1dhQKSh","EOS7jmUb4zSLu18dPVQkkVCPkTegSwi5KW96iRP3BPGfyFpU146gr","EOS7k35WFYc94HKu3ajha3bQn9d9dgtULRg5iYX1dHcSd2CU45bhp","EOS7tTBeRFcdZNqY9fEEZujeCeJLFcMjp2aeadMNWdzL4quARehRW","EOS7uG2t9npGKrf6SKQfyFgbbT1jPS1EyDmKy8Y1KZtJaYLKEdgD6","EOS7vAes8aepJ15JWAdfNKKtLpJK1m1Y83pLiT2DTG5HWPxKstmcx","EOS87u6nTZaBAR6H6d4c4KTqKRT7p63JcWZEQE251fHkCULnatNRq","EOS8FiAgDEWH3g9CyZTjHAkTsHMWX9xD5NkPpe4reec7SFfPb97sj","EOS8YgMFUiJwRyNFKjbWs4F7TZ5RKqhBJTzjJXV4ziFuGpai3EqVv","EOS8aPw4CdCQMH4KLaXLMocoU15VGwd7FkHsuF8vnZcQnNqMVyjfN","EOS8aZbXRiznzmNJk8SGeJq7rKTjvhEYSzbUR4gYvkKQN2jP6Vjey"]
+2020-08-13 21:01:43.192 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 21:01:43.193 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 21:01:43.204 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 21:36:40.117 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 21:36:45.137 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 48235 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 21:36:45.139 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 21:36:46.653 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 21:36:46.662 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 21:36:46.758 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40ms. Found 0 Redis repository interfaces.
+2020-08-13 21:36:47.976 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 21:36:48.013 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 21:36:48.014 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 21:36:48.014 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 21:36:48.312 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 21:36:48.314 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3066 ms
+2020-08-13 21:36:50.072 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 21:36:50.722 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 21:36:50.791 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 21:36:50.813 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 26.769 seconds (JVM running for 27.882)
+2020-08-13 21:36:50.874 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 21:36:51.477 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 21:39:02.246 [http-nio-19111-exec-1] INFO  org.apache.coyote.http11.Http11Processor - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/eth/getAddPrivPub?password=&text={%22address%22:%22140a09ae7889312ee55faedc4a65c73c74f84616%22,%22crypto%22:{%22cipher%22:%22aes-128-ctr%22,%22ciphertext%22:%22b184942f7cb7cb2de273ec38ee0a680509ad4828157b35daa9df0ac916fcd261%22,%22cipherparams%22:{%22iv%22:%22afe4d8bdf9ad9e01f7629bf50791bc04%22},%22kdf%22:%22scrypt%22,%22kdfparams%22:{%22dklen%22:32,%22n%22:262144,%22p%22:1,%22r%22:8,%22salt%22:%22791b177e1188e7f0a218cb4e351ea86394ddc61264239e4148cb683933651f30%22},%22mac%22:%22be9d0ab0815304e35eb93a8678d21b4ac8ff1b716b4b8dad5c85e17dec01c596%22},%22id%22:%2238ca83ef-2c17-4f2f-8cfd-574ca544057c%22,%22version%22:3}]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:491)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:260)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-13 21:40:19.106 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 21:40:19.108 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 21:40:19.118 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 21:41:21.114 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5006 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 21:41:26.131 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 48243 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 21:41:26.134 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 21:41:27.320 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 21:41:27.324 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 21:41:27.373 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29ms. Found 0 Redis repository interfaces.
+2020-08-13 21:41:28.294 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 21:41:28.317 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 21:41:28.319 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 21:41:28.319 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 21:41:28.572 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 21:41:28.573 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2347 ms
+2020-08-13 21:41:29.966 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 21:41:30.504 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 21:41:30.565 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 21:41:30.587 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 25.348 seconds (JVM running for 26.338)
+2020-08-13 21:41:30.644 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 21:41:31.175 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 21:41:39.777 [http-nio-19111-exec-1] INFO  org.apache.coyote.http11.Http11Processor - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/eth/getAddPrivPub?password=&text=%27{%22address%22:%22140a09ae7889312ee55faedc4a65c73c74f84616%22,%22crypto%22:{%22cipher%22:%22aes-128-ctr%22,%22ciphertext%22:%22b184942f7cb7cb2de273ec38ee0a680509ad4828157b35daa9df0ac916fcd261%22,%22cipherparams%22:{%22iv%22:%22afe4d8bdf9ad9e01f7629bf50791bc04%22},%22kdf%22:%22scrypt%22,%22kdfparams%22:{%22dklen%22:32,%22n%22:262144,%22p%22:1,%22r%22:8,%22salt%22:%22791b177e1188e7f0a218cb4e351ea86394ddc61264239e4148cb683933651f30%22},%22mac%22:%22be9d0ab0815304e35eb93a8678d21b4ac8ff1b716b4b8dad5c85e17dec01c596%22},%22id%22:%2238ca83ef-2c17-4f2f-8cfd-574ca544057c%22,%22version%22:3}%27]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:491)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:260)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-13 21:44:14.908 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 21:44:14.911 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 21:44:14.919 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 21:58:49.755 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5005 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 21:58:54.773 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 48274 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 21:58:54.777 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 21:58:56.577 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 21:58:56.588 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 21:58:56.702 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53ms. Found 0 Redis repository interfaces.
+2020-08-13 21:58:58.233 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 21:58:58.270 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 21:58:58.272 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 21:58:58.272 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 21:58:58.708 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 21:58:58.709 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3800 ms
+2020-08-13 21:59:00.697 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 21:59:01.340 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 21:59:01.437 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 21:59:01.477 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 28.018 seconds (JVM running for 29.26)
+2020-08-13 21:59:01.531 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 21:59:02.106 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 22:00:07.939 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 22:00:07.941 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 22:00:07.958 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2020-08-13 22:00:07.992 [http-nio-19111-exec-1] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2020-08-13 22:00:40.606 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 22:00:40.609 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 22:00:40.617 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 22:01:16.151 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5006 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 22:01:21.165 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 48290 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 22:01:21.167 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 22:01:22.185 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 22:01:22.189 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 22:01:22.249 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35ms. Found 0 Redis repository interfaces.
+2020-08-13 22:01:23.274 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 22:01:23.293 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 22:01:23.294 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 22:01:23.295 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 22:01:23.474 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 22:01:23.475 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2219 ms
+2020-08-13 22:01:24.672 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 22:01:25.123 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 22:01:25.175 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 22:01:25.191 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 25.205 seconds (JVM running for 26.476)
+2020-08-13 22:01:25.231 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 22:01:25.680 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 22:01:39.113 [http-nio-19111-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 22:01:39.115 [http-nio-19111-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 22:01:39.126 [http-nio-19111-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2020-08-13 22:01:42.845 [http-nio-19111-exec-2] INFO  com.zmj.controller.eth.EthController - {"address":"0x140a09ae7889312ee55faedc4a65c73c74f84616","priv_16":"1f6b5771b4b83a4d9f377a14a6a9f47f0db2dd25dc1a0ab9db73dfe6e84a50b","pub_16":"93f92de0c79303ff163d3a0b9921a8aa91d41a50fdd0cd2c17fe0758b6c5e1fe06524c2cc930ed487144a07037f49ce19bd6f28d4087f38baa5bc349154545ca","priv":888209653715668045595919839660499411147995417789111672966315834493085459723,"pub":7749993515355758978502130789858657443503416091975371945845180578953354482613681969978508642136143693690328510993448733940541064073025246193291693155239370}
+2020-08-13 22:02:09.609 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 22:02:09.611 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 22:02:09.618 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-08-13 22:03:05.610 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5007 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-08-13 22:03:10.622 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongweideMacBook-Air.local with PID 48293 (/Users/gaihongwei/tools/eclipse/workspace/zmj/target/classes started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj)
+2020-08-13 22:03:10.624 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-08-13 22:03:11.751 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-13 22:03:11.755 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-13 22:03:11.807 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31ms. Found 0 Redis repository interfaces.
+2020-08-13 22:03:12.739 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19111 (http)
+2020-08-13 22:03:12.760 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19111"]
+2020-08-13 22:03:12.761 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-13 22:03:12.761 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-13 22:03:12.982 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-13 22:03:12.982 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2251 ms
+2020-08-13 22:03:14.213 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-13 22:03:14.719 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19111"]
+2020-08-13 22:03:14.769 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19111 (http) with context path ''
+2020-08-13 22:03:14.785 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 25.071 seconds (JVM running for 26.008)
+2020-08-13 22:03:14.821 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-08-13 22:03:15.203 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-08-13 22:03:20.086 [http-nio-19111-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-13 22:03:20.087 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-13 22:03:20.099 [http-nio-19111-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2020-08-13 22:03:23.369 [http-nio-19111-exec-1] INFO  com.zmj.controller.eth.EthController - {"address":"0x140a09ae7889312ee55faedc4a65c73c74f84616","priv_16":"1f6b5771b4b83a4d9f377a14a6a9f47f0db2dd25dc1a0ab9db73dfe6e84a50b","pub_16":"93f92de0c79303ff163d3a0b9921a8aa91d41a50fdd0cd2c17fe0758b6c5e1fe06524c2cc930ed487144a07037f49ce19bd6f28d4087f38baa5bc349154545ca","priv":"888209653715668045595919839660499411147995417789111672966315834493085459723","pub":"7749993515355758978502130789858657443503416091975371945845180578953354482613681969978508642136143693690328510993448733940541064073025246193291693155239370"}
+2020-08-13 22:03:38.417 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-13 22:03:38.418 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-13 22:03:38.425 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

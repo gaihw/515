@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>钱包测试管理平台</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<body class="layui-layout-body">
+<script src="../layui/layui.all.js"></script>
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script>
+    //layui模块的定义
+    layui.define(['layer','form'], function(exports){
+        alert("test ....");
+        exports('mod', function(){
+        });
+    });
+
+    //layui模块的使用
+    layui.use(['mod'], function(args){
+        var mod = layui.mod;
+    });
+</script>
+</body>
+</html>

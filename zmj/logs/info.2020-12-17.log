@@ -1,0 +1,29 @@
+2020-12-17 20:13:47.545 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-12-17 20:13:52.561 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication v0.0.1-SNAPSHOT on gaihongweideMacBook-Air.local with PID 13547 (/Users/gaihongwei/tools/eclipse/workspace/zmj-resttemplate/target/test-0.0.1-SNAPSHOT.jar started by gaihongwei in /Users/gaihongwei/tools/eclipse/workspace/zmj-resttemplate)
+2020-12-17 20:13:52.563 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2020-12-17 20:13:56.003 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2020-12-17 20:13:56.004 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'com.zmj.dao.platform.UserDao' mapperInterface. Bean already defined with the same name!
+2020-12-17 20:13:56.004 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'projectDao' and 'com.zmj.dao.platform.ProjectDao' mapperInterface. Bean already defined with the same name!
+2020-12-17 20:13:56.005 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2020-12-17 20:13:56.005 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2020-12-17 20:13:56.010 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2020-12-17 20:13:56.013 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2020-12-17 20:13:56.015 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2020-12-17 20:13:56.744 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-17 20:13:56.766 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-17 20:13:56.941 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62ms. Found 0 Redis repository interfaces.
+2020-12-17 20:13:59.741 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19113 (http)
+2020-12-17 20:13:59.876 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19113"]
+2020-12-17 20:13:59.878 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-17 20:13:59.879 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-12-17 20:14:00.523 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-17 20:14:00.524 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7789 ms
+2020-12-17 20:14:05.709 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-17 20:14:06.007 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2020-12-17 20:14:07.011 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19113"]
+2020-12-17 20:14:07.149 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19113 (http) with context path ''
+2020-12-17 20:14:07.196 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 36.79 seconds (JVM running for 37.787)
+2020-12-17 20:18:16.058 [http-nio-19113-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-17 20:18:16.061 [http-nio-19113-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-12-17 20:18:16.101 [http-nio-19113-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 39 ms
+2020-12-17 20:19:00.688 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
