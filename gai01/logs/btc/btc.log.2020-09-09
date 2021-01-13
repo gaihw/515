@@ -1,0 +1,6 @@
+2020-09-09 20:31:04  [ main:85883 ] - [ INFO ]  
+2020-09-09 20:31:04  [ main:85886 ] - [ INFO ]  {"jsonrpc": "1.0", "id": "curltest", "method": "signrawtransactionwithkey", "params": ["null", ["null"],[{"txid":"null","vout":null,"scriptPubKey":"null","amount":0}]]}
+2020-09-09 20:31:04  [ main:85891 ] - [ INFO ]  {"result":null,"error":{"code":-22,"message":"TX decode failed"},"id":"curltest"}
+2020-09-09 20:33:23  [ main:70843 ] - [ INFO ]  
+2020-09-09 20:33:23  [ main:70845 ] - [ INFO ]  {"jsonrpc": "1.0", "id": "curltest", "method": "signrawtransactionwithkey", "params": ["null", ["null"],[{"txid":"null","vout":null,"scriptPubKey":"null","amount":0}]]}
+2020-09-09 20:33:23  [ main:70850 ] - [ INFO ]  {"result":null,"error":{"code":-22,"message":"TX decode failed"},"id":"curltest"}

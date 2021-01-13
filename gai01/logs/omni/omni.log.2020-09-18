@@ -1,0 +1,6 @@
+2020-09-18 11:20:59  [ main:1687 ] - [ INFO ]  {"result":"82151c3c8399b120039454b9d0f1be6d7ef70745a666f575dc6ba547cfd1195e","error":null,"id":"curltest"}
+2020-09-18 11:20:59  [ main:1688 ] - [ INFO ]  {"result":"82151c3c8399b120039454b9d0f1be6d7ef70745a666f575dc6ba547cfd1195e","error":null,"id":"curltest"}
+2020-09-18 11:22:56  [ main:479 ] - [ INFO ]  {"result":"05b95c712b7bc258873ea47cf394d6da55b37d4ce124c3cc269d132d19adcfbb","error":null,"id":"curltest"}
+2020-09-18 11:22:56  [ main:481 ] - [ INFO ]  {"result":"05b95c712b7bc258873ea47cf394d6da55b37d4ce124c3cc269d132d19adcfbb","error":null,"id":"curltest"}
+2020-09-18 11:24:34  [ main:581 ] - [ INFO ]  {"result":"26f7ad581fc6cbc35a6f7a25d3c78e1e85304bb3d004ff7aafe293eb2f8b88a0","error":null,"id":"curltest"}
+2020-09-18 11:24:34  [ main:582 ] - [ INFO ]  {"result":"26f7ad581fc6cbc35a6f7a25d3c78e1e85304bb3d004ff7aafe293eb2f8b88a0","error":null,"id":"curltest"}

@@ -1,0 +1,4 @@
+2020-10-16 11:40:43  [ main:580 ] - [ INFO ]  {"result":"6657b052ed17f3d4acaf574c03126829ece83a149dde239ef086b99fae065532","error":null,"id":"curltest"}
+2020-10-16 13:40:27  [ main:1605 ] - [ INFO ]  {"result":"677723bebdd43a797f0f192b567ddad3f2367107a0f080a20243596f33bf75cd","error":null,"id":"curltest"}
+2020-10-16 13:54:10  [ main:803 ] - [ INFO ]  {"result":"07b6738844cbf8919ed5d0abb93bc6863435bfced39c2f40883bf55ff2493940","error":null,"id":"curltest"}
+2020-10-16 13:54:34  [ main:568 ] - [ INFO ]  {"result":"859e641fb0875e45d566977d8f1810bfcb4c2749da9006e9218df35f3d331b59","error":null,"id":"curltest"}

@@ -1,0 +1,84 @@
+{"result":{"hex":"02000000000101fec6b5ec1dcf093c807a4fc5c6752d29c99598f9d3d9ce4a7201ba4354e036a30000000000ffffffff014004a80400000000160014056fb2fbffb5f8a42882b1da86702f19b8f04be00247304402202f254db63be539095c864d2fe210f80ab059640390c541f4e38f75d311b3d3600220343e5bb4070543771f096796c921d3e8e09af358ddb332e1abe5c3481fb7c86f012103a96804f7925eaba8636946a37500c7970869bbb1394089e7e960f1c7f3764b4500000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":"ab5e30e2a36e2663dea61d60d25b1e94dcdfbe1ab43f28c0674443442c1e0bc4","error":null,"id":"curltest"}
+----------------------
+{"result":"9df5143ef743f5a895ecdf431f9835023def62b044777131bef7767b659dae93","error":null,"id":"curltest"}
+----------------------
+{"result":{"hex":"02000000000101fec6b5ec1dcf093c807a4fc5c6752d29c99598f9d3d9ce4a7201ba4354e036a30000000000ffffffff0140e59d0a0000000017a914003d9635cfa372c2506e8f8efa3202c20d15ecf88702473044022001d5afa0c9aaf29a6e188cb8e7df3062a4f722f5bdc146330dbce11ed035d2a902205fd0fe105311fa1df7943aa6452356062ee65897758699b479374e58a7003018012103a96804f7925eaba8636946a37500c7970869bbb1394089e7e960f1c7f3764b4500000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-26,"message":"bad-txns-in-belowout, value in (0.78125) < value out (1.7812)"},"id":"curltest"}
+----------------------
+{"result":{"hex":"02000000000101fec6b5ec1dcf093c807a4fc5c6752d29c99598f9d3d9ce4a7201ba4354e036a30000000000ffffffff014004a8040000000017a914003d9635cfa372c2506e8f8efa3202c20d15ecf88702473044022059207a32b34b2a2a45dff82a5ad92a267cb271a947bf9d9f167d5c9d9e7a149a02200f3a41e85b714ad434c0f2a1a86397fa1a9c691c9d6f90566b472f98b61d9cff012103a96804f7925eaba8636946a37500c7970869bbb1394089e7e960f1c7f3764b4500000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-26,"message":"non-mandatory-script-verify-flag (Signature must be zero for failed CHECK(MULTI)SIG operation)"},"id":"curltest"}
+----------------------
+{"result":{"hex":"02000000000101fec6b5ec1dcf093c807a4fc5c6752d29c99598f9d3d9ce4a7201ba4354e036a30000000000ffffffff0130dda7040000000017a914003d9635cfa372c2506e8f8efa3202c20d15ecf8870247304402205d3d4cade3b64e781548e2d19885f1451ffd77e53f246310c8749da668b58fe9022003ce33f2775fa8ec41333f374a9db4930f48d28aa1de9e0709416fa92f7f51dd012103a96804f7925eaba8636946a37500c7970869bbb1394089e7e960f1c7f3764b4500000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-26,"message":"non-mandatory-script-verify-flag (Signature must be zero for failed CHECK(MULTI)SIG operation)"},"id":"curltest"}
+----------------------
+{"result":{"hex":"02000000000101fec6b5ec1dcf093c807a4fc5c6752d29c99598f9d3d9ce4a7201ba4354e036a30000000000ffffffff0120b6a7040000000017a914003d9635cfa372c2506e8f8efa3202c20d15ecf88702473044022006a4894925642eccd4b41550fff5410b9c736ceea2e92f75bbf182c7d00ac76c0220082a13d8743f8c6ac61fcdc52fb7aa6e87943e1a2c0682a9946c53ac8a671c74012103a96804f7925eaba8636946a37500c7970869bbb1394089e7e960f1c7f3764b4500000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-26,"message":"non-mandatory-script-verify-flag (Signature must be zero for failed CHECK(MULTI)SIG operation)"},"id":"curltest"}
+----------------------
+{"result":{"hex":"02000000000101fec6b5ec1dcf093c807a4fc5c6752d29c99598f9d3d9ce4a7201ba4354e036a30000000000ffffffff0120b6a7040000000017a914003d9635cfa372c2506e8f8efa3202c20d15ecf88702473044022006a4894925642eccd4b41550fff5410b9c736ceea2e92f75bbf182c7d00ac76c0220082a13d8743f8c6ac61fcdc52fb7aa6e87943e1a2c0682a9946c53ac8a671c74012103a96804f7925eaba8636946a37500c7970869bbb1394089e7e960f1c7f3764b4500000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-26,"message":"non-mandatory-script-verify-flag (Signature must be zero for failed CHECK(MULTI)SIG operation)"},"id":"curltest"}
+----------------------
+{"result":{"hex":"0200000001ff146c37a68466cdf4e9eb384dbf5969d94574b386c5667cc955734b5f81326b0000000000ffffffff0120979d0a0000000017a914003d9635cfa372c2506e8f8efa3202c20d15ecf88700000000","complete":false,"errors":[{"txid":"6b32815f4b7355c97c66c586b37445d96959bf4d38ebe9f4cd6684a6376c14ff","vout":0,"witness":[],"scriptSig":"","sequence":4294967295,"error":"Unable to sign input, missing keys"}]},"error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-26,"message":"absurdly-high-fee, 2321900000 > 830000"},"id":"curltest"}
+----------------------
+{"result":{"hex":"0200000001ff146c37a68466cdf4e9eb384dbf5969d94574b386c5667cc955734b5f81326b0000000000ffffffff01607201950000000017a914003d9635cfa372c2506e8f8efa3202c20d15ecf88700000000","complete":false,"errors":[{"txid":"6b32815f4b7355c97c66c586b37445d96959bf4d38ebe9f4cd6684a6376c14ff","vout":0,"scriptSig":"","sequence":4294967295,"error":"Unable to sign input, invalid stack size (possibly missing key)"}]},"error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-26,"message":"bad-txns-undersize (code 64)"},"id":"curltest"}
+----------------------
+{"result":{"hex":"0200000001fec6b5ec1dcf093c807a4fc5c6752d29c99598f9d3d9ce4a7201ba4354e036a30000000000ffffffff014004a8040000000017a914003d9635cfa372c2506e8f8efa3202c20d15ecf88700000000","complete":false,"errors":[{"txid":"a336e05443ba01724aced9d3f99895c9292d75c6c54f7a803c09cf1decb5c6fe","vout":0,"scriptSig":"","sequence":4294967295,"error":"Script did not clean its stack"}]},"error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-26,"message":"bad-txns-undersize (code 64)"},"id":"curltest"}
+----------------------
+
+----------------------
+
+----------------------
+{"result":"62b6974183a5aaa23a7cce8baaef45b0f13608c65ca50abf179ef824f0c35d9c","error":null,"id":"curltest"}
+----------------------
+{"result":"7c82bd7326df040828c6a9cee899f546b6f9ecefef488390adcd674c0a9b3071","error":null,"id":"curltest"}
+----------------------
+{"result":"a5da2425bfd54f7dee16c500a080bce95dd22a7a774d40c2e8cae59d84444449","error":null,"id":"curltest"}
+----------------------
+{"result":"2cc4647f3684e45201623de1ad6e351e3ebc626519166de341ed248ba65213b2","error":null,"id":"curltest"}
+----------------------
+{"result":"659f2c4a2952d441970344172383d3dbf38c79a3d7539b66689c715ef46dfb88","error":null,"id":"curltest"}
+----------------------
+{"result":"493f4bea921a60de7c08dabf7e481ee33869327854a2db133c76e55a57f0855a","error":null,"id":"curltest"}
+----------------------
+{"result":{"hex":"0200000001fd8f6766f72668ff8a7adb3e582caf6d878c55a210976c914b5a24a51e9b3088010000006a47304402201a3a4c7b0391bfe0d7d361f56c3f98a7cf4529d7afa9ee45841dcb05abcfb33d02206e36e0539f52d1f11a27422e3a6b663872d41163abe6b9282b77ea3165a6276001210359321d4ea4f946cba155aede953a8bdff3e3dc614a341259d27cbe357b7cdffdffffffff013ce6f24e0000000017a914db732d38d5a974de95b8908734d3b051f6fb4a1f8700000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-26,"message":"min relay fee not met, 15 < 189 (code 66)"},"id":"curltest"}
+----------------------
+{"result":{"hex":"0200000001fd8f6766f72668ff8a7adb3e582caf6d878c55a210976c914b5a24a51e9b3088010000006a47304402206b700221386e742a8a390adf077696e86a0d7bc5b30faa8ac2348400181d88d902201ce7911ea965f35bf8a10c65e70a9bc2b3fc626a4a86b5db0b5d03eaf1b846ae01210359321d4ea4f946cba155aede953a8bdff3e3dc614a341259d27cbe357b7cdffdffffffff0160e0f24e0000000017a914db732d38d5a974de95b8908734d3b051f6fb4a1f8700000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":"37b3c3b8d95ccf01e499cf6f747405f51e8ca63a971ec0f300271010b095fb78","error":null,"id":"curltest"}
+----------------------
+{"result":"697ca5ab4270a07dc2e40f51a9b96d4b0f2b871c117eb4a4cbd4ce1eddb8af83","error":null,"id":"curltest"}
+----------------------
+{"result":"fe618559ac8e880620feb445ba4b91e07b26e7d16a17fc0a60b9d825388605e6","error":null,"id":"curltest"}
+----------------------
+{"result":"da1e2e551b1c721e0afaa2b38c219a4031e35e1f1066488b4960fd56507d1763","error":null,"id":"curltest"}
+----------------------
+{"result":{"hex":"0200000001fd5aa07c366356325bb35f8c328a0256798c2cd6a2ffe8137aa28017fc9d8130000000006a47304402206f76b0f518d7b6f98f18c249d4ddf9ccc34d2694a3a265353aa784813402652f0220770e367541668ceb88ab78fe7c764417f776da7b6a66d1b4a7c68b3f0abe13a50121030cd84b49c3806f6e11dc0632debedfa56d79619868444a6a1b7c89f399769e4dffffffff0110b9a680000000001976a9149d335884c7d457f0423336d048a0a0f46de6dc3e88ac00000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":"5347bd7d326d345c36df35fd7c7c8cfd70b2e81df4e8e43c558ec497631505fc","error":null,"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-22,"message":"Previous output scriptPubKey mismatch:\nOP_HASH160 99a2f786c91ccb11237fc6c90ad094cb93b58005 OP_EQUAL\nvs:\nOP_DUP OP_HASH160 d8d2366b741661b661c8bec3bce19de0501a33ad OP_EQUALVERIFY OP_CHECKSIG"},"id":"curltest"}
+----------------------
+{"result":null,"error":{"code":-22,"message":"Previous output scriptPubKey mismatch:\nOP_HASH160 99a2f786c91ccb11237fc6c90ad094cb93b58005 OP_EQUAL\nvs:\nOP_DUP OP_HASH160 d8d2366b741661b661c8bec3bce19de0501a33ad OP_EQUALVERIFY OP_CHECKSIG"},"id":"curltest"}
+----------------------
+{"result":{"hex":"0200000001fb71a4b817f26911de86fbace0c9a4924f910c97f12ff2febb3e999a168f97d2000000006a473044022076752f54acc1850ba1a1ecd78412cf83d92a624d17f9fdf929f409127d54876002202d59247c8daeb73f66f2877879745de81a6138ca81257a72d37bd6ec3891d09f012102605d07dc6189170e7e86d9c0793941285d44b38ec1e883260885321cbb42074dffffffff0190211d81000000001976a9149d335884c7d457f0423336d048a0a0f46de6dc3e88ac00000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":"04e11744a3368d265e615fab7a20c92e82e5cb307fdcdc3f28df0f102043807f","error":null,"id":"curltest"}
+----------------------
+{"result":{"hex":"0200000001fa98c7f4ff9d77cd2d7a1de0820cec7f61897878744d5ff9f3be2a0199e7b8fd010000006a47304402206a5b1069893803fd9f50d9b3bb53c29fef456d5c8b0a0bd0b123a8069c3ccb40022071b2075fc6c084c6ce894e2cf104e6123f2689a52ac98285f824869b93bad70301210375801cb48df62c78da48b7f38e53048fd2252a299d8292076322bad3ad74dae8ffffffff01b0b51a480000000017a9140a6919977455597554dd0e04a33df426fbfdfa8d8700000000","complete":true},"error":null,"id":"curltest"}
+----------------------
+{"result":"9432ca6d41b6e362e72279ab37f9e593ea095ee29ba75aa95cc64f60d0e959d7","error":null,"id":"curltest"}
+----------------------

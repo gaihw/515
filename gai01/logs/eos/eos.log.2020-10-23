@@ -1,0 +1,6 @@
+2020-10-23 10:30:43  [ main:310 ] - [ INFO ]  I/O exception (java.net.ConnectException) caught when processing request: Connection refused (Connection refused)
+2020-10-23 10:30:43  [ main:314 ] - [ INFO ]  Retrying request
+2020-10-23 10:30:43  [ main:342 ] - [ INFO ]  I/O exception (java.net.ConnectException) caught when processing request: Connection refused (Connection refused)
+2020-10-23 10:30:43  [ main:342 ] - [ INFO ]  Retrying request
+2020-10-23 10:30:43  [ main:347 ] - [ INFO ]  I/O exception (java.net.ConnectException) caught when processing request: Connection refused (Connection refused)
+2020-10-23 10:30:43  [ main:347 ] - [ INFO ]  Retrying request

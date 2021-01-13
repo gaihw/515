@@ -1,0 +1,24 @@
+2020-10-22 10:35:40  [ main:417 ] - [ INFO ]  {"result":null,"error":{"code":-206,"message":"Error with selected inputs for the send transaction"},"id":"curltest"}
+2020-10-22 10:35:40  [ main:419 ] - [ INFO ]  {"result":null,"error":{"code":-206,"message":"Error with selected inputs for the send transaction"},"id":"curltest"}
+2020-10-22 10:47:26  [ main:462 ] - [ INFO ]  {"result":"6fb1c0f5b38b39f106e1d7f69d4789d0671e7b4e04ce07c767ad363d6786a26a","error":null,"id":"curltest"}
+2020-10-22 10:47:26  [ main:463 ] - [ INFO ]  {"result":"6fb1c0f5b38b39f106e1d7f69d4789d0671e7b4e04ce07c767ad363d6786a26a","error":null,"id":"curltest"}
+2020-10-22 10:53:17  [ main:487 ] - [ INFO ]  {"result":"215d70569c9f1ddd1c1b8c6393ae2429c4ae96192b4073afab1ea019d1e860b1","error":null,"id":"curltest"}
+2020-10-22 10:53:17  [ main:488 ] - [ INFO ]  {"result":"215d70569c9f1ddd1c1b8c6393ae2429c4ae96192b4073afab1ea019d1e860b1","error":null,"id":"curltest"}
+2020-10-22 11:15:31  [ main:403 ] - [ INFO ]  {"result":"b9abe6ea404b7da6ff3f869dd6dc056de4b2057eeaca1903f7fc0736196e0576","error":null,"id":"curltest"}
+2020-10-22 11:15:31  [ main:405 ] - [ INFO ]  {"result":"b9abe6ea404b7da6ff3f869dd6dc056de4b2057eeaca1903f7fc0736196e0576","error":null,"id":"curltest"}
+2020-10-22 11:25:43  [ main:422 ] - [ INFO ]  {"result":"9b2a19f818ecf20b44093a22b61e451ed4e484d43173fabcdd486f7a8ee46b64","error":null,"id":"curltest"}
+2020-10-22 11:25:43  [ main:425 ] - [ INFO ]  {"result":"9b2a19f818ecf20b44093a22b61e451ed4e484d43173fabcdd486f7a8ee46b64","error":null,"id":"curltest"}
+2020-10-22 11:35:37  [ main:887 ] - [ INFO ]  {"result":"25855cc7d42926b9922661ca107a643b68945144ba66abb5e2de0f7216102b6d","error":null,"id":"curltest"}
+2020-10-22 11:35:37  [ main:889 ] - [ INFO ]  {"result":"25855cc7d42926b9922661ca107a643b68945144ba66abb5e2de0f7216102b6d","error":null,"id":"curltest"}
+2020-10-22 11:45:38  [ main:481 ] - [ INFO ]  {"result":"9e1e4a17e97af1f57d45ad8a2aac08215ce7b57363ecbe30c0c1716e943df91b","error":null,"id":"curltest"}
+2020-10-22 11:45:38  [ main:482 ] - [ INFO ]  {"result":"9e1e4a17e97af1f57d45ad8a2aac08215ce7b57363ecbe30c0c1716e943df91b","error":null,"id":"curltest"}
+2020-10-22 11:50:47  [ main:389 ] - [ INFO ]  to:2Mu3Ao98XbWjfnSWcRYUdAfjevbhDBLnszi,txid:{"result":"e1692d268bb953ac325342cf392d9a4506357f19dda300fb10cf572132786b66","error":null,"id":"curltest"}
+2020-10-22 11:50:47  [ main:389 ] - [ INFO ]  {"result":"e1692d268bb953ac325342cf392d9a4506357f19dda300fb10cf572132786b66","error":null,"id":"curltest"}
+2020-10-22 11:54:49  [ main:794 ] - [ INFO ]  to:2MxP1WpADJ2yzHQf3pKjhREP9XFj721jtSa,txid:{"result":"0900e2101f80eab7b4ece19fef8f4f58aa21391c4312ca74f532019a334e1954","error":null,"id":"curltest"}
+2020-10-22 11:54:49  [ main:795 ] - [ INFO ]  {"result":"0900e2101f80eab7b4ece19fef8f4f58aa21391c4312ca74f532019a334e1954","error":null,"id":"curltest"}
+2020-10-22 12:06:39  [ main:489 ] - [ INFO ]  to:2MxP1WpADJ2yzHQf3pKjhREP9XFj721jtSa,txid:{"result":"9cefcf99f6cef9a1bf4f542a21a52a0d890834fadacfd0b809172fa3e26a2837","error":null,"id":"curltest"}
+2020-10-22 12:06:39  [ main:491 ] - [ INFO ]  {"result":"9cefcf99f6cef9a1bf4f542a21a52a0d890834fadacfd0b809172fa3e26a2837","error":null,"id":"curltest"}
+2020-10-22 12:23:11  [ main:350 ] - [ INFO ]  to:2Mu3Ao98XbWjfnSWcRYUdAfjevbhDBLnszi,txid:{"result":"961240c0ed9f19bf77771afb66edcb40101a1f5bc252cefa4f2ba7423320b98e","error":null,"id":"curltest"}
+2020-10-22 12:23:11  [ main:352 ] - [ INFO ]  {"result":"961240c0ed9f19bf77771afb66edcb40101a1f5bc252cefa4f2ba7423320b98e","error":null,"id":"curltest"}
+2020-10-22 19:54:09  [ main:572 ] - [ INFO ]  from:2NFbGzEq2HBchX6s6Ac4Xpk7znEnEYJ9Rcq,to:2Mu3Ao98XbWjfnSWcRYUdAfjevbhDBLnszi,txid:{"result":"4fb91ec06fc528d503e277d0e57e6edc6ea82b9c847f44be8970039f523cb945","error":null,"id":"curltest"}
+2020-10-22 19:56:20  [ main:444 ] - [ INFO ]  from:2NFbGzEq2HBchX6s6Ac4Xpk7znEnEYJ9Rcq,to:2Mu3Ao98XbWjfnSWcRYUdAfjevbhDBLnszi,txid:{"result":"cb3e39985380a5c51611206a19d0ad7f344118da056af3b73e476cd3871248f4","error":null,"id":"curltest"}
