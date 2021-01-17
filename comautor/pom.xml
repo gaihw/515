@@ -75,7 +75,7 @@
                 <configuration>
                     <!-- 解决maven test命令时console出现中文乱码乱码 -->
                     <argLine>-Dfile.encoding=UTF-8</argLine>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <testFailureIgnore>false</testFailureIgnore>
                     <suiteXmlFiles>
                         <file>testng.xml</file>
                     </suiteXmlFiles>
