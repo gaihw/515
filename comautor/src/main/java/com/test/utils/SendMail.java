@@ -16,7 +16,7 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class SendMail {
-	private static ResourceBundle bundle= ResourceBundle.getBundle("mailpro", Locale.CHINA);
+	private static ResourceBundle bundle= ResourceBundle.getBundle("application", Locale.CHINA);
 	private static String sender;
 	private static String subject;
 	private static String content;
@@ -111,4 +111,7 @@ public class SendMail {
 	    }
 	}
 
+	public static void main(String[] args) {
+		send();
+	}
 }
