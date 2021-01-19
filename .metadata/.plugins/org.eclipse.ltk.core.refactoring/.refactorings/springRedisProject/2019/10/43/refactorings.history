@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Redis.java&apos; to &apos;springTomybatis/src/main/java/com.spring.model&apos;&#x0A;- Original project: &apos;springRedisProject&apos;&#x0A;- Destination element: &apos;springTomybatis/src/main/java/com.spring.model&apos;&#x0A;- Original element: &apos;com.spring.Redis.java&apos;" description="Copy compilation unit" destination="=springTomybatis/src\/main\/java&lt;com.spring.model" element1="/src\/main\/java&lt;com.spring{Redis.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1571831134817" units="1" version="1.0"/>
+</session>

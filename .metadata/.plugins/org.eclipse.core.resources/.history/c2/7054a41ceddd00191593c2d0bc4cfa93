@@ -1,0 +1,92 @@
+package com.port.test;
+
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+
+import net.sf.json.JSONObject;
+
+public class Util_5 {
+	public static void main(String[] args) {
+//		BigDecimal one = new BigDecimal("0.6");
+//		BigDecimal two = new BigDecimal("1.4");
+//		
+//		BigDecimal a_1_15 = new BigDecimal("1.15");
+//		BigDecimal a_1_2 = new BigDecimal("1.2");
+//		BigDecimal a_1_85 = new BigDecimal("0.85");
+//		BigDecimal a_1_8 = new BigDecimal("0.8");
+		
+		String param_5 = "{\n" + 
+				"            \"id\":\"1569228783795\",\n" + 
+				"            \"open\":\"9918.60000000000000000000\",\n" + 
+				"            \"high\":\"9921.12000000000000000000\",\n" + 
+				"            \"low\":\"9918.60000000000000000000\",\n" + 
+				"            \"close\":\"9921.12000000000000000000\",\n" + 
+				"            \"volume\":\"7384.00000000000000000000\",\n" + 
+				"            \"amount\":\"73245710.700000000000000000000000000000\",\n" + 
+				"            \"productId\":\"2001\",\n" + 
+				"            \"type\":\"0\",\n" + 
+				"            \"time\":\"1569228780000\"\n" + 
+				"        }";
+		String param_5_1 = "{\n" + 
+				"    \"avgNumber\":0.57540882,\n" + 
+				"    \"count\":1003,\n" + 
+				"    \"lastKLineTime\":\"1569226620000\",\n" + 
+				"    \"sum\":\"577.13505640\"\n" + 
+				"}";
+		JSONObject param_temp = JSONObject.fromObject(param_5);
+		double high = param_temp.getDouble("high");
+		double low = param_temp.getDouble("low");
+		double open = param_temp.getDouble("open");
+		double close = param_temp.getDouble("close");
+		double amount = param_temp.getDouble("amount");
+		JSONObject param_temp_0 = JSONObject.fromObject(param_5_1);
+		double avgNumber = param_temp_0.getDouble("avgNumber");
+		DecimalFormat df=new DecimalFormat("0.00000000000000000000");//设置保留位数		 
+		double emplitude = Double.valueOf(df.format((float)(high-low)/open));
+		if(emplitude >= avgNumber*1.4) {
+			System.out.println("emplitude - avgNumber*1.4="+(emplitude - avgNumber*1.4));
+			if(close >= open) {
+				System.out.println("买入="+Double.valueOf(df.format(amount*(float)(1+0.15)/2))+"~"+Double.valueOf(df.format(amount*(float)(1+0.2)/2)));
+				System.out.println("卖出="+Double.valueOf(df.format(amount*(float)(1-0.2)/2))+"~"+Double.valueOf(df.format(amount*(float)(1-0.15)/2)));
+			}else {
+				System.out.println("买入="+Double.valueOf(df.format(amount*(float)(1-0.2)/2))+"~"+Double.valueOf(df.format(amount*(float)(1-0.15)/2)));				
+				System.out.println("卖出="+Double.valueOf(df.format(amount*(float)(1+0.15)/2))+"~"+Double.valueOf(df.format(amount*(float)(1+0.2)/2)));				
+			}
+		}else if(emplitude < avgNumber*1.4 && emplitude >= avgNumber*0.6) {
+			System.out.println("avgNumber*1.4 - emplitude ="+(emplitude - avgNumber*1.4)+";emplitude - avgNumber*0.6="+(emplitude - avgNumber*0.6));
+			if(close >= open) {
+				System.out.println("买入="+Double.valueOf(df.format(amount*(float)(1+0.10)/2))+"~"+Double.valueOf(df.format(amount*(float)(1+0.15)/2)));
+				System.out.println("卖出="+Double.valueOf(df.format(amount*(float)(1-0.15)/2))+"~"+Double.valueOf(df.format(amount*(float)(1-0.1)/2)));
+			}else {
+				System.out.println("买入="+Double.valueOf(df.format(amount*(float)(1-0.15)/2))+"~"+Double.valueOf(df.format(amount*(float)(1-0.1)/2)));				
+				System.out.println("卖出="+Double.valueOf(df.format(amount*(float)(1+0.10)/2))+"~"+Double.valueOf(df.format(amount*(float)(1+0.15)/2)));				
+			}
+		}else if(emplitude < avgNumber*0.6) {
+				System.out.println("avgNumber*0.6 - emplitude = "+(avgNumber*0.6 - emplitude));
+				System.out.println("买入="+Double.valueOf(df.format(amount*(float)(1-0.1)/2))+"~"+Double.valueOf(df.format(amount*(float)(1+0.1)/2)));
+				System.out.println("卖出="+Double.valueOf(df.format(amount*(float)(1+0.1)/2))+"~"+Double.valueOf(df.format(amount*(float)(1-0.1)/2)));
+		}
+		
+		
+//		BigDecimal high_temp = new BigDecimal(high);
+//		BigDecimal low_temp = new BigDecimal(low);
+//		BigDecimal open_temp = new BigDecimal(open);
+//		BigDecimal close_temp = new BigDecimal(close);
+//		BigDecimal amount_temp = new BigDecimal(amount);
+//		BigDecimal high_low = new BigDecimal(String.valueOf(high_temp.subtract(low_temp).setScale(8, BigDecimal.ROUND_HALF_UP)));
+//		BigDecimal emplitude = high_low.divide(open_temp,10,BigDecimal.ROUND_HALF_UP).setScale(8,BigDecimal.ROUND_HALF_UP);		
+//		JSONObject param_temp_0 = JSONObject.fromObject(param_5_1);
+//		double avgNumber = param_temp_0.getDouble("avgNumber");
+//		BigDecimal avgNumber_temp = new BigDecimal(avgNumber);
+//		System.out.println("5分钟振幅="+emplitude);
+//		System.out.println("5分钟振幅平均值="+avgNumber);
+//		if(emplitude.compareTo(avgNumber_temp.multiply(two)) == 0 || emplitude.compareTo(avgNumber_temp.multiply(two)) == 1) {
+//			if()
+//			System.out.println("5分钟振幅-5分钟振幅平均值="+emplitude.subtract(avgNumber_temp.multiply(two)));
+//		}else if((emplitude.compareTo(avgNumber_temp.multiply(two)) == -1 && emplitude.compareTo(avgNumber_temp.multiply(one)) == 1) || (emplitude.compareTo(avgNumber_temp.multiply(two)) == -1 && emplitude.compareTo(avgNumber_temp.multiply(one)) == 0)) {
+//			
+//		}else if(emplitude.compareTo(avgNumber_temp.multiply(one)) == -1)
+//		System.out.println("5分钟振幅-5分钟振幅平均值="+emplitude.subtract(avgNumber_temp.multiply(two)));
+		
+	}
+}

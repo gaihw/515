@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Test]">
+  <listeners>
+    <listener class-name="com.uiPackage.utils.TestNGListener"/>
+    <listener class-name="com.uiPackage.utils.ExtentTestNGIReporterListener"/>
+    <listener class-name="com.uiPackage.utils.ExtentTestNGIReporterListenerTomcat"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.uiPackage.test.LoginTestCase">
+        <methods>
+          <include name="test_accounts"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.uiPackage.test.LoginTestCase -->
+      <class name="com.uiPackage.test.USDTTestCase">
+        <methods>
+          <include name="setUp"/>
+          <include name="test_loginpPlaceOrderPositionStoploss"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.uiPackage.test.USDTTestCase -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Test] -->

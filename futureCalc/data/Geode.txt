@@ -1,0 +1,52 @@
+一、服务器:192.168.200.81先连接
+二、步骤:
+1.输入:gfsh
+2.输入:connect --locator=192.168.200.81[10334]
+3.命令:
+query --query=""执行sql语句
+list region查询当前所有表
+
+三、查询语句:
+1、riskRate    ----风险度
+query --query="select userId, riskRate.doubleValue as riskRate, createdDate.toString from /FutureUserRiskRate WHERE userId=54088"
+
+2、查询wallet
+query --query="select userId, balance.doubleValue as balance, hold.doubleValue as hold from /FutureWallet where userId = 54088"
+
+3、futureOrder   ----挂单
+query --query="select id, userId, contractId, priceType, side, leverage.doubleValue as leverage, price.doubleValue as price, size.doubleValue as size, avgPrice.doubleValue as avgPrice, executedSize.doubleValue as executedSize, status, close, hold.doubleValue as hold, matchTime from /FutureOrder where contractId=1001"
+
+4、futureOrderFill   ----成交订单
+query --query="select id, orderId, userId, targetOrderId, contractId, priceType, side, price.doubleValue as price, size.doubleValue as size, leverage.doubleValue as leverage,fee.doubleValue as fee, liquidation, close, liquidity from /FutureOrderFill where contractId=1001"
+
+5、futureOrderFinish  ----已完成订单
+query --query="select id, userId, contractId, priceType, side, leverage.doubleValue as leverage, price.doubleValue as price, size.doubleValue as size, avgPrice.doubleValue as avgPrice, executedSize.doubleValue as executedSize, status,  liquidation, close, hold.doubleValue as hold from /FutureOrderFinish where userId=54088"
+
+6、futureOrderMessage   ----订单信息
+query --query="select userId, orderId, priceType, side, price.doubleValue as price, size.doubleValue as size, status, createdDate.toString from /FutureOrderMessage"
+
+7、position     ----仓位
+query --query="select userId, contractId, side, positionType, leverage.doubleValue as leverage, entryPrice.doubleValue as entryPrice, positionQty.doubleValue as positionQty, availablePositionQty.doubleValue as availablePositionQty, positionMargin.doubleValue as positionMargin, closeCommission.doubleValue as closeCommission, positionValue.doubleValue as positionValue from /FutureContractPosition where contractId=1001 and userId=54088"
+
+8、FutureMarketData    ----查询指数价格
+query --query="select contractId, indexPrice.doubleValue as indexPrice, fundingRate.doubleValue as fundingRate from /FutureMarketData"
+
+-- RabbitResponse
+query --query="select responseId from /RabbitResponse"
+
+-- ledger
+query --query="select userId, action, quoteCurrencyId, contractId, triggerId, amount.doubleValue as amount, fee.doubleValue as fee, realised.doubleValue as realised, oldBalance.doubleValue as oldBalance, newBalance.doubleValue as newBalance, createdDate.toString from /FutureLedger"
+
+-- systemLedger
+query --query="select userId, currencyId, contractId, amount.doubleValue as amount, feeRate.doubleValue as feeRate, fee.doubleValue as fee, newUserBalance.doubleValue as newUserBalance, oldUserBalance.doubleValue as oldUserBalance, oldBalance.doubleValue as oldBalance, newBalance.doubleValue as newBalance, targetId, action, status, createdDate.toString from /SystemLedger"
+
+
+
+-- userConfig
+query --query="select userId, takerFee.doubleValue as takerFee, makerFee.doubleValue as makerFee from /FutureAdminUserConfig"
+
+-- userConfig
+query --query="select id, takerCommision.doubleValue as takerCommision, makerCommision.doubleValue as makerCommision from /FutureContract"
+
+-- SystemWallet    ----系统钱包
+query --query="select currencyId, userBalance.doubleValue as userBalance, balance.doubleValue as balance, fee.doubleValue as fee, insuranceFund.doubleValue as insuranceFund, realised.doubleValue as realised from /SystemWallet"

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;HttpStatusEnum.java&apos; to &apos;springTomybatis/src/main/java/com.spring.enums&apos;&#x0A;- Original project: &apos;58coin-api-demo-regular&apos;&#x0A;- Destination element: &apos;springTomybatis/src/main/java/com.spring.enums&apos;&#x0A;- Original element: &apos;com.coin58.api.client.HttpStatusEnum.java&apos;" description="Copy compilation unit" destination="=springTomybatis/src\/main\/java&lt;com.spring.enums" element1="/src\/main\/java&lt;com.coin58.api.client{HttpStatusEnum.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1571846441757" units="1" version="1.0"/>
+</session>

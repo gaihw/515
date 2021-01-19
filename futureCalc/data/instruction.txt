@@ -1,0 +1,14 @@
+1、打开execute/TestExecute.java,修改赋值区各项参数,然后执行即可。
+
+2、参数说明:
+1)initialAssets:初始资金,即当前账户无仓位、无挂单情况下的账户余额
+2)contractIds:成交的币种id,从1-7分别BTC、EOS、BCH、ETH、LTC、XRP、ETC
+3)openPrices:成交价,同一个币种的价格依次填入价格大括号的同一个小括号内
+4)sizes:开仓数量,同一个币种的开仓数量依次填入数量大括号的同一个小括号内
+5)leverages:杠杆,同一个币种的杠杆依次填入杠杆大括号的同一个小括号内
+6)sides:开仓方向,同一个币种的开仓方向依次填入方向大括号的同一个小括号内
+7)feeTypes:成交方式,taker:主动成交,maker:被动成交,成交方式依次填入成交方式大括号的同一个小括号内
+
+3、结果保存:
+1)result/testResult.txt:保存本次的测试结果
+2)result/allTestResult.txt:保存所有测试结果
