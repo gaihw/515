@@ -87,7 +87,11 @@
             <artifactId>commons-codec</artifactId>
             <version>1.7</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.databene</groupId>
+            <artifactId>feed4testng</artifactId>
+            <version>0.6.2</version>
+        </dependency>
 
 
     </dependencies>
