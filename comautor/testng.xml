@@ -2,10 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="httptest">
 
-    <test name="httptest" preserve-order="true" verbose="3">
-        <packages>
-            <package name="com.test.cases.*" />
-        </packages>
+<!--    <test name="httptest" preserve-order="true" verbose="3">-->
+<!--        <packages>-->
+<!--            <package name="com.test.cases.*" />-->
+<!--        </packages>-->
+<!--    </test>-->
+
+    <test verbose="2" preserve-order="true" name="Test">
+        <classes>
+            <class name="com.test.cases.demo"> </class>
+        </classes>
     </test>
     <listeners>
 <!--        <listener class-name="com.uiPackage.utils.TestNGListener"/>-->
