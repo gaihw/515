@@ -10,7 +10,7 @@
 
     <test verbose="2" preserve-order="true" name="Test">
         <classes>
-            <class name="com.test.cases.demo"> </class>
+            <class name="com.test.cases.Demo"> </class>
         </classes>
     </test>
     <listeners>
