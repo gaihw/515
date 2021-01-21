@@ -24,7 +24,7 @@ public class Demo {
     }
     @Test
     public void three(){
-        Assert.assertEquals(1,1);
+        Assert.assertEquals(1,2);
     }
 
 
