@@ -2,11 +2,15 @@ package coin_auto.app;
 
 import coin_auto.config.Config;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.remote.MobilePlatform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.stereotype.Component;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 //@Component
 public class AppInit {
@@ -28,16 +32,13 @@ public class AppInit {
         des.setCapability("appActivity", ".module.launch.SplashActivity");//app测试人员常常要获取activity，
         des.setCapability("unicodeKeyboard", true);//支持中文输入
         des.setCapability("resetKeyboard", true);//支持中文输入
-//        des.setCapability("automationName", "UiAutomator2");
-//        des.setCapability(MobileCapabilityType.AUTOMATION_NAME,AutomationName.ANDROID_UIAUTOMATOR2);
-//        des.setCapability("autoGrantPermissions", true);//使用的手机类型或模拟器类型  UDID
+        des.setCapability("automationName", "UiAutomator2");
+        des.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
+        des.setCapability("autoGrantPermissions", true);//使用的手机类型或模拟器类型  UDID
         //初始化
         try {
-            driver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"), des);
-            Thread.sleep(10000);
-            System.out.println(driver.getAppStrings());
-//            driver.findElementById("com.tbex.trader:id/loginButton").click();
-
+            driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), des);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);//隐式等待
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }catch (Exception e){
@@ -56,6 +57,6 @@ public class AppInit {
 
     public static void main(String[] args) {
 //        getDriver().closeApp();
-        System.out.println(getDriver().currentActivity());
+        System.out.println(getDriver());
     }
 }
