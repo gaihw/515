@@ -37,7 +37,8 @@ public class AppInit {
         des.setCapability("autoGrantPermissions", true);//使用的手机类型或模拟器类型  UDID
         //初始化
         try {
-            driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), des);
+//            driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), des);
+            driver = new AndroidDriver(new URL("http://192.168.112.170:4723/wd/hub"), des);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);//隐式等待
         } catch (MalformedURLException e) {
             e.printStackTrace();
