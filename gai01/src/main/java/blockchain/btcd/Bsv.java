@@ -27,7 +27,7 @@ public class Bsv {
         //热钱包地址
         String hotAddress = "mzr39Va8Zo7xnsV5Xn1nzNsGu6p9sGg9nt";
 //        普通地址
-        String toAddress = "mtYZvbN5Yd2qHc5htT3ck4gVo3bhN2TB74";
+        String toAddress = "muFQXpdLZePjV5BJU1mWtLzSfGMQsvGzBk";
 //        BigDecimal amount = getAmount(fromAddress,txid,vout);
         BigDecimal amount = BigDecimal.ZERO;
         BigDecimal free = new BigDecimal(0.00000258);
@@ -36,40 +36,47 @@ public class Bsv {
         String privateKey = null;
         String redeemScript = null;
 
-        JSONArray jsonArray = JSONObject.parseObject(listunspent()).getJSONArray("result");
-        for (int i = 0; i < jsonArray.size(); i++) {
-            String address = jsonArray.getJSONObject(i).getString("address");
-            if (!"null".equals(String.valueOf(JSONObject.parseObject(dumpprivkey(address)).get("result")))
-                    &&jsonArray.getJSONObject(i).getBigDecimal("amount").compareTo(BigDecimal.valueOf(1))>0
-                    &&jsonArray.getJSONObject(i).getBigDecimal("amount").compareTo(BigDecimal.valueOf(100))<0
-                    &&!address.equals(hotAddress)){
-                System.out.println(dumpprivkey(jsonArray.getJSONObject(i).getString("address"))+"---"+jsonArray.getJSONObject(i));
-                txid = jsonArray.getJSONObject(i).getString("txid");
-                vout = jsonArray.getJSONObject(i).getString("vout");
-                fromAddress = address;
-                privateKey = JSONObject.parseObject(dumpprivkey(address)).getString("result");
-                scriptPubKey = jsonArray.getJSONObject(i).getString("scriptPubKey");
-                amount = jsonArray.getJSONObject(i).getBigDecimal("amount");
-                if (jsonArray.getJSONObject(i).containsKey("redeemScript")){
-                    redeemScript = jsonArray.getJSONObject(i).getString("redeemScript");
-                }
-                break;
-            }
-        }
-        System.out.println("from==="+fromAddress);
-        System.out.println("to==="+hotAddress);
-        System.out.println("amount==="+amount);
-        BigDecimal value = BigDecimal.valueOf(Math.random()*1).setScale(6, RoundingMode.HALF_UP);
-        System.out.println("value==="+value);
-        String value1 = amount.subtract(free).subtract(value).setScale(4,BigDecimal.ROUND_DOWN).toString();
-        System.out.println("value1=="+value1);
-        String rr = createrawtransaction(txid,vout,fromAddress,hotAddress,value.toString(),value1,scriptPubKey,amount,privateKey,redeemScript);
-        System.out.println("rr==="+rr);
+//        JSONArray jsonArray = JSONObject.parseObject(listunspent()).getJSONArray("result");
+//        for (int i = 0; i < jsonArray.size(); i++) {
+//            String address = jsonArray.getJSONObject(i).getString("address");
+//            if (!"null".equals(String.valueOf(JSONObject.parseObject(dumpprivkey(address)).get("result")))
+//                    &&jsonArray.getJSONObject(i).getBigDecimal("amount").compareTo(BigDecimal.valueOf(1))>0
+//                    &&jsonArray.getJSONObject(i).getBigDecimal("amount").compareTo(BigDecimal.valueOf(100))<0
+//                    &&!address.equals(hotAddress)){
+//                System.out.println(dumpprivkey(jsonArray.getJSONObject(i).getString("address"))+"---"+jsonArray.getJSONObject(i));
+//                txid = jsonArray.getJSONObject(i).getString("txid");
+//                vout = jsonArray.getJSONObject(i).getString("vout");
+//                fromAddress = address;
+//                privateKey = JSONObject.parseObject(dumpprivkey(address)).getString("result");
+//                scriptPubKey = jsonArray.getJSONObject(i).getString("scriptPubKey");
+//                amount = jsonArray.getJSONObject(i).getBigDecimal("amount");
+//                if (jsonArray.getJSONObject(i).containsKey("redeemScript")){
+//                    redeemScript = jsonArray.getJSONObject(i).getString("redeemScript");
+//                }
+//                break;
+//            }
+//        }
+//        System.out.println("from==="+fromAddress);
+//        System.out.println("to==="+hotAddress);
+//        System.out.println("amount==="+amount);
+//        BigDecimal value = BigDecimal.valueOf(Math.random()*1).setScale(6, RoundingMode.HALF_UP);
+//        System.out.println("value==="+value);
+//        String value1 = amount.subtract(free).subtract(value).setScale(4,BigDecimal.ROUND_DOWN).toString();
+//        System.out.println("value1=="+value1);
+//        String rr = createrawtransaction(txid,vout,fromAddress,hotAddress,value.toString(),value1,scriptPubKey,amount,privateKey,redeemScript);
+//        System.out.println("rr==="+rr);
 //        0200000001021866744c5cbd7def11897197e9253b5f42e4b69314034df319da0f2068cc3700000000484730440220621c3ccd71bbea94a4acbee8c3bcbe4ccdbf81373fc511feb626dbdbcde0693f0220766a54c6bf9cc37b125bab21ebe9c4848c26a0a6473c3758003e1c2a1052ad3f41ffffffff0254648300000000001976a914d40657ffe232487f62e35dc1e12b8cc7857d3dbc88aca0f4fd49000000001976a9141e524de5527abfb937fac8ee09b90e69029527c588ac00000000
 //        String value = "0.008274";
 //        String sendtoaddress = sendtoaddress(toAddress,value);
 //        log.info("{}",sendtoaddress);
 //        System.out.println(sendtoaddress);
+
+        for (int i = 0; i < 10; i++) {
+            BigDecimal amount1 = BigDecimal.valueOf(Math.random()*1).setScale(8, RoundingMode.HALF_UP);
+            String sendtoaddress = sendtoaddress(toAddress,amount1.toString());
+            log.info("{}",sendtoaddress);
+            System.out.println(sendtoaddress);
+        }
 
     }
     /**

@@ -25,35 +25,35 @@ public class Omni {
         String propertyid = Config.PROPERTYID;
         String fromAddress = Config.OMNI_ADDRESS;//这个地址的钱比较多
 
-        String toAddress = "2N4TCipHXTzhqybMH3Yr2b1Zin9Tu8Fq2QG";//2
+        String toAddress = "2MxP1WpADJ2yzHQf3pKjhREP9XFj721jtSa";//2
         //热钱包地址
         String hotAddress = "n1wTYZy2Nf3pTE8TLH6sjBkwRQUNsW44Lu";//0
 
         String amount = "1.5252";
-        String send = omni_send(fromAddress,hotAddress,propertyid,amount);
-        System.out.println(send);
-//        for (int i = 0; i < 20; i++) {
-//            BigDecimal r = BigDecimal.valueOf(Math.random()*100).setScale(8, RoundingMode.HALF_UP);
-//            BigDecimal amount1 = BigDecimal.valueOf(Math.random()*2).setScale(8, RoundingMode.HALF_UP);
-//            if (r.compareTo(BigDecimal.valueOf(25))<0){
-//                String send = omni_send(fromAddress,"2N4TCipHXTzhqybMH3Yr2b1Zin9Tu8Fq2QG",propertyid,amount1.toString());
-//                System.out.println(send);
-//            }else if (r.compareTo(BigDecimal.valueOf(25))>=0&&r.compareTo(BigDecimal.valueOf(50))<0){
-//                String send = omni_send(fromAddress,"mzuE68Jrq4Y7uMtPP1tb1S2GTBWLsNsDWg",propertyid,amount1.toString());
-//                System.out.println(send);
-//            }else if (r.compareTo(BigDecimal.valueOf(50))>=0&&r.compareTo(BigDecimal.valueOf(75))<0){
-//                String send = omni_send(fromAddress,"mg33N7fvpJbvaWijEEL8J5Yu1bbVD8PFeZ",propertyid,amount1.toString());
-//                System.out.println(send);
-//            }else{
-//                String send = omni_send(fromAddress,"mgBgdzp4iGGmjBh9bgPS1f5jEys4p7muzP",propertyid,amount1.toString());
-//                System.out.println(send);
-//            }
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
+//        String send = omni_send(fromAddress,hotAddress,propertyid,amount);
+//        System.out.println(send);
+        for (int i = 0; i < 10; i++) {
+            BigDecimal r = BigDecimal.valueOf(Math.random()*100).setScale(8, RoundingMode.HALF_UP);
+            BigDecimal amount1 = BigDecimal.valueOf(Math.random()*100).setScale(8, RoundingMode.HALF_UP);
+            if (r.compareTo(BigDecimal.valueOf(25))<0){
+                String send = omni_send(fromAddress,toAddress,propertyid,amount1.toString());
+                System.out.println(send);
+            }else if (r.compareTo(BigDecimal.valueOf(25))>=0&&r.compareTo(BigDecimal.valueOf(50))<0){
+                String send = omni_send(fromAddress,toAddress,propertyid,amount1.toString());
+                System.out.println(send);
+            }else if (r.compareTo(BigDecimal.valueOf(50))>=0&&r.compareTo(BigDecimal.valueOf(75))<0){
+                String send = omni_send(fromAddress,toAddress,propertyid,amount1.toString());
+                System.out.println(send);
+            }else{
+                String send = omni_send(fromAddress,toAddress,propertyid,amount1.toString());
+                System.out.println(send);
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
 //        System.out.println(generatetoaddress("10",fromAddress));
 //        System.out.println(omni_getbalance("bcrt1qpgxwlrrlhmclqvfktztqs3jzapymwekerl0n2qyyz4drut0l4ydqg56zxt",propertyid));

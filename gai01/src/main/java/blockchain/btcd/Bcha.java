@@ -21,24 +21,24 @@ public class Bcha {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         //热钱包地址转账
 //        for (int i = 0; i < 5; i++) {
-            transactionToHot();
+//            transactionToHot();
 //        }
 //        System.out.println(listunspent());
 
         //普通地址
-        String toAddress = "2MwJhUPwuYuHYWkMW3kLsvAfZAX1msqPBby";
+        String toAddress = "mhoQV6bneUy8gJQZvYMwdSmF973iVmDt59";
 //        String value = "0.0011";
 //        String sendtoaddress = sendtoaddress(toAddress,value);
 //        log.info("{}",sendtoaddress);
 //        System.out.println(sendtoaddress);
         String address = "mx6q5vuDxexeVmJiCbzxWP3mfpcjEGQbc2";
 
-//        for (int i = 0; i < 10; i++) {
-//            BigDecimal amount1 = BigDecimal.valueOf(Math.random()*5).setScale(8, RoundingMode.HALF_UP);
-//            String sendtoaddress = sendtoaddress(toAddress,amount1.toString());
-//            log.info("{}",sendtoaddress);
-//            System.out.println(sendtoaddress);
-//        }
+        for (int i = 0; i < 10; i++) {
+            BigDecimal amount1 = BigDecimal.valueOf(Math.random()*5).setScale(8, RoundingMode.HALF_UP);
+            String sendtoaddress = sendtoaddress(toAddress,amount1.toString());
+            log.info("{}",sendtoaddress);
+            System.out.println(sendtoaddress);
+        }
 
 //        for (int i = 0; i < 20; i++) {
 //            BigDecimal r = BigDecimal.valueOf(Math.random()*100).setScale(8, RoundingMode.HALF_UP);

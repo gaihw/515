@@ -12,7 +12,7 @@ public class Config {
     public static String BSV_URL = "192.168.112.214";
     public static String BSV_PORT = "9332";
 
-    public static String DASH_URL = "192.168.112.66";
+    public static String DASH_URL = "192.168.112.68";
     public static String DASH_PORT = "6332";
 
 //    test
@@ -82,7 +82,7 @@ public class Config {
     //test 214
     public static String TRX_URL = "192.168.112.214";
     public static String TRX_PORT = "16667";
-    public static String USDT_TRC20 = "4182e4d6f39fd15feeefebcd1c0247b7e78059654a";
+    public static String USDT_TRC20 = "4119e8d9f643eb325985d77bf712f3369f54e3100d";
 //    online
 //    public static String TRX_URL = "13.231.78.92";
 //    public static String TRX_PORT = "58090";

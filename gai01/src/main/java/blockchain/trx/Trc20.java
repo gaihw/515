@@ -28,19 +28,28 @@ public class Trc20 {
         String callValue = "0";
         String contractAddress = Config.USDT_TRC20;
 
-        String to_address = "TPsay8WkqcZviqR6W8Zkhe3Y5pqts8RMhV";
-        Integer value = 6000000;
+        String to_address = "TLeuPE1PgrfUaL9uWzjhAds8TXGBCPU6fV";
+        Integer value = 1486813;
 
         //热钱包地址
         String address = "TDZXMjKFjF8NxCW4TmzZp21x55ZeyC7GK7";//
         String hotPriv = "b66c267a7f25c457fc1b6afec66cde391c33e86dc30925f7250a5bacbe98a1e8";
 
+//        TLeuPE1PgrfUaL9uWzjhAds8TXGBCPU6fV
+//        283ffd3aa0497c2f97edb5472b420c62d1894e959ee38f84495f34fa84c7d33d
+
+//        TPsay8WkqcZviqR6W8Zkhe3Y5pqts8RMhV
+//        f1869c3ac6e1d200cf8c724777412f3d1b2a7e6cd74d134846f81516fe1f9885
+//       {"privateKey":"55b65141c965c99dd8868c905dbf72d6be0f28e8dd07f6475b8723e09bc957d4","address":"THFg5GxGPxr4Khyz1Wvy1B7qwnKaoMvPxp","hexAddress":"414fe622916094b9d78e47935453ea8fb980d12fce"}
+
+
         //转账
-//        createtransaction(contractAddress,"TSdbWa4PPT1Zpthf98ieKEk1DeoWEKd5WR","TMKNRoYhmBwTGZ2Wu2G3MwtKusd1Pjxrzk",callValue,"86d108757c13308bb8314d9f09f815819f37db05ae133cb2d3c6870c49d0ab43",value);
-//        createtransaction(contractAddress,owner_address,"TPsay8WkqcZviqR6W8Zkhe3Y5pqts8RMhV",callValue,privateKey,value);//TDZXMjKFjF8NxCW4TmzZp21x55ZeyC7GK7  TUdjuVvnQQ7v9MKJcktPwuBmEBJTCqu1v1
-//        for (int i = 0; i < 20; i++) {
+//        createtransaction(contractAddress,owner_address,"THFg5GxGPxr4Khyz1Wvy1B7qwnKaoMvPxp",callValue,privateKey,value);
+//        createtransaction(contractAddress,owner_address,"TDZXMjKFjF8NxCW4TmzZp21x55ZeyC7GK7",callValue,privateKey,value);
+        createtransaction(contractAddress,"THFg5GxGPxr4Khyz1Wvy1B7qwnKaoMvPxp","TDZXMjKFjF8NxCW4TmzZp21x55ZeyC7GK7",callValue,"55b65141c965c99dd8868c905dbf72d6be0f28e8dd07f6475b8723e09bc957d4",value);//TDZXMjKFjF8NxCW4TmzZp21x55ZeyC7GK7  TUdjuVvnQQ7v9MKJcktPwuBmEBJTCqu1v1
+//        for (int i = 0; i < 10; i++) {
 //            BigDecimal value1 = BigDecimal.valueOf(Math.random()*10).setScale(6, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(Math.pow(10.0,6))).setScale(0);
-//            System.out.println(createtransaction(contractAddress,owner_address,address,callValue,privateKey,Integer.valueOf(String.valueOf(value1))));
+//            System.out.println(createtransaction(contractAddress,owner_address,to_address,callValue,privateKey,Integer.valueOf(String.valueOf(value1))));
 //            System.out.println("value1==="+value1);
 //        }
 //        for (int i = 0; i < 20; i++) {
@@ -64,12 +73,14 @@ public class Trc20 {
 //        }
 
 //        String txid = JSONObject.parseObject(tr).getString("txid");
-        String txid = "ba8a571b124f9512aba0fa1591771c68b4b1efa4e6bca8cb6265dbb9e1aed520";
-        System.out.println(gettransactionbyid(txid));
-        System.out.println(gettransactioninfobyid(txid));
-//        System.out.println(getaccount("TSdbWa4PPT1Zpthf98ieKEk1DeoWEKd5WR"));//128031068
-//        System.out.println(getaccountresource("TSdbWa4PPT1Zpthf98ieKEk1DeoWEKd5WR"));
-//        System.out.println(balanceOf(contractAddress,"TSdbWa4PPT1Zpthf98ieKEk1DeoWEKd5WR"));//261777952-256535432
+        String txid = "f527e7f7cd597f5c34af34aeba5401a03a6bcc1b31fad3492c07e26f63ed908b";
+//        System.out.println(gettransactionbyid(txid));
+//        System.out.println(gettransactioninfobyid(txid));
+//        THFg5GxGPxr4Khyz1Wvy1B7qwnKaoMvPxp","TLeuPE1PgrfUaL9uWzjhAds8TXGBCPU6fV
+//        System.out.println(getaccount("TDZXMjKFjF8NxCW4TmzZp21x55ZeyC7GK7"));//128031068
+//        System.out.println(getaccountresource("TDZXMjKFjF8NxCW4TmzZp21x55ZeyC7GK7"));
+        System.out.println(balanceOf(contractAddress,"TDZXMjKFjF8NxCW4TmzZp21x55ZeyC7GK7"));//851178-851178  11903677-10177377 11664190-1486813
+
         //获取当前块高
 //        System.out.println(getnowblock());
 
@@ -85,22 +96,23 @@ public class Trc20 {
 //        System.out.println("sum="+sum);
         //计算
         //十进制--->十六进制 ：Integer.toHexString(42677453)
-        //十六进制--->十进制 ：Integer.parseInt("28e948c",16)
+//        十六进制--->十进制 ：Integer.parseInt("28e948c",16)
 //        System.out.println(Integer.toHexString(42677453));
-//        System.out.println(Integer.parseInt("28e948c",16));
-
+//        System.out.println(Integer.parseInt("6038c5",16));
 //
 //        ResultSet rs = selectColdTrx();
 //        while (rs.next()){
 //            String a = rs.getString("address");
 //            int u = rs.getInt("user_id");
 //            String b = Hex58Transfer.base58checkToHexString(a);
-//            System.out.println(u+"==="+a+"==="+b+"==="+Integer.parseInt(JSONObject.parseObject(balanceOf(contractAddress,b)).getJSONArray("constant_result").getString(0),16));
+////            BigDecimal value1 = BigDecimal.valueOf(Math.random()*2).setScale(6, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(Math.pow(10.0,6))).setScale(0);
+////            System.out.println(createtransaction(contractAddress,owner_address,a,callValue,privateKey,Integer.valueOf(String.valueOf(value1))));
+//            System.out.println(u+"==="+a+"==="+b+"==="+BigDecimal.valueOf(Integer.parseInt(JSONObject.parseObject(balanceOf(contractAddress,b)).getJSONArray("constant_result").getString(0),16)).divide(BigDecimal.valueOf(1000000)));
 //            if (u != 0 ) {
 //                sum = sum.add(BigDecimal.valueOf(Integer.parseInt(JSONObject.parseObject(balanceOf(contractAddress, b)).getJSONArray("constant_result").getString(0), 16)));
 //            }
 //        }
-//        System.out.println("sum="+sum);
+//        System.out.println("sum="+sum.divide(BigDecimal.valueOf(1000000)));
 //
 
 //        for (int i = 0; i < 500; i++) {
@@ -223,11 +235,11 @@ public class Trc20 {
         log.info("sign:::::{}",("0a"+Integer.toHexString(raw_data_hex_1.length()/2)+"01"+raw_data_hex_1+1241+signature));
 
         //广播
-//        String broadResponse = broadcasttransaction(signature,txID_1,callValue,contractAddress,ownerAddress,data_1,type_url_1,type_1,ref_block_bytes_1,ref_block_hash_1,expiration_1,timestamp_1,raw_data_hex_1);
-//        System.out.println("broadResponse="+broadResponse);
-//        log.info("broadResponse={}",broadResponse);
-//        return broadResponse;
-        return null;
+        String broadResponse = broadcasttransaction(signature,txID_1,callValue,contractAddress,ownerAddress,data_1,type_url_1,type_1,ref_block_bytes_1,ref_block_hash_1,expiration_1,timestamp_1,raw_data_hex_1);
+        System.out.println("broadResponse="+broadResponse);
+        log.info("broadResponse={}",broadResponse);
+        return broadResponse;
+//        return null;
     }
 
     /**
@@ -493,7 +505,7 @@ public class Trc20 {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
-        String sql = " select address,user_id from 58wallet.tb_wallet_address_cold_trx where id>=1742 and id<=1756";
+        String sql = " select address,user_id from 58wallet.tb_wallet_address_cold_trx ";//where id>=1742 and id<=1756
         try{
             // 注册 JDBC 驱动
             Class.forName(Calc.Config.JDBC_DRIVER);

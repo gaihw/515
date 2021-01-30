@@ -57,7 +57,7 @@ public class Erc20 {
         byte chainId = Config.ETH_CHAINLD;
 
         //转账地址
-        String toAccount = "0x86d47694b3ba70789eefe76a921ae906462234ab";
+        String toAccount = "0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be";
 
         //热钱包地址
 //        String address = "0x7c18cb0bda976230b0259a859095ce6a91eb894e";//0.988999660000004
@@ -66,13 +66,13 @@ public class Erc20 {
 //        String address = "0xaecde9d65e88ac2de7e413d9555ff1eb578ed7fb";//5.336445
 
 
-//        for (int i = 0; i < 1; i++) {
-//            EthSendTransaction transferERC20Token = transferERC20Token(web3,fromAccount,toAccount,BigInteger.valueOf((long) (Math.random()*2*Math.pow(10.0,6))),privateKey,contractAddress,chainId);
-////            EthSendTransaction transferERC20Token = transferERC20Token(web3,fromAccount,address,value,privateKey,contractAddress,chainId);
-//            String transactionHash = transferERC20Token.getTransactionHash();
-//            System.out.println("transactionHash==="+transactionHash);
-//        }
-        transferERC20Token(web3,fromAccount,toAccount,value,privateKey,contractAddress,chainId);
+        for (int i = 0; i < 10; i++) {
+            EthSendTransaction transferERC20Token = transferERC20Token(web3,fromAccount,toAccount,BigInteger.valueOf((long) (Math.random()*6*Math.pow(10.0,6))),privateKey,contractAddress,chainId);
+//            EthSendTransaction transferERC20Token = transferERC20Token(web3,fromAccount,address,value,privateKey,contractAddress,chainId);
+            String transactionHash = transferERC20Token.getTransactionHash();
+            System.out.println("transactionHash==="+transactionHash);
+        }
+//        transferERC20Token(web3,fromAccount,toAccount,value,privateKey,contractAddress,chainId);
 
 //        System.out.println(getTokenBalance(web3,address,contractAddress));
 //        System.out.println(getTokenBalance(web3,"0xeaa7d6ccb236f44e89e8d4a571d9583b291062c2",contractAddress));
@@ -206,27 +206,27 @@ public class Erc20 {
 
         String signData = Numeric.toHexString(signMessage);
         System.out.println("signData=="+signData);
-//        log.info("signData==={}",signData);
-//        if (!"".equals(signData)) {
-//            try {
-//                EthSendTransaction send = web3j.ethSendRawTransaction(signData).send();
-//                if(send.getTransactionHash() != null){
-//                    File file = new File("/Users/gaihongwei/tools/eclipse/workspace/gai01/data/eth-nonce");
-//                    FileWriter fw = new FileWriter(file);
-//                    BufferedWriter bw = new BufferedWriter(fw);
-//                    bw.write(nonce.add(BigInteger.ONE).toString());
-//                    bw.flush();
-//                    bw.close();
-//                    fw.close();
-//                }
-//                log.info("transactionHash==={}",send.getTransactionHash());
-//                return send;
-////                txHash = send.getTransactionHash();
-////                System.out.println(JSON.toJSONString(send));
-//            } catch (IOException e) {
-//                throw new RuntimeException("交易异常");
-//            }
-//        }
+        log.info("signData==={}",signData);
+        if (!"".equals(signData)) {
+            try {
+                EthSendTransaction send = web3j.ethSendRawTransaction(signData).send();
+                if(send.getTransactionHash() != null){
+                    File file = new File("/Users/gaihongwei/tools/eclipse/workspace/gai01/data/eth-nonce");
+                    FileWriter fw = new FileWriter(file);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.write(nonce.add(BigInteger.ONE).toString());
+                    bw.flush();
+                    bw.close();
+                    fw.close();
+                }
+                log.info("transactionHash==={}",send.getTransactionHash());
+                return send;
+//                txHash = send.getTransactionHash();
+//                System.out.println(JSON.toJSONString(send));
+            } catch (IOException e) {
+                throw new RuntimeException("交易异常");
+            }
+        }
         return null;
     }
 

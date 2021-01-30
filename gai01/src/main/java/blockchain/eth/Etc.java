@@ -50,7 +50,7 @@ public class Etc {
 
         BigDecimal free = BigDecimal.valueOf(0.000021);
         //转账地址
-        String toAccount = "0x86d47694b3ba70789eefe76a921ae906462234ab";
+        String toAccount = "0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be";
         //热钱包地址
         String address = "0x78881a5211fa2030896db14b90a2a133ca829682";//11.725052611409915518 11.725052611409915518 8.274968388590084
         BigInteger value = BigInteger.valueOf((long) (1*Math.pow(10.0,18)));//实际到账去掉18个0;100000000000000000L/10**18=0.1
@@ -63,12 +63,12 @@ public class Etc {
 
 
 
-//        for (int i = 0; i < 10; i++) {
-//            String transation = transaction(web3,address,gasPrice,gasLimit,BigInteger.valueOf((long) (Math.random()*2*Math.pow(10.0,18))),credentials);
-//            System.out.println("transation===="+transation);
-//        }
+        for (int i = 0; i < 10; i++) {
+            String transation = transaction(web3,toAccount,gasPrice,gasLimit,BigInteger.valueOf((long) (Math.random()*2*Math.pow(10.0,18))),credentials,chainId);
+            System.out.println("transation===="+transation);
+        }
 
-        transaction(web3,address,gasPrice,gasLimit,BigInteger.valueOf((long) (Math.random()*2*Math.pow(10.0,18))),credentials,chainId);
+//        transaction(web3,address,gasPrice,gasLimit,BigInteger.valueOf((long) (Math.random()*2*Math.pow(10.0,18))),credentials,chainId);
 //        System.out.println(getBalance(web3,address));//
 //        System.out.println(getBalance(web3,"0xf2dde1245b0c53b63c77a0e76440cb098096cfa7"));//4.69093649
 //        System.out.println(getTransactionByHash("0x3058962ebacd4b83e38c81ca9c7e2d9b898ba84373b1d2564fe9054859365ee5"));
@@ -220,19 +220,19 @@ public class Etc {
         String hexValue = Numeric.toHexString(signedMessage);
         System.out.println("hexSignValue==="+hexValue);
         log.info("hexSignValue==={}",hexValue);
-//        EthSendTransaction ethSendTransaction = web3.ethSendRawTransaction(hexValue).send();
-//        String transactionHash = ethSendTransaction.getTransactionHash();
-//        if(transactionHash != null){
-//            File file = new File("/Users/gaihongwei/tools/eclipse/workspace/gai01/data/etc-nonce");
-//            FileWriter fw = new FileWriter(file);
-//            BufferedWriter bw = new BufferedWriter(fw);
-//            bw.write(nonce.add(BigInteger.ONE).toString());
-//            bw.flush();
-//            bw.close();
-//            fw.close();
-//        }
-//        log.info("transactionHash===={}",transactionHash);
-//        return transactionHash;
-        return null;
+        EthSendTransaction ethSendTransaction = web3.ethSendRawTransaction(hexValue).send();
+        String transactionHash = ethSendTransaction.getTransactionHash();
+        if(transactionHash != null){
+            File file = new File("/Users/gaihongwei/tools/eclipse/workspace/gai01/data/etc-nonce");
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(nonce.add(BigInteger.ONE).toString());
+            bw.flush();
+            bw.close();
+            fw.close();
+        }
+        log.info("transactionHash===={}",transactionHash);
+        return transactionHash;
+//        return null;
     }
 }

@@ -31,11 +31,11 @@ public class Eos {
 
         String toAccount = EOS_COLD_58_ACCOUNT;
         //热钱包地址,58
-//        String address = "hot";//["1.4320 EOS"]
-        String amount = "0.0146";//注意：小数点后四位
-        String memo = "111";
+        String address = "hot";//["1.4320 EOS"]
+        String amount = "0.6000";//注意：小数点后四位
+        String memo = "100130";
         //69
-        String address = "withdraweos1";
+//        String address = "withdraweos1";
 
         //解锁
         System.out.println(unlock(WALLET, WALLET_PASSWORD));
@@ -43,22 +43,22 @@ public class Eos {
 
 //        System.out.println(getPubByPriv(WALLET,WALLET_PASSWORD,priv));
         //交易
-        String createTransaction = createTransaction(fromAcount,toAccount,amount,memo);
+//        String createTransaction = createTransaction(fromAcount,toAccount,amount,memo);
 //        log.info("{}",createTransaction);
 //        System.out.println(createTransaction);
 
-//        for (int i = 0; i < 1; i++) {
-////            String createTransaction = createTransaction(fromAcount,address,String.valueOf(BigDecimal.valueOf(Math.random()*5).setScale(4, RoundingMode.HALF_UP)),memo);
-//
-//            log.info("{}",createTransaction);
-//            System.out.println(createTransaction);
-//        }
+        for (int i = 0; i < 10; i++) {
+            String createTransaction = createTransaction(fromAcount,toAccount,String.valueOf(BigDecimal.valueOf(Math.random()*5).setScale(4, RoundingMode.HALF_UP)),memo);
+
+            log.info("{}",createTransaction);
+            System.out.println(createTransaction);
+        }
 //        String createTransaction = createTransaction(fromAcount,address,amount,memo);
 //        System.out.println(createTransaction);
 //        查看公钥
 //        System.out.println(get_public_keys());
         //获取金额
-//        System.out.println(get_currency_balance(fromAcount));//testgaione["13.0000 EOS"]
+        System.out.println(get_currency_balance(address));//testgaione["13.0000 EOS"]
         //停止挖矿
 //        System.out.println(pause());
 //        System.out.println(get_abi("eosio"));
@@ -157,8 +157,8 @@ public class Eos {
         //permission 使用的权限类型
         //data 之前生成的bin字符串
         //signatures 签署交易后生成的签名字符串
-//        return push_transaction(signatures,timestamp,head_block_num,ref_block_prefix,fromAcount,binargs);
-        return "test";
+        return push_transaction(signatures,timestamp,head_block_num,ref_block_prefix,fromAcount,binargs);
+//        return "test";
 
     }
 

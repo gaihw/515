@@ -54,33 +54,36 @@ public class Eth {
         System.out.println(unlock_acount(credentials.getAddress(),""));
         System.out.println(credentials.getAddress());
 
-        String toAccount = "0x86d47694b3ba70789eefe76a921ae906462234ab";
+        String toAccount = "0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be";
         //热钱包
 //        String address = "0x7c18cb0bda976230b0259a859095ce6a91eb894e";//0.988999660000004
 //        String address = "0xe5ddbf0df90ba664d8fe7c3c6ae6f05b05316a94";//0.75328807100037949
         String address = "0x6f6bd092aa04fdf11cfe5b471b1496c7433e3ac4";//0.575656659666822061
 //        String address = "0xaeff5099ba926baf86ef9877c661db461668cdcf";//0.575656659666822061
 
-        BigInteger value = BigInteger.valueOf((long) (0.01*Math.pow(10.0,18)));//实际到账去掉18个0;200000000000000000L/10**18=0.2
+        BigInteger value = BigInteger.valueOf((long) (0.11*Math.pow(10.0,18)));//实际到账去掉18个0;200000000000000000L/10**18=0.2
         BigInteger gasPrice = web3.ethGasPrice().send().getGasPrice();
         BigInteger gasLimit = BigInteger.valueOf(21000);
 
         System.out.println("gasPrice==="+gasPrice);
         System.out.println("free="+gasPrice.multiply(gasLimit));
 
+//        String transation = transaction(web3,toAccount,gasPrice,gasLimit,value,credentials,chainId);
+//        System.out.println("transation===="+transation);
 
-//        for (int i = 0; i < 10; i++) {
-//            String transation = transaction(web3,toAccount,gasPrice,gasLimit,BigInteger.valueOf((long) (Math.random()*2*Math.pow(10.0,18))),credentials);
-//            System.out.println("transation===="+transation);
-//        }
+
+        for (int i = 0; i < 10; i++) {
+            String transation = transaction(web3,toAccount,gasPrice,gasLimit,BigInteger.valueOf((long) (Math.random()*2*Math.pow(10,18))),credentials,chainId);
+            System.out.println("transation===="+transation);
+        }
 
 //        System.out.println(getTransactionByHash("0x79a74b5be8feddfa3a44bad95133f6a5857751475afd13aa773a0ccbfcd44a12"));
 
-        String transation = transaction(web3,toAccount,gasPrice,gasLimit,value,credentials,chainId);
-            System.out.println("transation===="+transation);
+//        String transation = transaction(web3,toAccount,gasPrice,gasLimit,value,credentials,chainId);
+//            System.out.println("transation===="+transation);
 
 //        System.out.println(getBalance(web3,credentials.getAddress()));//1.6
-//        System.out.println(getBalance(web3,"0xee57020fde54340cc8abab30018be2a9261ede68"));
+//        System.out.println(getBalance(web3,"0x7c18cb0bda976230b0259a859095ce6a91eb894e"));
 //        System.out.println(getBalance(web3,address));
 //        System.out.println(getBalance(web3,"0xaecde9d65e88ac2de7e413d9555ff1eb578ed7fb"));
 
@@ -265,20 +268,20 @@ public class Eth {
         log.info("hexValue={}",hexValue);
         System.out.println("hexValue="+hexValue);
 //
-//        EthSendTransaction ethSendTransaction = web3.ethSendRawTransaction(hexValue).send();
-//        String transactionHash = ethSendTransaction.getTransactionHash();
-//        if(transactionHash != null){
-//            File file = new File("/Users/gaihongwei/tools/eclipse/workspace/gai01/data/eth-nonce");
-//            FileWriter fw = new FileWriter(file);
-//            BufferedWriter bw = new BufferedWriter(fw);
-//            bw.write(nonce.add(BigInteger.ONE).toString());
-//            bw.flush();
-//            bw.close();
-//            fw.close();
-//        }
-//        log.info("transactionHash==={}",transactionHash);
-//        return transactionHash;
-        return "test...";
+        EthSendTransaction ethSendTransaction = web3.ethSendRawTransaction(hexValue).send();
+        String transactionHash = ethSendTransaction.getTransactionHash();
+        if(transactionHash != null){
+            File file = new File("/Users/gaihongwei/tools/eclipse/workspace/gai01/data/eth-nonce");
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(nonce.add(BigInteger.ONE).toString());
+            bw.flush();
+            bw.close();
+            fw.close();
+        }
+        log.info("transactionHash==={}",transactionHash);
+        return transactionHash;
+//        return "test...";
     }
 
 }

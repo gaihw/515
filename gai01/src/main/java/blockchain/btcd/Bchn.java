@@ -20,18 +20,18 @@ public class Bchn {
     public static Logger log = LoggerFactory.getLogger(Bchn.class);
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         //热钱包地址转账
-        transactionToHot();
+//        transactionToHot();
 
 
         //普通地址
-        String toAddress = "2MwJhUPwuYuHYWkMW3kLsvAfZAX1msqPBby";
-//        for (int i = 0; i < 10; i++) {
-//            BigDecimal amount1 = BigDecimal.valueOf(Math.random()*5).setScale(8, RoundingMode.HALF_UP);
-//            String sendtoaddress = sendtoaddress(toAddress,amount1.toString());
-////            String sendtoaddress = sendtoaddress(toAddress,"0.001");
-//            log.info("{}",sendtoaddress);
-//            System.out.println(sendtoaddress);
-//        }
+        String toAddress = "mhoQV6bneUy8gJQZvYMwdSmF973iVmDt59";
+        for (int i = 0; i < 10; i++) {
+            BigDecimal amount1 = BigDecimal.valueOf(Math.random()*5).setScale(8, RoundingMode.HALF_UP);
+            String sendtoaddress = sendtoaddress(toAddress,amount1.toString());
+//            String sendtoaddress = sendtoaddress(toAddress,"0.001");
+            log.info("{}",sendtoaddress);
+            System.out.println(sendtoaddress);
+        }
 //
 //        for (int i = 0; i < 20; i++) {
 //            BigDecimal r = BigDecimal.valueOf(Math.random()*100).setScale(8, RoundingMode.HALF_UP);

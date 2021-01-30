@@ -46,7 +46,7 @@ public class Trx {
 
 //        {"privateKey":"35cc31220a6bbed17f1a0693a54d72ffc481a7a674e9f7a9e2c60172b1a8c182","address":"TTLBYDu1JYGHjyJpm8VY6aQ16iVGKrXKei","hexAddress":"41be71a70c5ddfd8fa4e0a5f6babd2935aeb27140f"}
 //        {"privateKey":"7e590daee675dc903bd4c03da56598698038b53aba623e39b2612873d588d366","address":"TEcsZyMJfiAmkcbZJroRbDcCttnZUp2Yt7","hexAddress":"4133001695f32ce2b7a3550d7c8a63a01cd6b5ebb5"}
-        System.out.println(createtransaction(owner_address,"TSdbWa4PPT1Zpthf98ieKEk1DeoWEKd5WR","100000",privateKey));//TDZXMjKFjF8NxCW4TmzZp21x55ZeyC7GK7  TUdjuVvnQQ7v9MKJcktPwuBmEBJTCqu1v1
+        System.out.println(createtransaction(owner_address,"THFg5GxGPxr4Khyz1Wvy1B7qwnKaoMvPxp","5000000",privateKey));//TDZXMjKFjF8NxCW4TmzZp21x55ZeyC7GK7  TUdjuVvnQQ7v9MKJcktPwuBmEBJTCqu1v1
 
 
         //转账
@@ -76,11 +76,11 @@ public class Trx {
 //        }
 
         //查询账户资源
-        String txId = "61f452e1a8a49d1ba909823c1f6b000a345db127e13e7c18dea5da830d488bc7";
+        String txId = "bd45666c394aca816aeb6711691845cd71592a02b889b607abb5937873c16b05";
 //        System.out.println(gettransactioninfobyid(txId));
 //        System.out.println(gettransactionbyid(txId));
-        System.out.println(getaccount("TSdbWa4PPT1Zpthf98ieKEk1DeoWEKd5WR"));//1982750
-        System.out.println(getaccountresource("TSdbWa4PPT1Zpthf98ieKEk1DeoWEKd5WR"));
+//        System.out.println(getaccount(owner_address));//1982750
+//        System.out.println(getaccountresource("TSdbWa4PPT1Zpthf98ieKEk1DeoWEKd5WR"));
 //        获取块高
 //        System.out.println(getnowblock());
         //生成地址
@@ -397,11 +397,11 @@ public class Trx {
         log.info("sign:::::{}",("0a"+Integer.toHexString(raw_data_hex_1.length()/2)+"01"+raw_data_hex_1+1241+signature));
 
         //广播
-//        String broadResponse = broadcasttransaction(signature,txID_1,value,ownerAddress,toAddress,type_url_1,type_1,ref_block_bytes_1,ref_block_hash_1,expiration_1,timestamp_1,raw_data_hex_1);
-//        System.out.println("broadResponse="+broadResponse);
-//        log.info("broadResponse={}",broadResponse);
-//        return broadResponse;
-        return null;
+        String broadResponse = broadcasttransaction(signature,txID_1,value,ownerAddress,toAddress,type_url_1,type_1,ref_block_bytes_1,ref_block_hash_1,expiration_1,timestamp_1,raw_data_hex_1);
+        System.out.println("broadResponse="+broadResponse);
+        log.info("broadResponse={}",broadResponse);
+        return broadResponse;
+//        return null;
     }
 
     /**

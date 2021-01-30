@@ -15,7 +15,7 @@ public class Hex58Transfer {
     }
 
     public static void main(String[] args) {
-        System.out.println(base58checkToHexString("TFbTJhfPwHKSbajYZWf53w2ZZ2KUk2rAuz"));//413db38b48afdc458b290c13fca6c92bd27869709c
+        System.out.println(base58checkToHexString("TF4PynXgceXsaPZRN9ZfWWT6DjsT3pxMFB"));//413db38b48afdc458b290c13fca6c92bd27869709c
         System.out.println(base58checkToHexString("TDVTMU3WW4tHjFFctHDhEsfANAknBgtiZe"));//4126a0d6274ee69cc2415b86c09ef94435d3eb6620
         System.out.println(base58checkToHexString("TDBz4EqbZixSAvCSriK9tYrejotf4XD9Rh"));//412352fa90f94e05a749576c6b429fc2141903183e
         System.out.println(base58checkToHexString("TUczgZhaVzK7pXCLMcviCXquYvRYtB2Qdr"));//41cc97c991df6fc3b6f5474b344cab6203ebd14398

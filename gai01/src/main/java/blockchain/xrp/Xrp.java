@@ -32,16 +32,16 @@ public class Xrp {
         String toAddress = Config.XRP_COLD_58_ACCOUNT;
         //热钱包地址
         String address = "rNwryt9zV48Brnooznef5C229EoNmpZpgd";//174.627932-20.1092=154.518632
-        String memo = "110";
+        String memo = "100208";
         //精度是6位，100的话，会转化成0.0001；100.11会保留原数值
         BigDecimal value = BigDecimal.valueOf(31.542345);
         BigDecimal fee = BigDecimal.valueOf(0.00001);
 
         //交易
 //        for (int i = 0; i < 1; i++) {
-//            System.out.println(createtransaction(fromAddress, secret, toAddress, BigDecimal.valueOf(Math.random()*50).setScale(4, RoundingMode.HALF_UP), fee, memo));
+            System.out.println(createtransaction(fromAddress, secret, toAddress, BigDecimal.valueOf(Math.random()*9).setScale(4, RoundingMode.HALF_UP), fee, memo));
 //        }
-        System.out.println(createtransaction(fromAddress, secret, address, BigDecimal.valueOf(1.362675), fee, memo));
+//        System.out.println(createtransaction(fromAddress, secret, address, BigDecimal.valueOf(1.362675), fee, memo));
 //        System.out.println(submit("12000022800000002400C4E8232E00018770201B07CBE4C461400000000014CAF368400000000000000A73210302B5662A273EDC056E5505378540B55558F9D62623668467F16F2B4A69BD312D7446304402203B35A2EF6428917329593F798E609D2A927465FB95065D0B3B9E42772C5B258702207A9B72A7AB36AC6916917883C330B3A069D5991576BA8F627619121B3ECCA70381141BDD72852915835FBC9DFFBAAC25B8060B86B3C28314904E329029B6D26F7C4BC471DC700855FB3BAF74"));
 //        System.out.println(createtransaction(fromAddress, secret, toAddress, BigDecimal.valueOf(2.819384), fee, memo));
 //        System.out.println(createtransaction(fromAddress, secret, toAddress, BigDecimal.valueOf(4.29831), fee, memo));
@@ -50,9 +50,9 @@ public class Xrp {
 //        String transactionHash = "";
 //        System.out.println(getTransaction(transactionHash));
 
-//        System.out.println(getAccountInfo(address));//
+//        System.out.println(getAccountInfo("rNwryt9zV48Brnooznef5C229EoNmpZpgd"));//
 //        System.out.println(wallet_propose(secret));
-//        System.out.println(getTransaction("C101FBFCB8B44C57771BB296DAEC718C2C82B44ADDF0B9586168AB86BFD2210B"));
+//        System.out.println(getTransaction("C34269C3C889084C9B25DF60A380FB8F45EB55113A78B75DAA1BF5198DBEED2B"));
 
 //        for (int i = 0; i < 10; i++) {
 //            String createTransaction = createtransaction(fromAddress, secret, toAddress, BigDecimal.valueOf(Math.random()*5).setScale(4, RoundingMode.HALF_UP), fee, memo);
@@ -106,15 +106,15 @@ public class Xrp {
                     System.out.println("tx_blob==="+tx_blob);
 
                     //广播
-//                    String submitResponse = submit(tx_blob);
-//                    log.info(submitResponse);
-//                    System.out.println("submitResponse=="+submitResponse);
+                    String submitResponse = submit(tx_blob);
+                    log.info(submitResponse);
+                    System.out.println("submitResponse=="+submitResponse);
 
-//                    JSONObject re1 = JSONObject.parseObject(submitResponse);
-//                    String transactionHash = re1.getJSONObject("result").getJSONObject("tx_json").getString("hash");
-//                    log.info(transactionHash);
-//                    System.out.println("transactionHash==="+transactionHash);
-//                    return transactionHash;
+                    JSONObject re1 = JSONObject.parseObject(submitResponse);
+                    String transactionHash = re1.getJSONObject("result").getJSONObject("tx_json").getString("hash");
+                    log.info(transactionHash);
+                    System.out.println("transactionHash==="+transactionHash);
+                    return transactionHash;
                 }
             }
         }
