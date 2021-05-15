@@ -1,6 +1,0 @@
-2020-08-07 12:15:35  [ main:76436 ] - [ INFO ]  I/O exception (java.net.ConnectException) caught when processing request: Operation timed out (Connection timed out)
-2020-08-07 12:15:35  [ main:76443 ] - [ INFO ]  Retrying request
-2020-08-07 12:16:52  [ main:153319 ] - [ INFO ]  I/O exception (java.net.ConnectException) caught when processing request: Operation timed out (Connection timed out)
-2020-08-07 12:16:52  [ main:153320 ] - [ INFO ]  Retrying request
-2020-08-07 12:18:07  [ main:228798 ] - [ INFO ]  I/O exception (java.net.ConnectException) caught when processing request: Operation timed out (Connection timed out)
-2020-08-07 12:18:07  [ main:228799 ] - [ INFO ]  Retrying request

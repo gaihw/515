@@ -64,89 +64,6 @@
             <version>8.0.15</version>
         </dependency>
 
-
-        <!--比特币-->
-        <dependency>
-            <groupId>wf.bitcoin</groupId>
-            <artifactId>JavaBitcoindRpcClient</artifactId>
-            <version>0.9.13</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.bitcoinj/bitcoinj-core -->
-        <dependency>
-            <groupId>org.bitcoinj</groupId>
-            <artifactId>bitcoinj-core</artifactId>
-            <version>0.14.7</version>
-        </dependency>
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.bitcoinj/bitcoinj-tools &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.bitcoinj</groupId>-->
-<!--            <artifactId>bitcoinj-tools</artifactId>-->
-<!--            <version>0.14.7</version>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.bitcoinj/orchid &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.bitcoinj</groupId>-->
-<!--            <artifactId>orchid</artifactId>-->
-<!--            <version>1.2.1</version>-->
-<!--        </dependency>-->
-
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.bitcoinj/wallettemplate &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.bitcoinj</groupId>-->
-<!--            <artifactId>wallettemplate</artifactId>-->
-<!--            <version>0.14.7</version>-->
-<!--        </dependency>-->
-
-        <!--以太坊-->
-        <dependency>
-            <groupId>org.web3j</groupId>
-            <artifactId>core</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.web3j</groupId>
-            <artifactId>geth</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.web3j</groupId>-->
-<!--            <artifactId>parity</artifactId>-->
-<!--            <version>3.2.0</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.web3j</groupId>-->
-<!--            <artifactId>crypto</artifactId>-->
-<!--            <version>4.5.15</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--                    <artifactId>jackson-databind</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
-        <!--algo -->
-        <dependency>
-            <groupId>com.algorand</groupId>
-            <artifactId>algosdk</artifactId>
-            <version>1.4.1</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.12</version>
-        </dependency>
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.61</version>
-        </dependency>
-
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -183,9 +100,6 @@
             <version>3.6</version>
         </dependency>
 
-        <!-- end test dependencies -->
-        <!-- algo end-->
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-contract-shade</artifactId>
@@ -218,12 +132,6 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/net.fortytwo.ripple/ripple-core -->
-        <dependency>
-            <groupId>net.fortytwo.ripple</groupId>
-            <artifactId>ripple-core</artifactId>
-            <version>1.5</version>
-        </dependency>
         <dependency>
             <groupId>com.typesafe</groupId>
             <artifactId>config</artifactId>
@@ -238,7 +146,7 @@
             <version>0.1.53</version>
         </dependency>
 
-<!--        rabbitmq-->
+<!--        old.rabbitmq-->
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
