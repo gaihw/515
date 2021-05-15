@@ -1,0 +1,28 @@
+2021-05-07 19:53:31.046 [main] INFO  com.zmj.ZmjApplication - Starting ZmjApplication on gaihongwei.local with PID 8931 (/Users/sf/IdeaProjects/workspace/zmj/target/classes started by sf in /Users/sf/IdeaProjects/workspace/zmj)
+2021-05-07 19:53:31.050 [main] INFO  com.zmj.ZmjApplication - No active profile set, falling back to default profiles: default
+2021-05-07 19:53:31.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'btcDao' and 'com.zmj.dao.btcd.BtcDao' mapperInterface. Bean already defined with the same name!
+2021-05-07 19:53:31.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'mainDao' and 'com.zmj.dao.orther.base.MainDao' mapperInterface. Bean already defined with the same name!
+2021-05-07 19:53:31.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'depositDao' and 'com.zmj.dao.orther.deposit.DepositDao' mapperInterface. Bean already defined with the same name!
+2021-05-07 19:53:31.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'documentarySmsDao' and 'com.zmj.dao.orther.future.DocumentarySmsDao' mapperInterface. Bean already defined with the same name!
+2021-05-07 19:53:31.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'fexDao' and 'com.zmj.dao.orther.regular.FexDao' mapperInterface. Bean already defined with the same name!
+2021-05-07 19:53:31.864 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'projectDao' and 'com.zmj.dao.platform.ProjectDao' mapperInterface. Bean already defined with the same name!
+2021-05-07 19:53:31.864 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'tbCurrencyInfoDao' and 'com.zmj.dao.platform.TbCurrencyInfoDao' mapperInterface. Bean already defined with the same name!
+2021-05-07 19:53:31.864 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'com.zmj.dao.platform.UserDao' mapperInterface. Bean already defined with the same name!
+2021-05-07 19:53:31.864 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.zmj.dao]' package. Please check your configuration.
+2021-05-07 19:53:32.110 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-07 19:53:32.114 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-07 19:53:32.215 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66ms. Found 0 Redis repository interfaces.
+2021-05-07 19:53:33.018 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 19113 (http)
+2021-05-07 19:53:33.033 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-19113"]
+2021-05-07 19:53:33.033 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-05-07 19:53:33.034 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2021-05-07 19:53:33.220 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-05-07 19:53:33.220 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2084 ms
+2021-05-07 19:53:34.814 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-07 19:53:34.941 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2021-05-07 19:53:35.289 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2021-05-07 19:53:35.324 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-19113"]
+2021-05-07 19:53:35.406 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 19113 (http) with context path ''
+2021-05-07 19:53:35.426 [main] INFO  com.zmj.ZmjApplication - Started ZmjApplication in 5.228 seconds (JVM running for 5.827)
+2021-05-07 19:53:36.173 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+2021-05-07 19:53:36.175 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'

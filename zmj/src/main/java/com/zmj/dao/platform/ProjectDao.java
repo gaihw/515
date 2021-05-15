@@ -33,7 +33,8 @@ public interface ProjectDao {
     int acount(@Param("platform") String platform,@Param("project") String project,@Param("module") String module,@Param("ip") String ip);
 
     @Select({"<script>"+
-            "select id,platform,project,module,ip,state,creator,create_date createDate,modify_date modifyDate from `sonar`.`tb_project_platform`"+
+            "select id,platform,project,module,ip,state,creator,create_date createDate,modify_date modifyDate " +
+            "from `sonar`.`tb_project_platform`"+
             "WHERE 1=1"+
             "<if test=\"platform!=null and platform!=''\">"+
             "AND platform = #{platform}"+
