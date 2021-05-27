@@ -12,7 +12,7 @@ public class FindMinRenTangBak {
     }
     public static Logger log = LoggerFactory.getLogger(FindMinRenTangBak.class);
     public static void main(String[] args) {
-        String token = "f80e1a00f36f3134546810e27af352cc";//Login.getToken();
+        String token = "b6f7e504278033a29c35f2e1adf0f415";//Login.getToken();
 
         //每条的具体信息查询
         String url_find = "https://crm.aboatedu.com/crm-api/Follow/find?pageSize=40&pageIndex=1&studentId=";
@@ -22,7 +22,7 @@ public class FindMinRenTangBak {
         //总领取的条数
         int account = 0;
 
-        head:for (int pageIndex = 1; pageIndex < 100; pageIndex++) {
+        head:for (int pageIndex = 1; pageIndex < 3; pageIndex++) {
             String url_findMinRenTang = "https://crm.aboatedu.com/crm-api/minRenTangController/findMinRenTang?type=4&pageSize=100&pageIndex="+pageIndex+"&dropPool=1";
             String res_findMinRenTang = BaseUtils.getByForm(url_findMinRenTang,token);
             System.out.println(pageIndex+"-->res_findMinRenTang:"+res_findMinRenTang);
@@ -96,6 +96,8 @@ public class FindMinRenTangBak {
                         for (int j = 0; j < pageData_find.size(); j++) {
                             JSONObject jsonObject_find = pageData_find.getJSONObject(j);
                             String planNote = jsonObject_find.getString("planNote");
+                            String empName = jsonObject_find.getString("empName");
+
 
 //                            if(jsonObject_find.getString("type").contains("销售操作")){
                                 //过滤掉
@@ -113,11 +115,12 @@ public class FindMinRenTangBak {
                                         || planNote.contains("意向一般")
                                         || planNote.contains("没钱")
                                         || planNote.contains("不报名")
-                                        || planNote.contains("")
-                                        || jsonObject_find.getString("empName").contains("孟瑞瑞")
-                                        || jsonObject_find.getString("empName").contains("韩晶晶")){
+                                        || empName.contains("孟瑞瑞")
+                                        || empName.contains("赵美静")
+                                        || empName.contains("韩晶晶")){
                                     flag = false;
                                     break;
+                                    //如果不包含敏感信息，且不包括这些人，执行这个操作
                                 }
     //                            System.out.println("planNote="+planNote);
 //                            }
