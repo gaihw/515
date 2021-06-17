@@ -1,5 +1,0 @@
-dist: bionic
-language: java
-
-script:
-  - make docker-test

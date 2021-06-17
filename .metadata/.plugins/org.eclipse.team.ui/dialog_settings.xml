@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<section name="Workbench">
-	<section name="ConfigureProjectWizard">
-		<item key="selectedWizardId" value="org.tigris.subversion.subclipse.ui.SharingWizard"/>
-	</section>
-</section>

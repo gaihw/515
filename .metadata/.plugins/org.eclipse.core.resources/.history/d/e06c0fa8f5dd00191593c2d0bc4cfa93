@@ -1,6 +1,0 @@
-package com.port.test;
-
-public class Config {
-	public static String start1_time = "1569226440000";
-	public static String start5_time = "1569220200000";
-}
