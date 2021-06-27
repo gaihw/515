@@ -34,7 +34,11 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     public int getPlatformAcount(JSONObject jsonObject) {
-        return 0;
+        String platform = jsonObject.getString("platform");
+        String project = jsonObject.getString("project");
+        String module = jsonObject.getString("module");
+        String ip = jsonObject.getString("ip");
+        return platformDao.acount(platform,project,module,ip);
     }
 
     @Override

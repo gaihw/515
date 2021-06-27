@@ -7,12 +7,21 @@ spring :
   base:
     datasource:
       type: com.alibaba.druid.pool.DruidDataSource
-      driver-class-name: com.mysql.jdbc.Driver
-      jdbc-url: jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+#      driver-class-name: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
       username: root
       password: ghw111
+  allin102:
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+#      driver-class-name: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://10.90.0.102:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+      username: root
+      password: 123456
 
-## Mybatis ����
+## Mybatis 连接
 mybatis :
   typeAliasesPackage : com.zmj.demo.domain
   mapperLocations : classpath:mapper/*.xml

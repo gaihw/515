@@ -12,22 +12,22 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.zmj.demo.dao.auto", sqlSessionFactoryRef = "baseSqlSessionFactory")
-public class MybatisBaseConfig {
+@MapperScan(basePackages = "com.zmj.demo.dao.allin", sqlSessionFactoryRef = "allin102SqlSessionFactory")
+public class MybatisAllin102Config {
     @Autowired
-    @Qualifier("baseDataSource")
-    private DataSource baseDataSource;
+    @Qualifier("allin102DataSource")
+    private DataSource allin102DataSource;
 
     @Bean
-    public SqlSessionFactory baseSqlSessionFactory() throws Exception {
+    public SqlSessionFactory allin102SqlSessionFactory() throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(baseDataSource);
+        bean.setDataSource(allin102DataSource);
         return bean.getObject();
     }
 
     @Bean
-    public SqlSessionTemplate baseSqlSessionTemplate() throws Exception {
-        SqlSessionTemplate template = new SqlSessionTemplate(baseSqlSessionFactory());
+    public SqlSessionTemplate allin102SqlSessionTemplate() throws Exception {
+        SqlSessionTemplate template = new SqlSessionTemplate(allin102SqlSessionFactory());
         return template;
     }
 }

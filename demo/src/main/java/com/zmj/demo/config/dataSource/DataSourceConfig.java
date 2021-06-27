@@ -13,8 +13,7 @@ import javax.sql.DataSource;
 public class DataSourceConfig {
 
     /**
-     * 主数据源:10.90.0.102
-     *
+     *10.90.0.102
      * @return
      */
     @Bean(name = "baseDataSource")
@@ -22,6 +21,19 @@ public class DataSourceConfig {
     @Primary
     @ConfigurationProperties(prefix = "spring.base.datasource")
     public DataSource base() {
+
+        return DataSourceBuilder.create().build();
+    }
+
+    /**
+     *localhost
+     * @return
+     */
+    @Bean(name = "allin102DataSource")
+    @Qualifier("allin102DataSource")
+    @Primary
+    @ConfigurationProperties(prefix = "spring.allin102.datasource")
+    public DataSource allin102() {
 
         return DataSourceBuilder.create().build();
     }
