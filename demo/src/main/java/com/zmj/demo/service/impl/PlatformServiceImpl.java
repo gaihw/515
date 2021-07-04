@@ -16,8 +16,12 @@ public class PlatformServiceImpl implements PlatformService {
     private PlatformDao platformDao;
 
     @Override
-    public int addPlatform(PlatformChain PlatformChain, String creator) {
-        return 0;
+    public int addPlatform(PlatformChain platformChain, String creator) {
+        String platform = platformChain.getPlatform();
+        String project = platformChain.getProject();
+        String module = platformChain.getModule();
+        String ip = platformChain.getIp();
+        return platformDao.add(platform,project,module,ip,"test",creator);
     }
 
     @Override
@@ -43,11 +47,18 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     public int deletePlatformData(int id) {
-        return 0;
+
+        return platformDao.delete(id);
     }
 
     @Override
     public int editPlatform(PlatformChain projectChain, String creator) {
-        return 0;
+        return platformDao.edit(projectChain.getId()
+                ,projectChain.getPlatform()
+                ,projectChain.getProject()
+                ,projectChain.getModule()
+                ,projectChain.getIp()
+                ,projectChain.getState()
+                ,projectChain.getCreator());
     }
 }

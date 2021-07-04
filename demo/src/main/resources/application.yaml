@@ -21,6 +21,12 @@ spring :
       username: root
       password: 123456
 
+  redis:
+    host: 192.168.112.170
+    port: 6379
+    database: 0
+
+
 ## Mybatis 连接
 mybatis :
   typeAliasesPackage : com.zmj.demo.domain

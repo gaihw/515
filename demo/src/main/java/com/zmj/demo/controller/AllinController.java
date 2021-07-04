@@ -1,22 +1,20 @@
 package com.zmj.demo.controller;
 
 
-import com.zmj.demo.domain.BaseDomain;
-import com.zmj.demo.service.BaseService;
+import com.zmj.demo.service.AllinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
-public class BaseController {
+public class AllinController {
 
     @Autowired
-    private BaseService baseService;
+    private AllinService baseService;
 
     @RequestMapping(value = "/base/getList",method = RequestMethod.GET)
     public Map getList(){

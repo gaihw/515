@@ -1,9 +1,9 @@
-package com.zmj.demo.domain;
+package com.zmj.demo.domain.allin;
 
 import lombok.Data;
 
 @Data
-public class BaseDomain {
+public class Allin102Domain {
     private int id;
     private int year;
     private int month;

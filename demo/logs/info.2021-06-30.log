@@ -1,0 +1,11 @@
+2021-06-30 20:58:41.209 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 111800 (C:\work\git\515\demo\target\classes started by Administrator in C:\work\git\515\demo)
+2021-06-30 20:58:41.213 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-06-30 20:58:42.584 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2021-06-30 20:58:42.593 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2021-06-30 20:58:42.594 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-06-30 20:58:42.594 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-06-30 20:58:42.731 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-06-30 20:58:42.732 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1438 ms
+2021-06-30 20:58:43.861 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-10090"]
+2021-06-30 20:58:43.949 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 10090 (http) with context path ''
+2021-06-30 20:58:43.959 [main] INFO  com.zmj.demo.DemoApplication - Started DemoApplication in 3.546 seconds (JVM running for 4.853)

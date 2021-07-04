@@ -10,7 +10,7 @@ public interface PlatformService {
      * 添加项目
      *
      */
-    int addPlatform(PlatformChain PlatformChain, String creator);
+    int addPlatform(PlatformChain platformChain, String creator);
 
     /**
      * 查询项目
