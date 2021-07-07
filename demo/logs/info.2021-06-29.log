@@ -19,7 +19,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of method redisTemplate in com.zmj.demo.config.redis.RedisConfig required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
+Parameter 0 of method redisTemplate in com.zmj.demo.config.redisConfig.RedisConfig required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -50,7 +50,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of method redisTemplate in com.zmj.demo.config.redis.RedisConfig required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
+Parameter 0 of method redisTemplate in com.zmj.demo.config.redisConfig.RedisConfig required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
 
 
 Action:

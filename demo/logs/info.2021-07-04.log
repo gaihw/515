@@ -67,3 +67,171 @@
 2021-07-04 16:29:42.347 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
 2021-07-04 16:29:42.489 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
 2021-07-04 16:29:42.701 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-04 21:40:56.284 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 176704 (C:\work\git\515\demo\target\classes started by Administrator in C:\work\git\515\demo)
+2021-07-04 21:40:56.288 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-07-04 21:40:57.618 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2021-07-04 21:40:57.628 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2021-07-04 21:40:57.628 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-04 21:40:57.629 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-07-04 21:40:57.767 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-04 21:40:57.767 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1415 ms
+2021-07-04 21:40:57.984 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisTemplate' defined in class path resource [com/zmj/demo/config/redis/RedisConfig.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2021-07-04 21:40:57.988 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-07-04 21:40:57.997 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-07-04 21:40:58.024 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisTemplate in com.zmj.demo.config.redisConfig.RedisConfig required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' in your configuration.
+
+2021-07-04 21:41:27.562 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 140532 (C:\work\git\515\demo\target\classes started by Administrator in C:\work\git\515\demo)
+2021-07-04 21:41:27.564 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-07-04 21:41:28.478 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2021-07-04 21:41:28.485 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2021-07-04 21:41:28.486 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-04 21:41:28.486 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-07-04 21:41:28.579 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-04 21:41:28.580 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 974 ms
+2021-07-04 21:41:28.812 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisTemplate' defined in class path resource [com/zmj/demo/config/redis/RedisConfig.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2021-07-04 21:41:28.815 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-07-04 21:41:28.824 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-07-04 21:41:28.839 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisTemplate in com.zmj.demo.config.redisConfig.RedisConfig required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' in your configuration.
+
+2021-07-04 21:43:10.180 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 175200 (C:\work\git\515\demo\target\classes started by Administrator in C:\work\git\515\demo)
+2021-07-04 21:43:10.183 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-07-04 21:43:11.054 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2021-07-04 21:43:11.061 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2021-07-04 21:43:11.061 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-04 21:43:11.062 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-07-04 21:43:11.192 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-04 21:43:11.192 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 966 ms
+2021-07-04 21:43:11.415 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.core.RedisTemplate<java.lang.String, java.lang.Object>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+2021-07-04 21:43:11.417 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-07-04 21:43:11.427 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-07-04 21:43:11.441 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'org.springframework.data.redis.core.RedisTemplate' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.core.RedisTemplate' in your configuration.
+
+2021-07-04 21:43:33.447 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 162268 (C:\work\git\515\demo\target\classes started by Administrator in C:\work\git\515\demo)
+2021-07-04 21:43:33.450 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-07-04 21:43:34.358 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2021-07-04 21:43:34.365 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2021-07-04 21:43:34.366 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-04 21:43:34.366 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-07-04 21:43:34.463 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-04 21:43:34.463 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 973 ms
+2021-07-04 21:43:34.673 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisTemplate' defined in class path resource [com/zmj/demo/config/redis/RedisConfig.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2021-07-04 21:43:34.677 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-07-04 21:43:34.687 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-07-04 21:43:34.703 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisTemplate in com.zmj.demo.config.redisConfig.RedisConfig required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' in your configuration.
+
+2021-07-04 21:46:46.713 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 125960 (C:\work\git\515\demo\target\classes started by Administrator in C:\work\git\515\demo)
+2021-07-04 21:46:46.716 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-07-04 21:46:47.614 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2021-07-04 21:46:47.622 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2021-07-04 21:46:47.623 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-04 21:46:47.623 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-07-04 21:46:47.738 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-04 21:46:47.738 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 978 ms
+2021-07-04 21:46:47.961 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisTemplate' defined in class path resource [com/zmj/demo/config/redis/RedisConfig.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2021-07-04 21:46:47.964 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-07-04 21:46:47.973 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-07-04 21:46:47.986 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisTemplate in com.zmj.demo.config.redisConfig.RedisConfig required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' in your configuration.
+
+2021-07-04 21:51:48.981 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 128064 (C:\work\git\515\demo\target\classes started by Administrator in C:\work\git\515\demo)
+2021-07-04 21:51:48.984 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-07-04 21:51:49.889 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2021-07-04 21:51:49.896 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2021-07-04 21:51:49.897 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-04 21:51:49.897 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-07-04 21:51:50.042 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-04 21:51:50.043 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1019 ms
+2021-07-04 21:51:50.318 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisTemplate' defined in class path resource [com/zmj/demo/config/redis/RedisConfig.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2021-07-04 21:51:50.320 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-07-04 21:51:50.330 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-07-04 21:51:50.344 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisTemplate in com.zmj.demo.config.redisConfig.RedisConfig required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' in your configuration.
+

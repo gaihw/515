@@ -8,6 +8,7 @@ import com.zmj.demo.domain.auto.PlatformChain;
 import com.zmj.demo.enums.MessageEnum;
 import com.zmj.demo.service.PlatformService;
 //import com.zmj.demo.service.impl.config.RedisService;
+import com.zmj.demo.service.impl.config.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,11 +26,11 @@ public class PlatformController {
     @Autowired
     private PlatformService platformService;
 
-//    @Autowired
-//    private RedisService redisService;
+    @Autowired
+    private RedisService redisService;
 
 
-    @RequestMapping(value = "/platform/getPlatformList",method = RequestMethod.POST)
+    @RequestMapping(value = "/platform/list",method = RequestMethod.POST)
     public JsonResult getPlatformList(@RequestBody JSONObject jsonObject){
         Integer page = jsonObject.getInteger("page");
         Integer limit = jsonObject.getInteger("limit");
@@ -41,7 +42,7 @@ public class PlatformController {
         return new JsonResult(pageInfo.getList(),"success",count);
     }
 
-    @RequestMapping(value = "/platform",method = RequestMethod.POST)
+    @RequestMapping(value = "/platform/add",method = RequestMethod.POST)
     public JsonResult addPlatform(@RequestBody PlatformChain platformChain){
         String creator = "admin";
         int result = 0;
@@ -55,5 +56,11 @@ public class PlatformController {
         }catch (Exception e){
             return new JsonResult(MessageEnum.ERROR_PLATFORM.hashCode(),e.toString());
         }
+    }
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    public Object test() throws Exception {
+        Object o =   redisService.getValue("a");
+        System.out.println(o);
+        return o;
     }
 }
