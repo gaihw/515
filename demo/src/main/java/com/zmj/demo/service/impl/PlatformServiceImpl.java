@@ -30,7 +30,7 @@ public class PlatformServiceImpl implements PlatformService {
         String project = jsonObject.getString("project");
         String module = jsonObject.getString("module");
         String ip = jsonObject.getString("ip");
-        Integer page = jsonObject.getInteger("page");
+        Integer page = jsonObject.getInteger("page")-1;
         Integer limit = jsonObject.getInteger("limit");
         return platformDao.list(platform,project,module,ip,limit*(page-1),limit);
 

@@ -3,7 +3,10 @@ package com.zmj.demo.enums;
 public enum MessageEnum {
 
     SYSTEM("1","系统消息"),
-    ERROR_PLATFORM("100001","添加数据失败");
+    ERROR_PLATFORM_100001("100001","添加失败"),
+    ERROR_PLATFORM_100002("100002","删除失败"),
+    ERROR_PLATFORM_100003("100003","修改失败"),
+    ERROR_PLATFORM_100004("100004","查询失败");
 
     private String type;    //类型
     private String desc;    //描述
@@ -27,14 +30,6 @@ public enum MessageEnum {
 
     public void setDesc(String desc) {
         this.desc = desc;
-    }
-}
-
-class MyTestTwo{
-    public static void main(String[] args){
-//        MessageEnum message=MessageEnum.ERROR_PLATFORM;    //每个枚举成员实际上是一个枚举实例
-        System.out.println(MessageEnum.ERROR_PLATFORM.getType());
-        System.out.println(MessageEnum.ERROR_PLATFORM.getDesc());
     }
 }
 

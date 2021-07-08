@@ -8,19 +8,16 @@ import com.zmj.demo.domain.auto.PlatformChain;
 import com.zmj.demo.enums.MessageEnum;
 import com.zmj.demo.service.PlatformService;
 //import com.zmj.demo.service.impl.config.RedisService;
-import com.zmj.demo.service.impl.config.RedisService;
+import com.zmj.demo.service.impl.plugin.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @Slf4j
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/api/auto")
 public class PlatformController {
 
     @Autowired
@@ -32,7 +29,7 @@ public class PlatformController {
 
     @RequestMapping(value = "/platform/list",method = RequestMethod.POST)
     public JsonResult getPlatformList(@RequestBody JSONObject jsonObject){
-        Integer page = jsonObject.getInteger("page");
+        Integer page = jsonObject.getInteger("page")-1;
         Integer limit = jsonObject.getInteger("limit");
         PageHelper.startPage(page, limit);
         //获取总条数
@@ -51,16 +48,40 @@ public class PlatformController {
             if (result == 1){
                 return new JsonResult(0,"添加成功!");
             }else{
-                return new JsonResult(MessageEnum.ERROR_PLATFORM.hashCode(),MessageEnum.ERROR_PLATFORM.getDesc());
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.hashCode(),MessageEnum.ERROR_PLATFORM_100001.getDesc());
             }
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM.hashCode(),e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.hashCode(),e.toString());
         }
     }
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public Object test() throws Exception {
-        Object o =   redisService.getValue("a");
-        System.out.println(o);
-        return o;
+    @RequestMapping(value = "/platform/delete",method = RequestMethod.POST)
+    public JsonResult deletePlatform(@RequestParam(value = "id") Integer id){
+        try{
+            int del_res = platformService.deletePlatformData(id);
+            if (del_res > 0){
+                return new JsonResult(0,"删除成功");
+            }else {
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.hashCode(),MessageEnum.ERROR_PLATFORM_100002.getDesc());
+            }
+        }catch (Exception e){
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100002,e.toString());
+        }
+    }
+
+    @RequestMapping(value = "/platform/edit")
+    public JsonResult editPlatform(@RequestBody PlatformChain platformChain){
+        String creator = "test";
+
+        int result = 0;
+        try{
+            result = platformService.editPlatform(platformChain,creator);
+            if (result == 1){
+                return new JsonResult(0,"修改成功");
+            }else{
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.hashCode(),MessageEnum.ERROR_PLATFORM_100003.getDesc());
+            }
+        }catch (Exception e){
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.hashCode(),e.toString());
+        }
     }
 }

@@ -44,13 +44,13 @@ public interface PlatformDao {
             "</script>"})
     List<PlatformChain> list(@Param("platform") String platform, @Param("project") String project, @Param("module") String module, @Param("ip") String ip, @Param("page") int page, @Param("limit") int limit);
 
-    @Insert("INSERT INTO `demo`.`tb_platform_manage` (`platform`,`project`,`module`,`ip`,`state`,`creator`) VALUES (#{platform},#{project},#{module},#{ip},#{state},#{creator})")
+    @Insert("INSERT INTO `demo`.`tb_platform_manage` (`platform`,`project`,`module`,`ip`,`state`,`creator`,`create_date`,`update_date`) VALUES (#{platform},#{project},#{module},#{ip},#{state},#{creator},now(),now())")
     int add(@Param("platform") String platform, @Param("project") String project, @Param("module") String module, @Param("ip") String ip, @Param("state") String state, @Param("creator") String creator);
 
-    @Delete("update `demo`.`tb_platform_manage` set is_delete=1 where id = #{id} ")
+    @Delete("update `demo`.`tb_platform_manage` set is_delete=1,update_date=now() where id = #{id} ")
     int delete(@Param("id") int id);
 
-    @Update("update `demo`.`tb_platform_manage` set platform=#{platform},project=#{project},module=#{module},ip=#{ip},state=#{state},creator=#{creator} where id = #{id}")
+    @Update("update `demo`.`tb_platform_manage` set platform=#{platform},project=#{project},module=#{module},ip=#{ip},state=#{state},creator=#{creator},update_date=now() where id = #{id}")
     int edit(@Param("id") int id,@Param("platform") String platform, @Param("project") String project, @Param("module") String module, @Param("ip") String ip, @Param("state") String state, @Param("creator") String creator);
 
 }
