@@ -233,6 +233,14 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
+        <!--excel文件依赖包-->
+        <dependency>
+            <groupId>net.sf.jxls</groupId>
+            <artifactId>jxls-core</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -253,6 +261,18 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <version>2.6</version>-->
+<!--                <artifactId>maven-resources-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <encoding>UTF-8</encoding>-->
+<!--                    <nonFilteredFileExtensions>-->
+<!--                        <nonFilteredFileExtension>xlsx</nonFilteredFileExtension>-->
+<!--                    </nonFilteredFileExtensions>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
 
     </build>
