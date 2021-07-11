@@ -3,13 +3,17 @@ package com.zmj.demo.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.common.excel.ExcelUtils;
 import com.zmj.demo.domain.JsonResult;
-import com.zmj.demo.domain.auto.Model;
+import com.zmj.demo.domain.auto.CaseExcelChain;
 import com.zmj.demo.enums.MessageEnum;
 import com.zmj.demo.service.CaseService;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jxls.transformer.XLSTransformer;
+import org.apache.poi.ss.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -28,9 +32,6 @@ public class CaseController {
     @Autowired
     private CaseService caseService;
 
-    @Autowired
-    private ExcelUtils excelUtils;
-
     @RequestMapping(value = "/case/list")
     public JsonResult list(@RequestBody JSONObject jsonObject) {
 
@@ -38,7 +39,7 @@ public class CaseController {
             return new JsonResult(0, caseService.list(jsonObject));
 
         } catch (Exception e) {
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100004.hashCode(), e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100004.getCode(), e.toString());
         }
     }
 
@@ -50,7 +51,14 @@ public class CaseController {
     @RequestMapping(value = "/case/downloadExcel",method = RequestMethod.GET)
     private void export(HttpServletRequest request, HttpServletResponse response)  {
 
-        excelUtils.downloadExcel(response);
+        caseService.downloadExcel(response);
 
+    }
+
+    @RequestMapping(value = "/case/uploadExcel",method = RequestMethod.POST)
+    @Transactional(rollbackFor = Exception.class)
+    public JsonResult importWatchExcel(@RequestParam("excelFile") MultipartFile excelFile) {
+        String creator = "test";
+        return caseService.uploadExcel(excelFile,creator);
     }
 }

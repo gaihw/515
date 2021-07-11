@@ -27,7 +27,7 @@ public class InterfaceController {
         try {
             return new JsonResult(interfaceService.list(jsonObject), "操作成功!",interfaceService.acount(jsonObject));
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100004.hashCode(),e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100004.getCode(),e.toString());
         }
     }
 
@@ -41,10 +41,10 @@ public class InterfaceController {
             if (result == 1){
                 return new JsonResult(0,"操作成功!");
             }else {
-                return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.hashCode(),MessageEnum.ERROR_PLATFORM_100001.getDesc());
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.getCode(),MessageEnum.ERROR_PLATFORM_100001.getDesc());
             }
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.hashCode(),e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.getCode(),e.toString());
         }
     }
 
@@ -56,10 +56,10 @@ public class InterfaceController {
             if (result == 1){
                 return new JsonResult(0,"操作成功!");
             }else {
-                return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.hashCode(), MessageEnum.ERROR_PLATFORM_100002.getDesc());
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.getCode(), MessageEnum.ERROR_PLATFORM_100002.getDesc());
             }
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.hashCode(),e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.getCode(),e.toString());
         }
     }
 
@@ -72,10 +72,10 @@ public class InterfaceController {
             if (result == 1){
                 return new JsonResult(0,"操作成功!");
             }else{
-                return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.hashCode(),MessageEnum.ERROR_PLATFORM_100003.getDesc());
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.getCode(),MessageEnum.ERROR_PLATFORM_100003.getDesc());
             }
         }catch (Exception  e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.hashCode(),e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.getCode(),e.toString());
         }
     }
 }

@@ -1,13 +1,19 @@
 package com.zmj.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zmj.demo.common.excel.ExcelUtils;
 import com.zmj.demo.dao.auto.CaseDao;
+import com.zmj.demo.domain.JsonResult;
 import com.zmj.demo.domain.auto.CaseChain;
+import com.zmj.demo.domain.auto.CaseExcelChain;
+import com.zmj.demo.enums.MessageEnum;
 import com.zmj.demo.service.CaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Service
@@ -16,6 +22,9 @@ public class CaseServiceImpl implements CaseService {
 
     @Autowired
     private CaseDao caseDao;
+
+    @Autowired
+    private ExcelUtils excelUtils;
 
     @Override
     public List<CaseChain> list(JSONObject jsonObject) {
@@ -29,7 +38,7 @@ public class CaseServiceImpl implements CaseService {
 
     @Override
     public int add(CaseChain caseChain, String creator) {
-        Integer interfaceManageID = caseChain.getInterfaceManegeID();
+        Integer interfaceManageID = caseChain.getInterfaceManageID();
         String caseName = caseChain.getCaseName();
         String headerData = caseChain.getHeaderData();
         String paramData = caseChain.getParamData();
@@ -47,7 +56,7 @@ public class CaseServiceImpl implements CaseService {
     @Override
     public int edit(CaseChain caseChain, String creator) {
         Integer id = caseChain.getId();
-        Integer interfaceManageID = caseChain.getInterfaceManegeID();
+        Integer interfaceManageID = caseChain.getInterfaceManageID();
         String caseName = caseChain.getCaseName();
         String headerData = caseChain.getHeaderData();
         String paramData = caseChain.getParamData();
@@ -63,5 +72,22 @@ public class CaseServiceImpl implements CaseService {
         String caseName = jsonObject.getString("caseName");
         Integer isSuccess = jsonObject.getInteger("isSuccess");
         return caseDao.acount(caseName,interfaceManageID,isSuccess);
+    }
+
+    @Override
+    public void downloadExcel(HttpServletResponse response) {
+        excelUtils.downloadExcel(response);
+    }
+
+    @Override
+    public JsonResult uploadExcel(MultipartFile excelFile, String creator) {
+        List excel_data = excelUtils.uploadExcel(excelFile,creator);
+        if (excel_data.isEmpty()){
+            return new JsonResult(MessageEnum.ERROR_CASE_EXCEL.getCode(),MessageEnum.ERROR_CASE_EXCEL.getDesc());
+        }else{
+            int i = caseDao.addBatch(excel_data);
+            System.out.println("i:::::"+i);
+            return new JsonResult(0,"上传成功");
+        }
     }
 }

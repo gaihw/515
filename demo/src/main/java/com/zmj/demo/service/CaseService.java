@@ -1,9 +1,12 @@
 package com.zmj.demo.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zmj.demo.domain.JsonResult;
 import com.zmj.demo.domain.auto.CaseChain;
 import com.zmj.demo.domain.auto.InterfaceChain;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public interface CaseService {
@@ -32,4 +35,15 @@ public interface CaseService {
      * 总条数
      */
     int acount(JSONObject jsonObject);
+
+    /**
+     * 下载模板
+     * @param response
+     */
+    void downloadExcel(HttpServletResponse response);
+
+    /**
+     * 上传用例
+     */
+    JsonResult uploadExcel(MultipartFile excelFile, String creator);
 }

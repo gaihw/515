@@ -2,6 +2,7 @@ package com.zmj.demo.dao.auto;
 
 
 import com.zmj.demo.domain.auto.CaseChain;
+import com.zmj.demo.domain.auto.CaseExcelChain;
 import com.zmj.demo.domain.auto.InterfaceChain;
 import org.apache.ibatis.annotations.*;
 
@@ -43,6 +44,29 @@ public interface CaseDao {
 
     @Insert("INSERT INTO `demo`.`tb_case_manage` (`interface_manage_id`,`case_name`,`header_data`,`param_data`,`assert_type`,`assert_data`,`state`,`creator`,`create_date`,`update_date`) VALUES (#{interfaceManageID},#{caseName},#{headerData},#{paramData},#{assertType},#{assertData},#{state},#{creator},now(),now())")
     int add(@Param("interfaceManageID") Integer interfaceManageID, @Param("caseName") String caseName, @Param("headerData") String headerData, @Param("paramData") String paramData,@Param("assertType") String assertType,@Param("assertData") String assertData, @Param("state") String state, @Param("creator") String creator);
+
+    /**
+     * 批量插入数据 入表（tb_case_manage）
+     * @param listCaseExcel
+     */
+    @Insert({"<script>" ,
+            "INSERT INTO `demo`.`tb_case_manage` (`interface_manage_id`,`case_name`,`header_data`,`param_data`,`assert_type`,`assert_data`,`state`,`creator`,`create_date`,`update_date`) " + "values " +
+            "<foreach collection='listCaseExcel' item='element' index='index' separator=','>" +
+            "( " +
+            "#{element.interfaceManageID,jdbcType=INTEGER},"+
+            "#{element.caseName,jdbcType=VARCHAR},"+
+            "#{element.headerData,jdbcType=VARCHAR},"+
+            "#{element.paramData,jdbcType=VARCHAR},"+
+            "#{element.assertType,jdbcType=VARCHAR},"+
+            "#{element.assertData,jdbcType=VARCHAR},"+
+            "#{element.state,jdbcType=VARCHAR},"+
+            "#{element.creator,jdbcType=VARCHAR},"+
+            "#{element.createDate,jdbcType=VARCHAR},"+
+            "#{element.updateDate,jdbcType=VARCHAR}"+
+            " )",
+            "</foreach>",
+            "</script>"})
+    int addBatch(@Param("listCaseExcel") List<CaseExcelChain> listCaseExcel);
 
     @Delete("update `demo`.`tb_case_manage` set is_delete=1,update_date=now() where id = #{id} ")
     int delete(@Param("id") int id);

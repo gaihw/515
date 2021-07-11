@@ -6,15 +6,10 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class CaseChain {
+public class CaseExcelChain {
 
     /**
-     * 主键id
-     */
-    private int id;
-
-    /**
-     * 对应的接口ID
+     * 用例编号
      */
     private Integer interfaceManageID;
 
@@ -44,21 +39,6 @@ public class CaseChain {
     private String assertData;
 
     /**
-     * 是否成功
-     */
-    private Integer isSuccess;
-
-    /**
-     * 结果
-     */
-    private String result;
-
-    /**
-     * 是否删除
-     */
-    private Integer isDelete;
-
-    /**
      * 备注
      */
     private String state;
@@ -72,12 +52,10 @@ public class CaseChain {
      * 创建时间
      *
      */
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date createDate;
+    private String createDate;
 
     /**
      * 修改时间
      */
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date updateDate;
+    private String updateDate;
 }

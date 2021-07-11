@@ -48,10 +48,10 @@ public class PlatformController {
             if (result == 1){
                 return new JsonResult(0,"添加成功!");
             }else{
-                return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.hashCode(),MessageEnum.ERROR_PLATFORM_100001.getDesc());
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.getCode(),MessageEnum.ERROR_PLATFORM_100001.getDesc());
             }
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.hashCode(),e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.getCode(),e.toString());
         }
     }
     @RequestMapping(value = "/platform/delete",method = RequestMethod.POST)
@@ -61,10 +61,10 @@ public class PlatformController {
             if (del_res > 0){
                 return new JsonResult(0,"删除成功");
             }else {
-                return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.hashCode(),MessageEnum.ERROR_PLATFORM_100002.getDesc());
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.getCode(),MessageEnum.ERROR_PLATFORM_100002.getDesc());
             }
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100002,e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.getCode(),e.toString());
         }
     }
 
@@ -78,10 +78,10 @@ public class PlatformController {
             if (result == 1){
                 return new JsonResult(0,"修改成功");
             }else{
-                return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.hashCode(),MessageEnum.ERROR_PLATFORM_100003.getDesc());
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.getCode(),MessageEnum.ERROR_PLATFORM_100003.getDesc());
             }
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.hashCode(),e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.getCode(),e.toString());
         }
     }
 }
