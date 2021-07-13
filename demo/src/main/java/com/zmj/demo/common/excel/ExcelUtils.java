@@ -9,6 +9,7 @@ import net.sf.jxls.transformer.XLSTransformer;
 import org.apache.poi.ss.usermodel.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
@@ -28,88 +29,55 @@ public class ExcelUtils {
 
     /**
      * 功能名：文件下载
-     * @param response
+     * @param res
      */
-    public void downloadExcel(HttpServletResponse response){
-        //获得模版
-        File directory = new File("template");
-        String templatePath = null;
+    public void downloadExcel(HttpServletResponse res){
+
+        // 配置文件下载
+        res.setHeader("content-type", "application/octet-stream");
+        res.setContentType("application/octet-stream");
+
+        String downloadFileName = null;
         try {
-            templatePath = directory.getCanonicalPath();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String templateFile = templatePath + "\\data.xlsx";
-
-        //导出文件名
-//        SimpleDateFormat simpl = new SimpleDateFormat("yyyyMMddHHmmss");
-//        String currntTime = simpl.format(new Date());
-        String fileName = "测试用例模板";
-
-        //将模板数据源
-        Map beans = new HashMap();
-
-        //生成的导出文件
-        File destFile = null;
-        //文件名称统一编码格式
-        try {
-            fileName = URLEncoder.encode(fileName, "utf-8");
-            destFile = File.createTempFile(fileName, ".xlsx");
+            downloadFileName = new String("用例模板下载.xlsx".getBytes("UTF-8"),"iso-8859-1");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-        }catch (IOException e) {
-            e.printStackTrace();
         }
-
-        //transformer转到Excel
-        XLSTransformer transformer = new XLSTransformer();
-
+        String headStr ="attachment; filename=\"" + downloadFileName +"\"";
+        // 下载文件能正常显示中文
+        res.setHeader("Content-Disposition", headStr);
+        byte[] buff = new byte[1024];
         BufferedInputStream bis = null;
-        BufferedOutputStream bos = null;
+        OutputStream os = null;
         try {
-            //将数据添加到模版中生成新的文件
-            //beans参数，可传空的map，因为模板文件中，有样例数据，不用新建数据源
-            transformer.transformXLS(templateFile, beans, destFile.getAbsolutePath());
-            //将文件输入
-            InputStream inputStream = new FileInputStream(destFile);
-            //设置response参数，可以打开下载页面
-            response.reset();
-            //设置响应文本格式
-            response.setContentType("application/vnd.ms-excel;charset=utf-8");
-            response.setHeader("Content-Disposition",
-                    "attachment;filename=" + new String((fileName + ".xlsx").getBytes(), "utf-8"));
-            //将文件输出到页面
-            ServletOutputStream out = response.getOutputStream();
-            bis = new BufferedInputStream(inputStream);
-            bos = new BufferedOutputStream(out);
-            byte[] buff = new byte[2048];
-            int bytesRead;
-            //读取并写入
-            while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
-                bos.write(buff, 0, bytesRead);
+            os = res.getOutputStream();
+            File file= ResourceUtils.getFile("template\\data.xlsx");
+            bis = new BufferedInputStream(new FileInputStream(file));
+            int i = bis.read(buff);
+            while (i != -1) {
+                os.write(buff, 0, buff.length);
+                os.flush();
+                i = bis.read(buff);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch ( IOException e ) {
+            log.error("download exception\t"+e);
         } finally {
-            //使用完成后关闭流
-            try {
-                if (bis != null) {
+            if (bis != null) {
+                try {
                     bis.close();
+                } catch (IOException e) {
+                    log.error("inputsteam close exception\t"+e);
                 }
-                if (bos != null) {
-                    bos.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         }
+        log.info("Download completed successfully");
     }
-
 
     /**
      * 功能：导入
      */
     public List<CaseExcelChain> uploadExcel(MultipartFile excelFile,String creator) {
+        log.info("---------开始上传用例---------");
         // contentType
         String contentType = excelFile.getContentType();
         // excel文件名
@@ -191,6 +159,8 @@ public class ExcelUtils {
 
                 excel_data.add(caseExcelChain);
             }
+
+            log.info("---------结束上传用例---------");
             return excel_data;
         } catch (Exception e1) {
             // 回滚数据

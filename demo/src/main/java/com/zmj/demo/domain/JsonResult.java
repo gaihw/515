@@ -30,6 +30,11 @@ public class JsonResult<T> {
         this.code = code;
         this.data = data;
     }
+    public JsonResult(long code, String msg,long count) {
+        this.code = code;
+        this.msg = msg;
+        this.count = count;
+    }
 
     /**
      * 有数据返回时，状态码为 0，默认提示信息为“操作成功！”

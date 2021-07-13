@@ -3,6 +3,7 @@ package com.zmj.demo.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.common.excel.ExcelUtils;
 import com.zmj.demo.domain.JsonResult;
+import com.zmj.demo.domain.auto.CaseChain;
 import com.zmj.demo.domain.auto.CaseExcelChain;
 import com.zmj.demo.enums.MessageEnum;
 import com.zmj.demo.service.CaseService;
@@ -32,7 +33,7 @@ public class CaseController {
     @Autowired
     private CaseService caseService;
 
-    @RequestMapping(value = "/case/list")
+    @RequestMapping(value = "/case/list",method = RequestMethod.GET)
     public JsonResult list(@RequestBody JSONObject jsonObject) {
 
         try {
@@ -40,6 +41,54 @@ public class CaseController {
 
         } catch (Exception e) {
             return new JsonResult(MessageEnum.ERROR_PLATFORM_100004.getCode(), e.toString());
+        }
+    }
+
+    @RequestMapping(value = "/case/add",method = RequestMethod.POST)
+    public JsonResult add(@RequestBody CaseChain caseChain){
+        String creator = "test";
+        int result = 0;
+        try {
+            result = caseService.add(caseChain,creator);
+            if (result == 1) {
+                return new JsonResult(0,"添加成功!");
+            }else{
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.getCode(),MessageEnum.ERROR_PLATFORM_100001.getDesc());
+            }
+        }catch (Exception e){
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.getCode(),e.toString());
+        }
+    }
+
+    @RequestMapping(value = "/case/delete",method = RequestMethod.POST)
+    public JsonResult delete(@RequestParam("id") int id){
+        String cretor = "test";
+        int result = 0 ;
+        try {
+            result =  caseService.delete(id);
+            if (result == 1){
+                return new JsonResult(0,"删除成功!");
+            }else{
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.getCode(),MessageEnum.ERROR_PLATFORM_100002.getDesc());
+            }
+        }catch (Exception e){
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.getCode(),e.toString());
+        }
+    }
+
+    @RequestMapping(value = "/case/edit",method = RequestMethod.POST)
+    public JsonResult edit(@RequestBody CaseChain caseChain){
+        String cretor = "test";
+        int result = 0 ;
+        try {
+            result =  caseService.edit(caseChain,cretor);
+            if (result == 1){
+                return new JsonResult(0,"修改成功!");
+            }else{
+                return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.getCode(),MessageEnum.ERROR_PLATFORM_100003.getDesc());
+            }
+        }catch (Exception e){
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.getCode(),e.toString());
         }
     }
 

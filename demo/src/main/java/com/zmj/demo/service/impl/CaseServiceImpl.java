@@ -85,9 +85,8 @@ public class CaseServiceImpl implements CaseService {
         if (excel_data.isEmpty()){
             return new JsonResult(MessageEnum.ERROR_CASE_EXCEL.getCode(),MessageEnum.ERROR_CASE_EXCEL.getDesc());
         }else{
-            int i = caseDao.addBatch(excel_data);
-            System.out.println("i:::::"+i);
-            return new JsonResult(0,"上传成功");
+            int count = caseDao.addBatch(excel_data);
+            return new JsonResult(0,"上传成功",count);
         }
     }
 }
