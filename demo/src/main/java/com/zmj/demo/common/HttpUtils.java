@@ -23,12 +23,12 @@ public class HttpUtils {
 
     /**
      * post请求，json格式的数据
-     * @param headerMap
+     * @param header
      * @param url
      * @param params
      * @return
      */
-    public  String postByJson(Map<String,String> headerMap, String url, String params){
+    public  String postByJson(String header, String url, String params){
         post = new PostMethod(url) ;
         RequestEntity se = null;
         try {
@@ -38,9 +38,14 @@ public class HttpUtils {
         }
         post.setRequestEntity(se);
 
-        for (Map.Entry<String,String> entry:headerMap.entrySet()) {
-            post.setRequestHeader(entry.getKey(),entry.getValue());
+        JSONObject jsonObject = JSONObject.parseObject(header);
+        for (String key:jsonObject.keySet()
+             ) {
+            post.setRequestHeader(key,jsonObject.getString(key));
         }
+//        for (Map.Entry<String,String> entry:headerMap.entrySet()) {
+//            post.setRequestHeader(entry.getKey(),entry.getValue());
+//        }
 
         try {
             int code = client.executeMethod(post);
@@ -82,12 +87,12 @@ public class HttpUtils {
 
     /**
      * post请求 text格式
-     * @param headerMap
+     * @param header
      * @param url
      * @param text
      * @return
      */
-    public  String postByText(Map<String,String> headerMap,String url,String text){
+    public  String postByText(String header,String url,String text){
         post = new PostMethod(url) ;
         RequestEntity se = null;
         try {
@@ -97,8 +102,10 @@ public class HttpUtils {
         }
         post.setRequestEntity(se);
 //        post.setRequestHeader("Content-Type","text/plain");
-        for (Map.Entry<String,String> entry:headerMap.entrySet()) {
-            post.setRequestHeader(entry.getKey(),entry.getValue());
+        JSONObject jsonObject = JSONObject.parseObject(header);
+        for (String key:jsonObject.keySet()
+        ) {
+            post.setRequestHeader(key,jsonObject.getString(key));
         }
         try {
             int code = client.executeMethod(post);
@@ -118,12 +125,12 @@ public class HttpUtils {
 
     /**
      * post请求 form格式的参数
-     * @param headerMap
+     * @param header
      * @param url
      * @param params
      * @return
      */
-    public String postByForm(Map<String,String> headerMap,String url,String params){
+    public String postByForm(String header,String url,String params){
         post = new PostMethod(url) ;
         if (params.contains("&")){
             String[] temp = params.split("&");
@@ -146,8 +153,10 @@ public class HttpUtils {
             }
         }
 //        post.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-        for (Map.Entry<String,String> entry:headerMap.entrySet()) {
-            post.setRequestHeader(entry.getKey(),entry.getValue());
+        JSONObject jsonObject = JSONObject.parseObject(header);
+        for (String key:jsonObject.keySet()
+        ) {
+            post.setRequestHeader(key,jsonObject.getString(key));
         }
         try {
             int code = client.executeMethod(post);

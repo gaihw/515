@@ -19,14 +19,14 @@ public class CaseExecuteChain {
     private String path;
 
     /**
-     * 方法
+     * 方法，请求方法：0-GET；1-POST'
      */
-    private String method;
+    private Integer method;
 
     /**
-     * 请求类型
+     * 请求类型，参数格式：0-FORM；1-JSON；2-TEXT；3-无'
      */
-    private String contentType;
+    private Integer contentType;
 	
 	/**
 	 *请求头
@@ -39,9 +39,9 @@ public class CaseExecuteChain {
     private String paramData;
 
     /**
-     *断言方式
+     *断言方式：0-包含；1-相等；2-无
      */
-    private String assertType;
+    private Integer assertType;
 
     /**
      * 断言数据

@@ -11,12 +11,15 @@ import com.zmj.demo.domain.auto.CaseExecuteChain;
 import com.zmj.demo.enums.MessageEnum;
 import com.zmj.demo.service.CaseService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.javassist.bytecode.stackmap.BasicBlock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Slf4j
@@ -96,14 +99,54 @@ public class CaseServiceImpl implements CaseService {
     }
 	
 	@Override
-	public JsonResult caseExecute(List<Integer> caseList){
-		//遍历用例集合
-        for (Integer case_id:caseList
-             ) {
-            CaseExecuteChain caseExecuteChain = caseDao.caseAllInfoById(case_id);
-            System.out.println(caseExecuteChain);
+	public JsonResult caseExecute(List<Integer> caseList) {
+
+        //接口响应
+        String res;
+        //遍历用例集合
+        for (Integer case_id : caseList
+        ) {
+            try {
+                CaseExecuteChain caseExecuteChain = caseDao.caseAllInfoById(case_id);
+                //拼接请求的url
+                String url = "http://" + caseExecuteChain.getIp() + caseExecuteChain.getPath();
+                log.info("用例ID:{},访问路径:{},请求方法:{},请求格式:{},请求头信息:{},请求体信息:{},断言方式:{},断言数据:{}"
+                        , case_id, url, caseExecuteChain.getMethod(), caseExecuteChain.getContentType()
+                        , caseExecuteChain.getHeaderData(), caseExecuteChain.getParamData(), caseExecuteChain.getAssertType(), caseExecuteChain.getAssertData());
+                //get方法
+                if (caseExecuteChain.getMethod() == 0) {
+                    res = httpUtils.get(url);
+                    caseDao.executeResult(case_id, res, 2);
+
+                }
+                //post方法
+                else if (caseExecuteChain.getMethod() == 1) {
+                    //form请求格式的参数
+                    if (caseExecuteChain.getContentType() == 0) {
+                        res = httpUtils.postByForm(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
+                    }
+                    //json格式
+                    else if (caseExecuteChain.getContentType() == 1) {
+                        //请求接口的返回值
+                        res = httpUtils.postByJson(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
+                        caseDao.executeResult(case_id, res, 2);
+                    }
+                    //text格式
+                    else if (caseExecuteChain.getContentType() == 2) {
+                        res = httpUtils.postByText(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
+                        caseDao.executeResult(case_id, res, 2);
+                    }
+                    //无参
+                    else {
+                        res = httpUtils.postByJson(url);
+                        caseDao.executeResult(case_id, res, 2);
+                    }
+                }
+                return new JsonResult(0, "用例执行成功!");
+            } catch (Exception e) {
+                return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(),e.toString());
+            }
         }
-		
-		return null;
-	}
+        return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(),MessageEnum.ERROR_CASE_EXECUTE.getDesc());
+    }
 }

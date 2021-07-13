@@ -124,8 +124,11 @@ public class CaseController {
      */
     @RequestMapping(value = "/case/execute",method = RequestMethod.POST)
     public JsonResult caseExecute(@RequestBody() JSONObject  caseList){
-        caseService.caseExecute(JSONArray.parseArray(caseList.getJSONArray("caseList").toJSONString(),Integer.class));
-        return null;
+        try {
+            return caseService.caseExecute(JSONArray.parseArray(caseList.getJSONArray("caseList").toJSONString(),Integer.class));
+        }catch (Exception e){
+            return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(),e.toString());
+        }
     }
 
 }

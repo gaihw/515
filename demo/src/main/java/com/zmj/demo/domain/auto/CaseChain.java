@@ -34,7 +34,7 @@ public class CaseChain {
     private String paramData;
 
     /**
-     *断言方式
+     *断言方式：0-包含；1-相等；2-无
      */
     private String assertType;
 
@@ -44,7 +44,7 @@ public class CaseChain {
     private String assertData;
 
     /**
-     * 是否成功
+     * 是否成功,0-未执行；1-未通过；2-通过
      */
     private Integer isSuccess;
 

@@ -86,9 +86,11 @@ public interface CaseDao {
     int addBatch(@Param("listCaseExcel") List<CaseExcelChain> listCaseExcel);
 
     @Delete("update `demo`.`tb_case_manage` set is_delete=1,update_date=now() where id = #{id} ")
-    int delete(@Param("id") int id);
+    int delete(@Param("id") Integer id);
 
     @Update("update `demo`.`tb_case_manage` set interface_manage_id=#{interfaceManageID},case_name=#{caseName},header_data=#{headerData},param_data=#{paramData},assert_type=#{assertType},assert_data=#{assertData},state=#{state},creator=#{creator},update_date=now() where id = #{id}")
-    int edit(@Param("id") int id,@Param("interfaceManageID") Integer interfaceManageID, @Param("caseName") String caseName, @Param("headerData") String headerData, @Param("paramData") String paramData,@Param("assertType") String assertType,@Param("assertData") String assertData, @Param("state") String state, @Param("creator") String creator);
+    int edit(@Param("id") Integer id,@Param("interfaceManageID") Integer interfaceManageID, @Param("caseName") String caseName, @Param("headerData") String headerData, @Param("paramData") String paramData,@Param("assertType") String assertType,@Param("assertData") String assertData, @Param("state") String state, @Param("creator") String creator);
 
+    @Update("update `demo`.`tb_case_manage` set result= #{result},is_success=#{isSuccess} where id = #{id} ")
+    int executeResult(@Param("id") Integer id,@Param("result") String result,@Param("isSuccess") Integer isSuccess);
 }

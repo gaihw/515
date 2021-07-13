@@ -29,12 +29,12 @@ public class InterfaceChain {
     private String path;
 
     /**
-     * 接口方法
+     * 接口方法，请求方法：0-GET；1-POST'
      */
     private String method;
 
     /**
-     * 参数格式
+     * 参数格式：0-FORM；1-JSON；2-TEXT；3-无'
      */
     private String contentType;
 
