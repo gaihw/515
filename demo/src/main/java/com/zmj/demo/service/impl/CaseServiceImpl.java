@@ -1,11 +1,13 @@
 package com.zmj.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zmj.demo.common.HttpUtils;
 import com.zmj.demo.common.excel.ExcelUtils;
 import com.zmj.demo.dao.auto.CaseDao;
 import com.zmj.demo.domain.JsonResult;
 import com.zmj.demo.domain.auto.CaseChain;
 import com.zmj.demo.domain.auto.CaseExcelChain;
+import com.zmj.demo.domain.auto.CaseExecuteChain;
 import com.zmj.demo.enums.MessageEnum;
 import com.zmj.demo.service.CaseService;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +27,9 @@ public class CaseServiceImpl implements CaseService {
 
     @Autowired
     private ExcelUtils excelUtils;
+
+    @Autowired
+    private HttpUtils httpUtils;
 
     @Override
     public List<CaseChain> list(JSONObject jsonObject) {
@@ -89,4 +94,16 @@ public class CaseServiceImpl implements CaseService {
             return new JsonResult(0,"上传成功",count);
         }
     }
+	
+	@Override
+	public JsonResult caseExecute(List<Integer> caseList){
+		//遍历用例集合
+        for (Integer case_id:caseList
+             ) {
+            CaseExecuteChain caseExecuteChain = caseDao.caseAllInfoById(case_id);
+            System.out.println(caseExecuteChain);
+        }
+		
+		return null;
+	}
 }

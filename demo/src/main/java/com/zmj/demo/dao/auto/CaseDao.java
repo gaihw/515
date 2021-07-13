@@ -3,6 +3,7 @@ package com.zmj.demo.dao.auto;
 
 import com.zmj.demo.domain.auto.CaseChain;
 import com.zmj.demo.domain.auto.CaseExcelChain;
+import com.zmj.demo.domain.auto.CaseExecuteChain;
 import com.zmj.demo.domain.auto.InterfaceChain;
 import org.apache.ibatis.annotations.*;
 
@@ -41,6 +42,22 @@ public interface CaseDao {
             "AND is_delete = 0 ORDER BY update_date DESC LIMIT #{page},#{limit}"+
             "</script>"})
     List<CaseChain> list(@Param("caseName") String caseName, @Param("interfaceManageID") String interfaceManageID,@Param("isSuccess") int isSuccess, @Param("page") int page, @Param("limit") int limit);
+
+    /**
+     * 根据用例id，查询此用例对应的ip、路径、参数、方法等信息
+     * @param id
+     * @return
+     */
+    @Select({"<script>"+
+            "select pm.ip as ip,im.path as path,im.method as method,im.content_type as contentType,cm.header_data as headerData,cm.param_data as paramData,cm.assert_type as assertType,cm.assert_data as assertData " +
+            "from `demo`.`tb_case_manage` as cm inner join `demo`.`tb_interface_manage` as im on cm.interface_manage_id= im.id inner join `demo`.`tb_platform_manage` as pm on im.platform_manage_id=pm.id "+
+            "WHERE 1=1"+
+            "<if test=\"id!=null and id!=''\">"+
+            "AND cm.id = #{id}"+
+            "</if>"+
+            "AND cm.is_delete = 0 "+
+            "</script>"})
+    CaseExecuteChain caseAllInfoById(@Param("id") Integer id);
 
     @Insert("INSERT INTO `demo`.`tb_case_manage` (`interface_manage_id`,`case_name`,`header_data`,`param_data`,`assert_type`,`assert_data`,`state`,`creator`,`create_date`,`update_date`) VALUES (#{interfaceManageID},#{caseName},#{headerData},#{paramData},#{assertType},#{assertData},#{state},#{creator},now(),now())")
     int add(@Param("interfaceManageID") Integer interfaceManageID, @Param("caseName") String caseName, @Param("headerData") String headerData, @Param("paramData") String paramData,@Param("assertType") String assertType,@Param("assertData") String assertData, @Param("state") String state, @Param("creator") String creator);

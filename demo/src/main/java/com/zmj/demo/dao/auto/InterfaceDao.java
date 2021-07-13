@@ -34,6 +34,7 @@ public interface InterfaceDao {
             "AND is_delete = 0 ORDER BY update_date DESC LIMIT #{page},#{limit}"+
             "</script>"})
     List<InterfaceChain> list(@Param("name") String name, @Param("path") String path, @Param("page") int page, @Param("limit") int limit);
+	
 
     @Insert("INSERT INTO `demo`.`tb_interface_manage` (`platform_manage_id`,`name`,`path`,`method`,`content_type`,`state`,`creator`,`create_date`,`update_date`) VALUES (#{platformManageID},#{name},#{path},#{method},#{contentType},#{state},#{creator},now(),now())")
     int add(@Param("platformManageID") Integer platformManageID, @Param("name") String name, @Param("path") String path, @Param("method") String method,@Param("contentType") String contentType, @Param("state") String state, @Param("creator") String creator);

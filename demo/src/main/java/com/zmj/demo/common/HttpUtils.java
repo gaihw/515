@@ -1,5 +1,6 @@
 package com.zmj.demo.common;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -9,6 +10,9 @@ import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 @Component
 @Slf4j
@@ -18,12 +22,13 @@ public class HttpUtils {
     public  GetMethod get ;
 
     /**
-     * 发送json格式的数据
+     * post请求，json格式的数据
+     * @param headerMap
      * @param url
      * @param params
      * @return
      */
-    public  String postByJson(String url, String params){
+    public  String postByJson(Map<String,String> headerMap, String url, String params){
         post = new PostMethod(url) ;
         RequestEntity se = null;
         try {
@@ -32,7 +37,11 @@ public class HttpUtils {
             e.printStackTrace();
         }
         post.setRequestEntity(se);
-        post.setRequestHeader("Content-Type","application/json");
+
+        for (Map.Entry<String,String> entry:headerMap.entrySet()) {
+            post.setRequestHeader(entry.getKey(),entry.getValue());
+        }
+
         try {
             int code = client.executeMethod(post);
             InputStream respone = post.getResponseBodyAsStream();
@@ -49,43 +58,7 @@ public class HttpUtils {
         return null;
     }
     /**
-     * 发送带token的json数据
-     * @param url
-     * @param authorization
-     * @param params
-     * @return
-     */
-    public  String postByJson(String url,String authorization, String params){
-        post = new PostMethod(url) ;
-        RequestEntity se = null;
-        try {
-            se = new StringRequestEntity(params,"application/json" ,"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        post.setRequestEntity(se);
-        post.setRequestHeader("Content-Type","application/json");
-        post.setRequestHeader("Authorization","Basic "+authorization);
-        try {
-//            System.out.println("开始："+df.format(new Date()));// new Date()为获取当前系统时间
-            int code = client.executeMethod(post);
-//            System.out.println("结束："+df.format(new Date()));// new Date()为获取当前系统时间
-            InputStream respone = post.getResponseBodyAsStream();
-//            System.out.println("结束："+df.format(new Date()));// new Date()为获取当前系统时间
-            BufferedReader br = new BufferedReader(new InputStreamReader(respone));
-            String tempbf;
-            StringBuffer re=new StringBuffer(100);
-            while((tempbf=br.readLine())!=null){
-                re.append(tempbf);
-            }
-            return re.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    /**
-     * 发送json格式的数据
+     * post请求，无参数
      * @param url
      * @return
      */
@@ -108,10 +81,13 @@ public class HttpUtils {
     }
 
     /**
+     * post请求 text格式
+     * @param headerMap
      * @param url
+     * @param text
      * @return
      */
-    public  String postByText(String url,String text){
+    public  String postByText(Map<String,String> headerMap,String url,String text){
         post = new PostMethod(url) ;
         RequestEntity se = null;
         try {
@@ -120,7 +96,59 @@ public class HttpUtils {
             e.printStackTrace();
         }
         post.setRequestEntity(se);
-        post.setRequestHeader("Content-Type","text/plain");
+//        post.setRequestHeader("Content-Type","text/plain");
+        for (Map.Entry<String,String> entry:headerMap.entrySet()) {
+            post.setRequestHeader(entry.getKey(),entry.getValue());
+        }
+        try {
+            int code = client.executeMethod(post);
+            InputStream respone = post.getResponseBodyAsStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(respone));
+            String tempbf;
+            StringBuffer re=new StringBuffer(100);
+            while((tempbf=br.readLine())!=null){
+                re.append(tempbf);
+            }
+            return re.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * post请求 form格式的参数
+     * @param headerMap
+     * @param url
+     * @param params
+     * @return
+     */
+    public String postByForm(Map<String,String> headerMap,String url,String params){
+        post = new PostMethod(url) ;
+        if (params.contains("&")){
+            String[] temp = params.split("&");
+            for (String temp1:temp){
+                String[] temp2 = temp1.split("=");
+                if (temp2.length==1){
+                    post.addParameter(temp2[0],"0");
+                }else{
+                    post.addParameter(temp2[0],temp2[1]);
+                }
+            }
+        }else{
+            JSONObject p = JSONObject.parseObject(params);
+            Set paramsKey = p.keySet();
+            Iterator iterator = paramsKey.iterator();
+            while (iterator.hasNext()){
+                String key = String.valueOf(iterator.next());
+                String value = p.getString(key);
+                post.addParameter(key,value);
+            }
+        }
+//        post.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        for (Map.Entry<String,String> entry:headerMap.entrySet()) {
+            post.setRequestHeader(entry.getKey(),entry.getValue());
+        }
         try {
             int code = client.executeMethod(post);
             InputStream respone = post.getResponseBodyAsStream();
@@ -153,41 +181,6 @@ public class HttpUtils {
             while((tempbf=br.readLine())!=null){
                 re.append(tempbf);
             }
-            return re.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    /**
-     *
-     * @param url
-     * @param creb
-     * @param text
-     * @return
-     */
-    public  String postByText(String url,String creb,String text){
-        post = new PostMethod(url) ;
-        RequestEntity se = null;
-        try {
-            se = new StringRequestEntity(text,"text/plain" ,"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        post.setRequestEntity(se);
-        post.setRequestHeader("Content-Type","text/plain");
-        post.setRequestHeader("Authorization","Basic "+creb);
-        try {
-            int code = client.executeMethod(post);
-            InputStream respone = post.getResponseBodyAsStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(respone));
-            String tempbf;
-            StringBuffer re=new StringBuffer(100);
-            while((tempbf=br.readLine())!=null){
-                re.append(tempbf);
-            }
-
             return re.toString();
         } catch (IOException e) {
             e.printStackTrace();

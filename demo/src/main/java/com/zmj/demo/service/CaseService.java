@@ -46,4 +46,10 @@ public interface CaseService {
      * 上传用例
      */
     JsonResult uploadExcel(MultipartFile excelFile, String creator);
+	
+	/**
+	 *用例执行
+	 */
+	JsonResult caseExecute(List<Integer> caseList);
+	
 }

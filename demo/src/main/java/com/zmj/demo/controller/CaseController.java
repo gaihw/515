@@ -1,5 +1,6 @@
 package com.zmj.demo.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.common.excel.ExcelUtils;
 import com.zmj.demo.domain.JsonResult;
@@ -93,7 +94,7 @@ public class CaseController {
     }
 
     /**
-     * 描述：下载外部案件导入模板
+     * 下载用例模板
      *
      * @throws Exception
      */
@@ -104,10 +105,27 @@ public class CaseController {
 
     }
 
+    /**
+     * 用例批量上传
+     * @param excelFile
+     * @return
+     */
     @RequestMapping(value = "/case/uploadExcel",method = RequestMethod.POST)
     @Transactional(rollbackFor = Exception.class)
     public JsonResult importWatchExcel(@RequestParam("excelFile") MultipartFile excelFile) {
         String creator = "test";
         return caseService.uploadExcel(excelFile,creator);
     }
+
+    /**
+     * 用例执行
+     * @param caseList
+     * @return
+     */
+    @RequestMapping(value = "/case/execute",method = RequestMethod.POST)
+    public JsonResult caseExecute(@RequestBody() JSONObject  caseList){
+        caseService.caseExecute(JSONArray.parseArray(caseList.getJSONArray("caseList").toJSONString(),Integer.class));
+        return null;
+    }
+
 }
