@@ -2,6 +2,7 @@ package com.zmj.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.common.HttpUtils;
+import com.zmj.demo.common.SqlUtils;
 import com.zmj.demo.common.excel.ExcelUtils;
 import com.zmj.demo.dao.auto.CaseDao;
 import com.zmj.demo.domain.JsonResult;
@@ -27,6 +28,9 @@ public class CaseServiceImpl implements CaseService {
 
     @Autowired
     private CaseDao caseDao;
+
+    @Autowired
+    private SqlUtils sqlUtils;
 
     @Autowired
     private ExcelUtils excelUtils;
@@ -102,21 +106,21 @@ public class CaseServiceImpl implements CaseService {
 	public JsonResult caseExecute(List<Integer> caseList) {
 
         //接口响应
-        String res;
+        String res = "无";
+        List<CaseExecuteChain> caseExecuteChainList = sqlUtils.getCaseExecuteList(caseList);
         //遍历用例集合
-        for (Integer case_id : caseList
+        for (CaseExecuteChain caseExecuteChain : caseExecuteChainList
         ) {
             try {
-                CaseExecuteChain caseExecuteChain = caseDao.caseAllInfoById(case_id);
+
                 //拼接请求的url
                 String url = "http://" + caseExecuteChain.getIp() + caseExecuteChain.getPath();
                 log.info("用例ID:{},访问路径:{},请求方法:{},请求格式:{},请求头信息:{},请求体信息:{},断言方式:{},断言数据:{}"
-                        , case_id, url, caseExecuteChain.getMethod(), caseExecuteChain.getContentType()
+                        , caseExecuteChain.getId(), url, caseExecuteChain.getMethod(), caseExecuteChain.getContentType()
                         , caseExecuteChain.getHeaderData(), caseExecuteChain.getParamData(), caseExecuteChain.getAssertType(), caseExecuteChain.getAssertData());
                 //get方法
                 if (caseExecuteChain.getMethod() == 0) {
                     res = httpUtils.get(url);
-                    caseDao.executeResult(case_id, res, 2);
 
                 }
                 //post方法
@@ -129,24 +133,22 @@ public class CaseServiceImpl implements CaseService {
                     else if (caseExecuteChain.getContentType() == 1) {
                         //请求接口的返回值
                         res = httpUtils.postByJson(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
-                        caseDao.executeResult(case_id, res, 2);
                     }
                     //text格式
                     else if (caseExecuteChain.getContentType() == 2) {
                         res = httpUtils.postByText(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
-                        caseDao.executeResult(case_id, res, 2);
                     }
                     //无参
                     else {
                         res = httpUtils.postByJson(url);
-                        caseDao.executeResult(case_id, res, 2);
                     }
                 }
-                return new JsonResult(0, "用例执行成功!");
+                sqlUtils.updateCaseExecuteResult(caseExecuteChain.getId(), res, 2);
             } catch (Exception e) {
+                log.error(e.toString());
                 return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(),e.toString());
             }
         }
-        return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(),MessageEnum.ERROR_CASE_EXECUTE.getDesc());
+        return new JsonResult(0, "用例执行成功!",caseList.size());
     }
 }

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
@@ -129,6 +130,11 @@ public class CaseController {
         }catch (Exception e){
             return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(),e.toString());
         }
+    }
+
+    @RequestMapping(value = "case/restTemplate",method = RequestMethod.GET)
+    public JsonResult test(){
+        return null;
     }
 
 }

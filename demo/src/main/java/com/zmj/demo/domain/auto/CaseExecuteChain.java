@@ -9,6 +9,11 @@ import java.util.Date;
 public class CaseExecuteChain {
 
     /**
+     * 用例id
+     */
+    private Integer id;
+
+    /**
      * 域名
      */
     private String ip;
