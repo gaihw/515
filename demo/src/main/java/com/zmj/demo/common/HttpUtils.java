@@ -28,7 +28,7 @@ public class HttpUtils {
      * @param params
      * @return
      */
-    public  String postByJson(String header, String url, String params){
+    public  synchronized String postByJson(String header, String url, String params){
         post = new PostMethod(url) ;
         RequestEntity se = null;
         try {
@@ -59,6 +59,8 @@ public class HttpUtils {
             return re.toString();
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            get.releaseConnection();
         }
         return null;
     }
@@ -67,7 +69,7 @@ public class HttpUtils {
      * @param url
      * @return
      */
-    public  String postByJson(String url){
+    public synchronized String postByJson(String url){
         post = new PostMethod(url) ;
         try {
             int code = client.executeMethod(post);
@@ -92,7 +94,7 @@ public class HttpUtils {
      * @param text
      * @return
      */
-    public  String postByText(String header,String url,String text){
+    public synchronized String postByText(String header,String url,String text){
         post = new PostMethod(url) ;
         RequestEntity se = null;
         try {
@@ -130,7 +132,7 @@ public class HttpUtils {
      * @param params
      * @return
      */
-    public String postByForm(String header,String url,String params){
+    public synchronized String postByForm(String header,String url,String params){
         post = new PostMethod(url) ;
         if (params.contains("&")){
             String[] temp = params.split("&");
@@ -179,7 +181,7 @@ public class HttpUtils {
      * @param url
      * @return
      */
-    public String get(String url){
+    public synchronized String get(String url){
         get = new GetMethod(url) ;
         try {
             int code = client.executeMethod(get);

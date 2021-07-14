@@ -21,6 +21,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Service
 @Slf4j
@@ -38,14 +42,16 @@ public class CaseServiceImpl implements CaseService {
     @Autowired
     private HttpUtils httpUtils;
 
+    CyclicBarrier cyclicBarrier = new CyclicBarrier(10);
+
     @Override
     public List<CaseChain> list(JSONObject jsonObject) {
         String caseName = jsonObject.getString("caseName");
         String interfaceManageID = jsonObject.getString("interfaceManageID");
         Integer isSuccess = jsonObject.getInteger("isSuccess");
-        Integer page = jsonObject.getInteger("page")-1;
+        Integer page = jsonObject.getInteger("page") - 1;
         Integer limit = jsonObject.getInteger("limit");
-        return caseDao.list(caseName,interfaceManageID,isSuccess,page,limit);
+        return caseDao.list(caseName, interfaceManageID, isSuccess, page, limit);
     }
 
     @Override
@@ -57,7 +63,7 @@ public class CaseServiceImpl implements CaseService {
         String assertType = caseChain.getAssertType();
         String assertData = caseChain.getAssertData();
         String state = caseChain.getState();
-        return caseDao.add(interfaceManageID,caseName,headerData,paramData,assertType,assertData,state,creator);
+        return caseDao.add(interfaceManageID, caseName, headerData, paramData, assertType, assertData, state, creator);
     }
 
     @Override
@@ -75,7 +81,7 @@ public class CaseServiceImpl implements CaseService {
         String assertType = caseChain.getAssertType();
         String assertData = caseChain.getAssertData();
         String state = caseChain.getState();
-        return caseDao.edit(id,interfaceManageID,caseName,headerData,paramData,assertType,assertData,state,creator);
+        return caseDao.edit(id, interfaceManageID, caseName, headerData, paramData, assertType, assertData, state, creator);
     }
 
     @Override
@@ -83,7 +89,7 @@ public class CaseServiceImpl implements CaseService {
         Integer interfaceManageID = jsonObject.getInteger("interfaceManageID");
         String caseName = jsonObject.getString("caseName");
         Integer isSuccess = jsonObject.getInteger("isSuccess");
-        return caseDao.acount(caseName,interfaceManageID,isSuccess);
+        return caseDao.acount(caseName, interfaceManageID, isSuccess);
     }
 
     @Override
@@ -93,62 +99,79 @@ public class CaseServiceImpl implements CaseService {
 
     @Override
     public JsonResult uploadExcel(MultipartFile excelFile, String creator) {
-        List excel_data = excelUtils.uploadExcel(excelFile,creator);
-        if (excel_data.isEmpty()){
-            return new JsonResult(MessageEnum.ERROR_CASE_EXCEL.getCode(),MessageEnum.ERROR_CASE_EXCEL.getDesc());
-        }else{
+        List excel_data = excelUtils.uploadExcel(excelFile, creator);
+        if (excel_data.isEmpty()) {
+            return new JsonResult(MessageEnum.ERROR_CASE_EXCEL.getCode(), MessageEnum.ERROR_CASE_EXCEL.getDesc());
+        } else {
             int count = caseDao.addBatch(excel_data);
-            return new JsonResult(0,"上传成功",count);
+            return new JsonResult(0, "上传成功", count);
         }
     }
-	
-	@Override
-	public JsonResult caseExecute(List<Integer> caseList) {
+
+    @Override
+    public JsonResult caseExecute(List<Integer> caseList) {
 
         //接口响应
         String res = "无";
         List<CaseExecuteChain> caseExecuteChainList = sqlUtils.getCaseExecuteList(caseList);
+
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+
         //遍历用例集合
-        for (CaseExecuteChain caseExecuteChain : caseExecuteChainList
-        ) {
-            try {
-
-                //拼接请求的url
-                String url = "http://" + caseExecuteChain.getIp() + caseExecuteChain.getPath();
-                log.info("用例ID:{},访问路径:{},请求方法:{},请求格式:{},请求头信息:{},请求体信息:{},断言方式:{},断言数据:{}"
-                        , caseExecuteChain.getId(), url, caseExecuteChain.getMethod(), caseExecuteChain.getContentType()
-                        , caseExecuteChain.getHeaderData(), caseExecuteChain.getParamData(), caseExecuteChain.getAssertType(), caseExecuteChain.getAssertData());
-                //get方法
-                if (caseExecuteChain.getMethod() == 0) {
-                    res = httpUtils.get(url);
-
-                }
-                //post方法
-                else if (caseExecuteChain.getMethod() == 1) {
-                    //form请求格式的参数
-                    if (caseExecuteChain.getContentType() == 0) {
-                        res = httpUtils.postByForm(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
-                    }
-                    //json格式
-                    else if (caseExecuteChain.getContentType() == 1) {
-                        //请求接口的返回值
-                        res = httpUtils.postByJson(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
-                    }
-                    //text格式
-                    else if (caseExecuteChain.getContentType() == 2) {
-                        res = httpUtils.postByText(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
-                    }
-                    //无参
-                    else {
-                        res = httpUtils.postByJson(url);
-                    }
-                }
-                sqlUtils.updateCaseExecuteResult(caseExecuteChain.getId(), res, 2);
-            } catch (Exception e) {
-                log.error(e.toString());
-                return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(),e.toString());
-            }
+        for (CaseExecuteChain caseExecuteChain : caseExecuteChainList) {
+            //拼接请求的url
+            String url = "http://" + caseExecuteChain.getIp() + caseExecuteChain.getPath();
+            log.info("用例ID:{},访问路径:{},请求方法:{},请求格式:{},请求头信息:{},请求体信息:{},断言方式:{},断言数据:{}"
+                    , caseExecuteChain.getId(), url, caseExecuteChain.getMethod(), caseExecuteChain.getContentType()
+                    , caseExecuteChain.getHeaderData(), caseExecuteChain.getParamData(), caseExecuteChain.getAssertType(), caseExecuteChain.getAssertData());
+            // 生成所有测试线程
+            executorService.submit(createThread(caseExecuteChain, url));
         }
-        return new JsonResult(0, "用例执行成功!",caseList.size());
+        executorService.shutdown();
+        return new JsonResult(0, "用例执行成功!", caseList.size());
+    }
+
+    private Thread createThread(CaseExecuteChain caseExecuteChain, String url) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String res = "无";
+                try {
+                    cyclicBarrier.await();
+                    System.out.println("Thread:" + Thread.currentThread().getName() + "准备完毕,time:" + System.currentTimeMillis());
+                        //get方法
+                        if (caseExecuteChain.getMethod() == 0) {
+                            res = httpUtils.get(url);
+
+                        }
+                        //post方法
+                        else if (caseExecuteChain.getMethod() == 1) {
+                            //form请求格式的参数
+                            if (caseExecuteChain.getContentType() == 0) {
+                                res = httpUtils.postByForm(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
+                            }
+                            //json格式
+                            else if (caseExecuteChain.getContentType() == 1) {
+                                //请求接口的返回值
+                                res = httpUtils.postByJson(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
+                            }
+                            //text格式
+                            else if (caseExecuteChain.getContentType() == 2) {
+                                res = httpUtils.postByText(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
+                            }
+                            //无参
+                            else {
+                                res = httpUtils.postByJson(url);
+                            }
+                        }
+                        sqlUtils.updateCaseExecuteResult(caseExecuteChain.getId(), res, 2);
+                    } catch (Exception e) {
+                        log.error(e.toString());
+//                        return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(), e.toString());
+                    }
+                }
+        });
+//        thread.setName("name" + i);
+        return thread;
     }
 }
