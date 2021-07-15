@@ -35,13 +35,20 @@ public class CaseController {
     @Autowired
     private CaseService caseService;
 
-    @RequestMapping(value = "/case/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/case/list",method = RequestMethod.POST)
     public JsonResult list(@RequestBody JSONObject jsonObject) {
 
         try {
+//            Map map = new HashMap();
+//            Map map1 = new HashMap();
+//            map1.put("data",caseService.list(jsonObject));
+//            map.put("code",0);
+//            map.put("data",map1);
+//            return map;
             return new JsonResult(0, caseService.list(jsonObject));
 
         } catch (Exception e) {
+//            return null;
             return new JsonResult(MessageEnum.ERROR_PLATFORM_100004.getCode(), e.toString());
         }
     }

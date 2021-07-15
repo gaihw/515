@@ -1,6 +1,7 @@
 package com.zmj.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zmj.demo.common.HttpThread;
 import com.zmj.demo.common.HttpUtils;
 import com.zmj.demo.common.SqlUtils;
 import com.zmj.demo.common.excel.ExcelUtils;
@@ -111,11 +112,17 @@ public class CaseServiceImpl implements CaseService {
     @Override
     public JsonResult caseExecute(List<Integer> caseList) {
 
-        //接口响应
-        String res = "无";
         List<CaseExecuteChain> caseExecuteChainList = sqlUtils.getCaseExecuteList(caseList);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        int threadPoolNum = 1;
+
+        if (caseExecuteChainList.size() <=10){
+            threadPoolNum = 1;
+        }else {
+            threadPoolNum = 10;
+        }
+
+        ExecutorService executorService = Executors.newFixedThreadPool(threadPoolNum);
 
         //遍历用例集合
         for (CaseExecuteChain caseExecuteChain : caseExecuteChainList) {
@@ -125,53 +132,9 @@ public class CaseServiceImpl implements CaseService {
                     , caseExecuteChain.getId(), url, caseExecuteChain.getMethod(), caseExecuteChain.getContentType()
                     , caseExecuteChain.getHeaderData(), caseExecuteChain.getParamData(), caseExecuteChain.getAssertType(), caseExecuteChain.getAssertData());
             // 生成所有测试线程
-            executorService.submit(createThread(caseExecuteChain, url));
+            executorService.execute(new HttpThread(httpUtils,sqlUtils,caseExecuteChain,url));
         }
         executorService.shutdown();
         return new JsonResult(0, "用例执行成功!", caseList.size());
-    }
-
-    private Thread createThread(CaseExecuteChain caseExecuteChain, String url) {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String res = "无";
-                try {
-                    cyclicBarrier.await();
-                    System.out.println("Thread:" + Thread.currentThread().getName() + "准备完毕,time:" + System.currentTimeMillis());
-                        //get方法
-                        if (caseExecuteChain.getMethod() == 0) {
-                            res = httpUtils.get(url);
-
-                        }
-                        //post方法
-                        else if (caseExecuteChain.getMethod() == 1) {
-                            //form请求格式的参数
-                            if (caseExecuteChain.getContentType() == 0) {
-                                res = httpUtils.postByForm(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
-                            }
-                            //json格式
-                            else if (caseExecuteChain.getContentType() == 1) {
-                                //请求接口的返回值
-                                res = httpUtils.postByJson(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
-                            }
-                            //text格式
-                            else if (caseExecuteChain.getContentType() == 2) {
-                                res = httpUtils.postByText(caseExecuteChain.getHeaderData(), url, caseExecuteChain.getParamData());
-                            }
-                            //无参
-                            else {
-                                res = httpUtils.postByJson(url);
-                            }
-                        }
-                        sqlUtils.updateCaseExecuteResult(caseExecuteChain.getId(), res, 2);
-                    } catch (Exception e) {
-                        log.error(e.toString());
-//                        return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(), e.toString());
-                    }
-                }
-        });
-//        thread.setName("name" + i);
-        return thread;
     }
 }
