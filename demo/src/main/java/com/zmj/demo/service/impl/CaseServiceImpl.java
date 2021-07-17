@@ -47,12 +47,31 @@ public class CaseServiceImpl implements CaseService {
 
     @Override
     public List<CaseChain> list(JSONObject jsonObject) {
-        String caseName = jsonObject.getString("caseName");
-        String interfaceManageID = jsonObject.getString("interfaceManageID");
-        Integer isSuccess = jsonObject.getInteger("isSuccess");
-        Integer page = jsonObject.getInteger("page") - 1;
-        Integer limit = jsonObject.getInteger("limit");
-        return caseDao.list(caseName, interfaceManageID, isSuccess, page, limit);
+        Integer moduleId = 0;
+        String caseName = "";
+        Integer interfaceManageID = 0;
+        Integer isSuccess = 0;
+        Integer page = 0;
+        Integer limit = 1000;
+        if (jsonObject.containsKey("moduleId")) {
+            moduleId = jsonObject.getInteger("moduleId");
+        }
+        if (jsonObject.containsKey("caseName")) {
+            caseName = jsonObject.getString("caseName");
+        }
+        if (jsonObject.containsKey("interfaceManageID")){
+            interfaceManageID = jsonObject.getInteger("interfaceManageID");
+        }
+        if (jsonObject.containsKey("isSuccess")) {
+            isSuccess = jsonObject.getInteger("isSuccess");
+        }
+        if (jsonObject.containsKey("page")){
+            page = jsonObject.getInteger("page") - 1;
+        }
+        if (jsonObject.containsKey("limit")){
+            limit = jsonObject.getInteger("limit");
+        }
+        return caseDao.list(moduleId,caseName, interfaceManageID, isSuccess, page, limit);
     }
 
     @Override

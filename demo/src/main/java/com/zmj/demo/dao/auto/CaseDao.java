@@ -28,8 +28,13 @@ public interface CaseDao {
     int acount(@Param("caseName") String caseName, @Param("interfaceManageID") Integer interfaceManageID,@Param("isSuccess") int isSuccess);
 
     @Select({"<script>"+
-            "select id,interface_manage_id interfaceManageID,case_name caseName,header_data headerData,param_data paramData,assert_type assertType,assert_data assertData,is_success isSuccess,result result,state,creator,create_date createDate,update_date updateDate from `demo`.`tb_case_manage`"+
+//            "select id,interface_manage_id interfaceManageID,case_name caseName,header_data headerData,param_data paramData,assert_type assertType,assert_data assertData,is_success isSuccess,result result,state,creator,create_date createDate,update_date updateDate from `demo`.`tb_case_manage`"+
+            "select tc.id,interface_manage_id interfaceManageID,case_name caseName,header_data headerData,param_data paramData,assert_type assertType,assert_data assertData,tc.is_success isSuccess,tc.result result,tc.state,tc.creator,tc.create_date createDate,tc.update_date updateDate"+
+            " from `demo`.`tb_case_manage` tc inner join `demo`.`tb_interface_manage` ti on tc.interface_manage_id=ti.id inner join `demo`.`tb_platform_manage` tp on ti.platform_manage_id=tp.id  "+
             "WHERE 1=1"+
+            "<if test=\"moduleId!=null and moduleId!=''\">"+
+            "AND tp.id = #{moduleId}"+
+            "</if>"+
             "<if test=\"caseName!=null and caseName!=''\">"+
             "AND case_name = #{caseName}"+
             "</if>"+
@@ -37,11 +42,11 @@ public interface CaseDao {
             "AND interface_manage_id = #{interfaceManageID}"+
             "</if>"+
             "<if test=\"isSuccess!=null and isSuccess!=''\">"+
-            "AND is_success = #{isSuccess}"+
+            "AND tc.is_success = #{isSuccess}"+
             "</if>"+
-            "AND is_delete = 0 ORDER BY update_date DESC LIMIT #{page},#{limit}"+
+            "AND tc.is_delete = 0 ORDER BY tc.update_date DESC LIMIT #{page},#{limit}"+
             "</script>"})
-    List<CaseChain> list(@Param("caseName") String caseName, @Param("interfaceManageID") String interfaceManageID,@Param("isSuccess") int isSuccess, @Param("page") int page, @Param("limit") int limit);
+    List<CaseChain> list(@Param("moduleId") Integer moduleId,@Param("caseName") String caseName, @Param("interfaceManageID") Integer interfaceManageID,@Param("isSuccess") int isSuccess, @Param("page") int page, @Param("limit") int limit);
 
     /**
      * 根据用例id，查询此用例对应的ip、路径、参数、方法等信息
@@ -90,4 +95,6 @@ public interface CaseDao {
 
     @Update("update `demo`.`tb_case_manage` set result= #{result},is_success=#{isSuccess},update_date=now() where id = #{id} ")
     int executeResult(@Param("id") Integer id,@Param("result") String result,@Param("isSuccess") Integer isSuccess);
+
+
 }
