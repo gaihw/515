@@ -1,0 +1,35 @@
+2021-07-17 10:18:34.786 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 36336 (C:\work\git\515\demo\target\classes started by Administrator in C:\work\git\515\demo)
+2021-07-17 10:18:34.788 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-07-17 10:18:35.391 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-07-17 10:18:35.393 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-07-17 10:18:35.424 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
+2021-07-17 10:18:35.789 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2021-07-17 10:18:35.796 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2021-07-17 10:18:35.797 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-17 10:18:35.797 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-07-17 10:18:35.946 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-17 10:18:35.946 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1122 ms
+2021-07-17 10:18:36.397 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2021-07-17 10:18:37.470 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-10090"]
+2021-07-17 10:18:37.517 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 10090 (http) with context path ''
+2021-07-17 10:18:37.525 [main] INFO  com.zmj.demo.DemoApplication - Started DemoApplication in 3.142 seconds (JVM running for 4.127)
+2021-07-17 10:18:43.076 [http-nio-10090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-17 10:18:43.076 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-17 10:18:43.077 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-07-17 10:18:43.104 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:19:57.296 [http-nio-10090-exec-4] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:20:15.881 [http-nio-10090-exec-7] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:20:47.097 [http-nio-10090-exec-5] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:21:28.840 [http-nio-10090-exec-9] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:24:04.473 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:24:47.356 [http-nio-10090-exec-4] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:26:35.936 [http-nio-10090-exec-7] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:26:52.850 [http-nio-10090-exec-5] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:29:16.641 [http-nio-10090-exec-9] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:30:00.136 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:30:20.601 [http-nio-10090-exec-4] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:30:40.558 [http-nio-10090-exec-7] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:31:13.118 [http-nio-10090-exec-5] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:31:46.173 [http-nio-10090-exec-9] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:33:50.651 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully
+2021-07-17 10:34:33.914 [http-nio-10090-exec-4] INFO  com.zmj.demo.common.excel.ExcelUtils - Download completed successfully

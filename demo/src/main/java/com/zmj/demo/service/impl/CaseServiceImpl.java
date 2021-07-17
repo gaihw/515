@@ -111,12 +111,16 @@ public class CaseServiceImpl implements CaseService {
 
     @Override
     public JsonResult caseExecute(List<Integer> caseList) {
+        //每页显示的条数
+        int SIZE = 10;
 
-        List<CaseExecuteChain> caseExecuteChainList = sqlUtils.getCaseExecuteList(caseList);
-
+        //初始线程数量
         int threadPoolNum = 1;
 
-        if (caseExecuteChainList.size() <=10){
+        //执行用例总数，除以每页条数，需要分割多少次
+        int caseListSplit = caseList.size()/SIZE;
+
+        if (caseList.size() <=10){
             threadPoolNum = 1;
         }else {
             threadPoolNum = 10;
@@ -124,17 +128,22 @@ public class CaseServiceImpl implements CaseService {
 
         ExecutorService executorService = Executors.newFixedThreadPool(threadPoolNum);
 
-        //遍历用例集合
-        for (CaseExecuteChain caseExecuteChain : caseExecuteChainList) {
-            //拼接请求的url
-            String url = "http://" + caseExecuteChain.getIp() + caseExecuteChain.getPath();
-            log.info("用例ID:{},访问路径:{},请求方法:{},请求格式:{},请求头信息:{},请求体信息:{},断言方式:{},断言数据:{}"
-                    , caseExecuteChain.getId(), url, caseExecuteChain.getMethod(), caseExecuteChain.getContentType()
-                    , caseExecuteChain.getHeaderData(), caseExecuteChain.getParamData(), caseExecuteChain.getAssertType(), caseExecuteChain.getAssertData());
-            // 生成所有测试线程
-            executorService.execute(new HttpThread(httpUtils,sqlUtils,caseExecuteChain,url));
+        for (int i = 0; i <= caseListSplit; i++) {
+            List<CaseExecuteChain> caseExecuteChainList = sqlUtils.getCaseExecuteList(caseList,SIZE*i,SIZE);
+
+            //遍历用例集合
+            for (CaseExecuteChain caseExecuteChain : caseExecuteChainList) {
+                //拼接请求的url
+                String url = "http://" + caseExecuteChain.getIp() + caseExecuteChain.getPath();
+                log.info("用例ID:{},访问路径:{},请求方法:{},请求格式:{},请求头信息:{},请求体信息:{},断言方式:{},断言数据:{}"
+                        , caseExecuteChain.getId(), url, caseExecuteChain.getMethod(), caseExecuteChain.getContentType()
+                        , caseExecuteChain.getHeaderData(), caseExecuteChain.getParamData(), caseExecuteChain.getAssertType(), caseExecuteChain.getAssertData());
+                // 生成所有测试线程
+                executorService.execute(new HttpThread(httpUtils,sqlUtils,caseExecuteChain,url));
+            }
+            executorService.shutdown();
         }
-        executorService.shutdown();
+
         return new JsonResult(0, "用例执行成功!", caseList.size());
     }
 }

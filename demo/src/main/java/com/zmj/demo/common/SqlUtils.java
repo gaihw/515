@@ -21,9 +21,9 @@ public class SqlUtils {
      * @param caseList
      * @return
      */
-    public List<CaseExecuteChain> getCaseExecuteList(List<Integer> caseList){
+    public List<CaseExecuteChain> getCaseExecuteList(List<Integer> caseList,Integer index,Integer limit){
         System.out.println(caseList);
-        List<CaseExecuteChain> caseExecuteChainList = caseDao.caseAllInfoById(caseList);
+        List<CaseExecuteChain> caseExecuteChainList = caseDao.caseAllInfoById(caseList,index,limit);
         log.info("用例集:{},信息集:{}",caseList,caseExecuteChainList);
         return caseExecuteChainList;
     }

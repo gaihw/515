@@ -3,51 +3,18 @@ package com.zmj.demo;
 
 import com.zmj.demo.enums.MessageEnum;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.*;
 
 public class Test {
-    boolean finalFlg = false;
-    CyclicBarrier cyclicBarrier = new CyclicBarrier(10);
-
     public static void main(String[] args) {
-        new Test().runThread();
-    }
+        int[] l = {300000000,300000001,300000002,300000003,300000004,300000005,300000006,300000007,300000008,300000009,300000010,300000011,300000012,300000013,300000014,300000015,300000016,300000017,300000018,300000019,300000020,300000021,300000022,300000023,300000024,300000025,300000026,300000027,300000028,300000029,300000030,300000031,300000032,300000033,300000034,300000035,300000036,300000037,300000038,300000039,300000040,300000041,300000042};
+        System.out.println(l.length/10);
 
-    /**
-     * CyclicBarrier 适用再多线程相互等待，直到到达一个屏障点。并且CyclicBarrier是可重用的。
-     */
-
-    private void runThread() {
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
-        for (int i = 0; i < 20; i++) {
-//            try {
-//                Thread.sleep(100);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-            executorService.submit(createThread(i));
-
-
-        }
-        executorService.shutdown();
-    }
-
-    private Thread createThread(int i) {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    cyclicBarrier.await();
-                    System.out.println("Thread:" + Thread.currentThread().getName() + "准备完毕,time:" + System.currentTimeMillis());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (BrokenBarrierException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread.setName("name" + i);
-        return thread;
     }
 
 }
