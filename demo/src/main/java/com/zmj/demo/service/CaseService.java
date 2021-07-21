@@ -51,5 +51,12 @@ public interface CaseService {
 	 *用例执行
 	 */
 	JsonResult caseExecute(List<Integer> caseList);
+
+    /**
+     * 场景执行
+     * @param sceneparams
+     * @return
+     */
+	JsonResult sceneExecute(JSONObject sceneparams);
 	
 }

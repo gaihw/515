@@ -36,7 +36,7 @@ public class CaseController {
     private CaseService caseService;
 
     @RequestMapping(value = "/case/list",method = RequestMethod.POST)
-    public JsonResult list(@RequestBody JSONObject jsonObject) {
+    public JsonResult list(@RequestBody JSONObject params) {
 
         try {
 //            Map map = new HashMap();
@@ -45,7 +45,7 @@ public class CaseController {
 //            map.put("code",0);
 //            map.put("data",map1);
 //            return map;
-            return new JsonResult(0, caseService.list(jsonObject));
+            return new JsonResult(0, caseService.list(params));
 
         } catch (Exception e) {
 //            return null;
@@ -139,8 +139,14 @@ public class CaseController {
         }
     }
 
-    @RequestMapping(value = "case/restTemplate",method = RequestMethod.GET)
-    public JsonResult test(){
+    /**
+     * 场景执行
+     * @param sceneparams
+     * @return
+     */
+    @RequestMapping(value = "case/sceneExecute",method = RequestMethod.POST)
+    public JsonResult sceneExecute(@RequestBody JSONObject sceneparams){
+
         return null;
     }
 

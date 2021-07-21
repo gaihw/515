@@ -137,7 +137,7 @@ public class CaseServiceImpl implements CaseService {
         int threadPoolNum = 1;
 
         //执行用例总数，除以每页条数，需要分割多少次
-        int caseListSplit = caseList.size()/SIZE;
+        int caseListSplitNum = caseList.size()/SIZE;
 
         if (caseList.size() <=10){
             threadPoolNum = 1;
@@ -147,7 +147,7 @@ public class CaseServiceImpl implements CaseService {
 
         ExecutorService executorService = Executors.newFixedThreadPool(threadPoolNum);
 
-        for (int i = 0; i <= caseListSplit; i++) {
+        for (int i = 0; i <= caseListSplitNum; i++) {
             List<CaseExecuteChain> caseExecuteChainList = sqlUtils.getCaseExecuteList(caseList,SIZE*i,SIZE);
 
             //遍历用例集合
@@ -164,5 +164,13 @@ public class CaseServiceImpl implements CaseService {
         }
 
         return new JsonResult(0, "用例执行成功!", caseList.size());
+    }
+
+    @Override
+    public JsonResult sceneExecute(JSONObject sceneparams) {
+//        {"1":{"10000001":{"header":{"content-type":"application/json","token":"aaaa"},"body":{"a":1,"b":2,"c":3},"obtainData":{"one":"a.b.c.d","two":"a.b.c.d.e"}}},"2":{"10000002":{"header":{"content-type":"application/json","token":"aaaa"},"body":{"aa":1111,"bb":2222,"cc":3333}}},"3":{"10000003":{"header":{"content-type":"application/json","token":"aaaa"},"body":{"aaaa":111111,"bbbb":222222,"cccc":333333}}}}
+        //场景
+        String scene = "";
+        return null;
     }
 }
