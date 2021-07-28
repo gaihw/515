@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.*;
 
 public class Utils {
@@ -298,7 +299,60 @@ public class Utils {
         }finally{
             // 关闭资源
             try{
-                if(conn!=null) conn.close();
+                if(conn!=null) {conn.close();}
+            }catch(SQLException se){
+                se.printStackTrace();
+            }
+        }
+    }
+
+    public static void insertSendRecord(int i){
+        Connection conn = null;
+
+        try{
+            // 注册 JDBC 驱动
+            Class.forName(old.Calc.Config.JDBC_DRIVER);
+            // 打开链接
+            conn = DriverManager.getConnection("jdbc:mysql://10.90.0.102:3306/allin_test", "root", "123456");
+
+            String sql="insert into test_staff (`staff_ID`, `staff_name`, `age`, `job_title`, `Whether_to_lead`, `project_ID`, `work_time`, `create_date`) values(?,?,?,?,?,?,?,?)";//sql语句
+            PreparedStatement pstmt=conn.prepareStatement(sql);//获得预置对象
+            pstmt.setInt(1, 1);//设置占位符的值
+            pstmt.setString(2, "员工A");
+            pstmt.setInt(3, 22);
+            pstmt.setString(4, "后端开发");
+            pstmt.setString(5,"yes");
+            pstmt.setString(6,"项目1");
+            pstmt.setInt(7,3);
+            pstmt.setString(8,"2021-06-11 15:15:03");
+
+            String sql1="insert into test_staff_money (`staff_ID`, `pay`, `social_insurance`, `month`) values(?,?,?,?)";//sql语句
+            PreparedStatement pstmt1=conn.prepareStatement(sql1);//获得预置对象
+            pstmt1.setInt(1, 1);//设置占位符的值
+            pstmt1.setInt(2, 11023);
+            pstmt1.setInt(3, 1234);
+            pstmt1.setInt(4, 1);
+            pstmt1.executeUpdate();
+
+
+            int res=pstmt.executeUpdate();//执行sql语句
+            if(res>0){
+                System.out.println("数据录入成功"+i);
+            }
+            pstmt1.close();
+            pstmt.close();//关闭资源
+            conn.close();//关闭资源
+
+        }catch(SQLException se){
+            // 处理 JDBC 错误
+            se.printStackTrace();
+        }catch(Exception e){
+            // 处理 Class.forName 错误
+            e.printStackTrace();
+        }finally{
+            // 关闭资源
+            try{
+                if(conn!=null) {conn.close();}
             }catch(SQLException se){
                 se.printStackTrace();
             }
@@ -306,20 +360,9 @@ public class Utils {
     }
 
     public static void main(String[] args) {
-//        int withdraw_id = 1234570202;
-//        for (int i = 0; i < 5; i++) {
-//            BigDecimal r = BigDecimal.valueOf(Math.random()*100).setScale(8, RoundingMode.HALF_UP);
-//            BigDecimal amount = BigDecimal.valueOf(Math.random()).setScale(8, RoundingMode.HALF_UP);
-//            if (r.compareTo(BigDecimal.valueOf(25))<0){
-//                insertSendRecord(withdraw_id+i,"tmUfe1Soe5UcSbuGWQNs9jJ2TfAgJ5ThDtg",amount,"DM81VtMjpFMXMxaELnFe0lPlDMOeR4R6N7QokD2DuZffjlfXrEOgXNHJ2gJKBo/m");
-//            }else if (r.compareTo(BigDecimal.valueOf(25))>=0&&r.compareTo(BigDecimal.valueOf(50))<0){
-//                insertSendRecord(withdraw_id+i,"tmRz2Q4zSuwaXHaG4xJZ1STNqSFua2A8Syo",amount,"rf1EXYwpJ/I40X3UCMMnfFZCp2xI3hCnVsTR4JqoEaFlZnq6zJGjPg1BlywMtC9A");
-//            }else if (r.compareTo(BigDecimal.valueOf(50))>=0&&r.compareTo(BigDecimal.valueOf(75))<0){
-//                insertSendRecord(withdraw_id+i,"tmNPzf6NhPvYmKVgMMArD9xTSBRScPQVF44",amount,"wND1wWGPsv01Je0Nyj021E/qh7A747anpbffTn6oYoTGQTelebIiNWSGlDGU53LJ");
-//            }else{
-//                insertSendRecord(withdraw_id+i,"tmEc4LaUWGTExaCaYQ6vtbQDqUEJsQ4pUhH",amount,"ElbWU4l04D3E81ddMCVXnyTSgu4TitUlo5GAt2cRhTXVBf+ZZExUUX63Db8ZN3xj");
-//            }
-//        }
+        for (int i = 0; i < 50000; i++) {
+            insertSendRecord(i);
+        }
     }
 
 
