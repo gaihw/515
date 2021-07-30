@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Demo {
@@ -57,6 +58,7 @@ public class Demo {
         }
 
 
-
+        Calendar cal = Calendar.getInstance();
+        cal.get(Calendar.DATE);
     }
 }
