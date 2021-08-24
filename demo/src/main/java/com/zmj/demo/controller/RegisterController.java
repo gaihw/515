@@ -37,6 +37,7 @@ public class RegisterController {
         String password = jsonObject.getString("password");
         String mobile = jsonObject.getString("mobile");
         String name = jsonObject.getString("name");
+        log.info("注册用户:{},密码:{},手机号:{},姓名:{},注册时间:{}",username,password,mobile,name,System.currentTimeMillis());
         String pwmd5 = baseUtils.generate(password);
         int flag = userDao.register(username,name,pwmd5.toUpperCase(),mobile);
         if(flag >0 ){

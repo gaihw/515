@@ -41,6 +41,7 @@ public class LoginController {
         String username = loginChain.getUsername();
         String password = loginChain.getPassword();
         String md5 = userDao.getPwd(username);
+        log.info("用户:{},密码:{},登录时间为:{}",username,password,System.currentTimeMillis());
         if(!Objects.equals(null,md5)){
             boolean flag = baseUtils.verify(password,md5.toLowerCase());
             if (flag) {
@@ -50,7 +51,6 @@ public class LoginController {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                System.out.println(loginChain);
                 jsonObject1.put("code",200);
                 jsonObject1.put("token",token);
             }else {

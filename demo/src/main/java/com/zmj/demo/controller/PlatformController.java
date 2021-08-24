@@ -29,6 +29,7 @@ public class PlatformController {
 
     @RequestMapping(value = "/platform/list",method = RequestMethod.POST)
     public JsonResult getPlatformList(@RequestBody JSONObject jsonObject){
+        log.info("项目列表请求参数:{}",jsonObject);
         Integer page = jsonObject.getInteger("page")-1;
         Integer limit = jsonObject.getInteger("limit");
         PageHelper.startPage(page, limit);

@@ -22,9 +22,9 @@ public class InterfaceServiceImpl implements InterfaceService {
     public List<InterfaceChain> list(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String path = jsonObject.getString("path");
-        Integer page = jsonObject.getInteger("page")-1;
+        Integer page = jsonObject.getInteger("page");
         Integer limit = jsonObject.getInteger("limit");
-        return interfaceDao.list(name,path,page,limit);
+        return interfaceDao.list(name,path,limit*(page-1),limit);
     }
 
 

@@ -61,12 +61,12 @@ public class CaseServiceImpl implements CaseService {
             isSuccess = jsonObject.getInteger("isSuccess");
         }
         if (jsonObject.containsKey("page")){
-            page = jsonObject.getInteger("page") - 1;
+            page = jsonObject.getInteger("page") ;
         }
         if (jsonObject.containsKey("limit")){
             limit = jsonObject.getInteger("limit");
         }
-        return caseDao.list(moduleId,caseName, interfaceManageID, isSuccess, page, limit);
+        return caseDao.list(moduleId,caseName, interfaceManageID, isSuccess, limit*(page-1),limit);
     }
 
     @Override
