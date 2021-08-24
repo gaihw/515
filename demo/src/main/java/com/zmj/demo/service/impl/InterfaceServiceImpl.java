@@ -1,7 +1,7 @@
 package com.zmj.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zmj.demo.dao.auto.InterfaceDao;
+import com.zmj.demo.dao.demodata.auto.InterfaceDao;
 import com.zmj.demo.domain.auto.InterfaceChain;
 import com.zmj.demo.service.InterfaceService;
 import lombok.extern.slf4j.Slf4j;

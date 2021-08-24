@@ -278,7 +278,7 @@ org.apache.ibatis.reflection.ReflectionException: There is no getter for propert
 2021-07-11 10:48:39.367 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 2021-07-11 10:48:39.396 [http-nio-10090-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
 ### Error updating database.  Cause: java.lang.UnsupportedOperationException
-### The error may involve com.zmj.demo.dao.auto.CaseDao.batchAdd-Inline
+### The error may involve com.zmj.demo.dao.demodata.auto.CaseDao.batchAdd-Inline
 ### The error occurred while setting parameters
 ### SQL: INSERT INTO `demo`.`tb_case_manage` (`interface_manage_id`,`case_name`,`header_data`,`param_data`,`assert_type`,`assert_data`,`state`,`creator`,`create_date`,`update_date`) (     (select ?, ?, ?, ? ? ? from dual)  union all   (select ?, ?, ?, ? ? ? from dual)  union all   (select ?, ?, ?, ? ? ? from dual)  union all   (select ?, ?, ?, ? ? ? from dual)   )
 ### Cause: java.lang.UnsupportedOperationException] with root cause
@@ -577,7 +577,7 @@ org.apache.ibatis.reflection.ReflectionException: There is no getter for propert
 2021-07-11 11:32:16.660 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 2021-07-11 11:32:16.888 [http-nio-10090-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
-### The error may involve com.zmj.demo.dao.auto.CaseDao.batchAdd-Inline
+### The error may involve com.zmj.demo.dao.demodata.auto.CaseDao.batchAdd-Inline
 ### The error occurred while setting parameters
 ### SQL: INSERT INTO `demo`.`tb_case_manage` (`interface_manage_id`,`case_name`,`header_data`,`param_data`,`assert_type`,`assert_data`,`state`,`creator`,`create_date`,`update_date`) (     (select ?, ?, ?, ? ? ? from dual)  union all   (select ?, ?, ?, ? ? ? from dual)  union all   (select ?, ?, ?, ? ? ? from dual)  union all   (select ?, ?, ?, ? ? ? from dual)   )
 ### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
@@ -679,7 +679,7 @@ java.sql.SQLException: Column count doesn't match value count at row 1
 2021-07-11 11:54:14.842 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 2021-07-11 11:54:15.038 [http-nio-10090-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
-### The error may involve com.zmj.demo.dao.auto.CaseDao.batchAdd-Inline
+### The error may involve com.zmj.demo.dao.demodata.auto.CaseDao.batchAdd-Inline
 ### The error occurred while setting parameters
 ### SQL: INSERT INTO `demo`.`tb_case_manage` (`interface_manage_id`,`case_name`,`header_data`,`param_data`,`assert_type`,`assert_data`,`state`,`creator`,`create_date`,`update_date`) (     (select ?, ?, ?, ? ? ? ? ? ? ? from dual)  union all   (select ?, ?, ?, ? ? ? ? ? ? ? from dual)  union all   (select ?, ?, ?, ? ? ? ? ? ? ? from dual)  union all   (select ?, ?, ?, ? ? ? ? ? ? ? from dual)   )
 ### Cause: java.sql.SQLException: Column count doesn't match value count at row 1
@@ -781,7 +781,7 @@ java.sql.SQLException: Column count doesn't match value count at row 1
 2021-07-11 12:05:53.531 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 2021-07-11 12:05:53.737 [http-nio-10090-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error updating database.  Cause: java.sql.SQLException: Column count doesn't match value count at row 1
-### The error may involve com.zmj.demo.dao.auto.CaseDao.addBatch-Inline
+### The error may involve com.zmj.demo.dao.demodata.auto.CaseDao.addBatch-Inline
 ### The error occurred while setting parameters
 ### SQL: INSERT INTO `demo`.`tb_case_manage` (`interface_manage_id`,`case_name`,`header_data`,`param_data`,`assert_type`,`assert_data`,`state`,`creator`,`create_date`,`update_date`) values   ( ?,?,?,??????? )  , ( ?,?,?,??????? )  , ( ?,?,?,??????? )  , ( ?,?,?,??????? )
 ### Cause: java.sql.SQLException: Column count doesn't match value count at row 1

@@ -1,7 +1,7 @@
 package com.zmj.demo.common;
 
 
-import com.zmj.demo.dao.auto.CaseDao;
+import com.zmj.demo.dao.demodata.auto.CaseDao;
 import com.zmj.demo.domain.auto.CaseExecuteChain;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

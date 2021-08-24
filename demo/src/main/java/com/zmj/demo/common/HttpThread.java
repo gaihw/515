@@ -45,7 +45,7 @@ public class HttpThread extends Thread {
                 }
                 //无参
                 else {
-                    res = httpUtils.postByJson(url);
+                    res = httpUtils.postByJson(url,null);
                 }
             }
             sqlUtils.updateCaseExecuteResult(caseExecuteChain.getId(), res, 2);

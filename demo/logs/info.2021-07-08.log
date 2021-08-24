@@ -211,7 +211,7 @@ org.apache.ibatis.binding.BindingException: Parameter 'platform' not found. Avai
 2021-07-08 19:28:05.787 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
 2021-07-08 19:28:05.869 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
 2021-07-08 19:28:05.870 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 924 ms
-2021-07-08 19:28:06.053 [main] ERROR org.mybatis.spring.mapper.MapperFactoryBean - Error while adding the mapper 'interface com.zmj.demo.dao.auto.InterfaceDao' to configuration.
+2021-07-08 19:28:06.053 [main] ERROR org.mybatis.spring.mapper.MapperFactoryBean - Error while adding the mapper 'interface com.zmj.demo.dao.demodata.auto.InterfaceDao' to configuration.
 org.apache.ibatis.builder.BuilderException: Could not find value method on SQL annotation.  Cause: org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 378; 元素类型 "if" 必须由匹配的结束标记 "</if>" 终止。
 	at org.apache.ibatis.builder.annotation.MapperAnnotationBuilder.getSqlSourceFromAnnotations(MapperAnnotationBuilder.java:472)
 	at org.apache.ibatis.builder.annotation.MapperAnnotationBuilder.parseStatement(MapperAnnotationBuilder.java:289)

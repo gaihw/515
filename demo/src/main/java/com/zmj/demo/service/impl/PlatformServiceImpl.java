@@ -1,7 +1,7 @@
 package com.zmj.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zmj.demo.dao.auto.PlatformDao;
+import com.zmj.demo.dao.demodata.auto.PlatformDao;
 import com.zmj.demo.domain.auto.PlatformChain;
 import com.zmj.demo.service.PlatformService;
 import org.springframework.beans.factory.annotation.Autowired;

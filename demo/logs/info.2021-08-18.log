@@ -1,0 +1,1003 @@
+2021-08-18 12:37:22.159 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 85956 (C:\work\git\515\demo\target\classes started by Administrator in C:\work\git\515\demo)
+2021-08-18 12:37:22.161 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-08-18 12:37:22.843 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-08-18 12:37:22.845 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-08-18 12:37:22.881 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2021-08-18 12:37:23.265 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2021-08-18 12:37:23.272 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2021-08-18 12:37:23.272 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-18 12:37:23.272 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-08-18 12:37:23.390 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-18 12:37:23.391 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1186 ms
+2021-08-18 12:37:24.405 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2021-08-18 12:37:24.716 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-10090"]
+2021-08-18 12:37:24.794 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 10090 (http) with context path ''
+2021-08-18 12:37:24.803 [main] INFO  com.zmj.demo.DemoApplication - Started DemoApplication in 3.152 seconds (JVM running for 4.446)
+2021-08-18 12:39:37.102 [http-nio-10090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-18 12:39:37.102 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-18 12:39:37.103 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-08-18 12:39:37.132 [http-nio-10090-exec-1] INFO  org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [10.70.0.163:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = []
+	internal.auto.downgrade.txn.commit = true
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 127000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2021-08-18 12:39:37.187 [http-nio-10090-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 2.7.1
+2021-08-18 12:39:37.189 [http-nio-10090-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 61dbce85d0d41457
+2021-08-18 12:39:37.189 [http-nio-10090-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1629261577186
+2021-08-18 12:39:37.418 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: 1oN-OvpESU-x_TdCzum0wQ
+2021-08-18 12:39:38.455 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1277)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:38.516 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:39.637 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1277)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:39.651 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:40.771 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1277)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:40.830 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:40.936 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:41.041 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:41.147 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:41.254 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:41.300 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:41.361 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:41.467 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:41.758 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:41.866 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:42.251 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:42.537 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:42.828 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:43.254 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:43.668 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:43.958 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:44.129 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:44.666 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:45.016 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:45.246 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:45.597 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:46.131 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:46.225 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:46.424 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:47.081 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:47.204 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:47.430 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:47.904 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:48.360 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:48.467 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:49.060 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 12:39:50.222 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1277)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 20:56:30.498 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 88916 (C:\work\git\515\demo\target\classes started by Administrator in C:\work\git\515\demo)
+2021-08-18 20:56:30.501 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2021-08-18 20:56:31.123 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-08-18 20:56:31.125 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-08-18 20:56:31.157 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2021-08-18 20:56:31.541 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2021-08-18 20:56:31.549 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2021-08-18 20:56:31.550 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-18 20:56:31.550 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-08-18 20:56:31.668 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-18 20:56:31.669 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1129 ms
+2021-08-18 20:56:32.695 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2021-08-18 20:56:33.052 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-10090"]
+2021-08-18 20:56:33.129 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 10090 (http) with context path ''
+2021-08-18 20:56:33.137 [main] INFO  com.zmj.demo.DemoApplication - Started DemoApplication in 3.162 seconds (JVM running for 4.339)
+2021-08-18 20:56:39.372 [http-nio-10090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-18 20:56:39.372 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-18 20:56:39.373 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-08-18 20:56:39.410 [http-nio-10090-exec-1] INFO  org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [10.70.0.163:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = []
+	internal.auto.downgrade.txn.commit = true
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 127000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2021-08-18 20:56:39.482 [http-nio-10090-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 2.7.1
+2021-08-18 20:56:39.483 [http-nio-10090-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 61dbce85d0d41457
+2021-08-18 20:56:39.483 [http-nio-10090-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1629291399480
+2021-08-18 20:56:39.794 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: 1oN-OvpESU-x_TdCzum0wQ
+2021-08-18 20:56:40.835 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1277)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 20:56:40.894 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 20:56:41.001 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 20:56:42.118 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1277)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 20:56:42.178 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 20:56:43.297 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1277)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 20:56:43.358 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-01:9092 (id: 1 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-01
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:313)
+	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:351)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:324)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 20:56:43.466 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-03:9092 (id: 3 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-03
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+2021-08-18 20:56:43.574 [kafka-producer-network-thread | producer-1] WARN  org.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error connecting to node datalake-test-kafka-02:9092 (id: 2 rack: null)
+java.net.UnknownHostException: datalake-test-kafka-02
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1281)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1193)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1127)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:512)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1004)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:75)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1177)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1065)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:561)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:325)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:240)
+	at java.lang.Thread.run(Thread.java:748)

@@ -17,36 +17,36 @@ import java.util.Set;
 @Component
 @Slf4j
 public class HttpUtils {
-    public  HttpClient client = new HttpClient();
-    public  PostMethod post ;
-    public  GetMethod get ;
+    private  HttpClient client = new HttpClient();
+    private  PostMethod post ;
+    private  GetMethod get ;
 
     /**
      * post请求，json格式的数据
-     * @param header
+     * @param headers
      * @param url
      * @param params
      * @return
      */
-    public  synchronized String postByJson(String header, String url, String params){
+    public  synchronized String postByJson(String url, String params,String... headers){
         post = new PostMethod(url) ;
-        RequestEntity se = null;
-        try {
-            se = new StringRequestEntity(params,"application/json" ,"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+        if (params != null) {
+            RequestEntity se = null;
+            try {
+                se = new StringRequestEntity(params, "application/json", "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            post.setRequestEntity(se);
         }
-        post.setRequestEntity(se);
 
-        JSONObject jsonObject = JSONObject.parseObject(header);
-        for (String key:jsonObject.keySet()
-             ) {
-            post.setRequestHeader(key,jsonObject.getString(key));
+        if (headers.length != 0 ) {
+            JSONObject jsonObject = JSONObject.parseObject(headers[0]);
+            for (String key : jsonObject.keySet()
+            ) {
+                post.setRequestHeader(key, jsonObject.getString(key));
+            }
         }
-//        for (Map.Entry<String,String> entry:headerMap.entrySet()) {
-//            post.setRequestHeader(entry.getKey(),entry.getValue());
-//        }
-
         try {
             int code = client.executeMethod(post);
             InputStream respone = post.getResponseBodyAsStream();
@@ -60,54 +60,36 @@ public class HttpUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
-            get.releaseConnection();
-        }
-        return null;
-    }
-    /**
-     * post请求，无参数
-     * @param url
-     * @return
-     */
-    public synchronized String postByJson(String url){
-        post = new PostMethod(url) ;
-        try {
-            int code = client.executeMethod(post);
-            InputStream respone = post.getResponseBodyAsStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(respone));
-            String tempbf;
-            StringBuffer re=new StringBuffer(100);
-            while((tempbf=br.readLine())!=null){
-                re.append(tempbf);
-            }
-            return re.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
+            post.releaseConnection();
         }
         return null;
     }
 
     /**
      * post请求 text格式
-     * @param header
+     * @param headers
      * @param url
      * @param text
      * @return
      */
-    public synchronized String postByText(String header,String url,String text){
+    public synchronized String postByText(String url,String text,String... headers){
         post = new PostMethod(url) ;
-        RequestEntity se = null;
-        try {
-            se = new StringRequestEntity(text,"text/plain" ,"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+        if (text != null) {
+            RequestEntity se = null;
+            try {
+                se = new StringRequestEntity(text, "text/plain", "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            post.setRequestEntity(se);
         }
-        post.setRequestEntity(se);
-//        post.setRequestHeader("Content-Type","text/plain");
-        JSONObject jsonObject = JSONObject.parseObject(header);
-        for (String key:jsonObject.keySet()
-        ) {
-            post.setRequestHeader(key,jsonObject.getString(key));
+
+        if (headers.length != 0) {
+            JSONObject jsonObject = JSONObject.parseObject(headers[0]);
+            for (String key : jsonObject.keySet()
+            ) {
+                post.setRequestHeader(key, jsonObject.getString(key));
+            }
         }
         try {
             int code = client.executeMethod(post);
@@ -126,42 +108,46 @@ public class HttpUtils {
     }
 
     /**
-     * post请求 form格式的参数
-     * @param header
+     * post请求-form方法
      * @param url
      * @param params
+     * @param headers
      * @return
      */
-    public synchronized String postByForm(String header,String url,String params){
+    public String postByForm(String url, String params,String... headers){
+
         post = new PostMethod(url) ;
-        if (params.contains("&")){
-            String[] temp = params.split("&");
-            for (String temp1:temp){
-                String[] temp2 = temp1.split("=");
-                if (temp2.length==1){
-                    post.addParameter(temp2[0],"0");
-                }else{
-                    post.addParameter(temp2[0],temp2[1]);
+        if (params != null) {
+            if (params.contains("&")) {
+                String[] temp = params.split("&");
+                for (String temp1 : temp) {
+                    String[] temp2 = temp1.split("=");
+                    post.addParameter(temp2[0], temp2[1]);
+                }
+            } else {
+                JSONObject p = JSONObject.parseObject(params);
+                Set paramsKey = p.keySet();
+                Iterator iterator = paramsKey.iterator();
+                while (iterator.hasNext()) {
+                    String key = String.valueOf(iterator.next());
+                    String value = p.getString(key);
+                    post.addParameter(key, value);
                 }
             }
-        }else{
-            JSONObject p = JSONObject.parseObject(params);
-            Set paramsKey = p.keySet();
-            Iterator iterator = paramsKey.iterator();
-            while (iterator.hasNext()){
-                String key = String.valueOf(iterator.next());
-                String value = p.getString(key);
-                post.addParameter(key,value);
+        }
+        if (headers.length != 0){
+            JSONObject jsonObject = JSONObject.parseObject(headers[0]);
+            for (String key : jsonObject.keySet()
+            ) {
+                post.setRequestHeader(key, jsonObject.getString(key));
             }
         }
-//        post.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-        JSONObject jsonObject = JSONObject.parseObject(header);
-        for (String key:jsonObject.keySet()
-        ) {
-            post.setRequestHeader(key,jsonObject.getString(key));
-        }
+        post.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
         try {
+            long start = System.currentTimeMillis();
             int code = client.executeMethod(post);
+            long end = System.currentTimeMillis();
+            log.info("请求时间:{}ms",start-end);
             InputStream respone = post.getResponseBodyAsStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(respone));
             String tempbf;
@@ -179,10 +165,18 @@ public class HttpUtils {
     /**
      * get方法
      * @param url
+     * @param headers
      * @return
      */
-    public synchronized String get(String url){
+    public synchronized String get(String url,String... headers){
         get = new GetMethod(url) ;
+        if (headers.length != 0){
+            JSONObject jsonObject = JSONObject.parseObject(headers[0]);
+            for (String key : jsonObject.keySet()
+            ) {
+                get.setRequestHeader(key, jsonObject.getString(key));
+            }
+        }
         try {
             int code = client.executeMethod(get);
             InputStream respone = get.getResponseBodyAsStream();

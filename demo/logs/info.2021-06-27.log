@@ -680,7 +680,7 @@ Caused by: java.lang.NullPointerException: null
 2021-06-27 18:42:01.217 [http-nio-10090-exec-3] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'modify_date' in 'field list'
 ### The error may exist in com/zmj/demo/dao/auto/PlatformDao.java (best guess)
-### The error may involve com.zmj.demo.dao.auto.PlatformDao.list-Inline
+### The error may involve com.zmj.demo.dao.demodata.auto.PlatformDao.list-Inline
 ### The error occurred while setting parameters
 ### SQL: select id,platform,project,module,ip,state,creator,create_date createDate,modify_date modifyDate from `demo`.`tb_platform_manage`WHERE 1=1 AND platform = ? AND project = ? AND module = ? AND ip = ?  ORDER BY modify_date DESC LIMIT ?,?
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'modify_date' in 'field list'
@@ -784,7 +784,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'modify_date' in 'field list'
 2021-06-27 18:45:02.900 [http-nio-10090-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
 ### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'modify_date' in 'order clause'
 ### The error may exist in com/zmj/demo/dao/auto/PlatformDao.java (best guess)
-### The error may involve com.zmj.demo.dao.auto.PlatformDao.list-Inline
+### The error may involve com.zmj.demo.dao.demodata.auto.PlatformDao.list-Inline
 ### The error occurred while setting parameters
 ### SQL: select id,platform,project,module,ip,state,creator,create_date createDate,update_date updateDate from `demo`.`tb_platform_manage`WHERE 1=1 AND platform = ? AND project = ? AND module = ? AND ip = ?  ORDER BY modify_date DESC LIMIT ?,?
 ### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'modify_date' in 'order clause'

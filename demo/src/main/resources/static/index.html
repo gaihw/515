@@ -3,221 +3,324 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>测试管理平台</title>
+    <title>钱包测试管理平台</title>
     <link rel="shortcut icon"  href="img/icon.png" >
     <link rel="stylesheet" href="lib/layui/css/layui.css">
     <link rel="stylesheet" href="css/index.css">
     <style>
-
+        
     </style>
 </head>
 <body class="layui-layout-body">
-<div class="layui-layout layui-layout-admin">
-    <div class="layui-header layui-bg-black">
-        <div class="layui-logo" style="font-family: 'Times New Roman', Times, serif;color: #FFB800;">测试管理平台</div>
-        <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left" id="tabHeader" >
-            <li class="layui-nav-item layui-this"><a href="javascript:;" class="head-item" data-id="0">接口自动化</a></li>
-        </ul>
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item login-out">
-                <form class="layui-form">
-                    <button class="layui-btn" style="background-color: #393c4a;padding:0%;" lay-submit lay-filter="loginout"><a href="login.html" style="font-size:15px;"><i class="seraph icon-loginout"></i>退出/注销</a ></button>
-                </form>
-            </li>
-        </ul>
-
-        <div class="layui-side layui-bg-black"  >
-                <!-- 接口工具 -->
-                <ul class="layui-nav layui-nav-tree" style="display: none;" id="contract">
-                    <li class="layui-nav-item layui-nav-itemed">
-                        <a class="" href="javascript:;">项目管理</a>
-                        <dl class="layui-nav-child" style="padding: 0 10px">
-                            <dd><a href="javascript:;" data-id="15" data-title="项目管理" data-url="base/interface/project.html" class="site-demo-active" data-type="tabAdd" layui-show>项目管理</a></dd>
-                            <dd><a href="javascript:;" data-id="16" data-title="接口管理" data-url="base/interface/api.html" class="site-demo-active" data-type="tabAdd">接口管理</a></dd>
-                            <dd><a href="javascript:;" data-id="17" data-title="用例管理" data-url="base/interface/case.html" class="site-demo-active" data-type="tabAdd">用例管理</a></dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;">执行报告</a>
-                        <dl class="layui-nav-child" style="padding: 0 10px">
-                            <dd><a href="javascript:;" data-id="18" data-title="执行用例" data-url="base/interface/test.html" class="site-demo-active" data-type="tabAdd" layui-show>执行用例</a></dd>
-                            <dd><a href="javascript:;" data-id="19" data-title="执行结果" data-url="base/interface/transaction.html" class="site-demo-active" data-type="tabAdd" layui-show>执行结果</a></dd>
-                            <dd><a href="javascript:;" data-id="20" data-title="钱包余额" data-url="base/interface/balanceof.html" class="site-demo-active" data-type="tabAdd" layui-show>钱包余额</a></dd>
-                        </dl>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
-    <!--tab标签-->
-    <div class="layui-body show-frame">
-        <div class="layui-tab layui-tab-brief" lay-filter="demo" lay-allowclose="true" >
-            <ul class="layui-tab-title">
-                <li class="layui-this" lay-id="0"><i class="layui-icon layui-icon-home"></i>&nbsp;首页</li>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header layui-bg-black">
+            <div class="layui-logo" style="font-family: 'Times New Roman', Times, serif;color: #FFB800;">钱包测试管理平台</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left" id="tabHeader" >
+                <li class="layui-nav-item layui-this"><a href="javascript:;" class="head-item" data-id="0">接口工具</a></li>
+                <li class="layui-nav-item"><a href="javascript:;" class="head-item" data-id="1">常用功能</a></li>
+                <li class="layui-nav-item"><a href="javascript:;" class="head-item" data-id="2">其他</a></li>
+                <!-- <li class="layui-nav-item"><a href="javascript:;" class="head-item" data-id="3">风控</a></li> -->
             </ul>
-            <div class="layui-tab-content">
-                <div class="layui-tab-item layui-show">
-                    <iframe src="console.html" style="width:100%;height:100%;" frameborder="0"></iframe>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item login-out">
+                    <form class="layui-form">
+                        <button class="layui-btn" style="background-color: #393c4a;padding:0%;" lay-submit lay-filter="loginout"><a href="login.html" style="font-size:15px;"><i class="seraph icon-loginout"></i>退出/注销</a ></button>
+                    </form>
+                </li>
+            </ul>
+
+            <div class="layui-side layui-bg-black"  >
+                <div class="layui-side-scroll layui-show layui-tab-item" id="tabBody">
+                    <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                     <!-- 接口工具 -->
+                     <ul class="layui-nav layui-nav-tree" style="display: block;" id="contract">
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a class="" href="javascript:;">项目管理</a>
+                            <dl class="layui-nav-child" style="padding: 0 10px">
+                                <dd><a href="javascript:;" data-id="1" data-title="项目管理" data-url="hl/apiauto/platform.html" class="site-demo-active" data-type="tabAdd" layui-show>项目管理</a></dd>
+                                <dd><a href="javascript:;" data-id="2" data-title="接口管理" data-url="base/interface/api.html" class="site-demo-active" data-type="tabAdd">接口管理</a></dd>
+                                <dd><a href="javascript:;" data-id="3" data-title="用例管理" data-url="base/interface/case.html" class="site-demo-active" data-type="tabAdd">用例管理</a></dd>
+                                
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item">
+                            <a href="javascript:;">执行报告</a>
+                            <dl class="layui-nav-child" style="padding: 0 10px">
+                                <dd><a href="javascript:;" data-id="4" data-title="执行用例" data-url="base/interface/test.html" class="site-demo-active" data-type="tabAdd" layui-show>执行用例</a></dd>
+                                <dd><a href="javascript:;" data-id="5" data-title="执行结果" data-url="base/interface/transaction.html" class="site-demo-active" data-type="tabAdd" layui-show>执行结果</a></dd>
+                                <dd><a href="javascript:;" data-id="6" data-title="钱包余额" data-url="base/interface/balanceof.html" class="site-demo-active" data-type="tabAdd" layui-show>钱包余额</a></dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    <!-- 钱包 -->
+                    <ul class="layui-nav layui-nav-tree" style="display: none;" id="wallet">
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a class="" href="javascript:;">查询操作</a>
+                            <dl class="layui-nav-child" style="padding: 0 10px">
+                                <dd><a href="javascript:;" data-id="7" data-title="查询块高" data-url="base/wallet/blockCount.html" class="site-demo-active" data-type="tabAdd" layui-show>查询块高</a></dd>
+                                <dd><a href="javascript:;" data-id="8" data-title="查询交易信息" data-url="base/wallet/transactionInfo.html" class="site-demo-active" data-type="tabAdd">查询交易信息</a></dd>
+                                <dd><a href="javascript:;" data-id="9" data-title="查询块信息" data-url="base/wallet/blockInfo.html" class="site-demo-active" data-type="tabAdd">查询块信息</a></dd>
+                                <dd><a href="javascript:;" data-id="10" data-title="查询公私钥" data-url="base/wallet/getPubPri.html" class="site-demo-active" data-type="tabAdd">查询公私钥</a></dd>
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item">
+                            <a href="javascript:;">节点操作</a>
+                            <dl class="layui-nav-child" style="padding: 0 10px">
+                                <dd><a href="javascript:;" data-id="11" data-title="生成地址" data-url="base/wallet/getnewaddress.html" class="site-demo-active" data-type="tabAdd" >生成地址</a></dd>
+                                <dd><a href="javascript:;" data-id="12" data-title="创建交易" data-url="base/wallet/transaction.html" class="site-demo-active" data-type="tabAdd" >创建交易</a></dd>
+                                <dd><a href="javascript:;" data-id="13" data-title="钱包余额" data-url="base/wallet/balanceof.html" class="site-demo-active" data-type="tabAdd" >钱包余额</a></dd>
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item">
+                            <a href="javascript:;">工具</a>
+                            <dl class="layui-nav-child" style="padding: 0 10px">
+                                <dd><a href="javascript:;" data-id="14" data-title="上传文件" data-url="base/wallet/upLoad.html" class="site-demo-active" data-type="tabAdd">上传文件</a></dd>
+								<dd><a href="javascript:;" data-id="15" data-title="币种管理" data-url="base/wallet/currencyInfo.html" class="site-demo-active" data-type="tabAdd">币种管理</a></dd>
+                            </dl>
+                        </li>
+                    </ul>
+
+                    <!-- 常用功能 -->
+                    <ul class="layui-nav layui-nav-tree" style="display: none;" id="base">
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a class="" href="javascript:;">常用功能</a>
+                            <dl class="layui-nav-child" style="padding: 0 10px">
+                                <dd><a href="javascript:;" data-id="16" data-title="短信验证码" data-url="base/base/sms.html" class="site-demo-active" data-type="tabAdd" layui-show>短信验证码</a></dd>
+                                <dd><a href="javascript:;" data-id="17" data-title="邮箱验证码" data-url="base/base/imail.html" class="site-demo-active" data-type="tabAdd">邮箱验证码</a></dd>
+                                <dd><a href="javascript:;" data-id="18" data-title="用户基本信息" data-url="base/base/userInfo.html" class="site-demo-active" data-type="tabAdd">用户基本信息</a></dd>
+                                <dd><a href="javascript:;" data-id="19" data-title="充值" data-url="base/base/deposit.html" class="site-demo-active" data-type="tabAdd">充值</a></dd>
+                                <dd><a href="javascript:;" data-id="20" data-title="信任地址" data-url="base/base/trustAddress.html" class="site-demo-active" data-type="tabAdd">信任地址</a></dd>
+                            </dl>
+                        </li>
+                    </ul>
+
+
+                    <!-- 风控 -->
+                    <ul class="layui-nav layui-nav-tree" style="display: none;" id="risk">
+                        <li class="layui-nav-item layui-nav-itemed">
+                            <a class="" href="javascript:;">计算</a>
+                            <dl class="layui-nav-child" style="padding: 0 10px">
+                                <dd>
+                                    <li>
+                                        <a href="javascript:;" data-title="查询块高">查询块高</a>
+                                        <dl class="layui-nav-child" style="padding: 0 10px">
+                                            <dd><a href="javascript:;" data-id="21" data-title="查询交易信息" data-url="base/risk/tab.html" class="site-demo-active" data-type="tabAdd">查询交易信息</a></dd>
+                                            <dd><a href="javascript:;" data-id="22" data-title="查询块信息" data-url="base/wallet/blockInfo.html" class="site-demo-active" data-type="tabAdd">查询块信息</a></dd>
+                                        </dl>
+                                    </li>
+                                </dd>
+                                <dd><a href="javascript:;" data-id="23" data-title="查询交易信息" data-url="base/risk/tab.html" class="site-demo-active" data-type="tabAdd">查询交易信息</a></dd>
+                                <dd><a href="javascript:;" data-id="24" data-title="查询块信息" data-url="base/wallet/blockInfo.html" class="site-demo-active" data-type="tabAdd">查询块信息</a></dd>
+                                
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item">
+                            <a href="javascript:;">计算</a>
+                            <dl class="layui-nav-child" style="padding: 0 10px">
+                                <dd><a href="javascript:;" data-id="25" data-title="生成地址" data-url="base/wallet/getnewaddress.html" class="site-demo-active" data-type="tabAdd" layui-show>生成地址</a></dd>
+                                <dd><a href="javascript:;" data-id="26" data-title="创建交易" data-url="base/wallet/transaction.html" class="site-demo-active" data-type="tabAdd" layui-show>创建交易</a></dd>
+                                <dd><a href="javascript:;" data-id="27" data-title="钱包余额" data-url="base/wallet/balanceof.html" class="site-demo-active" data-type="tabAdd" layui-show>钱包余额</a></dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    
                 </div>
             </div>
         </div>
+         <!--tab标签-->
+         <div class="layui-body show-frame">
+            <div class="layui-tab layui-tab-brief" lay-filter="demo" lay-allowclose="true" >
+                <ul class="layui-tab-title">
+                    <li class="layui-this" lay-id="0"><i class="layui-icon layui-icon-home"></i>&nbsp;首页</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <iframe src="console.html" style="width:100%;height:100%;" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="layadmin-pagetabs">
+            <div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage"></div>
+            <div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage"></div>
+            <div class="layui-icon layadmin-tabs-control layui-icon-down">
+                <ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
+                  <li class="layui-nav-item" lay-unselect="">
+                    <a href="javascript:;"><span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child layui-anim-fadein">
+                      <dd layadmin-event="closeThisTabs"><a href="javascript:;">关闭当前标签页</a></dd>
+                      <dd layadmin-event="closeOtherTabs"><a href="javascript:;">关闭其它标签页</a></dd>
+                      <dd layadmin-event="closeAllTabs"><a href="javascript:;">关闭全部标签页</a></dd>
+                    </dl>
+                  </li>
+                <span class="layui-nav-bar"></span></ul>
+              </div>
+            <div class="layui-tab layui-tab-brief" lay-unauto lay-filter="demo" lay-allowclose="true" >
+                <ul class="layui-tab-title" style="float:left;" id="body-tab-title">
+                    <li><i class="layui-icon layui-icon-home"></i>后台首页</li>
+                </ul>
+                <div class="layui-tab-content">
+                    
+                </div>
+
+            </div>
+        </div> -->
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © hongweigai@pyg168.com
+        </div>
     </div>
-    <div class="layui-footer">
-        <!-- 底部固定区域 -->
-        © hongweigai@pyg168.com
-    </div>
-</div>
 <script src="lib/jquery-2.1.1.min.js"></script>
 <script src="lib/layui/layui.all.js"></script>
 <script src="js/tools/common.js"></script>
 <script>
-    layui.use(['element', 'layer', 'jquery','form'], function () {
-        var element = layui.element;
-        var form = layui.form;
-        var layer = layui.layer;
-        var $ = layui.jquery;
+layui.use(['element', 'layer', 'jquery','form'], function () {
+    var element = layui.element;
+    var form = layui.form;
+    var layer = layui.layer;
+    var $ = layui.jquery;
+    
+    //顶部导航栏点击切换功能
+    $('.head-item').on('click', function () {
+        var headid = $(this);
+        // console.log($("#tabHeader li").length);
+        // console.log($("#tabBody ul").length);
 
-        //顶部导航栏点击切换功能
-        $('.head-item').on('click', function () {
-            var headid = $(this);
-            // console.log($("#tabHeader li").length);
-            // console.log($("#tabBody ul").length);
-
-            for(var i = 0 ; i < $("#tabBody ul").length ; i++){
-                // console.log(headid.attr("data-id"));
-                if(headid.attr("data-id") == i){
-                    $("#tabBody ul").eq(i).css("display", "block");
-                }else{
-                    $("#tabBody ul").eq(i).css("display", "none");
-                }
+        for(var i = 0 ; i < $("#tabBody ul").length ; i++){
+            // console.log(headid.attr("data-id"));
+            if(headid.attr("data-id") == i){
+                $("#tabBody ul").eq(i).css("display", "block");
+            }else{
+                $("#tabBody ul").eq(i).css("display", "none");
             }
-        });
-        form.on('submit(loginout)', function(data){
-            $.ajax({
-                type: 'get',
-                url: "/login/out",
-                headers: {"token":layui.data('setter')['token']},
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                async: false,
-                success: function (data) {
-                    console.log(data.msg);
-                    window.top.location.href = "login.html";
-                }, error: function (e) {//响应不成功时返回的函数
-                    console.log(e, 'error');
-                }
-            });
-        });
-
-        // $('#wallet').on('click',function(){
-        //     $.ajax({
-        //         type: 'get',
-        //         url: "/currency/tbCurrencyInfo",
-        //         contentType: "application/json; charset=utf-8",
-        //         success: function (data) {
-        //             console.log(data);
-        //             // $.each(data, function (index, item) {
-        //             //     select.append(new Option(item));//往下拉菜单里添加元素
-        //             // });
-        //             // layui.form.render();//菜单渲染 把内容加载进去
-        //         }, error: function (e) {//响应不成功时返回的函数
-        //             console.log(e, 'error');
-        //         }
-        //     })
-        // });
-
-        // 配置tab实践在下面无法获取到菜单元素
-        $('.site-demo-active').on('click', function () {
-            var dataid = $(this);
-            //这时会判断右侧.layui-tab-title属性下的有lay-id属性的li的数目，即已经打开的tab项数目
-            if ($(".layui-tab-title li[lay-id]").length <= 0) {
-                //如果比零小，则直接打开新的tab项
-                active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
-            } else {
-                //否则判断该tab项是否以及存在
-                var isData = false; //初始化一个标志，为false说明未打开该tab项 为true则说明已有
-                $.each($(".layui-tab-title li[lay-id]"), function () {
-                    //如果点击左侧菜单栏所传入的id 在右侧tab项中的lay-id属性可以找到，则说明该tab项已经打开
-                    if ($(this).attr("lay-id") == dataid.attr("data-id")) {
-                        isData = true;
-                    }
-                })
-                if (isData == false) {
-                    //标志为false 新增一个tab项
-                    active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
-                    //当tab数量为7个时，关闭第一个tab选项卡，$(".layui-tab-title li[lay-id]").attr("lay-id")：获取第一个选项卡的lay-id
-                    if($(".layui-tab-title li[lay-id]").length == 7){
-                        $.each($(".layui-tab-title li[lay-id]"), function () {
-                            //如果点击左侧菜单栏所传入的id 在右侧tab项中的lay-id属性可以找到，则说明该tab项已经打开
-                            if (parseInt($(this).attr("lay-id")) != 0 ) {
-                                active.tabDelete($(this).attr("lay-id"));
-                                return false;
-                            }
-
-                        })
-                        // active.tabDelete($(".layui-tab-title li[lay-id]").attr("lay-id"));
-                    }
-                }
-            }
-            //最后不管是否新增tab，最后都转到要打开的选项页面上
-            active.tabChange(dataid.attr("data-id"));
-        });
-
-        //点击当前菜单，关闭其它菜单
-        $(".layui-side").on("click", ".layui-nav-item", function(){
-            $(this).siblings('li').attr('class','layui-nav-item');
-        });
-
-        var active = {
-            //在这里给active绑定几项事件，后面可通过active调用这些事件
-            tabAdd: function (url, id, name) {
-                //新增一个Tab项 传入三个参数，分别对应其标题，tab页面的地址，还有一个规定的id，是标签中data-id的属性值
-                //关于tabAdd的方法所传入的参数可看layui的开发文档中基础方法部分
-                element.tabAdd('demo', {
-                    title: name,
-                    content: '<iframe id="iframe01" data-frameid="' + id + '" scrolling="yes" frameborder="0" src="' + url + '" style="width:99%;height:100%;padding: 10px;"  "></iframe>',
-                    id: id //规定好的id
-                })
-                //这块有个坑，会导致body展示不全
-                FrameWH(); //计算ifram层的大小
-            },
-            tabChange: function (id) {
-                //切换到指定Tab项
-                element.tabChange('demo', id); //根据传入的id传入到指定的tab项
-            },
-            tabDelete: function (id) {
-                element.tabDelete("demo", id);//删除
-            }
-            // tabDeleteAll: function (ids) {//删除所有
-            //             $.each(ids, function (i,item) {
-            //                 element.tabDelete("demo", item); //ids是一个数组，里面存放了多个id，调用tabDelete方法分别删除
-            //             })
-            //         }
-        };
-        //设置iframe高度
-        function FrameWH() {
-            // var h = $(window).height();
-            // var h = parseInt($(window).outerHeight())-200;
-            // var h = parseInt(body.clientHeight)-200;
-            var h = parseInt(screen.availHeight)-245;
-            // var h = $(window).innerHeight();
-            // var h = parseInt(document.body.clientHeight)-245;
-            // var h = window.screen.availHeight;
-            // var h = document.body.scrollTop;
-            // var h = document.body.offsetHeight;
-            // var h = document.body.clientHeight;
-            // var h = window.screen.height;
-            // var h = document.body.scrollHeight;
-            // var h = document.getElementById("iframe01").contentWindow.document.body.clientHeight;
-// console.log("h==="+h);
-            // var h =document.documentElement.offsetHeight || document.body.offsetHeight;
-            // var h = parseInt(document.documentElement.clientHeight)-200;
-            $("iframe").css("height",h+"px");
         }
-
+    }); 
+    form.on('submit(loginout)', function(data){
+        $.ajax({
+            type: 'get',
+            url: "/login/out",
+            headers: {"token":layui.data('setter')['token']},
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                console.log(data.msg);
+                window.top.location.href = "login.html";
+            }, error: function (e) {//响应不成功时返回的函数
+                console.log(e, 'error');
+            }
+        });
     });
+    
+    // $('#wallet').on('click',function(){
+    //     $.ajax({
+    //         type: 'get',
+    //         url: "/currency/tbCurrencyInfo",
+    //         contentType: "application/json; charset=utf-8",
+    //         success: function (data) {
+    //             console.log(data);
+    //             // $.each(data, function (index, item) {
+    //             //     select.append(new Option(item));//往下拉菜单里添加元素
+    //             // });
+    //             // layui.form.render();//菜单渲染 把内容加载进去
+    //         }, error: function (e) {//响应不成功时返回的函数
+    //             console.log(e, 'error');
+    //         }
+    //     })
+    // });
+
+    // 配置tab实践在下面无法获取到菜单元素
+    $('.site-demo-active').on('click', function () {
+        var dataid = $(this);
+        //这时会判断右侧.layui-tab-title属性下的有lay-id属性的li的数目，即已经打开的tab项数目
+        if ($(".layui-tab-title li[lay-id]").length <= 0) {
+            //如果比零小，则直接打开新的tab项
+            active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
+        } else {
+            //否则判断该tab项是否以及存在
+            var isData = false; //初始化一个标志，为false说明未打开该tab项 为true则说明已有
+            $.each($(".layui-tab-title li[lay-id]"), function () {
+                //如果点击左侧菜单栏所传入的id 在右侧tab项中的lay-id属性可以找到，则说明该tab项已经打开
+                if ($(this).attr("lay-id") == dataid.attr("data-id")) {
+                    isData = true;
+                }
+            })
+            if (isData == false) {
+                //标志为false 新增一个tab项
+                active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
+                //当tab数量为7个时，关闭第一个tab选项卡，$(".layui-tab-title li[lay-id]").attr("lay-id")：获取第一个选项卡的lay-id
+                if($(".layui-tab-title li[lay-id]").length == 7){
+                    $.each($(".layui-tab-title li[lay-id]"), function () {
+                        //如果点击左侧菜单栏所传入的id 在右侧tab项中的lay-id属性可以找到，则说明该tab项已经打开
+                        if (parseInt($(this).attr("lay-id")) != 0 ) {
+                            active.tabDelete($(this).attr("lay-id"));
+                            return false;
+                        }
+                        
+                    })
+                    // active.tabDelete($(".layui-tab-title li[lay-id]").attr("lay-id"));
+                }
+            }
+        }
+        //最后不管是否新增tab，最后都转到要打开的选项页面上
+        active.tabChange(dataid.attr("data-id"));      
+    });
+
+    //点击当前菜单，关闭其它菜单
+    $(".layui-side").on("click", ".layui-nav-item", function(){
+        $(this).siblings('li').attr('class','layui-nav-item');
+    });
+
+    var active = {
+        //在这里给active绑定几项事件，后面可通过active调用这些事件
+        tabAdd: function (url, id, name) {
+            //新增一个Tab项 传入三个参数，分别对应其标题，tab页面的地址，还有一个规定的id，是标签中data-id的属性值
+            //关于tabAdd的方法所传入的参数可看layui的开发文档中基础方法部分
+            element.tabAdd('demo', {
+                title: name,
+                content: '<iframe id="iframe01" data-frameid="' + id + '" scrolling="yes" frameborder="0" src="' + url + '" style="width:99%;height:100%;padding: 10px;"  "></iframe>',
+                id: id //规定好的id
+            })
+            //这块有个坑，会导致body展示不全
+            FrameWH(); //计算ifram层的大小
+        },
+        tabChange: function (id) {
+            //切换到指定Tab项
+            element.tabChange('demo', id); //根据传入的id传入到指定的tab项
+        },
+        tabDelete: function (id) {
+            element.tabDelete("demo", id);//删除
+        }
+        // tabDeleteAll: function (ids) {//删除所有
+        //             $.each(ids, function (i,item) {
+        //                 element.tabDelete("demo", item); //ids是一个数组，里面存放了多个id，调用tabDelete方法分别删除
+        //             })
+        //         }
+    };
+    //设置iframe高度
+    function FrameWH() {
+        // var h = $(window).height();
+        // var h = parseInt($(window).outerHeight())-200;
+        // var h = parseInt(body.clientHeight)-200;
+        var h = parseInt(screen.availHeight)-245;
+        // var h = $(window).innerHeight();
+        // var h = parseInt(document.body.clientHeight)-245;
+        // var h = window.screen.availHeight;
+        // var h = document.body.scrollTop;
+        // var h = document.body.offsetHeight;
+        // var h = document.body.clientHeight;
+        // var h = window.screen.height;
+        // var h = document.body.scrollHeight;
+        // var h = document.getElementById("iframe01").contentWindow.document.body.clientHeight;
+// console.log("h==="+h);
+        // var h =document.documentElement.offsetHeight || document.body.offsetHeight;
+        // var h = parseInt(document.documentElement.clientHeight)-200;
+        $("iframe").css("height",h+"px");
+}
+
+ });
 
 </script>
 </body>
