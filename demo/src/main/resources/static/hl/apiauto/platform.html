@@ -152,7 +152,7 @@ layui.use(['form','table','jquery'], function(){
             yes: function (index,layero) {
                 $.ajax({
 					type: 'POST',
-					url: '/api/project/platform/add',
+					url: '/api/auto/platform/add',
 					headers: {"token":layui.data('setter')['token']},
 					contentType: "application/json; charset=utf-8",
 					data: JSON.stringify({'platform':$('#platform').val(),'project':$('#project').val(),'module':$('#module').val(),'ip':$('#ip').val(),'state':$('#state').val()}),
@@ -165,7 +165,7 @@ layui.use(['form','table','jquery'], function(){
 							$("#window").css("display","none");
 							table.reload('test', {
 								method:'post'
-								,url:'/api/project/platform/list'
+								,url:'/api/auto/platform/list'
 								,headers: {"token":layui.data('setter')['token']}
 								,where: null
 							}, 'data');
@@ -199,7 +199,7 @@ layui.use(['form','table','jquery'], function(){
 		case 'flushData':
 			table.reload('test', {
 				method:'post'
-				,url:'/api/project/platform/list'
+				,url:'/api/auto/platform/list'
 				,headers: {"token":layui.data('setter')['token']}
 				,where: null
 			}, 'data');
@@ -219,10 +219,12 @@ layui.use(['form','table','jquery'], function(){
       layer.confirm('真的删除此行吗?', {offset: '150px',title:'删除'},function(index){
 		$.ajax({
 			type: 'POST',
-			url: '/api/project/platform/delete',
+			url: '/api/auto/platform/delete',
 			headers: {"token":layui.data('setter')['token']},
-			contentType: "application/json; charset=utf-8",
-			data: JSON.stringify({'id':tmp_id}),
+			contentType: "application/x-www-form-urlencoded; charset=utf-8",
+			//参数
+			data: 'id='+tmp_id,
+			//响应返回类型
 			dataType: "json",
 			success: function (data) {
 				if(data.code == 0){
@@ -235,7 +237,7 @@ layui.use(['form','table','jquery'], function(){
 					});
 					table.reload('test', {
 						method:'post'
-						,url:'/api/project/platform/list'
+						,url:'/api/auto/platform/list'
 						,headers: {"token":layui.data('setter')['token']}
 						,where: null
 					}, 'data');
@@ -275,7 +277,7 @@ layui.use(['form','table','jquery'], function(){
             },yes:function(index,layero){
 					$.ajax({
 						type: 'POST',
-						url: '/api/project/platform/edit',
+						url: '/api/auto/platform/edit',
 						headers: {"token":layui.data('setter')['token']},
 						contentType: "application/json; charset=utf-8",
 						data: JSON.stringify({'platform':$('#platform').val(),'project':$('#project').val(),'module':$('#module').val(),'ip':$('#ip').val(),'state':$('#state').val(),'id':data.id}),
@@ -326,7 +328,7 @@ layui.use(['form','table','jquery'], function(){
 // <!--          curr: 1 //重新从第 1 页开始-->
 // <!--        },-->
 		method:'post'
-		,url:'/api/project/platform/list'
+		,url:'/api/auto/platform/list'
 		,headers: {"token":layui.data('setter')['token']}
 		//,contentType: 'application/json'
         ,where: {
