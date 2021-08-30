@@ -10,7 +10,7 @@ public class AlgorithmDemo {
 //        System.out.println(getIndexOf("hello papamelon",'h'));
 //        System.out.println(isHello_PapaMelon("hello papamelon","helloheleeelopapapapaaaaameloooonmelonmon"));
 //        System.out.println(find_left_sub_str("162360838722829306","678"));
-        System.out.println(max_palindrome("acbcxd"));
+        System.out.println(max_palindrome("acbcxdx"));
 
     }
 
@@ -23,7 +23,8 @@ public class AlgorithmDemo {
         List result = new ArrayList();
         for (int i = 0; i < str.length(); i++) {
             for (int j = 0; j <= i; j++) {
-                String tmp= str.substring(j,str.length()-i-1+j);
+                String tmp= str.substring(j,str.length()-i+j);
+//                System.out.println(tmp);
                 if (tmp.length()<=2){
                     continue;
                 }
