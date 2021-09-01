@@ -28,7 +28,7 @@ public interface CaseDao {
 
     @Select({"<script>"+
 //            "select id,interface_manage_id interfaceManageID,case_name caseName,header_data headerData,param_data paramData,assert_type assertType,assert_data assertData,is_success isSuccess,result result,state,creator,create_date createDate,update_date updateDate from `demo`.`tb_case_manage`"+
-            "select tc.id,interface_manage_id interfaceManageID,case_name caseName,header_data headerData,param_data paramData,assert_type assertType,assert_data assertData,tc.is_success isSuccess,tc.result result,tc.state,tc.creator,tc.create_date createDate,tc.update_date updateDate"+
+            "select tc.id,interface_manage_id interfaceManageID,platform,project,module,name,case_name caseName,header_data headerData,param_data paramData,assert_type assertType,assert_data assertData,tc.is_success isSuccess,tc.result result,tc.state,tc.creator,tc.create_date createDate,tc.update_date updateDate"+
             " from `demo`.`tb_case_manage` tc inner join `demo`.`tb_interface_manage` ti on tc.interface_manage_id=ti.id inner join `demo`.`tb_platform_manage` tp on ti.platform_manage_id=tp.id  "+
             "WHERE 1=1"+
             "<if test=\"moduleId!=null and moduleId!=''\">"+

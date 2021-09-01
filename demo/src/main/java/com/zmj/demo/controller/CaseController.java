@@ -39,17 +39,14 @@ public class CaseController {
     public JsonResult list(@RequestBody JSONObject params) {
 
         try {
-//            Map map = new HashMap();
-//            Map map1 = new HashMap();
-//            map1.put("data",caseService.list(jsonObject));
-//            map.put("code",0);
-//            map.put("data",map1);
-//            return map;
-            return new JsonResult(0, caseService.list(params));
+            List<CaseChain> data = caseService.list(params);
+            long acount = caseService.acount(params);
+            log.info("用例列表:{}",data);
+            return new JsonResult(0,data ,acount);
 
         } catch (Exception e) {
-//            return null;
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100004.getCode(), e.toString());
+            log.error(e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100004.getCode(), MessageEnum.ERROR_PLATFORM_100004.getDesc());
         }
     }
 
@@ -65,7 +62,8 @@ public class CaseController {
                 return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.getCode(),MessageEnum.ERROR_PLATFORM_100001.getDesc());
             }
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.getCode(),e.toString());
+            log.error(e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100001.getCode(),MessageEnum.ERROR_PLATFORM_100001.getDesc());
         }
     }
 
@@ -81,7 +79,8 @@ public class CaseController {
                 return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.getCode(),MessageEnum.ERROR_PLATFORM_100002.getDesc());
             }
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.getCode(),e.toString());
+            log.error(e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100002.getCode(),MessageEnum.ERROR_PLATFORM_100002.getDesc());
         }
     }
 
@@ -97,7 +96,8 @@ public class CaseController {
                 return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.getCode(),MessageEnum.ERROR_PLATFORM_100003.getDesc());
             }
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.getCode(),e.toString());
+            log.error(e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.getCode(),MessageEnum.ERROR_PLATFORM_100003.getDesc());
         }
     }
 
@@ -135,7 +135,8 @@ public class CaseController {
         try {
             return caseService.caseExecute(JSONArray.parseArray(caseList.getJSONArray("caseList").toJSONString(),Integer.class));
         }catch (Exception e){
-            return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(),e.toString());
+            log.error(e.toString());
+            return new JsonResult(MessageEnum.ERROR_CASE_EXECUTE.getCode(),MessageEnum.ERROR_CASE_EXECUTE.getDesc());
         }
     }
 

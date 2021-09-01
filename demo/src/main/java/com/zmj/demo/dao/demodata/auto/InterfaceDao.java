@@ -22,7 +22,7 @@ public interface InterfaceDao {
     int acount(@Param("name") String name, @Param("path") String path);
 
     @Select({"<script>"+
-            "select id,platform_manage_id platformManageID,name,path,method,content_type contentType,state,creator,create_date createDate,update_date updateDate from `demo`.`tb_interface_manage`"+
+            "select inter.id,platform_manage_id platformManageID,platform,project,module,name,path,method,content_type contentType,inter.state,inter.creator,inter.create_date createDate,inter.update_date updateDate from `demo`.`tb_interface_manage` as inter inner join `demo`.`tb_platform_manage` as plat on inter.platform_manage_id=plat.id "+
             "WHERE 1=1"+
             "<if test=\"name!=null and name!=''\">"+
             "AND name = #{name}"+
@@ -30,7 +30,7 @@ public interface InterfaceDao {
             "<if test=\"path!=null and path!=''\">"+
             "AND path = #{path}"+
             "</if>"+
-            "AND is_delete = 0 ORDER BY update_date DESC LIMIT #{page},#{limit}"+
+            "AND inter.is_delete = 0 ORDER BY inter.update_date DESC LIMIT #{page},#{limit}"+
             "</script>"})
     List<InterfaceChain> list(@Param("name") String name, @Param("path") String path, @Param("page") int page, @Param("limit") int limit);
 	

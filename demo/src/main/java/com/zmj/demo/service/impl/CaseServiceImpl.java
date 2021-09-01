@@ -70,6 +70,24 @@ public class CaseServiceImpl implements CaseService {
     }
 
     @Override
+    public int acount(JSONObject jsonObject) {
+        String caseName = "";
+        Integer interfaceManageID = 0;
+        Integer isSuccess = 0;
+
+        if (jsonObject.containsKey("caseName")) {
+            caseName = jsonObject.getString("caseName");
+        }
+        if (jsonObject.containsKey("interfaceManageID")){
+            interfaceManageID = jsonObject.getInteger("interfaceManageID");
+        }
+        if (jsonObject.containsKey("isSuccess")) {
+            isSuccess = jsonObject.getInteger("isSuccess");
+        }
+
+        return caseDao.acount(caseName, interfaceManageID, isSuccess);
+    }
+    @Override
     public int add(CaseChain caseChain, String creator) {
         Integer interfaceManageID = caseChain.getInterfaceManageID();
         String caseName = caseChain.getCaseName();
@@ -99,13 +117,7 @@ public class CaseServiceImpl implements CaseService {
         return caseDao.edit(id, interfaceManageID, caseName, headerData, paramData, assertType, assertData, state, creator);
     }
 
-    @Override
-    public int acount(JSONObject jsonObject) {
-        Integer interfaceManageID = jsonObject.getInteger("interfaceManageID");
-        String caseName = jsonObject.getString("caseName");
-        Integer isSuccess = jsonObject.getInteger("isSuccess");
-        return caseDao.acount(caseName, interfaceManageID, isSuccess);
-    }
+
 
     @Override
     public void downloadExcel(HttpServletResponse response) {

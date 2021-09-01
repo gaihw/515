@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="lib/layui/css/layui.css">
     <link rel="stylesheet" href="css/index.css">
     <style>
-        
     </style>
 </head>
 <body class="layui-layout-body">
@@ -39,15 +38,15 @@
                             <a class="" href="javascript:;">项目管理</a>
                             <dl class="layui-nav-child" style="padding: 0 10px">
                                 <dd><a href="javascript:;" data-id="1" data-title="项目管理" data-url="hl/apiauto/platform.html" class="site-demo-active" data-type="tabAdd" layui-show>项目管理</a></dd>
-                                <dd><a href="javascript:;" data-id="2" data-title="接口管理" data-url="base/interface/api.html" class="site-demo-active" data-type="tabAdd">接口管理</a></dd>
-                                <dd><a href="javascript:;" data-id="3" data-title="用例管理" data-url="base/interface/case.html" class="site-demo-active" data-type="tabAdd">用例管理</a></dd>
+                                <dd><a href="javascript:;" data-id="2" data-title="接口管理" data-url="hl/apiauto/interface.html" class="site-demo-active" data-type="tabAdd">接口管理</a></dd>
+                                <dd><a href="javascript:;" data-id="3" data-title="用例管理" data-url="hl/apiauto/case.html" class="site-demo-active" data-type="tabAdd">用例管理</a></dd>
                                 
                             </dl>
                         </li>
                         <li class="layui-nav-item">
                             <a href="javascript:;">执行报告</a>
                             <dl class="layui-nav-child" style="padding: 0 10px">
-                                <dd><a href="javascript:;" data-id="4" data-title="执行用例" data-url="base/interface/test.html" class="site-demo-active" data-type="tabAdd" layui-show>执行用例</a></dd>
+                                <dd><a href="javascript:;" data-id="4" data-title="执行用例" data-url="hl/apiauto/case_excute.html" class="site-demo-active" data-type="tabAdd" layui-show>执行用例</a></dd>
                                 <dd><a href="javascript:;" data-id="5" data-title="执行结果" data-url="base/interface/transaction.html" class="site-demo-active" data-type="tabAdd" layui-show>执行结果</a></dd>
                                 <dd><a href="javascript:;" data-id="6" data-title="钱包余额" data-url="base/interface/balanceof.html" class="site-demo-active" data-type="tabAdd" layui-show>钱包余额</a></dd>
                             </dl>
@@ -141,35 +140,10 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="layadmin-pagetabs">
-            <div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage"></div>
-            <div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage"></div>
-            <div class="layui-icon layadmin-tabs-control layui-icon-down">
-                <ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
-                  <li class="layui-nav-item" lay-unselect="">
-                    <a href="javascript:;"><span class="layui-nav-more"></span></a>
-                    <dl class="layui-nav-child layui-anim-fadein">
-                      <dd layadmin-event="closeThisTabs"><a href="javascript:;">关闭当前标签页</a></dd>
-                      <dd layadmin-event="closeOtherTabs"><a href="javascript:;">关闭其它标签页</a></dd>
-                      <dd layadmin-event="closeAllTabs"><a href="javascript:;">关闭全部标签页</a></dd>
-                    </dl>
-                  </li>
-                <span class="layui-nav-bar"></span></ul>
-              </div>
-            <div class="layui-tab layui-tab-brief" lay-unauto lay-filter="demo" lay-allowclose="true" >
-                <ul class="layui-tab-title" style="float:left;" id="body-tab-title">
-                    <li><i class="layui-icon layui-icon-home"></i>后台首页</li>
-                </ul>
-                <div class="layui-tab-content">
-                    
-                </div>
-
-            </div>
-        </div> -->
 
         <div class="layui-footer">
             <!-- 底部固定区域 -->
-            © hongweigai@pyg168.com
+            © hongweigai@qq.com
         </div>
     </div>
 <script src="lib/jquery-2.1.1.min.js"></script>
@@ -214,22 +188,6 @@ layui.use(['element', 'layer', 'jquery','form'], function () {
         });
     });
     
-    // $('#wallet').on('click',function(){
-    //     $.ajax({
-    //         type: 'get',
-    //         url: "/currency/tbCurrencyInfo",
-    //         contentType: "application/json; charset=utf-8",
-    //         success: function (data) {
-    //             console.log(data);
-    //             // $.each(data, function (index, item) {
-    //             //     select.append(new Option(item));//往下拉菜单里添加元素
-    //             // });
-    //             // layui.form.render();//菜单渲染 把内容加载进去
-    //         }, error: function (e) {//响应不成功时返回的函数
-    //             console.log(e, 'error');
-    //         }
-    //     })
-    // });
 
     // 配置tab实践在下面无法获取到菜单元素
     $('.site-demo-active').on('click', function () {
@@ -280,7 +238,7 @@ layui.use(['element', 'layer', 'jquery','form'], function () {
             //关于tabAdd的方法所传入的参数可看layui的开发文档中基础方法部分
             element.tabAdd('demo', {
                 title: name,
-                content: '<iframe id="iframe01" data-frameid="' + id + '" scrolling="yes" frameborder="0" src="' + url + '" style="width:99%;height:100%;padding: 10px;"  "></iframe>',
+                content: '<iframe id="iframe01" data-frameid="' + id + '" overflow=auto scrolling="yes" frameborder="0" src="' + url + '" style="width:100%;height:50%;padding: 10px;"  "></iframe>',
                 id: id //规定好的id
             })
             //这块有个坑，会导致body展示不全
@@ -293,11 +251,6 @@ layui.use(['element', 'layer', 'jquery','form'], function () {
         tabDelete: function (id) {
             element.tabDelete("demo", id);//删除
         }
-        // tabDeleteAll: function (ids) {//删除所有
-        //             $.each(ids, function (i,item) {
-        //                 element.tabDelete("demo", item); //ids是一个数组，里面存放了多个id，调用tabDelete方法分别删除
-        //             })
-        //         }
     };
     //设置iframe高度
     function FrameWH() {

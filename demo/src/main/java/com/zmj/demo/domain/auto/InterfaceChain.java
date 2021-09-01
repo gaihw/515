@@ -17,6 +17,10 @@ public class InterfaceChain {
      * 对应的平台ID
      */
     private Integer platformManageID;
+	
+	private String platform;
+	private String project;
+	private String module;
 
     /**
      * 接口名称
