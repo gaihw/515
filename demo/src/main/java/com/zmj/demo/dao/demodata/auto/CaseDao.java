@@ -48,7 +48,7 @@ public interface CaseDao {
     List<CaseChain> list(@Param("moduleId") Integer moduleId,@Param("caseName") String caseName, @Param("interfaceManageID") Integer interfaceManageID,@Param("isSuccess") int isSuccess, @Param("page") int page, @Param("limit") int limit);
 
     @Select({"<script>"+
-            "select tp.id platformId,ti.id interfaceId,tc.id,interface_manage_id interfaceManageID,platform,project,module,name,case_name caseName,header_data headerData,param_data paramData,assert_type assertType,assert_data assertData,tc.is_success isSuccess,tc.result result,tc.state,tc.creator,tc.create_date createDate,tc.update_date updateDate"+
+            "select tp.id platformId,ti.id interfaceId,ip,path,method,content_type contentType,tc.id,interface_manage_id interfaceManageID,platform,project,module,name,case_name caseName,header_data headerData,param_data paramData,assert_type assertType,assert_data assertData,tc.is_success isSuccess,tc.result result,tc.state,tc.creator,tc.create_date createDate,tc.update_date updateDate"+
             " from `demo`.`tb_case_manage` tc inner join `demo`.`tb_interface_manage` ti on tc.interface_manage_id=ti.id inner join `demo`.`tb_platform_manage` tp on ti.platform_manage_id=tp.id  "+
             "WHERE 1=1"+
             "<if test=\"id!=null and id!=''\">"+

@@ -620,18 +620,40 @@ layui.use(['element','form','table','jquery'], function(){
 						url: "/api/auto/case/info?id="+data.id,
 						headers: {"token":layui.data('setter')['token']},
 						success: function (data) {
+							var method = data.data.method;
+							if( method == 0){
+								method = 'GET';
+							}else if(method == 1){
+								method = 'POST';
+							}
+							var contentType = data.data.contentType;
+							if( contentType == 0){
+								contentType = 'FORM';
+							}else if(contentType == 1){
+								contentType = 'JSON';
+							}else if(contentType == 2){
+								contentType = 'TEXT';
+							}else if(contentType == 3){
+								contentType = '无';
+							}
 							var html = '<tr>'+
-									'<td><input type="text" class="layui-input" value="'+data.data.interfaceManageID+'" lay-verify="required" name="paramsname"></td>'+
-									'<td><input type="text" class="layui-input" value="'+data.data.platform+'" lay-verify="required" name="paramsvalue"></td>'+
-									'<td><input type="text" class="layui-input" value="'+data.data.platformId+'" lay-verify="required" name="paramsstate"></td>'+
+									'<td style="text-align: center;">'+data.data.platformId+'</td>'+
+									'<td style="text-align: center;">'+data.data.project+'</td>'+
+									'<td style="text-align: center;">'+data.data.interfaceId+'</td>'+
+									'<td style="text-align: center;">'+data.data.name+'</td>'+
+									'<td style="text-align: center;">'+data.data.id+'</td>'+
+									'<td style="text-align: center;">'+data.data.caseName+'</td>'+
+									'<td style="text-align: center;">'+data.data.module+'</td>'+
+									'<td style="text-align: center;">'+data.data.ip+'</td>'+
+									'<td style="text-align: center;">'+data.data.path+'</td>'+
+									'<td style="text-align: center;">'+method+'</td>'+
+									'<td style="text-align: center;">'+contentType+'</td>'+
 								'</tr>';
 							//添加到表格最后
-							$(html).appendTo($('#tablebody tbody:last'));
+							$(html).appendTo($('#caseInfo tbody:last'));
 							form.render();
-							
-							
-							
-							layui.form.render();//菜单渲染 把内容加载进去
+							var html1='<p>'+data.data.headerData+'</p>';
+							$(html1).appendTo($('#p_interface_name'));
 						}, error: function (e) {//响应不成功时返回的函数
 							console.log(e, 'error');
 						}
@@ -642,6 +664,10 @@ layui.use(['element','form','table','jquery'], function(){
 				}
 				,cancel:function(){
 					$("#window03").css("display","none");
+					$("#window03").empty;
+					$('#caseInfo tbody').html('');
+					$('#p_interface_name').html('');
+					
 				}
 			});
 		}
@@ -1177,9 +1203,9 @@ layui.use(['element','form','table','jquery'], function(){
 	</div>
 </div>
 <div class="site-text" style="display: none;" id="window03">
-	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+	<!-- <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
 		<legend>用例信息</legend>
-	</fieldset>
+	</fieldset> -->
 	<div class="layui-collapse" lay-filter="test">
 		<div class="layui-colla-item">
 			<h2 class="layui-colla-title">基础信息</h2>
@@ -1194,7 +1220,15 @@ layui.use(['element','form','table','jquery'], function(){
 						<tr>
 							<th style="text-align: center;">项目编号</th>
 							<th style="text-align: center;">项目名称</th>
+							<th style="text-align: center;">接口编号</th>
+							<th style="text-align: center;">接口名称</th>
+							<th style="text-align: center;">用例编号</th>
+							<th style="text-align: center;">用例名称</th>
 							<th style="text-align: center;">模块名称</th>
+							<th style="text-align: center;">接口地址</th>
+							<th style="text-align: center;">接口路径</th>
+							<th style="text-align: center;">请求方法</th>
+							<th style="text-align: center;">参数类型</th>
 						</tr> 
 					</thead>
 					<tbody>
@@ -1206,20 +1240,8 @@ layui.use(['element','form','table','jquery'], function(){
 		<div class="layui-colla-item">
 			<h2 class="layui-colla-title">请求头</h2>
 			<div class="layui-colla-content layui-show">
-				
-				<p>平台:</p>
-				<p>项目:</p>
-				<p>模块:</p>
-				<p>接口名称:</p>
-				<p>接口地址:</p>
-				<p>接口路径:</p>
-				<p>请求方法:</p>
-				<p>参数类型:</p>
-				<p>是否需要token:</p>
-				<p>创建人:</p>
-				<p>创建时间:</p>
-				
-				
+				<p>请求头信息:</p>
+				<p id="p_interface_name"></p>
 			</div>
 		</div>
 		<div class="layui-colla-item">

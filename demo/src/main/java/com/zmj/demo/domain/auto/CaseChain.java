@@ -47,6 +47,24 @@ public class CaseChain {
      * 接口名称
      */
 	private String name;
+    /**
+     * IP
+     */
+    private String ip;
+
+    /**
+     * 接口路径
+     */
+    private String path;
+
+    /**
+     * 接口方法，请求方法：0-GET；1-POST'
+     */
+    private String method;
+    /**
+     * 参数格式：0-FORM；1-JSON；2-TEXT；3-无'
+     */
+    private String contentType;
 
     /**
      * 用例名称
