@@ -70,6 +70,11 @@ public class CaseServiceImpl implements CaseService {
     }
 
     @Override
+    public CaseChain info(int id) {
+        return caseDao.info(id);
+    }
+
+    @Override
     public int acount(JSONObject jsonObject) {
         String caseName = "";
         Integer interfaceManageID = 0;

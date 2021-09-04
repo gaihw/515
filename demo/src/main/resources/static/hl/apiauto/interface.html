@@ -17,7 +17,7 @@
 	</style>
 </head>
 <body>
-<table class="layui-hide" id="test" lay-filter="test"></table>
+<table class="layui-hide" id="interface_table" lay-filter="test"></table>
 
 <script type="text/html" id="toolbarDemo">
 	<div class="demoTable" id="search">
@@ -87,7 +87,7 @@
 	var tmp_module_id='';
 
 	table.render({
-		elem: '#test'
+		elem: '#interface_table'
 		,url:'/api/auto/interface/list'
 		,method:'post'
 		,headers: {"token":layui.data('setter')['token']}

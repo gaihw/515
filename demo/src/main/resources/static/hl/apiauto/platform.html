@@ -17,7 +17,7 @@
 </head>
 <body>
 	<!-- <div style="overflow: scroll;"> -->
-		<table class="layui-hide" id="test" lay-filter="test"></table>
+		<table class="layui-hide" id="platform_table" lay-filter="test"></table>
 
 	<!-- </div> -->
 
@@ -67,7 +67,7 @@ layui.use(['form','table','jquery'], function(){
   var form = layui.form; 
 
   table.render({
-    elem: '#test'
+    elem: '#platform_table'
 	,url:'/api/auto/platform/list'
 	,method: 'post'
 	,headers: {"token":layui.data('setter')['token']}//,"Content-Type":"application/json"}

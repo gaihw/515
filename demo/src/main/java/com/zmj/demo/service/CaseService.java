@@ -17,6 +17,11 @@ public interface CaseService {
     List<CaseChain> list(JSONObject jsonObject);
 
     /**
+     * 详情
+     */
+    CaseChain info(int id);
+
+    /**
      * 添加
      */
     int add(CaseChain caseChain,String creator);

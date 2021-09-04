@@ -17,10 +17,35 @@ public class CaseChain {
      * 对应的接口ID
      */
     private Integer interfaceManageID;
-	
+
+    /**
+     * 平台名称
+     */
 	private String platform;
+
+    /**
+     * 项目编号
+     */
+    private Integer platformId;
+
+    /**
+     * 接口编号
+     */
+    private Integer interfaceId;
+
+    /**
+     * 项目名称
+     */
 	private String project;
+
+    /**
+     * 模块名称
+     */
 	private String module;
+
+    /**
+     * 接口名称
+     */
 	private String name;
 
     /**

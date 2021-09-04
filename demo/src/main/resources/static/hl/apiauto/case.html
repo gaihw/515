@@ -17,7 +17,7 @@
 	</style>
 </head>
 <body>
-<table class="layui-hide" id="test" lay-filter="test"></table>
+<table class="layui-hide" id="case_table" lay-filter="test"></table>
 
 <script type="text/html" id="toolbarDemo">
 	<div class="demoTable" id="search">
@@ -73,7 +73,7 @@ layui.use(['element','form','table','jquery'], function(){
 	var tmp_assertType = 3;
 
   table.render({
-    elem: '#test'
+    elem: '#case_table'
 	,url:'/api/auto/case/list'
 	,method:'post'
 	,headers: {"token":layui.data('setter')['token']}
@@ -609,6 +609,7 @@ layui.use(['element','form','table','jquery'], function(){
 				closeBtn: 1,
 				shift: 7,
 				//shadeClose: true,
+				scrollbar: false,// 父页面 滚动条 禁止
 				content: $("#window03"),
 				title:"用例信息",
 				// btnAlign: 'c',
@@ -619,6 +620,16 @@ layui.use(['element','form','table','jquery'], function(){
 						url: "/api/auto/case/info?id="+data.id,
 						headers: {"token":layui.data('setter')['token']},
 						success: function (data) {
+							var html = '<tr>'+
+									'<td><input type="text" class="layui-input" value="'+data.data.interfaceManageID+'" lay-verify="required" name="paramsname"></td>'+
+									'<td><input type="text" class="layui-input" value="'+data.data.platform+'" lay-verify="required" name="paramsvalue"></td>'+
+									'<td><input type="text" class="layui-input" value="'+data.data.platformId+'" lay-verify="required" name="paramsstate"></td>'+
+								'</tr>';
+							//添加到表格最后
+							$(html).appendTo($('#tablebody tbody:last'));
+							form.render();
+							
+							
 							
 							layui.form.render();//菜单渲染 把内容加载进去
 						}, error: function (e) {//响应不成功时返回的函数
@@ -1173,19 +1184,30 @@ layui.use(['element','form','table','jquery'], function(){
 		<div class="layui-colla-item">
 			<h2 class="layui-colla-title">基础信息</h2>
 			<div class="layui-colla-content layui-show">
-				<table >
-					  <tr>
-						<th >平台</th>
-						<th >项目</th>
-						<th >模块</th>
-					  </tr> 
-					  <tr>
-						<td>贤心1</td>
-						<td>2016-11-28</td>
-						<td>人生就像是一场修行 A</td>
-					  </tr>
-				</table>
-				<!-- <p>平台:</p>
+				<table class="layui-table" id="caseInfo">
+					<colgroup>
+						<col width="150">
+						<col width="200">
+						<col width="200">
+					</colgroup>
+					<thead>
+						<tr>
+							<th style="text-align: center;">项目编号</th>
+							<th style="text-align: center;">项目名称</th>
+							<th style="text-align: center;">模块名称</th>
+						</tr> 
+					</thead>
+					<tbody>
+					</tbody>
+				</table>				
+				
+			</div>
+		</div>
+		<div class="layui-colla-item">
+			<h2 class="layui-colla-title">请求头</h2>
+			<div class="layui-colla-content layui-show">
+				
+				<p>平台:</p>
 				<p>项目:</p>
 				<p>模块:</p>
 				<p>接口名称:</p>
@@ -1195,60 +1217,21 @@ layui.use(['element','form','table','jquery'], function(){
 				<p>参数类型:</p>
 				<p>是否需要token:</p>
 				<p>创建人:</p>
-				<p>创建时间:</p> -->
-			</div>
-		</div>
-		<div class="layui-colla-item">
-			<h2 class="layui-colla-title">请求头</h2>
-			<div class="layui-colla-content layui-show">
-				<p>因为不适合。如果希望开发长期的项目或者制作产品类网站，那么就需要实现特定的设计，为了在维护项目中可以方便地按设计师要求快速修改样式，肯定会逐步编写出各种业务组件、工具类，相当于为项目自行开发一套框架。——来自知乎@Kayo</p>
+				<p>创建时间:</p>
+				
+				
 			</div>
 		</div>
 		<div class="layui-colla-item">
 			<h2 class="layui-colla-title">请求参数</h2>
 			<div class="layui-colla-content layui-show">
-				<p>在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-				<br><br>
-            因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
-            <p>在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-				<br><br>
-            因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
-            <p>在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-				<br><br>
-            因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
-            <p>在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-				<br><br>
-            因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
-            <p>在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-				<br><br>
-            因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
-            <p>在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-				<br><br>
-            因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
-            <p>在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-				<br><br>
-            因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
-            <p>在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-				<br><br>
-			因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
+				
 			</div>
 		</div>
 		<div class="layui-colla-item">
 			<h2 class="layui-colla-title">断言</h2>
 			<div class="layui-colla-content layui-show">
-                <p>1man！ 所以这个问题不要再出现了。。。</p>
-                <p>2在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-                    <br><br>
-                3因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
-                <p>4在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-                    <br><br>
-                5因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
-                <p>6在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-                    <br><br>
-                7因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
-                <p>8在前端技术快速变革的今天，layui  仍然坚持语义化的组织模式，甚至于模块理念都是采用类 AMD 组织形式，并非是有意与时代背道而驰。layui 认为以 jQuery 为核心的开发方式还没有到完全消亡的时候，而早期市面上基于 jQuery 的 UI 都普通做得差强人意，所以需要有一个新的UI去重新为这一领域注入活力，并采用一些更科学的架构方式。
-                    <br><br>
-                9因此准确地说，layui 更多是面向那些追求开发简单的前端工程师们，以及所有层次的服务端程序员。</p>
+                
 			</div>
 		</div>
 	</div>

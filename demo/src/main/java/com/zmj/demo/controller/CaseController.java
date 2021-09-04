@@ -50,6 +50,20 @@ public class CaseController {
         }
     }
 
+    @RequestMapping(value = "/case/info",method = RequestMethod.GET)
+    public JsonResult list(@RequestParam(value = "id") Integer id) {
+
+        try {
+            CaseChain data = caseService.info(id);
+            log.info("用例：{}---信息:{}",id,data);
+            return new JsonResult(0,data );
+
+        } catch (Exception e) {
+            log.error(e.toString());
+            return new JsonResult(MessageEnum.ERROR_PLATFORM_100004.getCode(), MessageEnum.ERROR_PLATFORM_100004.getDesc());
+        }
+    }
+
     @RequestMapping(value = "/case/add",method = RequestMethod.POST)
     public JsonResult add(@RequestBody CaseChain caseChain){
         String creator = "test";
