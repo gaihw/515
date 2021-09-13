@@ -87,7 +87,7 @@ public class PlatformController {
     }
 
     public JsonResult listPlatform(){
-
+        return null;
     }
 
 
