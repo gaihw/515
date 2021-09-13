@@ -61,4 +61,19 @@ public class PlatformServiceImpl implements PlatformService {
                 ,projectChain.getState()
                 ,projectChain.getCreator());
     }
+
+    @Override
+    public List<String> listPlatform() {
+        return platformDao.listPlatform();
+    }
+
+    @Override
+    public List<String> listProject(String platform) {
+        return platformDao.listProject(platform);
+    }
+
+    @Override
+    public List<PlatformChain> listModule(String platform, String project) {
+        return platformDao.listModule(platform,project);
+    }
 }

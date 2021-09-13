@@ -85,4 +85,10 @@ public class PlatformController {
             return new JsonResult(MessageEnum.ERROR_PLATFORM_100003.getCode(),e.toString());
         }
     }
+
+    public JsonResult listPlatform(){
+
+    }
+
+
 }

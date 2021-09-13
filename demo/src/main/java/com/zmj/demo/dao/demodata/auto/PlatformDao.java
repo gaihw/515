@@ -53,4 +53,12 @@ public interface PlatformDao {
     @Update("update `demo`.`tb_platform_manage` set platform=#{platform},project=#{project},module=#{module},ip=#{ip},state=#{state},creator=#{creator},update_date=now() where id = #{id}")
     int edit(@Param("id") int id,@Param("platform") String platform, @Param("project") String project, @Param("module") String module, @Param("ip") String ip, @Param("state") String state, @Param("creator") String creator);
 
+    @Select("select platform from `demo`.`tb_platform_manage` GROUP BY platform")
+    List<String> listPlatform();
+
+    @Select("select project from `demo`.`tb_platform_manage` where platform=#{platform} GROUP BY project")
+    List<String> listProject(@Param("platform") String platform);
+
+    @Select("select id,module from `demo`.`tb_platform_manage` where platform=#{platform} and project=#{project}")
+    List<PlatformChain> listModule(@Param("platform") String platform, @Param("project") String project);
 }

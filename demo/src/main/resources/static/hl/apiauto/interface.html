@@ -85,6 +85,7 @@
 	var tmp_platform='';
 	var tmp_project='';
 	var tmp_module_id='';
+	
 
 	table.render({
 		elem: '#interface_table'
@@ -256,8 +257,7 @@
 						console.log(e, 'error');
 					}
 				});
-			//点击新增，渲染表单，下拉框不显示问题
-			// form.render();
+			
 			layer.open({
 				skin: 'demo-class',
 				type: 1,
@@ -270,6 +270,15 @@
 				scrollbar: true,
 				area:['900px','350px'],
 				btn: ['提交', '取消'],
+				//点击新增，渲染表单，下拉框不显示问题
+				success: function(layero){
+					form.render();
+					// layui.use('form',function(){
+					// 	var form = layui.form;
+					// 	form.render();
+					// });
+					
+				},
 				yes: function (index,layero) {
 					$.ajax({
 						type: 'POST',

@@ -163,7 +163,7 @@ layui.use(['form','table','jquery'], function(){
 							layer.msg("添加成功！");
 							$("#id-project")[0].reset();//重置form
 							$("#window").css("display","none");
-							table.reload('test', {
+							table.reload('platform_table', {
 								method:'post'
 								,url:'/api/auto/platform/list'
 								,headers: {"token":layui.data('setter')['token']}
@@ -235,7 +235,7 @@ layui.use(['form','table','jquery'], function(){
 						key: tmp_id
 						,remove: true
 					});
-					table.reload('test', {
+					table.reload('platform_table', {
 						method:'post'
 						,url:'/api/auto/platform/list'
 						,headers: {"token":layui.data('setter')['token']}
@@ -290,7 +290,7 @@ layui.use(['form','table','jquery'], function(){
 									$("#id-project")[0].reset();//重置form
 									$("#window").css("display","none");
 // <!--								});-->
-								table.reload('test',{//重载表格
+								table.reload('platform_table',{//重载表格
 									page:{
 										curr:1
 									}
