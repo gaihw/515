@@ -1,6 +1,7 @@
 package com.zmj.demo.notice;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -24,6 +25,7 @@ public class KafkaProducer {
         String topic = "job_statistics_detail";
 //                String data = "kafka发送消息测试...";
 
+//        NewTopic
         ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send(topic, data);
 
         future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {

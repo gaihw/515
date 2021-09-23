@@ -69,7 +69,7 @@ public class PlatformController {
         }
     }
 
-    @RequestMapping(value = "/platform/edit")
+    @RequestMapping(value = "/platform/edit",method = RequestMethod.POST)
     public JsonResult editPlatform(@RequestBody PlatformChain platformChain){
         String creator = "test";
 
@@ -86,6 +86,7 @@ public class PlatformController {
         }
     }
 
+    @RequestMapping(value = "/platform/list")
     public JsonResult listPlatform(){
         return null;
     }
