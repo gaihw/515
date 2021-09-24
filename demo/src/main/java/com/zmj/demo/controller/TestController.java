@@ -16,7 +16,7 @@ public class TestController {
     }
     @RequestMapping(value = "/v1/test1",method = RequestMethod.POST)
     public JSONObject test02(){
-        return JSONObject.parseObject("{\"status\":\"success\",\"errorCode\":\"\",\"errorMsg\":\"\",\"data\":{\"accessNumberList\":[1333333,5,1],\"userNameList\":[\"盖洪伟\",\"陈陈\",\"实体abc\"]}}");
+        return JSONObject.parseObject("{\"status\":\"success\",\"errorCode\":\"\",\"errorMsg\":\"\",\"data\":{\"accessNumberList\":[24,18,1,1,1],\"userNameList\":[\"陈陈\",\"盖洪伟\",\"实体abc\",\"包岩\",\"敏感数据访问监控001敏感数据访问监控\"]}}");
     }
 
     @RequestMapping(value = "/v1/test2",method = RequestMethod.POST)
