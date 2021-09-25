@@ -15,14 +15,14 @@ public class KafkaConsumerListener {
 
     //分区绑定消费者组
     //topic为test，消费者组为consumer_group1，设置的分区为0
-    @KafkaListener( topicPartitions = {@TopicPartition(topic = "test",partitionOffsets = @PartitionOffset(partition = "1",initialOffset = "-1"))},groupId = "${spring.kafka.consumer.group-id}", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener( topicPartitions =
+            {@TopicPartition(topic = "test",
+                    partitions = { "2" },
+                    partitionOffsets = @PartitionOffset(partition = "1",initialOffset = "-1"))},
+            groupId = "${spring.kafka.consumer.group-id}",
+            containerFactory = "kafkaListenerContainerFactory")
     public void kafkaListener(String message) {
         System.out.println(message);
         log.info("接收到的消息为:{}", message);
     }
-//    private void consumer(ConsumerRecord consumerRecord){
-//        log.info("接收到的消息为:{}",consumerRecord.value());
-//
-//
-//    }
 }

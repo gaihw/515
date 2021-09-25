@@ -47,7 +47,7 @@ public class KafkaProducerConfig {
     public Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
         // 指定多个kafka集群多个地址
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_servers);
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrap_servers);
 
         // 重试次数，0为不启用重试机制
         props.put(ProducerConfig.RETRIES_CONFIG, 0);
