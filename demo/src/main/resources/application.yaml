@@ -20,6 +20,10 @@ spring:
       jdbc-url: jdbc:mysql://10.90.0.102:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
       username: root
       password: 123456
+  data:
+    elasticsearch:
+#      cluster-name: myes
+      cluster-nodes: localhost:9200
 
   redis:
     host: 127.0.0.1
@@ -32,16 +36,26 @@ spring:
 #    timeout: 0
   kafka:
     bootstrap-servers: 10.70.0.163:9092 #指定kafka server的地址，集群配多个，中间，逗号隔开
-#    producer:
-#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-#      retries: 0
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries: 0
+      ack: 1
+      max-block-ms: 6000
+      batch-size: 4096
+      linger-ms: 1
+      buffer-memory: 40960
+      max-request-size: 1048576
+      compression-type: none
     consumer:
       group-id: consumer_group1 #群组ID
-#      enable-auto-commit: true
-#      auto-commit-interval: 1000
-#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      atuo-offset-reset: earliest
+      session-timeout-ms: 15000
+      auto-coomit-interval-ms: 100
 
 
 ## Mybatis 连接

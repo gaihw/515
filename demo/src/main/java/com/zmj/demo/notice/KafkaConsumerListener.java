@@ -17,7 +17,7 @@ public class KafkaConsumerListener {
     //topic为test，消费者组为consumer_group1，设置的分区为0
     @KafkaListener( topicPartitions =
             {@TopicPartition(topic = "test",
-                    partitions = { "2" },
+                    partitions = { "0" },
                     partitionOffsets = @PartitionOffset(partition = "1",initialOffset = "-1"))},
             groupId = "${spring.kafka.consumer.group-id}",
             containerFactory = "kafkaListenerContainerFactory")
