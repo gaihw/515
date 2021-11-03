@@ -6,7 +6,7 @@ public class Config {
 	//58coin测试环境密码
 	public final static String PHONE_PASSWORD = "12345678";
 	//报告存放的路径，注意：修改报告存放的路径后，要同时修改mailpro.properties文件
-	public final static String REPORT_TOMCAT_PATH = "/jenkins/apache-tomcat-9.0.41/webapps/ROOT/report/";
+	public final static String REPORT_TOMCAT_PATH = "C:\\work\\git\\515\\comautor\\";
 //	public final static String REPORT_TOMCAT_PATH = "/Users/gaihongwei/tools/tomcat/apache-tomcat-7.0.94/webapps/ROOT/report/";
 	public final static String REPORT_PATH = "report/";
 	public final static String DATABASE = "192.168.112.36";

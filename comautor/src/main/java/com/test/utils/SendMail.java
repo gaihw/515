@@ -81,6 +81,10 @@ public class SendMail {
 	//@param content 邮件内容
 	//@param receiverList 接收者列表,多个接收者之间用","隔开
 	public static void send() {
+
+		System.out.println("_________________");
+		System.out.println(sender);
+		System.out.println("_________________");
 	    try {
 	        Session session = initProperties();
 	        MimeMessage mimeMessage = new MimeMessage(session);
