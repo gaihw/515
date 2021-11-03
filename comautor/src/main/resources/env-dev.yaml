@@ -6,4 +6,4 @@ account: 1111
 password: 4kWYaKqMYZCrzHm8
 host: smtp.exmail.qq.com
 port: 465
-protocol: smtp
+protocol: smtp111
