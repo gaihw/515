@@ -15,6 +15,14 @@ public class KafkaConsumerListener {
 
     //分区绑定消费者组
     //topic为test，消费者组为consumer_group1，设置的分区为0
+
+    /**
+     * 配置topic和分区,可以配置多个
+     * topic为队列名称
+     * partitions表示值的的分区，这里指定了0
+     * partitionOffsets表示详细的指定分区，partition表示那个分区，initialOffset表示Offset的初始位置
+     * @param message
+     */
     @KafkaListener( topicPartitions =
             {@TopicPartition(topic = "test",
                     partitions = { "0" },

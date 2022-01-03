@@ -1,7 +1,7 @@
 package com.zmj.demo.controller;
 
 
-import com.zmj.demo.service.AllinService;
+import com.zmj.demo.service.ToolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,31 +11,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class AllinController {
+public class ToolController {
 
     @Autowired
-    private AllinService baseService;
+    private ToolService baseService;
 
     @RequestMapping(value = "/base/getList",method = RequestMethod.GET)
     public Map getList(){
         Map map = new HashMap();
 
-        Map map1 = new HashMap();
-        map1.put("pageSize","");
-        map1.put("pageNo","");
-        map1.put("total","");
-        map1.put("interfaceReturnListDtos",baseService.getList());
-
-//        Map map2 = new HashMap();
-//        map2.put("result",true);
-//        map2.put("errorMessage","连接成功");
-//        map2.put("validateMessage","");
-//        map2.put("data",map1);
-
+        map.put("pageSize","");
+        map.put("pageNo","");
+        map.put("total","");
+        map.put("data",baseService.getList());
         map.put("status","success");
         map.put("errorCode","");
         map.put("errorMsg","");
-        map.put("data",map1);
         return map;
     }
 

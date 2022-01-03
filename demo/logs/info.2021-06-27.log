@@ -410,7 +410,7 @@ Caused by: java.lang.NullPointerException: null
 2021-06-27 17:55:55.893 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
 2021-06-27 17:55:55.979 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
 2021-06-27 17:55:55.979 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 994 ms
-2021-06-27 17:55:56.043 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseController': Unsatisfied dependency expressed through field 'baseService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseServiceImpl': Unsatisfied dependency expressed through field 'baseDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.zmj.demo.dao.allin.Allin102Dao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-06-27 17:55:56.043 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseController': Unsatisfied dependency expressed through field 'baseService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseServiceImpl': Unsatisfied dependency expressed through field 'baseDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.zmj.demo.dao.tool.SmsEmailCode' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2021-06-27 17:55:56.045 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
 2021-06-27 17:55:56.056 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
 
@@ -423,7 +423,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field baseDao in AllinServiceImpl required a bean of type 'com.zmj.demo.dao.allin.Allin102Dao' that could not be found.
+Field baseDao in AllinServiceImpl required a bean of type 'com.zmj.demo.dao.tool.SmsEmailCode' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -431,7 +431,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.zmj.demo.dao.allin.Allin102Dao' in your configuration.
+Consider defining a bean of type 'com.zmj.demo.dao.tool.SmsEmailCode' in your configuration.
 
 2021-06-27 18:00:03.220 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 128720 (C:\work\tools\515\demo\target\classes started by Administrator in C:\work\tools\515\demo)
 2021-06-27 18:00:03.222 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
@@ -441,7 +441,7 @@ Consider defining a bean of type 'com.zmj.demo.dao.allin.Allin102Dao' in your co
 2021-06-27 18:00:04.076 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
 2021-06-27 18:00:04.184 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
 2021-06-27 18:00:04.184 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 920 ms
-2021-06-27 18:00:04.248 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseController': Unsatisfied dependency expressed through field 'baseService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseServiceImpl': Unsatisfied dependency expressed through field 'baseDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.zmj.demo.dao.allin.Allin102Dao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2021-06-27 18:00:04.248 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseController': Unsatisfied dependency expressed through field 'baseService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseServiceImpl': Unsatisfied dependency expressed through field 'baseDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.zmj.demo.dao.tool.SmsEmailCode' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2021-06-27 18:00:04.250 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
 2021-06-27 18:00:04.261 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
 
@@ -454,7 +454,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field baseDao in AllinServiceImpl required a bean of type 'com.zmj.demo.dao.allin.Allin102Dao' that could not be found.
+Field baseDao in AllinServiceImpl required a bean of type 'com.zmj.demo.dao.tool.SmsEmailCode' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -462,7 +462,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.zmj.demo.dao.allin.Allin102Dao' in your configuration.
+Consider defining a bean of type 'com.zmj.demo.dao.tool.SmsEmailCode' in your configuration.
 
 2021-06-27 18:02:01.532 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_241 on LAPTOP-T7NFK67M with PID 128292 (C:\work\tools\515\demo\target\classes started by Administrator in C:\work\tools\515\demo)
 2021-06-27 18:02:01.536 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
@@ -1079,7 +1079,7 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
 ### The error may exist in com/zmj/demo/dao/allin/Allin102Dao.java (best guess)
-### The error may involve com.zmj.demo.dao.allin.Allin102Dao.getList
+### The error may involve com.zmj.demo.dao.tool.SmsEmailCode.getList
 ### The error occurred while executing a query
 ### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
@@ -1312,7 +1312,7 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
 ### The error may exist in com/zmj/demo/dao/allin/Allin102Dao.java (best guess)
-### The error may involve com.zmj.demo.dao.allin.Allin102Dao.getList
+### The error may involve com.zmj.demo.dao.tool.SmsEmailCode.getList
 ### The error occurred while executing a query
 ### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 

@@ -29,10 +29,10 @@ public class DataSourceConfig {
      *localhost
      * @return
      */
-    @Bean(name = "allin102DataSource")
-    @Qualifier("allin102DataSource")
+    @Bean(name = "toolDataSource")
+    @Qualifier("toolDataSource")
     @Primary
-    @ConfigurationProperties(prefix = "spring.allin102.datasource")
+    @ConfigurationProperties(prefix = "spring.tool.datasource")
     public DataSource allin102() {
 
         return DataSourceBuilder.create().build();
