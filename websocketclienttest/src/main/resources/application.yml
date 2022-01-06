@@ -1,0 +1,11 @@
+server:
+  port: 8002
+#  设置服务名
+spring:
+  application:
+    name: websocket-client
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password: 123456
