@@ -14,7 +14,8 @@ public class WebSocketConfig {
     public WebSocketClient webSocketClient() {
         try {
 //            MyWebSocketClient webSocketClient = new MyWebSocketClient(new URI("ws://localhost:8081/websocket/test"));//
-            MyWebSocketClient webSocketClient = new MyWebSocketClient(new URI("wss://ws.chimchim.top/"));
+//            MyWebSocketClient webSocketClient = new MyWebSocketClient(new URI("wss://ws.chimchim.top/"));
+            MyWebSocketClient webSocketClient = new MyWebSocketClient(new URI("wss://np-dev1.tfbeee.com/v1/np/ws"));
             webSocketClient.connect();
             return webSocketClient;
         } catch (URISyntaxException e) {
