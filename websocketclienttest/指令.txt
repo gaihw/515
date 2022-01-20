@@ -1,0 +1,13 @@
+test环境：
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"btc\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"eth\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"ltc\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"trx\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"xrp\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"bch\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"eos\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"fil\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"link\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"dot\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"doge\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
+//        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"mark_price\",\"type\":\"mark_price\",\"base\":\"shib\",\"channel\":\"subscribe\",\"quote\":\"usd\",\"zip\":false}}");
