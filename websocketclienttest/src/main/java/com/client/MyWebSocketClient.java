@@ -1,6 +1,9 @@
 package com.client;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.dao.dev1.TfbeeKline;
+import com.domain.Market1minBtcusdt;
 import com.server.RedisService;
 import com.util.GzipUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -8,8 +11,10 @@ import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.math.BigDecimal;
 import java.net.URI;
 import java.nio.ByteBuffer;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
@@ -26,11 +31,43 @@ public class MyWebSocketClient extends WebSocketClient {
     @Autowired
     private RedisService redisService;
 
+    @Autowired
+    private TfbeeKline tfbeeKline;
+
     ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(1);
 
     @Override
     public void onOpen(ServerHandshake arg0) {
         log.info("------ MyWebSocket onOpen ------");
+        //ticker
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_ticker\"}}");
+
+        //k线
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_kline_5min\",\"cb_id\":\"10001\"}}");
+
+        //历史K线
+        webSocketClient.send("{\"event\":\"req\",\"params\":{\"channel\":\"market_btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
+
+        //全部行情
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"review\"}}");
+
+
+        //标记价格
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_mark_price\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ethusdt_mark_price\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_mark_price\",\"cb_id\":\"10001\"}}");
+
+        //指数价格
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_index_price\",\"cb_id\":\"10001\"}}");
+
+        //市场深度行情数据
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_depth_step0\",\"cb_id\":\"10001\",\"asks\":150,\"bids\":150}}");
+
+        //资金费率
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_funding_rate\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ethusdt_funding_rate\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_funding_rate\",\"cb_id\":\"10001\"}}");
 
 //        scheduledThreadPool.scheduleAtFixedRate(() -> {
 //            System.out.println("发送：：：{\"ping\":"+System.currentTimeMillis()+"}");
@@ -65,25 +102,14 @@ public class MyWebSocketClient extends WebSocketClient {
             webSocketClient.send("{\"pong\": \"" + time + "\"}");
             log.info("发送：：：{\"pong\":\"{}\"}",time);
         }
-        //ticker
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_ticker\"}}");
 
-        //k线
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_kline_5min\",\"cb_id\":\"10001\"}}");
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_kline_5min\",\"cb_id\":\"10001\"}}");
-        webSocketClient.send("{\"event\":\"req\",\"params\":{\"channel\":\"market_btcusdt_kline_5min\",\"cb_id\":\"10002\",\"endIdx\":\"\",\"pageSize\":200}}");
-
-
-        //标记价格
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_mark_price\",\"cb_id\":\"10001\"}}");
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ethusdt_mark_price\",\"cb_id\":\"10001\"}}");
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_mark_price\",\"cb_id\":\"10001\"}}");
-
-        //最新成交价
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_index_price\",\"cb_id\":\"10001\"}}");
-
-        //市场深度行情数据
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_depth_step0\",\"cb_id\":\"10001\",\"asks\":150,\"bids\":150}}");
+        if (res.contains("market_btcusdt_kline_1min")){
+            try {
+                redisService.addValue("market_btcusdt_kline_1min",res);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
 
     }
