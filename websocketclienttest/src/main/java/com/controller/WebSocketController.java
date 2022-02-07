@@ -8,6 +8,7 @@ import com.server.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.java_websocket.client.WebSocketClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +32,18 @@ public class WebSocketController {
     public List<Market1minBtcusdt> subscribe() {
         log.info("数据库返回：：：：{}",tfbeeKline.getMarket1minBtcUsdt("1642730220"));
         return tfbeeKline.getMarket1minBtcUsdt("1642730220");
+    }
+    @RequestMapping(value = "/test/market/btcusdt/ticker",method = RequestMethod.GET)
+    public void marketBtcusdtTicker() {
+        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_ticker\"}}");
+
+    }
+
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    @CrossOrigin
+    public String test() {
+        return "{\"name\":\"网站\",\"num\":3,\"sites\":[{\"name\":\"Google\",\"info\":[\"Android\",\"Google 搜索\",\"Google 翻译\"]},{\"name\":\"Runoob\",\"info\":[\"菜鸟教程\",\"菜鸟工具\",\"菜鸟微信\"]},{\"name\":\"Taobao\",\"info\":[\"淘宝\",\"网购\"]}]}";
+
     }
 
     @RequestMapping(value = "/calc",method = RequestMethod.GET)
