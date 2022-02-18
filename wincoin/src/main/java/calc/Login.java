@@ -1,0 +1,22 @@
+package calc;
+
+import calc.utils.HttpUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Login {
+    static {
+        System.setProperty("fileName", "login/info.log");
+    }
+    public static Logger log = LoggerFactory.getLogger(Login.class);
+
+    public static void main(String[] args) {
+        String cap_union_new_verify_url = "https://t.captcha.qq.com/cap_union_new_verify";
+        String pa1= "aid=2061914707&protocol=https&accver=1&showtype=popup&ua=TW96aWxsYS81LjAgKGlQaG9uZTsgQ1BVIGlQaG9uZSBPUyAxNV8xXzEgbGlrZSBNYWMgT1MgWCkgQXBwbGVXZWJLaXQvNjA1LjEuMTUgKEtIVE1MLCBsaWtlIEdlY2tvKSBDb2luVy1pT1M%253D&noheader=0&fb=0&enableDarkMode=0&grayscale=1&clientype=1&lang=2052&sess=s0kkUB08ehNO6GkbPVjQ-uCUldNdHKD_i1hkD-irMDGGXqzA8L6tAoavQW22UaoCOvSQa2zjihpg7ek3XNTi82KXVRywUpGby8Q96fDkBiqFH6KHciOZ_6sjNS1gblWfW1quOt_Mgw0Du2eoTyOWurbdAe9yX0P9WRWAqfflmyPLD_izfJiMiA1Ylv6-U6XCj2HEU-AglpAEN7RXDPNVQPpjf5bmLsocqHpyltMkrLkCI9AjL3dZCD8lmftPLRlZlMYD_5uDvDH_OFk4pxB7_8fg**&fwidth=0&sid=6899901639977246720&wxLang=&tcScale=1&uid=&cap_cd=&rnd=744110&prehandleLoadTime=331&createIframeStart=1645064744754&subsid=2&cdata=0&ans=510%2C146%3B&vsig=&websig=&subcapclass=&pow_answer=89b88d7ebfc2fadf%23273&pow_calc_time=17&collect=F9u8BCgddXJYPV7tSmZb8StRVsGSur84SEZbcQNTLW%2FcHIqgzvoZABYmW%2BVZEBRh95RIGThJoC9aDChKFeTUubB%2FtsXzAlhzjHGntPl5sJwHzZKQMqjd%2FCOaQ3CLr1i7MYv7BxYzhZVKRJBvJdi1SGR%2FwVwqBwaK5Pc5VNA3RyzNo%2F3%2F2hJ0jUD%2Fsr4AI4poSl9xg%2BtSS9sqtbTZydCn2GPKH6v7GcTum1t32RVlaygD8Axy0ZIciHHWKw%2BQLrbtrXPN7oDzW5B7UWBXOCMZhtcsERDNcOAcIm2CA%2Bqc9%2BqHL%2F9099MbJgHz7hRbhohSgSSMxZE6kCQYB8GETDyv1ubfPxlPtbA7rADXTGJ94likI4EN5YfiFp857B%2Fu%2BFCpRR7ICslsS8khC1Fx15xJjFLT9HLHYpEySct8Zi0Yvx3iJk%2FXKgh9LYrAxpVYOyeK%2FppNVm7wf74sxaLeeXINhz2%2FLod%2BYn%2FVByTA3DTCG%2FNRHjCMO13HKqYG5nG2%2Fpko1NXKQmnbmS2Bzloqmy3jzoHOWiqbLePOkMYVZUmeTVjK8L9a8m5lof%2BQ9iOlJXUonEnj3RvDMIbRizcSkyGus2ka%2BBd0SJ1Onaq9snIGcBfzZ0SiYh5FkjcFWkahygQwwSQ6qVF5OTcLgefhS1lXsW33o3qxhjH13C2vHrzmsre%2FKmde8rYHQUcA%2F4sH%2BcCaUjaGNJdCkoKtLSSR0wUy%2F0MsKMwmypmrfuyy1TzHIh4Sgv3X90J5Gztam9ruwLV7aF67u65TzWon1MmJsIAQk0cA%2F4sH%2BcCasZqVShT5h2enYcMFn8Iu38hNykB3cDATX81mfSqjEizXID7z2Cj1NuKwMmZ9XOqk7IBefzWQkklc%2BMIRV61e4tSmpgdY7ZEyUjaGNJdCkoKnYcMFn8Iu30A%2FXWM%2FTK3LWMbtABMF6Lha3e18U5J9j5WPFd9P3pafG76R0PgH2SbVKeShWvGWJDI1qyGptDSnYnx2gVbAQACBzloqmy3jzoHOWiqbLePOz4%2B%2BIBOs8PCUTGsvfFuoWNAW3KeYICzakxZkGyzq73rzLYdxJgcd0DEziZOWrB9ssHzkPQbJO6APU4SLQWLLlU3dcYVm4S4ULMmY8a7uKrNMZh05s5SqPqbXB7hELY6kEWljOej01jM5wHQz8bWh2FlYHg%2Fztgb9tC%2FbZtvPRDzpeXIC01Ged4%2B0UL4wROnUqfmtdSOGKUrcG4CDBbpOWCZqBSU9BPArjdajDf%2Fk%2BveBzloqmy3jzoHOWiqbLePOwKGv7%2BxZRtExYdET6nUthn88LkMaXp9eLsVSNjHvmQFB4Ou8QS0F7rdVcm%2F0KnWZCEx7MYc28i4RP9kV%2B5a0vIvePHLmiWSQLSZAmUfeCD0Vhd6hA7YOIfhJ2b0cW7s0%2BeQzQHE92r2Cl3jZVGXK4QdRUIDolWNr94Gk1HWCdOX9Pu3Mm2IB2eCd%2FsxU8I8wwYHNhiKGvhMfkhGrmWemNYbxVxS3K5JfmSlDH4re3w0kSkqSbSeilEBEgpGa0zTMt%2BCVVoTBLSgTdFRcOSxF8b8qZ17ytgdBN3jj6CvpXzxSNoY0l0KSgq0tJJHTBTL%2FQywozCbKmatElacMo4XtwFWMj6N4ITOzO1qb2u7AtXtoXru7rlPNar8qZ17ytgdB4Q9MTQi3c%2ByxmpVKFPmHZ0r5FJE1qxTqyE3KQHdwMBNfzWZ9KqMSLMrh2uDz1s%2B38u6ZLfcDhSBisl6jjIFMIlz4whFXrV7i4Q9MTQi3c%2ByxmpVKFPmHZ6dhwwWfwi7fEvj%2F7UK1cQuC%2FlSJbOZAHU10Nu2hO38MlY8V30%2Felp9XHd%2FBBjx0J%2Fg8LYaMA2i42SchzLH%2BpbT0QD%2Flkw4CxfB0NcnZ3fGfPeeFJXJCGxKwDZOKk4BIAg%3D%3D&tlg=1912&fpinfo=&eks=SrhDYzPXbXjAs9ljpNNslvwYM90qkTTaas%2F4O%2BAjR2FmR4%2FEJSothS4rvKiH9n5arwKlwOPhu22uQZ7pVY4JRy6apXeMn7UOwwpYXjH7A0L7XfZDYq2jEUcXR4JpMNJS5cX3af3jGKjkLcv40jhmQ8pElTkbZDev89QujgdOHF7u6Gi%2FL5dH2iroxck8h9k9bq5HPUb%2FzrsRYzdewtYRZYqjE0NbMAQ898N%2FOaViEShbKwHsNgLI%2Fw%3D%3D&nonce=eda1152f11f1daf0&vlg=0_0_1&vData=dSaPMguxRdN4iUjzW8IGu9X0i_qRFKzu7ogIABqOa7xg8P-s5UHimzp9wObtCROii_L0HH_*qOI21Lpk6u7tfiUAnjbzNAfvzXzVBNQ98OCPjeLnvEVuHkFpJlj1vOh1itVEJRl6jT_USOxan7XUliYY";
+        System.out.println(HttpUtil.postByForm(cap_union_new_verify_url,pa1));
+
+        String url = "https://dev1.tfbeee.com/v1/users/app/membership/sign-in";
+        String params = "{\"username\":\"15500000001\",\"password\":\"ghw111111\",\"ticket\":\"t03w7EqnRitjwtMbm7IQFSfXwpYvsVO-zBqQeNTmpQ1ndok8PSaWMvU7evzrrm50ydMOwUtjkZQuYIjn87272jtCFeGbCMFpyMVgh7WVc5dbW0DoZzxwt0Hww**\",\"randstr\":\"@siM\"}";
+//        System.out.println(HttpUtils.postByJson(url,params));
+    }
+}

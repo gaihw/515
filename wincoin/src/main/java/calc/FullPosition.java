@@ -1,12 +1,12 @@
-package winCoin;
+package calc;
 
-import old.Calc.fuZi.B;
+import calc.utils.SqlUtil;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MergePosition {
+public class FullPosition {
     //合约面值
     public static BigDecimal btc_unit = new BigDecimal(0.001);
     public static BigDecimal shib_unit = new BigDecimal(1000);
@@ -39,7 +39,7 @@ public class MergePosition {
         //账号可用余额
         BigDecimal available_balance = null;
         String balance_sql = "SELECT * FROM `bib_cfd`.`user_balance` WHERE `user_id` = '"+user_id+"' LIMIT 0,1000";
-        ResultSet balance_rs = SqlUtils.select(balance_sql);
+        ResultSet balance_rs = SqlUtil.select(balance_sql);
         while (balance_rs.next()){
             available_balance = balance_rs.getBigDecimal("balance");
         }
@@ -48,7 +48,7 @@ public class MergePosition {
         //开仓均价 = （合约面值 * 张数1 * 开仓价1 + 合约面值 * 张数2 * 开仓价2 + 。。。+合约面值 * 张数n * 开仓价n）/ （sum（张数） * 合约面值）
         BigDecimal avg_price = null;
         String avg_price_sql = "select sum(current_piece*open_price)/sum(current_piece) as avg_price from `bib_cfd`.`user_position_log` where id in ("+id+")";
-        ResultSet avg_price_rs = SqlUtils.select(avg_price_sql);
+        ResultSet avg_price_rs = SqlUtil.select(avg_price_sql);
         while (avg_price_rs.next()){
             avg_price = avg_price_rs.getBigDecimal("avg_price").setScale(8,BigDecimal.ROUND_UP);
         }
