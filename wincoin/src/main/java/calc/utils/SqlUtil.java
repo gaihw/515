@@ -7,7 +7,6 @@ public class SqlUtil {
     public static ResultSet select(String sql){
         Connection conn = null;
         Statement stmt = null;
-//        String sql = "SELECT * FROM `bib_cfd`.`user_position_log` WHERE `id` IN ("+id+") ORDER BY `id` LIMIT 0,1000";
         ResultSet resultSet = null;
         try{
             // 注册 JDBC 驱动

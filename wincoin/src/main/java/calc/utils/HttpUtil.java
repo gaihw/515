@@ -21,7 +21,7 @@ public class HttpUtil {
     public static GetMethod get ;
     public static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
     static {
-        System.setProperty("fileName", "baseutils/baseutils.log");
+        System.setProperty("fileName", "httpUtil/info.log");
     }
     public static Logger log = LoggerFactory.getLogger(HttpUtil.class);
     /**
@@ -100,7 +100,10 @@ public class HttpUtil {
             }
         }
         post.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-        post.setRequestHeader("ACCESS_TOKEN",authorization);
+        post.setRequestHeader("x-locale","zh-CN");
+        post.setRequestHeader("5fu3","ty9f");
+        post.setRequestHeader("user-agent","a_ty9f:v2.2.9");
+        post.setRequestHeader("x-authorization",authorization);
         try {
 //            System.out.println("开始："+df.format(new Date()));// new Date()为获取当前系统时间
             int code = client.executeMethod(post);
@@ -134,14 +137,6 @@ public class HttpUtil {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        post.setRequestEntity(se);
-        post.setRequestHeader("Content-Type","application/json");
-        post.setRequestHeader("x-locale","zh-CN");
-        post.setRequestHeader("5fu3","ty9f");
-        post.setRequestHeader("user-agent","a_ty9f:v2.2.9");
-        post.setRequestHeader("x-authorization","f6bf1c5a77d9e1e834779be85dce0c0b793d26b11ff28d9538fd0c1a5cce7d5d");
-//        post.setRequestHeader("x-authorization","274cac8c515916ac0571d57478c1adb8d5c6b6d27f503df3115e200f50fa8bbc");
-
         try {
 //            System.out.println("开始："+df.format(new Date()));// new Date()为获取当前系统时间
             int code = client.executeMethod(post);
@@ -168,7 +163,7 @@ public class HttpUtil {
      * @param params
      * @return
      */
-    public static String postByJson(String url,String authorization, String params){
+    public static String postByJson(String url, String params,String authorization){
         post = new PostMethod(url) ;
         RequestEntity se = null;
         try {
@@ -178,7 +173,10 @@ public class HttpUtil {
         }
         post.setRequestEntity(se);
         post.setRequestHeader("Content-Type","application/json");
-        post.setRequestHeader("Authorization",authorization);
+        post.setRequestHeader("x-locale","zh-CN");
+        post.setRequestHeader("5fu3","ty9f");
+        post.setRequestHeader("user-agent","a_ty9f:v2.2.9");
+        post.setRequestHeader("x-authorization",authorization);
         try {
 //            System.out.println("开始："+df.format(new Date()));// new Date()为获取当前系统时间
             int code = client.executeMethod(post);
@@ -205,12 +203,6 @@ public class HttpUtil {
      */
     public static String getByForm(String url){
         get = new GetMethod(url) ;
-        get.setRequestHeader("Content-Type","application/json");
-        get.setRequestHeader("x-locale","zh-CN");
-        get.setRequestHeader("5fu3","ty9f");
-        get.setRequestHeader("user-agent","a_ty9f:v2.2.9");
-        get.setRequestHeader("x-authorization","9dea24bbd471b1253d56c9a659901435429a51beec532a217c31cf46bcdb0325");
-
         try {
             int code = client.executeMethod(get);
 
