@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -27,6 +29,7 @@ public class PlatformController {
     private RedisService redisService;
 
 
+    @CrossOrigin
     @RequestMapping(value = "/platform/list",method = RequestMethod.POST)
     public JsonResult getPlatformList(@RequestBody JSONObject jsonObject){
         log.info("项目列表请求参数:{}",jsonObject);
