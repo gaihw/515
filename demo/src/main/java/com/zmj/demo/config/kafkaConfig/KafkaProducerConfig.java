@@ -16,8 +16,8 @@ import java.util.Map;
 /**
  * 设置@Configuration、@EnableKafka两个注解，声明Config并且打开KafkaTemplate能力。
  */
-@Configuration
-@EnableKafka
+//@Configuration
+//@EnableKafka
 public class KafkaProducerConfig {
 
     @Value("${spring.kafka.bootstrap-servers}")

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.ExecutionException;
 
-@RestController
+//@RestController
 @Slf4j
 public class KafkaProducer {
 

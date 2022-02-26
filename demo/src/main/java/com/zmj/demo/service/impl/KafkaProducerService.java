@@ -13,7 +13,7 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-@Service
+//@Service
 @Slf4j
 public class KafkaProducerService {
 

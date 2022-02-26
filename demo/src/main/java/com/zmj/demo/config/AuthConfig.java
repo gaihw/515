@@ -33,35 +33,31 @@ public class AuthConfig implements WebMvcConfigurer {
          * 所以这里有个大坑，搞了很久才发现问题。
          *
          * */
-        registry.addInterceptor(initAuthInterceptor())
-                .addPathPatterns("/api/auto/**")
-//                .addPathPatterns("/currency/**")
-//                .addPathPatterns("/documentary/**")
-//                .addPathPatterns("/fex/**")
-//                .addPathPatterns("/main/**")
+//        registry.addInterceptor(initAuthInterceptor())
+//                .addPathPatterns("/api/auto/**")
 //                .addPathPatterns("/index")
-                .excludePathPatterns("/login/**","/register/**");
+//                .excludePathPatterns("/login/**","/register/**");
 
-        registry.addInterceptor(new HandlerInterceptor() {
-            @Override
-            public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-                response.addHeader("Access-Control-Allow-Origin", "*");
-                response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-                response.addHeader("Access-Control-Allow-Headers",
-                        "Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,token");
-                return true;
-            }
-
-            @Override
-            public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-
-            }
-
-            @Override
-            public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-
-            }
-        });
+//        registry.addInterceptor(new HandlerInterceptor() {
+//            @Override
+//            public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+//                response.addHeader("Access-Control-Allow-Origin", "*");
+//                response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//                response.addHeader("Access-Control-Allow-Headers",
+//                        "Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,token");
+//                return true;
+//            }
+//
+//            @Override
+//            public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+//
+//            }
+//
+//            @Override
+//            public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+//
+//            }
+//        });
     }
 
 }

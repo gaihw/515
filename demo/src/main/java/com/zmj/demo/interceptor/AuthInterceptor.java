@@ -23,6 +23,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
         //获取请求头部的token，如果为空，重新登录

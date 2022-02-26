@@ -9,7 +9,7 @@ import org.springframework.kafka.annotation.TopicPartition;
 import org.springframework.stereotype.Component;
 
 
-@Component
+//@Component
 @Slf4j
 public class KafkaConsumerListener {
 

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @Slf4j
 @RequestMapping(value = "/api/auto")
@@ -29,7 +30,6 @@ public class PlatformController {
     private RedisService redisService;
 
 
-    @CrossOrigin
     @RequestMapping(value = "/platform/list",method = RequestMethod.POST)
     public JsonResult getPlatformList(@RequestBody JSONObject jsonObject){
         log.info("项目列表请求参数:{}",jsonObject);
