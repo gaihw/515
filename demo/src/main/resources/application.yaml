@@ -12,7 +12,7 @@ spring:
       jdbc-url: jdbc:mysql://127.0.0.1:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: 123456
-  tool:
+  test:
     datasource:
       type: com.alibaba.druid.pool.DruidDataSource
 #      driver-class-name: com.mysql.jdbc.Driver
@@ -20,6 +20,14 @@ spring:
       jdbc-url: jdbc:mysql://rm-gs523r33n289871n3.mysql.singapore.rds.aliyuncs.com?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
       username: bl_admin_rw
       password: sHl#srOEHsT^Zcl9gv1qm6KmFilL
+  dev1:
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      #      driver-class-name: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://rm-gs5da3x946bp408j8.mysql.singapore.rds.aliyuncs.com:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+      username: bl_admin_rw
+      password: iIrWRquy0kx2DnOs
   data:
     elasticsearch:
 #      cluster-name: myes
