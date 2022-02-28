@@ -1,6 +1,9 @@
 package com.zmj.demo.service.impl.plugin;
 
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,19 +19,26 @@ public class RedisService {
     @Resource
     private RedisTemplate<String,Object> redisTemplate;
 
-//    public void set(String key, Object value) {
-//        //更改在redis里面查看key编码问题
-//        RedisSerializer redisSerializer =new StringRedisSerializer();
-//        redisTemplate.setKeySerializer(redisSerializer);
-//        ValueOperations<String,Object> vo = redisTemplate.opsForValue();
-//        vo.set(key, value, Config.MAX_TIME, TimeUnit.SECONDS);
-//    }
-//
-//    public Object get(String key) {
-//        ValueOperations<String,Object> vo = redisTemplate.opsForValue();
-//        return vo.get(key);
-//    }
-//
+    public void set(String key, Object value) {
+        //更改在redis里面查看key编码问题
+        RedisSerializer redisSerializer =new StringRedisSerializer();
+        redisTemplate.setKeySerializer(redisSerializer);
+        ValueOperations<String,Object> vo = redisTemplate.opsForValue();
+        vo.set(key, value);
+    }
+    public void set(String key, Object value,long time) {
+        //更改在redis里面查看key编码问题
+        RedisSerializer redisSerializer =new StringRedisSerializer();
+        redisTemplate.setKeySerializer(redisSerializer);
+        ValueOperations<String,Object> vo = redisTemplate.opsForValue();
+        vo.set(key, value, time, TimeUnit.SECONDS);
+    }
+
+    public Object get(String key) {
+        ValueOperations<String,Object> vo = redisTemplate.opsForValue();
+        return vo.get(key);
+    }
+
     public Boolean delete(String key) {
         return redisTemplate.delete(key);
     }

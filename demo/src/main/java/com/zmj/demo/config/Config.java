@@ -75,6 +75,12 @@ public class Config {
     //redis设置过期时间
     public static Long MAX_TIME = Long.valueOf(5*24*60*60);
 
+    //手续费率
+    public static final BigDecimal taker = new BigDecimal(0.0004);
+
+    //顶级合伙人
+    public static final String high_partner = "51904446";
+
 
 
 
