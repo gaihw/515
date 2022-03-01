@@ -66,13 +66,7 @@ public interface AccountDao {
             "select user_id userId,type,size,pre_balance preBalance,post_balance postBalance,pre_profit preProfit,post_profit postProfit,pre_margin preMargin,post_margin postMargin,partner_id partnerId,parent_id parentId,source_id sourceId,note,created_date createdDate,from_user_id fromUserId " +
             "from `bib_cfd`.`user_bill` " +
             "where user_id=#{partnerId} and from_user_id=#{userId} and source_id='${sourceId}' and type=#{type} " +
-            "order by id #{orderBy} " +
-//            "<if test=\"orderBy==desc\">"+
-//            " #{orderBy}"+
-//            "</if>"+
-//            "<if test=\"orderBy==asc\">"+
-//            " #{orderBy}"+
-//            "</if>"+
+            "order by id ${orderBy} " +
             " limit 0,1"+
             "</script>"})
     UserBillChain getUserBill(@Param("userId") String userId,@Param("partnerId") String partnerId,@Param("sourceId") String sourceId,@Param("type") int type,@Param("orderBy") String orderBy);

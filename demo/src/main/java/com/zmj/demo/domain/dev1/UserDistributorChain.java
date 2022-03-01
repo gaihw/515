@@ -11,9 +11,9 @@ public class UserDistributorChain {
     private String partnerId;
     private String distId;
     private String level;
-    private String type;
+    private int type;
     private String defaulted;
-    private String openBet;
+    private int openBet;
     private String isProfession;
     private String config;
 }

@@ -81,6 +81,8 @@ public class Config {
     //顶级合伙人
     public static final String high_partner = "51904446";
 
+    public static final String startTime = "2022-02-25 00:00:00";
+
 
 
 

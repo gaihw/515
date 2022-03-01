@@ -167,9 +167,9 @@ public class SqlUtils {
             case 56:
                 return "逐仓保证金划出";
             case 58:
-                return "平仓退还保证金";
-            case 59:
                 return "订单成交后，退还订单冻结保证金";
+//            case 59:
+//                return "订单成交后，退还订单冻结保证金";
             default:
                 return "无";
         }
