@@ -70,6 +70,7 @@ public class MyWebSocketClient extends WebSocketClient {
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ethusdt_funding_rate\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_funding_rate\",\"cb_id\":\"10001\"}}");
 
+        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_ticker\",\"cb_id\":\"Android_qoz6\"}}");
 
         //测试环境
 //        scheduledThreadPool.scheduleAtFixedRate(() -> {

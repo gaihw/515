@@ -1,0 +1,1135 @@
+2022-02-15 15:55:09.179 [main] INFO  WebSocketApplication - Starting WebSocketApplication using Java 1.8.0_312 on gai.local with PID 38736 (/Users/mac/tools/gitPro/515/websocketclienttest/target/classes started by mac in /Users/mac/tools/gitPro/515/websocketclienttest)
+2022-02-15 15:55:09.182 [main] INFO  WebSocketApplication - No active profile set, falling back to default profiles: default
+2022-02-15 15:55:11.336 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-15 15:55:11.341 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-02-15 15:55:11.374 [main] WARN  o.s.boot.autoconfigure.AutoConfigurationPackages - @EnableAutoConfiguration was declared on a class in the default package. Automatic @Repository and @Entity scanning is not enabled.
+2022-02-15 15:55:11.376 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2022-02-15 15:55:12.554 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8002 (http)
+2022-02-15 15:55:12.572 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8002"]
+2022-02-15 15:55:12.574 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-02-15 15:55:12.574 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-02-15 15:55:12.679 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-02-15 15:55:12.679 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3407 ms
+2022-02-15 15:55:14.025 [Thread-2] INFO  com.client.MyWebSocketClient - ------ MyWebSocket onOpen ------
+2022-02-15 15:55:14.075 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-02-15 15:55:14.118 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"subed","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911714366} --------
+2022-02-15 15:55:14.119 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911712146,"data":{"fr":-0.00007462,"ts":1644911712000}} --------
+2022-02-15 15:55:14.202 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"msg":"error","status":"error","event_rep":"error","cb_id":"","channel":"market_ltcusdt_funding_rate","ts":1644911714451} --------
+2022-02-15 15:55:14.202 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"subed","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911714452} --------
+2022-02-15 15:55:14.203 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911712458,"data":{"fr":0.00004956,"ts":1644911712000}} --------
+2022-02-15 15:55:14.944 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911715195,"data":{"fr":-0.00007462,"ts":1644911715001}} --------
+2022-02-15 15:55:14.946 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911715198,"data":{"fr":0.00004956,"ts":1644911715001}} --------
+2022-02-15 15:55:15.268 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-02-15 15:55:15.334 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8002"]
+2022-02-15 15:55:15.370 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8002 (http) with context path ''
+2022-02-15 15:55:15.384 [main] INFO  WebSocketApplication - Started WebSocketApplication in 7.306 seconds (JVM running for 7.935)
+2022-02-15 15:55:18.074 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911718334,"data":{"fr":-0.00007462,"ts":1644911718001}} --------
+2022-02-15 15:55:18.076 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911718335,"data":{"fr":0.00004956,"ts":1644911718001}} --------
+2022-02-15 15:55:19.013 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911718862"} --------
+2022-02-15 15:55:19.076 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911718862"}
+2022-02-15 15:55:20.879 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911721144,"data":{"fr":0.00004956,"ts":1644911721005}} --------
+2022-02-15 15:55:21.203 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911721469,"data":{"fr":-0.00007462,"ts":1644911721005}} --------
+2022-02-15 15:55:23.945 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911724214,"data":{"fr":-0.00007462,"ts":1644911724003}} --------
+2022-02-15 15:55:23.948 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911724214,"data":{"fr":0.00004956,"ts":1644911724003}} --------
+2022-02-15 15:55:24.004 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911723865"} --------
+2022-02-15 15:55:24.005 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911723865"}
+2022-02-15 15:55:25.825 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911726098,"data":{"fr":0.0000954671196071,"ts":1644911701890}} --------
+2022-02-15 15:55:27.088 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911727357,"data":{"fr":-0.00007462,"ts":1644911727000}} --------
+2022-02-15 15:55:29.003 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911728868"} --------
+2022-02-15 15:55:29.004 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911728868"}
+2022-02-15 15:55:30.324 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911730489,"data":{"fr":-0.00007462,"ts":1644911730007}} --------
+2022-02-15 15:55:31.653 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911731824,"data":{"fr":0.0000428593404353,"ts":1644911701847}} --------
+2022-02-15 15:55:34.111 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911733872"} --------
+2022-02-15 15:55:34.112 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911733872"}
+2022-02-15 15:55:38.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911738876"} --------
+2022-02-15 15:55:38.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911738876"}
+2022-02-15 15:55:44.040 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911743879"} --------
+2022-02-15 15:55:44.041 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911743879"}
+2022-02-15 15:55:49.054 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911748883"} --------
+2022-02-15 15:55:49.055 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911748883"}
+2022-02-15 15:55:52.963 [http-nio-8002-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-15 15:55:52.963 [http-nio-8002-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-02-15 15:55:52.965 [http-nio-8002-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2022-02-15 15:55:54.069 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911753887"} --------
+2022-02-15 15:55:54.070 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911753887"}
+2022-02-15 15:55:58.987 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911758890"} --------
+2022-02-15 15:55:58.987 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911758890"}
+2022-02-15 15:56:00.933 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911761192,"data":{"fr":0.0000949043825981,"ts":1644911761075}} --------
+2022-02-15 15:56:00.934 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911761194,"data":{"fr":0.0000425918230073,"ts":1644911761043}} --------
+2022-02-15 15:56:04.006 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911763894"} --------
+2022-02-15 15:56:04.007 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911763894"}
+2022-02-15 15:56:08.985 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911768897"} --------
+2022-02-15 15:56:08.986 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911768897"}
+2022-02-15 15:56:14.042 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911773900"} --------
+2022-02-15 15:56:14.043 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911773900"}
+2022-02-15 15:56:19.055 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911778903"} --------
+2022-02-15 15:56:19.056 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911778903"}
+2022-02-15 15:56:24.072 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911783908"} --------
+2022-02-15 15:56:24.073 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911783908"}
+2022-02-15 15:56:29.089 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911788912"} --------
+2022-02-15 15:56:29.090 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911788912"}
+2022-02-15 15:56:33.985 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911793915"} --------
+2022-02-15 15:56:33.986 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911793915"}
+2022-02-15 15:56:38.985 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911798919"} --------
+2022-02-15 15:56:38.985 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911798919"}
+2022-02-15 15:56:44.041 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911803922"} --------
+2022-02-15 15:56:44.041 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911803922"}
+2022-02-15 15:56:44.964 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911805171,"data":{"fr":-0.00007571,"ts":1644911805000}} --------
+2022-02-15 15:56:44.965 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911805171,"data":{"fr":0.00004814,"ts":1644911805000}} --------
+2022-02-15 15:56:48.008 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911808297,"data":{"fr":-0.00007571,"ts":1644911808000}} --------
+2022-02-15 15:56:48.009 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911808299,"data":{"fr":0.00004814,"ts":1644911808000}} --------
+2022-02-15 15:56:49.058 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911808925"} --------
+2022-02-15 15:56:49.058 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911808925"}
+2022-02-15 15:56:51.210 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911811424,"data":{"fr":-0.00007571,"ts":1644911811002}} --------
+2022-02-15 15:56:51.211 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911811426,"data":{"fr":0.00004814,"ts":1644911811002}} --------
+2022-02-15 15:56:53.973 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911814216,"data":{"fr":0.00004814,"ts":1644911814005}} --------
+2022-02-15 15:56:53.985 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911813929"} --------
+2022-02-15 15:56:53.986 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911813929"}
+2022-02-15 15:56:54.247 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911814535,"data":{"fr":-0.00007571,"ts":1644911814005}} --------
+2022-02-15 15:56:56.943 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911817200,"data":{"fr":-0.00007571,"ts":1644911817000}} --------
+2022-02-15 15:56:56.944 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911817201,"data":{"fr":0.00004814,"ts":1644911817000}} --------
+2022-02-15 15:56:59.094 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911818932"} --------
+2022-02-15 15:56:59.094 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911818932"}
+2022-02-15 15:57:00.119 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911820351,"data":{"fr":-0.00007608,"ts":1644911820013}} --------
+2022-02-15 15:57:00.120 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911820353,"data":{"fr":0.00004717,"ts":1644911820013}} --------
+2022-02-15 15:57:02.839 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911823128,"data":{"fr":-0.00007608,"ts":1644911823005}} --------
+2022-02-15 15:57:02.847 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911823136,"data":{"fr":0.00004717,"ts":1644911823005}} --------
+2022-02-15 15:57:04.009 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911823936"} --------
+2022-02-15 15:57:04.009 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911823936"}
+2022-02-15 15:57:06.159 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911826388,"data":{"fr":-0.00007608,"ts":1644911826004}} --------
+2022-02-15 15:57:06.161 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911826390,"data":{"fr":0.00004717,"ts":1644911826004}} --------
+2022-02-15 15:57:08.925 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911829132,"data":{"fr":-0.00007608,"ts":1644911829001}} --------
+2022-02-15 15:57:08.926 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911829138,"data":{"fr":0.00004717,"ts":1644911829001}} --------
+2022-02-15 15:57:08.984 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911828939"} --------
+2022-02-15 15:57:08.984 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911828939"}
+2022-02-15 15:57:12.201 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911832404,"data":{"fr":-0.00007608,"ts":1644911832000}} --------
+2022-02-15 15:57:12.202 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911832406,"data":{"fr":0.00004717,"ts":1644911832000}} --------
+2022-02-15 15:57:13.532 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911833820,"data":{"fr":0.000094277416678,"ts":1644911821608}} --------
+2022-02-15 15:57:13.533 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911833822,"data":{"fr":0.0000419764774229,"ts":1644911821561}} --------
+2022-02-15 15:57:14.033 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911833943"} --------
+2022-02-15 15:57:14.034 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911833943"}
+2022-02-15 15:57:18.985 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911838948"} --------
+2022-02-15 15:57:18.985 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911838948"}
+2022-02-15 15:57:24.078 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911843951"} --------
+2022-02-15 15:57:24.079 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911843951"}
+2022-02-15 15:57:29.200 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911848954"} --------
+2022-02-15 15:57:29.201 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911848954"}
+2022-02-15 15:57:34.013 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911853958"} --------
+2022-02-15 15:57:34.014 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911853958"}
+2022-02-15 15:57:38.985 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911858962"} --------
+2022-02-15 15:57:38.986 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911858962"}
+2022-02-15 15:57:43.985 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911863966"} --------
+2022-02-15 15:57:43.986 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911863966"}
+2022-02-15 15:57:49.066 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911868968"} --------
+2022-02-15 15:57:49.067 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911868968"}
+2022-02-15 15:57:54.085 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911873973"} --------
+2022-02-15 15:57:54.085 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911873973"}
+2022-02-15 15:57:56.849 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911877138,"data":{"fr":-0.00007608,"ts":1644911877004}} --------
+2022-02-15 15:57:57.187 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911877475,"data":{"fr":0.00004717,"ts":1644911877004}} --------
+2022-02-15 15:57:59.094 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911878977"} --------
+2022-02-15 15:57:59.095 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911878977"}
+2022-02-15 15:58:00.126 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911880298,"data":{"fr":0.00004644,"ts":1644911880002}} --------
+2022-02-15 15:58:00.126 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911880299,"data":{"fr":-0.00007659,"ts":1644911880002}} --------
+2022-02-15 15:58:02.840 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911883128,"data":{"fr":0.00004644,"ts":1644911883005}} --------
+2022-02-15 15:58:03.198 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911883452,"data":{"fr":-0.00007659,"ts":1644911883005}} --------
+2022-02-15 15:58:04.017 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911883981"} --------
+2022-02-15 15:58:04.017 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911883981"}
+2022-02-15 15:58:05.988 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911886275,"data":{"fr":-0.00007659,"ts":1644911886005}} --------
+2022-02-15 15:58:05.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911886277,"data":{"fr":0.00004644,"ts":1644911886005}} --------
+2022-02-15 15:58:08.934 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911889143,"data":{"fr":0.00004644,"ts":1644911889003}} --------
+2022-02-15 15:58:08.987 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911888984"} --------
+2022-02-15 15:58:08.988 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911888984"}
+2022-02-15 15:58:09.180 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911889469,"data":{"fr":-0.00007659,"ts":1644911889003}} --------
+2022-02-15 15:58:12.107 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911892292,"data":{"fr":0.00004644,"ts":1644911892000}} --------
+2022-02-15 15:58:12.108 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911892294,"data":{"fr":-0.00007659,"ts":1644911892000}} --------
+2022-02-15 15:58:14.034 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911893988"} --------
+2022-02-15 15:58:14.034 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911893988"}
+2022-02-15 15:58:14.974 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911895208,"data":{"fr":0.00004644,"ts":1644911895000}} --------
+2022-02-15 15:58:15.282 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911895546,"data":{"fr":-0.00007659,"ts":1644911895000}} --------
+2022-02-15 15:58:18.149 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911898373,"data":{"fr":0.00004644,"ts":1644911898000}} --------
+2022-02-15 15:58:18.150 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911898374,"data":{"fr":-0.00007659,"ts":1644911898000}} --------
+2022-02-15 15:58:18.986 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911898991"} --------
+2022-02-15 15:58:18.987 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911898991"}
+2022-02-15 15:58:20.835 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911901123,"data":{"fr":0.00004644,"ts":1644911901000}} --------
+2022-02-15 15:58:20.836 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911901125,"data":{"fr":-0.00007659,"ts":1644911901000}} --------
+2022-02-15 15:58:24.088 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911903994"} --------
+2022-02-15 15:58:24.089 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911903994"}
+2022-02-15 15:58:24.163 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911904449,"data":{"fr":0.00004644,"ts":1644911904000}} --------
+2022-02-15 15:58:24.164 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911904451,"data":{"fr":-0.00007659,"ts":1644911904000}} --------
+2022-02-15 15:58:25.624 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911905824,"data":{"fr":0.0000414895452146,"ts":1644911881579}} --------
+2022-02-15 15:58:25.625 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911905849,"data":{"fr":0.0000938103271862,"ts":1644911881627}} --------
+2022-02-15 15:58:29.003 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911908997"} --------
+2022-02-15 15:58:29.004 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911908997"}
+2022-02-15 15:58:34.021 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911914000"} --------
+2022-02-15 15:58:34.022 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911914000"}
+2022-02-15 15:58:38.986 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911919004"} --------
+2022-02-15 15:58:38.987 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911919004"}
+2022-02-15 15:58:43.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911924007"} --------
+2022-02-15 15:58:43.990 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911924007"}
+2022-02-15 15:58:48.987 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911929012"} --------
+2022-02-15 15:58:48.987 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911929012"}
+2022-02-15 15:58:53.988 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911934015"} --------
+2022-02-15 15:58:53.988 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911934015"}
+2022-02-15 15:58:59.006 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911939018"} --------
+2022-02-15 15:58:59.007 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911939018"}
+2022-02-15 15:59:01.431 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911941714,"data":{"fr":0.00001407154907792999947924807405130742665733123430982232093811035156250,"ts":1644911941589}} --------
+2022-02-15 15:59:01.474 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911941755,"data":{"fr":0.00000622343178218999976968675810762299249745410634204745292663574218750,"ts":1644911941618}} --------
+2022-02-15 15:59:04.025 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911944022"} --------
+2022-02-15 15:59:04.025 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911944022"}
+2022-02-15 15:59:08.987 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911949027"} --------
+2022-02-15 15:59:08.988 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911949027"}
+2022-02-15 15:59:13.988 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911954031"} --------
+2022-02-15 15:59:13.989 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911954031"}
+2022-02-15 15:59:18.987 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911959034"} --------
+2022-02-15 15:59:18.987 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911959034"}
+2022-02-15 15:59:24.096 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911964038"} --------
+2022-02-15 15:59:24.097 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911964038"}
+2022-02-15 15:59:29.011 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911969041"} --------
+2022-02-15 15:59:29.011 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911969041"}
+2022-02-15 15:59:34.027 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911974044"} --------
+2022-02-15 15:59:34.028 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911974044"}
+2022-02-15 15:59:38.988 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911979048"} --------
+2022-02-15 15:59:38.989 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911979048"}
+2022-02-15 15:59:44.064 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911984052"} --------
+2022-02-15 15:59:44.065 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911984052"}
+2022-02-15 15:59:44.986 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911985201,"data":{"fr":0.000006965999999999999742206213682038651313632726669311523437500,"ts":1644911985001}} --------
+2022-02-15 15:59:45.293 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911985531,"data":{"fr":-0.000011488499999999999574840092719796302844770252704620361328125,"ts":1644911985001}} --------
+2022-02-15 15:59:47.979 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911988265,"data":{"fr":-0.0000017232749999999998724520278159388932135426668612804121673551099612733332293312837890653099748305976390838623046875,"ts":1644911988000}} --------
+2022-02-15 15:59:47.980 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911988266,"data":{"fr":0.0000010448999999999999226618641046115968251328038782851852859638504583043947665510486899620445910841226577758789062500,"ts":1644911988000}} --------
+2022-02-15 15:59:49.083 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911989056"} --------
+2022-02-15 15:59:49.083 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911989056"}
+2022-02-15 15:59:50.933 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911991138,"data":{"fr":1.5673499999999998259891942353760960763955269504979760276812195861676601189110570153453912661229602297760737326036330054957520369063317389191070105880498886108398437500E-7,"ts":1644911991001}} --------
+2022-02-15 15:59:51.232 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911991467,"data":{"fr":-2.5849124999999997130170625858625150407220803001429798441021664105206952736304448063157518749430991386423231520265342784435755492389308329848063294775784015655517578125E-7,"ts":1644911991001}} --------
+2022-02-15 15:59:53.998 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911994201,"data":{"fr":2.3510249999999996519783884707521985924844903497084114462003363299010411066883156281230721908120900715844973777799311354168525512657314249369535138305543120969537069758832020327597028819255342568794731050729751586914062500E-8,"ts":1644911994003}} --------
+2022-02-15 15:59:53.999 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911994203,"data":{"fr":-3.8773687499999994260341251717250407019463203248098025982877639859414457011468151153735163456997842072062156366099251865111269789285609353126888377321738751831542725513112498641056340165089721949698287062346935272216796875E-8,"ts":1644911994003}} --------
+2022-02-15 15:59:53.999 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911994059"} --------
+2022-02-15 15:59:53.999 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911994059"}
+2022-02-15 15:59:57.145 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644911997431,"data":{"fr":-5.8160531249999989238139846969844712295909000925000940312780406008201955918469331037474535868253083667982704938871572559527495129504612760567959346992736430260555497683562491694259494156432697073081374556384640101087287614337868900849133624308961998394806869328022003173828125E-9,"ts":1644911997004}} --------
+2022-02-15 15:59:57.145 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644911997431,"data":{"fr":3.5265374999999993474594783826603844353336127470388349237831597532587789957614776516259530561713973175886105462347510506129480008019248160344379580550237365469385002120702991438587425363947440293431244736891274138849636203288296536825091598288395289273466914892196655273437500E-9,"ts":1644911997004}} --------
+2022-02-15 15:59:59.015 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644911999063"} --------
+2022-02-15 15:59:59.015 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644911999063"}
+2022-02-15 15:59:59.907 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912000193,"data":{"fr":0E-55,"ts":1644912000005}} --------
+2022-02-15 16:00:00.346 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912000520,"data":{"fr":0E-55,"ts":1644912000005}} --------
+2022-02-15 16:00:03.009 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912003260,"data":{"fr":0.00004656,"ts":1644912003003}} --------
+2022-02-15 16:00:03.010 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912003263,"data":{"fr":-0.000027432,"ts":1644912003003}} --------
+2022-02-15 16:00:04.033 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912004067"} --------
+2022-02-15 16:00:04.033 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912004067"}
+2022-02-15 16:00:05.876 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912006067,"data":{"fr":0E-55,"ts":1644912006001}} --------
+2022-02-15 16:00:06.183 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912006397,"data":{"fr":0E-55,"ts":1644912006001}} --------
+2022-02-15 16:00:08.948 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912009136,"data":{"fr":0.00004656,"ts":1644912009005}} --------
+2022-02-15 16:00:08.949 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912009138,"data":{"fr":-0.000027432,"ts":1644912009005}} --------
+2022-02-15 16:00:08.987 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912009071"} --------
+2022-02-15 16:00:08.988 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912009071"}
+2022-02-15 16:00:12.120 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912012354,"data":{"fr":0E-55,"ts":1644912012001}} --------
+2022-02-15 16:00:12.120 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912012355,"data":{"fr":0E-55,"ts":1644912012001}} --------
+2022-02-15 16:00:13.555 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912013841,"data":{"fr":0E-55,"ts":1644912003477}} --------
+2022-02-15 16:00:13.964 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912014166,"data":{"fr":0E-55,"ts":1644912003406}} --------
+2022-02-15 16:00:13.988 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912014074"} --------
+2022-02-15 16:00:13.988 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912014074"}
+2022-02-15 16:00:19.086 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912019078"} --------
+2022-02-15 16:00:19.087 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912019078"}
+2022-02-15 16:00:23.988 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912024082"} --------
+2022-02-15 16:00:23.989 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912024082"}
+2022-02-15 16:00:28.996 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912029085"} --------
+2022-02-15 16:00:28.997 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912029085"}
+2022-02-15 16:00:33.993 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912034090"} --------
+2022-02-15 16:00:33.993 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912034090"}
+2022-02-15 16:00:38.988 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912039093"} --------
+2022-02-15 16:00:38.988 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912039093"}
+2022-02-15 16:00:43.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912044096"} --------
+2022-02-15 16:00:43.993 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912044096"}
+2022-02-15 16:00:48.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912049101"} --------
+2022-02-15 16:00:48.989 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912049101"}
+2022-02-15 16:00:53.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912054105"} --------
+2022-02-15 16:00:53.990 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912054105"}
+2022-02-15 16:00:56.875 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912057071,"data":{"fr":-0.000027432,"ts":1644912057001}} --------
+2022-02-15 16:00:57.180 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912057395,"data":{"fr":0.00004656,"ts":1644912057001}} --------
+2022-02-15 16:00:58.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912059107"} --------
+2022-02-15 16:00:58.990 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912059107"}
+2022-02-15 16:00:59.946 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912060125,"data":{"fr":-0.00007814,"ts":1644912060008}} --------
+2022-02-15 16:00:59.946 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912060127,"data":{"fr":0.00004532,"ts":1644912060008}} --------
+2022-02-15 16:01:03.047 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912063332,"data":{"fr":0.00004532,"ts":1644912063002}} --------
+2022-02-15 16:01:03.048 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912063333,"data":{"fr":-0.00007814,"ts":1644912063002}} --------
+2022-02-15 16:01:03.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912064111"} --------
+2022-02-15 16:01:03.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912064111"}
+2022-02-15 16:01:05.785 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912066070,"data":{"fr":-0.00007814,"ts":1644912066002}} --------
+2022-02-15 16:01:05.788 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912066073,"data":{"fr":0.00004532,"ts":1644912066002}} --------
+2022-02-15 16:01:08.924 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912069209,"data":{"fr":-0.00007814,"ts":1644912069008}} --------
+2022-02-15 16:01:08.925 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912069210,"data":{"fr":0.00004532,"ts":1644912069008}} --------
+2022-02-15 16:01:08.988 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912069114"} --------
+2022-02-15 16:01:08.988 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912069114"}
+2022-02-15 16:01:12.066 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912072341,"data":{"fr":0.00004532,"ts":1644912072002}} --------
+2022-02-15 16:01:12.454 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912072343,"data":{"fr":-0.00007814,"ts":1644912072002}} --------
+2022-02-15 16:01:13.998 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912074118"} --------
+2022-02-15 16:01:13.998 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912074118"}
+2022-02-15 16:01:14.787 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912075066,"data":{"fr":0.00004532,"ts":1644912075000}} --------
+2022-02-15 16:01:15.110 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912075387,"data":{"fr":-0.00007814,"ts":1644912075000}} --------
+2022-02-15 16:01:17.794 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912078066,"data":{"fr":0.00004532,"ts":1644912078000}} --------
+2022-02-15 16:01:17.795 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912078069,"data":{"fr":-0.00007814,"ts":1644912078000}} --------
+2022-02-15 16:01:18.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912079121"} --------
+2022-02-15 16:01:18.989 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912079121"}
+2022-02-15 16:01:21.040 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912081242,"data":{"fr":0.00004532,"ts":1644912081000}} --------
+2022-02-15 16:01:21.043 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912081244,"data":{"fr":-0.00007814,"ts":1644912081000}} --------
+2022-02-15 16:01:23.907 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912084071,"data":{"fr":-0.00007814,"ts":1644912084000}} --------
+2022-02-15 16:01:23.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912084125"} --------
+2022-02-15 16:01:23.989 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912084125"}
+2022-02-15 16:01:24.110 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912084395,"data":{"fr":0.00004532,"ts":1644912084000}} --------
+2022-02-15 16:01:25.559 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912085831,"data":{"fr":0.0001,"ts":1644912060264}} --------
+2022-02-15 16:01:25.560 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912085832,"data":{"fr":-0.0004737251520625,"ts":1644912060332}} --------
+2022-02-15 16:01:28.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912089129"} --------
+2022-02-15 16:01:28.990 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912089129"}
+2022-02-15 16:01:33.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912094133"} --------
+2022-02-15 16:01:33.989 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912094133"}
+2022-02-15 16:01:38.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912099137"} --------
+2022-02-15 16:01:38.989 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912099137"}
+2022-02-15 16:01:43.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912104141"} --------
+2022-02-15 16:01:43.990 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912104141"}
+2022-02-15 16:01:48.993 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912109144"} --------
+2022-02-15 16:01:48.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912109144"}
+2022-02-15 16:01:53.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912114148"} --------
+2022-02-15 16:01:53.993 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912114148"}
+2022-02-15 16:01:58.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912119152"} --------
+2022-02-15 16:01:58.989 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912119152"}
+2022-02-15 16:02:00.364 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912120598,"data":{"fr":-0.0003688177428968,"ts":1644912120266}} --------
+2022-02-15 16:02:00.365 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912120600,"data":{"fr":-0.0011392906001498,"ts":1644912120358}} --------
+2022-02-15 16:02:03.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912124156"} --------
+2022-02-15 16:02:03.989 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912124156"}
+2022-02-15 16:02:08.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912129160"} --------
+2022-02-15 16:02:08.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912129160"}
+2022-02-15 16:02:13.989 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912134163"} --------
+2022-02-15 16:02:13.990 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912134163"}
+2022-02-15 16:02:18.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912139167"} --------
+2022-02-15 16:02:18.990 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912139167"}
+2022-02-15 16:02:23.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912144171"} --------
+2022-02-15 16:02:23.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912144171"}
+2022-02-15 16:02:28.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912149175"} --------
+2022-02-15 16:02:28.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912149175"}
+2022-02-15 16:02:33.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912154178"} --------
+2022-02-15 16:02:33.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912154178"}
+2022-02-15 16:02:38.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912159182"} --------
+2022-02-15 16:02:38.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912159182"}
+2022-02-15 16:02:41.909 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912162162,"data":{"fr":0.00004488,"ts":1644912162000}} --------
+2022-02-15 16:02:41.910 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912162163,"data":{"fr":-0.00007873,"ts":1644912162000}} --------
+2022-02-15 16:02:43.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912164184"} --------
+2022-02-15 16:02:43.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912164184"}
+2022-02-15 16:02:44.908 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912165084,"data":{"fr":0.00004488,"ts":1644912165007}} --------
+2022-02-15 16:02:45.215 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912165412,"data":{"fr":-0.00007873,"ts":1644912165007}} --------
+2022-02-15 16:02:47.959 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912168198,"data":{"fr":-0.00007873,"ts":1644912168001}} --------
+2022-02-15 16:02:47.960 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912168199,"data":{"fr":0.00004488,"ts":1644912168001}} --------
+2022-02-15 16:02:48.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912169189"} --------
+2022-02-15 16:02:48.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912169189"}
+2022-02-15 16:02:50.846 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912171079,"data":{"fr":0.00004488,"ts":1644912171000}} --------
+2022-02-15 16:02:51.124 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912171407,"data":{"fr":-0.00007873,"ts":1644912171000}} --------
+2022-02-15 16:02:53.919 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912174155,"data":{"fr":-0.00007873,"ts":1644912174002}} --------
+2022-02-15 16:02:53.920 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912174156,"data":{"fr":0.00004488,"ts":1644912174002}} --------
+2022-02-15 16:02:53.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912174192"} --------
+2022-02-15 16:02:53.990 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912174192"}
+2022-02-15 16:02:57.196 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912177385,"data":{"fr":-0.00007873,"ts":1644912177005}} --------
+2022-02-15 16:02:57.197 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912177387,"data":{"fr":0.00004488,"ts":1644912177005}} --------
+2022-02-15 16:02:58.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912179197"} --------
+2022-02-15 16:02:58.990 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912179197"}
+2022-02-15 16:02:59.864 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912180085,"data":{"fr":-0.00007873,"ts":1644912180000}} --------
+2022-02-15 16:02:59.865 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912180086,"data":{"fr":0.00004488,"ts":1644912180000}} --------
+2022-02-15 16:03:03.135 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912183322,"data":{"fr":-0.0000792,"ts":1644912183005}} --------
+2022-02-15 16:03:03.136 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912183324,"data":{"fr":0.00004447,"ts":1644912183005}} --------
+2022-02-15 16:03:03.991 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912184199"} --------
+2022-02-15 16:03:03.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912184199"}
+2022-02-15 16:03:05.794 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912186077,"data":{"fr":0.00004447,"ts":1644912186000}} --------
+2022-02-15 16:03:06.192 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912186390,"data":{"fr":-0.0000792,"ts":1644912186000}} --------
+2022-02-15 16:03:08.870 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912189137,"data":{"fr":-0.0000792,"ts":1644912189001}} --------
+2022-02-15 16:03:08.870 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912189139,"data":{"fr":0.00004447,"ts":1644912189001}} --------
+2022-02-15 16:03:08.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912189200"} --------
+2022-02-15 16:03:08.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912189200"}
+2022-02-15 16:03:10.815 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912191078,"data":{"fr":-0.0009083679219373,"ts":1644912180325}} --------
+2022-02-15 16:03:12.084 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912192367,"data":{"fr":-0.0000792,"ts":1644912192002}} --------
+2022-02-15 16:03:13.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912194203"} --------
+2022-02-15 16:03:13.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912194203"}
+2022-02-15 16:03:14.025 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912194307,"data":{"fr":-0.0003608697596007,"ts":1644912180285}} --------
+2022-02-15 16:03:18.991 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912199207"} --------
+2022-02-15 16:03:18.992 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912199207"}
+2022-02-15 16:03:23.991 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912204211"} --------
+2022-02-15 16:03:23.992 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912204211"}
+2022-02-15 16:03:28.990 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912209214"} --------
+2022-02-15 16:03:28.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912209214"}
+2022-02-15 16:03:33.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912214217"} --------
+2022-02-15 16:03:33.993 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912214217"}
+2022-02-15 16:03:38.991 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912219220"} --------
+2022-02-15 16:03:38.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912219220"}
+2022-02-15 16:03:44.044 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912224225"} --------
+2022-02-15 16:03:44.045 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912224225"}
+2022-02-15 16:03:48.991 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912229229"} --------
+2022-02-15 16:03:48.991 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912229229"}
+2022-02-15 16:03:53.991 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912234232"} --------
+2022-02-15 16:03:53.992 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912234232"}
+2022-02-15 16:03:54.119 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912234402,"data":{"fr":0.00004447,"ts":1644912234000}} --------
+2022-02-15 16:03:56.786 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912237069,"data":{"fr":-0.0000792,"ts":1644912237000}} --------
+2022-02-15 16:03:56.789 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912237072,"data":{"fr":0.00004447,"ts":1644912237000}} --------
+2022-02-15 16:03:58.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912239237"} --------
+2022-02-15 16:03:58.992 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912239237"}
+2022-02-15 16:04:00.072 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912240290,"data":{"fr":-0.0000792,"ts":1644912240000}} --------
+2022-02-15 16:04:00.073 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912240291,"data":{"fr":0.00004447,"ts":1644912240000}} --------
+2022-02-15 16:04:02.835 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912243085,"data":{"fr":0.00004255,"ts":1644912243000}} --------
+2022-02-15 16:04:03.247 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912243420,"data":{"fr":-0.00008035,"ts":1644912243000}} --------
+2022-02-15 16:04:03.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912244240"} --------
+2022-02-15 16:04:03.996 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912244240"}
+2022-02-15 16:04:05.911 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912246165,"data":{"fr":-0.00008035,"ts":1644912246002}} --------
+2022-02-15 16:04:05.912 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912246167,"data":{"fr":0.00004255,"ts":1644912246002}} --------
+2022-02-15 16:04:08.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912249244"} --------
+2022-02-15 16:04:08.992 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912249244"}
+2022-02-15 16:04:09.119 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912249400,"data":{"fr":0.00004255,"ts":1644912249000}} --------
+2022-02-15 16:04:09.120 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912249401,"data":{"fr":-0.00008035,"ts":1644912249000}} --------
+2022-02-15 16:04:11.847 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912252076,"data":{"fr":-0.00008035,"ts":1644912252001}} --------
+2022-02-15 16:04:11.849 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912252078,"data":{"fr":0.00004255,"ts":1644912252001}} --------
+2022-02-15 16:04:14.000 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912254248"} --------
+2022-02-15 16:04:14.000 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912254248"}
+2022-02-15 16:04:15.123 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912255316,"data":{"fr":-0.00008035,"ts":1644912255007}} --------
+2022-02-15 16:04:15.123 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912255317,"data":{"fr":0.00004255,"ts":1644912255007}} --------
+2022-02-15 16:04:17.889 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912258079,"data":{"fr":0.00004255,"ts":1644912258001}} --------
+2022-02-15 16:04:18.199 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912258414,"data":{"fr":-0.00008035,"ts":1644912258001}} --------
+2022-02-15 16:04:19.016 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912259251"} --------
+2022-02-15 16:04:19.017 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912259251"}
+2022-02-15 16:04:20.871 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912261153,"data":{"fr":-0.00008035,"ts":1644912261001}} --------
+2022-02-15 16:04:20.872 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912261154,"data":{"fr":0.00004255,"ts":1644912261001}} --------
+2022-02-15 16:04:22.805 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912263083,"data":{"fr":-0.0007462085823201,"ts":1644912240306}} --------
+2022-02-15 16:04:24.033 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912264254"} --------
+2022-02-15 16:04:24.034 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912264254"}
+2022-02-15 16:04:24.083 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912264365,"data":{"fr":-0.00008035,"ts":1644912264001}} --------
+2022-02-15 16:04:26.900 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912267067,"data":{"fr":-0.00008035,"ts":1644912267000}} --------
+2022-02-15 16:04:28.743 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912268994,"data":{"fr":-0.0003385660666517,"ts":1644912240270}} --------
+2022-02-15 16:04:28.991 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912269258"} --------
+2022-02-15 16:04:28.992 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912269258"}
+2022-02-15 16:04:33.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912274262"} --------
+2022-02-15 16:04:33.993 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912274262"}
+2022-02-15 16:04:38.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912279265"} --------
+2022-02-15 16:04:38.993 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912279265"}
+2022-02-15 16:04:44.000 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912284269"} --------
+2022-02-15 16:04:44.000 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912284269"}
+2022-02-15 16:04:49.019 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912289272"} --------
+2022-02-15 16:04:49.020 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912289272"}
+2022-02-15 16:04:54.037 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912293276"} --------
+2022-02-15 16:04:54.038 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912293276"}
+2022-02-15 16:04:59.054 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912298278"} --------
+2022-02-15 16:04:59.055 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912298278"}
+2022-02-15 16:05:00.488 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912300738,"data":{"fr":-0.0006236114098974,"ts":1644912300634}} --------
+2022-02-15 16:05:00.489 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912300771,"data":{"fr":-0.0003051993365549,"ts":1644912300643}} --------
+2022-02-15 16:05:03.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912303282"} --------
+2022-02-15 16:05:03.992 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912303282"}
+2022-02-15 16:05:08.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912308285"} --------
+2022-02-15 16:05:08.992 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912308285"}
+2022-02-15 16:05:14.006 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912313290"} --------
+2022-02-15 16:05:14.007 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912313290"}
+2022-02-15 16:05:18.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912318294"} --------
+2022-02-15 16:05:18.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912318294"}
+2022-02-15 16:05:23.993 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912323298"} --------
+2022-02-15 16:05:23.993 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912323298"}
+2022-02-15 16:05:28.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912328303"} --------
+2022-02-15 16:05:28.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912328303"}
+2022-02-15 16:05:34.075 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912333306"} --------
+2022-02-15 16:05:34.076 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912333306"}
+2022-02-15 16:05:38.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912338309"} --------
+2022-02-15 16:05:38.996 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912338309"}
+2022-02-15 16:05:41.807 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912342088,"data":{"fr":0.00004112,"ts":1644912342000}} --------
+2022-02-15 16:05:43.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912343314"} --------
+2022-02-15 16:05:43.993 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912343314"}
+2022-02-15 16:05:44.946 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912345222,"data":{"fr":-0.0000816,"ts":1644912345000}} --------
+2022-02-15 16:05:44.947 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912345224,"data":{"fr":0.00004112,"ts":1644912345000}} --------
+2022-02-15 16:05:48.102 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912348381,"data":{"fr":-0.0000816,"ts":1644912348001}} --------
+2022-02-15 16:05:48.103 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912348382,"data":{"fr":0.00004112,"ts":1644912348001}} --------
+2022-02-15 16:05:49.029 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912348317"} --------
+2022-02-15 16:05:49.030 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912348317"}
+2022-02-15 16:05:50.789 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912351070,"data":{"fr":0.00004112,"ts":1644912351000}} --------
+2022-02-15 16:05:50.789 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912351071,"data":{"fr":-0.0000816,"ts":1644912351000}} --------
+2022-02-15 16:05:53.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912353322"} --------
+2022-02-15 16:05:53.993 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912353322"}
+2022-02-15 16:05:54.016 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912354297,"data":{"fr":0.00004112,"ts":1644912354000}} --------
+2022-02-15 16:05:54.017 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912354298,"data":{"fr":-0.0000816,"ts":1644912354000}} --------
+2022-02-15 16:05:56.812 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912357071,"data":{"fr":0.00004112,"ts":1644912357000}} --------
+2022-02-15 16:05:56.813 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912357072,"data":{"fr":-0.0000816,"ts":1644912357000}} --------
+2022-02-15 16:05:58.993 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912358325"} --------
+2022-02-15 16:05:58.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912358325"}
+2022-02-15 16:06:00.088 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912360313,"data":{"fr":-0.00008191,"ts":1644912360002}} --------
+2022-02-15 16:06:00.089 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912360314,"data":{"fr":0.00004075,"ts":1644912360002}} --------
+2022-02-15 16:06:02.799 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912363080,"data":{"fr":0.00004075,"ts":1644912363000}} --------
+2022-02-15 16:06:03.159 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912363393,"data":{"fr":-0.00008191,"ts":1644912363000}} --------
+2022-02-15 16:06:03.992 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912363329"} --------
+2022-02-15 16:06:03.993 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912363329"}
+2022-02-15 16:06:05.869 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912366149,"data":{"fr":-0.00008191,"ts":1644912366003}} --------
+2022-02-15 16:06:05.870 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912366150,"data":{"fr":0.00004075,"ts":1644912366003}} --------
+2022-02-15 16:06:08.794 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912369075,"data":{"fr":-0.00008191,"ts":1644912369001}} --------
+2022-02-15 16:06:08.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912368332"} --------
+2022-02-15 16:06:08.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912368332"}
+2022-02-15 16:06:09.109 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912369390,"data":{"fr":0.00004075,"ts":1644912369001}} --------
+2022-02-15 16:06:10.597 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912370877,"data":{"fr":-0.0005427094777062,"ts":1644912360327}} --------
+2022-02-15 16:06:11.935 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912372214,"data":{"fr":-0.00008191,"ts":1644912372000}} --------
+2022-02-15 16:06:13.996 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912373335"} --------
+2022-02-15 16:06:13.997 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912373335"}
+2022-02-15 16:06:15.241 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912375447,"data":{"fr":-0.00008191,"ts":1644912375006}} --------
+2022-02-15 16:06:16.575 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912376851,"data":{"fr":-0.0002688283231335,"ts":1644912360335}} --------
+2022-02-15 16:06:19.031 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912378338"} --------
+2022-02-15 16:06:19.032 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912378338"}
+2022-02-15 16:06:23.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912383340"} --------
+2022-02-15 16:06:23.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912383340"}
+2022-02-15 16:06:28.993 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912388346"} --------
+2022-02-15 16:06:28.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912388346"}
+2022-02-15 16:06:33.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912393349"} --------
+2022-02-15 16:06:33.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912393349"}
+2022-02-15 16:06:38.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912398352"} --------
+2022-02-15 16:06:38.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912398352"}
+2022-02-15 16:06:43.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912403356"} --------
+2022-02-15 16:06:43.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912403356"}
+2022-02-15 16:06:48.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912408359"} --------
+2022-02-15 16:06:48.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912408359"}
+2022-02-15 16:06:53.894 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912414174,"data":{"fr":0.00004075,"ts":1644912414000}} --------
+2022-02-15 16:06:53.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912413362"} --------
+2022-02-15 16:06:53.996 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912413362"}
+2022-02-15 16:06:57.112 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912417389,"data":{"fr":0.00004075,"ts":1644912417000}} --------
+2022-02-15 16:06:58.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912418365"} --------
+2022-02-15 16:06:58.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912418365"}
+2022-02-15 16:06:59.815 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912420095,"data":{"fr":-0.00008129,"ts":1644912420001}} --------
+2022-02-15 16:06:59.815 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912420095,"data":{"fr":0.00004178,"ts":1644912420001}} --------
+2022-02-15 16:07:03.029 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912423309,"data":{"fr":-0.00008129,"ts":1644912423000}} --------
+2022-02-15 16:07:03.030 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912423310,"data":{"fr":0.00004178,"ts":1644912423000}} --------
+2022-02-15 16:07:03.993 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912423367"} --------
+2022-02-15 16:07:03.994 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912423367"}
+2022-02-15 16:07:05.797 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912426076,"data":{"fr":0.00004178,"ts":1644912426004}} --------
+2022-02-15 16:07:06.120 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912426400,"data":{"fr":-0.00008129,"ts":1644912426004}} --------
+2022-02-15 16:07:08.865 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912429145,"data":{"fr":-0.00008129,"ts":1644912429000}} --------
+2022-02-15 16:07:08.868 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912429146,"data":{"fr":0.00004178,"ts":1644912429000}} --------
+2022-02-15 16:07:08.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912428371"} --------
+2022-02-15 16:07:08.996 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912428371"}
+2022-02-15 16:07:12.084 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912432356,"data":{"fr":-0.00008129,"ts":1644912432000}} --------
+2022-02-15 16:07:12.085 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912432357,"data":{"fr":0.00004178,"ts":1644912432000}} --------
+2022-02-15 16:07:13.998 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912433374"} --------
+2022-02-15 16:07:13.998 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912433374"}
+2022-02-15 16:07:14.799 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912435076,"data":{"fr":-0.00008129,"ts":1644912435000}} --------
+2022-02-15 16:07:14.800 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912435077,"data":{"fr":0.00004178,"ts":1644912435000}} --------
+2022-02-15 16:07:18.016 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912438292,"data":{"fr":-0.00008129,"ts":1644912438000}} --------
+2022-02-15 16:07:18.017 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912438293,"data":{"fr":0.00004178,"ts":1644912438000}} --------
+2022-02-15 16:07:18.996 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912438378"} --------
+2022-02-15 16:07:18.997 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912438378"}
+2022-02-15 16:07:20.799 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912441078,"data":{"fr":0.00004178,"ts":1644912441000}} --------
+2022-02-15 16:07:21.111 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912441390,"data":{"fr":-0.00008129,"ts":1644912441000}} --------
+2022-02-15 16:07:22.562 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912442840,"data":{"fr":-0.0005292575548311,"ts":1644912420376}} --------
+2022-02-15 16:07:23.850 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912444129,"data":{"fr":-0.00008129,"ts":1644912444000}} --------
+2022-02-15 16:07:23.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912443383"} --------
+2022-02-15 16:07:23.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912443383"}
+2022-02-15 16:07:27.066 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912447346,"data":{"fr":-0.00008129,"ts":1644912447004}} --------
+2022-02-15 16:07:29.077 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912448386"} --------
+2022-02-15 16:07:29.077 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912448386"}
+2022-02-15 16:07:30.298 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912450573,"data":{"fr":-0.00008129,"ts":1644912450000}} --------
+2022-02-15 16:07:31.576 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912451854,"data":{"fr":-0.0002949470716834,"ts":1644912420307}} --------
+2022-02-15 16:07:34.094 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912453390"} --------
+2022-02-15 16:07:34.094 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912453390"}
+2022-02-15 16:07:38.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912458394"} --------
+2022-02-15 16:07:38.997 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912458394"}
+2022-02-15 16:07:43.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912463396"} --------
+2022-02-15 16:07:43.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912463396"}
+2022-02-15 16:07:48.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912468400"} --------
+2022-02-15 16:07:48.996 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912468400"}
+2022-02-15 16:07:53.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912473402"} --------
+2022-02-15 16:07:53.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912473402"}
+2022-02-15 16:07:59.084 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912478406"} --------
+2022-02-15 16:07:59.085 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912478406"}
+2022-02-15 16:08:00.554 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912480832,"data":{"fr":-0.0002830783925045,"ts":1644912480502}} --------
+2022-02-15 16:08:00.555 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912480834,"data":{"fr":-0.0004822763183531,"ts":1644912480604}} --------
+2022-02-15 16:08:03.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912483408"} --------
+2022-02-15 16:08:03.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912483408"}
+2022-02-15 16:08:08.994 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912488413"} --------
+2022-02-15 16:08:08.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912488413"}
+2022-02-15 16:08:13.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912493417"} --------
+2022-02-15 16:08:13.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912493417"}
+2022-02-15 16:08:18.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912498421"} --------
+2022-02-15 16:08:18.996 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912498421"}
+2022-02-15 16:08:24.066 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912503425"} --------
+2022-02-15 16:08:24.067 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912503425"}
+2022-02-15 16:08:28.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912508428"} --------
+2022-02-15 16:08:28.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912508428"}
+2022-02-15 16:08:33.996 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912513432"} --------
+2022-02-15 16:08:33.996 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912513432"}
+2022-02-15 16:08:38.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912518436"} --------
+2022-02-15 16:08:38.995 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912518436"}
+2022-02-15 16:08:42.105 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912522384,"data":{"fr":-0.00008161,"ts":1644912522004}} --------
+2022-02-15 16:08:42.107 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912522385,"data":{"fr":0.00004117,"ts":1644912522004}} --------
+2022-02-15 16:08:44.008 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912523441"} --------
+2022-02-15 16:08:44.008 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912523441"}
+2022-02-15 16:08:44.892 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912525078,"data":{"fr":0.00004117,"ts":1644912525000}} --------
+2022-02-15 16:08:45.107 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912525385,"data":{"fr":-0.00008161,"ts":1644912525000}} --------
+2022-02-15 16:08:47.801 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912528079,"data":{"fr":0.00004117,"ts":1644912528000}} --------
+2022-02-15 16:08:47.810 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912528089,"data":{"fr":-0.00008161,"ts":1644912528000}} --------
+2022-02-15 16:08:49.005 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912528444"} --------
+2022-02-15 16:08:49.005 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912528444"}
+2022-02-15 16:08:51.000 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912531221,"data":{"fr":-0.00008161,"ts":1644912531005}} --------
+2022-02-15 16:08:51.001 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912531222,"data":{"fr":0.00004117,"ts":1644912531005}} --------
+2022-02-15 16:08:54.073 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912533446"} --------
+2022-02-15 16:08:54.073 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912533446"}
+2022-02-15 16:08:54.125 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912534401,"data":{"fr":-0.00008161,"ts":1644912534000}} --------
+2022-02-15 16:08:54.126 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912534403,"data":{"fr":0.00004117,"ts":1644912534000}} --------
+2022-02-15 16:08:56.838 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912537077,"data":{"fr":-0.00008161,"ts":1644912537001}} --------
+2022-02-15 16:08:56.839 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912537079,"data":{"fr":0.00004117,"ts":1644912537001}} --------
+2022-02-15 16:08:59.088 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912538450"} --------
+2022-02-15 16:08:59.089 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912538450"}
+2022-02-15 16:09:00.010 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912540198,"data":{"fr":-0.00008161,"ts":1644912540001}} --------
+2022-02-15 16:09:00.011 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912540199,"data":{"fr":0.00004117,"ts":1644912540001}} --------
+2022-02-15 16:09:03.057 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912543335,"data":{"fr":-0.00008175,"ts":1644912543001}} --------
+2022-02-15 16:09:03.059 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912543337,"data":{"fr":0.00004164,"ts":1644912543001}} --------
+2022-02-15 16:09:04.106 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912543453"} --------
+2022-02-15 16:09:04.106 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912543453"}
+2022-02-15 16:09:05.799 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912546077,"data":{"fr":0.00004164,"ts":1644912546001}} --------
+2022-02-15 16:09:06.154 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912546398,"data":{"fr":-0.00008175,"ts":1644912546001}} --------
+2022-02-15 16:09:08.818 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912549073,"data":{"fr":-0.00008175,"ts":1644912549001}} --------
+2022-02-15 16:09:08.819 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912549075,"data":{"fr":0.00004164,"ts":1644912549001}} --------
+2022-02-15 16:09:09.003 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912548457"} --------
+2022-02-15 16:09:09.004 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912548457"}
+2022-02-15 16:09:10.697 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912550966,"data":{"fr":-0.0004437852690248,"ts":1644912540308}} --------
+2022-02-15 16:09:11.991 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912552219,"data":{"fr":-0.00008175,"ts":1644912552001}} --------
+2022-02-15 16:09:13.937 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912554152,"data":{"fr":-0.0002540269460301,"ts":1644912540268}} --------
+2022-02-15 16:09:13.995 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912553461"} --------
+2022-02-15 16:09:13.996 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912553461"}
+2022-02-15 16:09:18.997 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912558463"} --------
+2022-02-15 16:09:18.998 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912558463"}
+2022-02-15 16:09:23.996 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912563467"} --------
+2022-02-15 16:09:23.997 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912563467"}
+2022-02-15 16:09:28.997 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912568470"} --------
+2022-02-15 16:09:28.998 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912568470"}
+2022-02-15 16:09:33.996 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912573474"} --------
+2022-02-15 16:09:33.996 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912573474"}
+2022-02-15 16:09:38.996 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912578477"} --------
+2022-02-15 16:09:38.996 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912578477"}
+2022-02-15 16:09:44.043 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912583481"} --------
+2022-02-15 16:09:44.043 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912583481"}
+2022-02-15 16:09:49.060 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912588485"} --------
+2022-02-15 16:09:49.061 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912588485"}
+2022-02-15 16:09:54.079 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912593488"} --------
+2022-02-15 16:09:54.079 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912593488"}
+2022-02-15 16:09:54.080 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912594357,"data":{"fr":0.00004164,"ts":1644912594002}} --------
+2022-02-15 16:09:56.802 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912597076,"data":{"fr":0.00004164,"ts":1644912597006}} --------
+2022-02-15 16:09:57.119 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912597395,"data":{"fr":-0.00008175,"ts":1644912597006}} --------
+2022-02-15 16:09:58.998 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912598492"} --------
+2022-02-15 16:09:58.998 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912598492"}
+2022-02-15 16:09:59.812 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912600089,"data":{"fr":0.00004145,"ts":1644912600007}} --------
+2022-02-15 16:09:59.812 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912600089,"data":{"fr":-0.00008234,"ts":1644912600007}} --------
+2022-02-15 16:10:02.934 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912603211,"data":{"fr":0.00004145,"ts":1644912603000}} --------
+2022-02-15 16:10:02.935 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912603212,"data":{"fr":-0.00008234,"ts":1644912603000}} --------
+2022-02-15 16:10:04.012 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912603496"} --------
+2022-02-15 16:10:04.012 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912603496"}
+2022-02-15 16:10:06.060 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912606335,"data":{"fr":0.00004145,"ts":1644912606000}} --------
+2022-02-15 16:10:06.061 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912606337,"data":{"fr":-0.00008234,"ts":1644912606000}} --------
+2022-02-15 16:10:08.806 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912609082,"data":{"fr":0.00004145,"ts":1644912609006}} --------
+2022-02-15 16:10:08.997 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912608500"} --------
+2022-02-15 16:10:08.998 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912608500"}
+2022-02-15 16:10:09.137 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912609410,"data":{"fr":-0.00008234,"ts":1644912609006}} --------
+2022-02-15 16:10:11.938 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912612090,"data":{"fr":-0.00008234,"ts":1644912612002}} --------
+2022-02-15 16:10:11.939 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912612091,"data":{"fr":0.00004145,"ts":1644912612002}} --------
+2022-02-15 16:10:14.157 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912613502"} --------
+2022-02-15 16:10:14.157 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912613502"}
+2022-02-15 16:10:15.114 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912615266,"data":{"fr":0.00004145,"ts":1644912615000}} --------
+2022-02-15 16:10:15.116 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912615267,"data":{"fr":-0.00008234,"ts":1644912615000}} --------
+2022-02-15 16:10:17.962 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912618072,"data":{"fr":-0.00008234,"ts":1644912618000}} --------
+2022-02-15 16:10:18.240 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912618391,"data":{"fr":0.00004145,"ts":1644912618000}} --------
+2022-02-15 16:10:19.122 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912618505"} --------
+2022-02-15 16:10:19.123 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912618505"}
+2022-02-15 16:10:20.952 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912621102,"data":{"fr":0.00004145,"ts":1644912621004}} --------
+2022-02-15 16:10:20.953 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912621104,"data":{"fr":-0.00008234,"ts":1644912621004}} --------
+2022-02-15 16:10:24.122 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912623509"} --------
+2022-02-15 16:10:24.123 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912623509"}
+2022-02-15 16:10:24.165 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912624315,"data":{"fr":-0.00008234,"ts":1644912624001}} --------
+2022-02-15 16:10:24.165 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912624315,"data":{"fr":0.00004145,"ts":1644912624001}} --------
+2022-02-15 16:10:26.095 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912626235,"data":{"fr":-0.0004195242499559,"ts":1644912600299}} --------
+2022-02-15 16:10:27.381 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912627531,"data":{"fr":-0.00008234,"ts":1644912627000}} --------
+2022-02-15 16:10:28.714 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912628835,"data":{"fr":-0.0002461286236878,"ts":1644912600256}} --------
+2022-02-15 16:10:29.223 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912628511"} --------
+2022-02-15 16:10:29.223 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912628511"}
+2022-02-15 16:10:34.142 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912633514"} --------
+2022-02-15 16:10:34.143 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912633514"}
+2022-02-15 16:10:39.123 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912638516"} --------
+2022-02-15 16:10:39.124 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912638516"}
+2022-02-15 16:10:44.177 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912643520"} --------
+2022-02-15 16:10:44.178 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912643520"}
+2022-02-15 16:10:49.195 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912648522"} --------
+2022-02-15 16:10:49.195 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912648522"}
+2022-02-15 16:10:54.213 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912653524"} --------
+2022-02-15 16:10:54.214 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912653524"}
+2022-02-15 16:10:59.229 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912658528"} --------
+2022-02-15 16:10:59.229 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912658528"}
+2022-02-15 16:11:00.358 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912660464,"data":{"fr":-0.000369875608533,"ts":1644912660308}} --------
+2022-02-15 16:11:00.358 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912660465,"data":{"fr":-0.0002375364093197,"ts":1644912660279}} --------
+2022-02-15 16:11:04.145 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912663531"} --------
+2022-02-15 16:11:04.145 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912663531"}
+2022-02-15 16:11:09.126 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912668534"} --------
+2022-02-15 16:11:09.126 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912668534"}
+2022-02-15 16:11:14.125 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912673538"} --------
+2022-02-15 16:11:14.125 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912673538"}
+2022-02-15 16:11:19.199 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912678541"} --------
+2022-02-15 16:11:19.199 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912678541"}
+2022-02-15 16:11:24.219 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912683543"} --------
+2022-02-15 16:11:24.219 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912683543"}
+2022-02-15 16:11:29.159 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912688546"} --------
+2022-02-15 16:11:29.160 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912688546"}
+2022-02-15 16:11:34.151 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912693549"} --------
+2022-02-15 16:11:34.152 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912693549"}
+2022-02-15 16:11:39.126 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912698553"} --------
+2022-02-15 16:11:39.126 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912698553"}
+2022-02-15 16:11:42.037 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912702074,"data":{"fr":0.00004135,"ts":1644912702002}} --------
+2022-02-15 16:11:42.037 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912702075,"data":{"fr":-0.00008279,"ts":1644912702002}} --------
+2022-02-15 16:11:44.291 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912703557"} --------
+2022-02-15 16:11:44.292 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912703557"}
+2022-02-15 16:11:45.312 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912705371,"data":{"fr":-0.00008279,"ts":1644912705000}} --------
+2022-02-15 16:11:45.313 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912705372,"data":{"fr":0.00004135,"ts":1644912705000}} --------
+2022-02-15 16:11:47.977 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912708096,"data":{"fr":0.00004135,"ts":1644912708001}} --------
+2022-02-15 16:11:47.977 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912708103,"data":{"fr":-0.00008279,"ts":1644912708001}} --------
+2022-02-15 16:11:49.205 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912708559"} --------
+2022-02-15 16:11:49.206 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912708559"}
+2022-02-15 16:11:51.253 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912711306,"data":{"fr":-0.00008279,"ts":1644912711001}} --------
+2022-02-15 16:11:51.254 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912711307,"data":{"fr":0.00004135,"ts":1644912711001}} --------
+2022-02-15 16:11:54.020 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912714079,"data":{"fr":0.00004135,"ts":1644912714000}} --------
+2022-02-15 16:11:54.127 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912713563"} --------
+2022-02-15 16:11:54.127 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912713563"}
+2022-02-15 16:11:54.236 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912714384,"data":{"fr":-0.00008279,"ts":1644912714000}} --------
+2022-02-15 16:11:57.034 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912717181,"data":{"fr":-0.00008279,"ts":1644912717004}} --------
+2022-02-15 16:11:57.035 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912717182,"data":{"fr":0.00004135,"ts":1644912717004}} --------
+2022-02-15 16:11:59.223 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912718568"} --------
+2022-02-15 16:11:59.224 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912718568"}
+2022-02-15 16:12:00.061 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912720091,"data":{"fr":0.00004093,"ts":1644912720010}} --------
+2022-02-15 16:12:00.254 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912720401,"data":{"fr":-0.00008268,"ts":1644912720010}} --------
+2022-02-15 16:12:03.131 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912723197,"data":{"fr":-0.00008268,"ts":1644912723000}} --------
+2022-02-15 16:12:03.132 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912723199,"data":{"fr":0.00004093,"ts":1644912723000}} --------
+2022-02-15 16:12:04.157 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912723569"} --------
+2022-02-15 16:12:04.157 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912723569"}
+2022-02-15 16:12:06.000 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912726084,"data":{"fr":0.00004093,"ts":1644912726003}} --------
+2022-02-15 16:12:06.308 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912726419,"data":{"fr":-0.00008268,"ts":1644912726003}} --------
+2022-02-15 16:12:09.026 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912729174,"data":{"fr":-0.00008268,"ts":1644912729002}} --------
+2022-02-15 16:12:09.029 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912729175,"data":{"fr":0.00004093,"ts":1644912729002}} --------
+2022-02-15 16:12:09.128 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912728574"} --------
+2022-02-15 16:12:09.129 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912728574"}
+2022-02-15 16:12:10.981 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912731128,"data":{"fr":-0.000350938367972,"ts":1644912720313}} --------
+2022-02-15 16:12:12.349 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912732423,"data":{"fr":-0.00008268,"ts":1644912732001}} --------
+2022-02-15 16:12:13.688 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912733834,"data":{"fr":-0.0002147009869059,"ts":1644912720294}} --------
+2022-02-15 16:12:14.127 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912733578"} --------
+2022-02-15 16:12:14.127 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912733578"}
+2022-02-15 16:12:19.259 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912738582"} --------
+2022-02-15 16:12:19.260 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912738582"}
+2022-02-15 16:12:24.228 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912743586"} --------
+2022-02-15 16:12:24.229 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912743586"}
+2022-02-15 16:12:29.144 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912748589"} --------
+2022-02-15 16:12:29.145 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912748589"}
+2022-02-15 16:12:34.160 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912753593"} --------
+2022-02-15 16:12:34.160 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912753593"}
+2022-02-15 16:12:39.128 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912758596"} --------
+2022-02-15 16:12:39.129 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912758596"}
+2022-02-15 16:12:44.197 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912763601"} --------
+2022-02-15 16:12:44.197 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912763601"}
+2022-02-15 16:12:49.218 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912768604"} --------
+2022-02-15 16:12:49.220 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912768604"}
+2022-02-15 16:12:54.130 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912774223,"data":{"fr":0.00004093,"ts":1644912774007}} --------
+2022-02-15 16:12:54.131 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912773608"} --------
+2022-02-15 16:12:54.131 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912773608"}
+2022-02-15 16:12:56.998 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912777092,"data":{"fr":-0.00008268,"ts":1644912777005}} --------
+2022-02-15 16:12:57.305 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912777419,"data":{"fr":0.00004093,"ts":1644912777005}} --------
+2022-02-15 16:12:59.251 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912778612"} --------
+2022-02-15 16:12:59.252 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912778612"}
+2022-02-15 16:13:00.070 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912780167,"data":{"fr":-0.00008398,"ts":1644912780005}} --------
+2022-02-15 16:13:00.071 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912780168,"data":{"fr":0.00003924,"ts":1644912780005}} --------
+2022-02-15 16:13:03.347 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912783376,"data":{"fr":-0.00008398,"ts":1644912783004}} --------
+2022-02-15 16:13:03.348 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912783377,"data":{"fr":0.00003924,"ts":1644912783004}} --------
+2022-02-15 16:13:04.168 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912783615"} --------
+2022-02-15 16:13:04.168 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912783615"}
+2022-02-15 16:13:06.010 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912786088,"data":{"fr":0.00003924,"ts":1644912786001}} --------
+2022-02-15 16:13:06.010 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912786089,"data":{"fr":-0.00008398,"ts":1644912786001}} --------
+2022-02-15 16:13:09.130 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912788620"} --------
+2022-02-15 16:13:09.131 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912788620"}
+2022-02-15 16:13:09.167 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912789312,"data":{"fr":-0.00008398,"ts":1644912789000}} --------
+2022-02-15 16:13:09.169 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912789313,"data":{"fr":0.00003924,"ts":1644912789000}} --------
+2022-02-15 16:13:11.933 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912792077,"data":{"fr":-0.00008398,"ts":1644912792001}} --------
+2022-02-15 16:13:12.257 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912792401,"data":{"fr":0.00003924,"ts":1644912792001}} --------
+2022-02-15 16:13:14.130 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912793623"} --------
+2022-02-15 16:13:14.131 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912793623"}
+2022-02-15 16:13:15.025 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912795167,"data":{"fr":-0.00008398,"ts":1644912795005}} --------
+2022-02-15 16:13:15.025 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912795168,"data":{"fr":0.00003924,"ts":1644912795005}} --------
+2022-02-15 16:13:18.234 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912798377,"data":{"fr":-0.00008398,"ts":1644912798002}} --------
+2022-02-15 16:13:18.234 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912798379,"data":{"fr":0.00003924,"ts":1644912798002}} --------
+2022-02-15 16:13:19.220 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912798625"} --------
+2022-02-15 16:13:19.220 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912798625"}
+2022-02-15 16:13:20.962 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912801078,"data":{"fr":-0.00008398,"ts":1644912801000}} --------
+2022-02-15 16:13:20.962 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912801080,"data":{"fr":0.00003924,"ts":1644912801000}} --------
+2022-02-15 16:13:22.906 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912803026,"data":{"fr":-0.0003108910594458,"ts":1644912780307}} --------
+2022-02-15 16:13:24.132 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912803629"} --------
+2022-02-15 16:13:24.132 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912803629"}
+2022-02-15 16:13:24.167 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912804308,"data":{"fr":-0.00008398,"ts":1644912804003}} --------
+2022-02-15 16:13:27.412 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912807525,"data":{"fr":-0.00008398,"ts":1644912807001}} --------
+2022-02-15 16:13:28.682 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912808826,"data":{"fr":-0.0002016409912627,"ts":1644912780285}} --------
+2022-02-15 16:13:29.155 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912808632"} --------
+2022-02-15 16:13:29.156 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912808632"}
+2022-02-15 16:13:34.173 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912813636"} --------
+2022-02-15 16:13:34.173 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912813636"}
+2022-02-15 16:13:39.131 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912818640"} --------
+2022-02-15 16:13:39.132 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912818640"}
+2022-02-15 16:13:44.131 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912823645"} --------
+2022-02-15 16:13:44.132 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912823645"}
+2022-02-15 16:13:49.138 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912828649"} --------
+2022-02-15 16:13:49.138 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912828649"}
+2022-02-15 16:13:54.244 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912833652"} --------
+2022-02-15 16:13:54.245 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912833652"}
+2022-02-15 16:13:59.159 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912838658"} --------
+2022-02-15 16:13:59.160 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912838658"}
+2022-02-15 16:14:00.285 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912840408,"data":{"fr":-0.0001832118505238,"ts":1644912840283}} --------
+2022-02-15 16:14:00.286 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912840408,"data":{"fr":-0.0003094484139236,"ts":1644912840340}} --------
+2022-02-15 16:14:04.178 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912843662"} --------
+2022-02-15 16:14:04.179 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912843662"}
+2022-02-15 16:14:09.133 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912848666"} --------
+2022-02-15 16:14:09.134 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912848666"}
+2022-02-15 16:14:14.132 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912853668"} --------
+2022-02-15 16:14:14.132 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912853668"}
+2022-02-15 16:14:19.223 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912858672"} --------
+2022-02-15 16:14:19.224 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912858672"}
+2022-02-15 16:14:24.134 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912863677"} --------
+2022-02-15 16:14:24.135 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912863677"}
+2022-02-15 16:14:29.165 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912868680"} --------
+2022-02-15 16:14:29.165 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912868680"}
+2022-02-15 16:14:34.183 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912873684"} --------
+2022-02-15 16:14:34.183 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912873684"}
+2022-02-15 16:14:39.133 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912878688"} --------
+2022-02-15 16:14:39.134 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912878688"}
+2022-02-15 16:14:42.169 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912882244,"data":{"fr":-0.00008472,"ts":1644912882004}} --------
+2022-02-15 16:14:42.169 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912882245,"data":{"fr":0.00003803,"ts":1644912882004}} --------
+2022-02-15 16:14:44.217 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912883691"} --------
+2022-02-15 16:14:44.217 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912883691"}
+2022-02-15 16:14:44.956 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912885095,"data":{"fr":0.00003803,"ts":1644912885000}} --------
+2022-02-15 16:14:45.347 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912885426,"data":{"fr":-0.00008472,"ts":1644912885000}} --------
+2022-02-15 16:14:48.025 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912888165,"data":{"fr":0.00003803,"ts":1644912888006}} --------
+2022-02-15 16:14:48.028 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912888167,"data":{"fr":-0.00008472,"ts":1644912888006}} --------
+2022-02-15 16:14:49.133 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912888694"} --------
+2022-02-15 16:14:49.134 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912888694"}
+2022-02-15 16:14:51.284 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912891383,"data":{"fr":-0.00008472,"ts":1644912891004}} --------
+2022-02-15 16:14:51.285 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912891385,"data":{"fr":0.00003803,"ts":1644912891004}} --------
+2022-02-15 16:14:53.935 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912894075,"data":{"fr":-0.00008472,"ts":1644912894000}} --------
+2022-02-15 16:14:53.938 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912894078,"data":{"fr":0.00003803,"ts":1644912894000}} --------
+2022-02-15 16:14:54.134 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912893699"} --------
+2022-02-15 16:14:54.134 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912893699"}
+2022-02-15 16:14:57.160 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912897300,"data":{"fr":-0.00008472,"ts":1644912897000}} --------
+2022-02-15 16:14:57.161 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912897301,"data":{"fr":0.00003803,"ts":1644912897000}} --------
+2022-02-15 16:14:59.166 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912898703"} --------
+2022-02-15 16:14:59.166 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912898703"}
+2022-02-15 16:14:59.968 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912900105,"data":{"fr":0.0000372,"ts":1644912900005}} --------
+2022-02-15 16:15:00.311 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912900421,"data":{"fr":-0.00008548,"ts":1644912900005}} --------
+2022-02-15 16:15:03.061 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912903156,"data":{"fr":0.0000372,"ts":1644912903005}} --------
+2022-02-15 16:15:03.061 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912903158,"data":{"fr":-0.00008548,"ts":1644912903005}} --------
+2022-02-15 16:15:04.187 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912903707"} --------
+2022-02-15 16:15:04.187 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912903707"}
+2022-02-15 16:15:06.327 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912906378,"data":{"fr":0.0000372,"ts":1644912906004}} --------
+2022-02-15 16:15:06.327 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912906379,"data":{"fr":-0.00008548,"ts":1644912906004}} --------
+2022-02-15 16:15:09.003 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912909091,"data":{"fr":0.0000372,"ts":1644912909000}} --------
+2022-02-15 16:15:09.003 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912909092,"data":{"fr":-0.00008548,"ts":1644912909000}} --------
+2022-02-15 16:15:09.134 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912908711"} --------
+2022-02-15 16:15:09.135 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912908711"}
+2022-02-15 16:15:10.945 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912911030,"data":{"fr":-0.0003025802816558,"ts":1644912900304}} --------
+2022-02-15 16:15:12.172 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912912309,"data":{"fr":-0.00008548,"ts":1644912912001}} --------
+2022-02-15 16:15:14.106 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912914244,"data":{"fr":-0.0001616665120227,"ts":1644912900289}} --------
+2022-02-15 16:15:14.135 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912913716"} --------
+2022-02-15 16:15:14.136 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912913716"}
+2022-02-15 16:15:19.137 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912918719"} --------
+2022-02-15 16:15:19.138 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912918719"}
+2022-02-15 16:15:24.135 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912923724"} --------
+2022-02-15 16:15:24.136 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912923724"}
+2022-02-15 16:15:29.136 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912928727"} --------
+2022-02-15 16:15:29.137 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912928727"}
+2022-02-15 16:15:34.190 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912933729"} --------
+2022-02-15 16:15:34.190 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912933729"}
+2022-02-15 16:15:39.138 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912938732"} --------
+2022-02-15 16:15:39.138 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912938732"}
+2022-02-15 16:15:44.228 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912943736"} --------
+2022-02-15 16:15:44.229 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912943736"}
+2022-02-15 16:15:49.245 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912948739"} --------
+2022-02-15 16:15:49.245 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912948739"}
+2022-02-15 16:15:54.056 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912954192,"data":{"fr":0.0000372,"ts":1644912954005}} --------
+2022-02-15 16:15:54.137 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912953742"} --------
+2022-02-15 16:15:54.137 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912953742"}
+2022-02-15 16:15:56.971 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912957080,"data":{"fr":-0.00008548,"ts":1644912957005}} --------
+2022-02-15 16:15:57.274 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912957411,"data":{"fr":0.0000372,"ts":1644912957005}} --------
+2022-02-15 16:15:59.136 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912958745"} --------
+2022-02-15 16:15:59.137 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912958745"}
+2022-02-15 16:16:00.100 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912960150,"data":{"fr":0.0000368,"ts":1644912960005}} --------
+2022-02-15 16:16:00.101 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912960150,"data":{"fr":-0.00008584,"ts":1644912960005}} --------
+2022-02-15 16:16:03.232 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912963369,"data":{"fr":0.0000368,"ts":1644912963004}} --------
+2022-02-15 16:16:03.233 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912963370,"data":{"fr":-0.00008584,"ts":1644912963004}} --------
+2022-02-15 16:16:04.197 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912963749"} --------
+2022-02-15 16:16:04.197 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912963749"}
+2022-02-15 16:16:05.949 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912966083,"data":{"fr":0.0000368,"ts":1644912966000}} --------
+2022-02-15 16:16:05.950 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912966084,"data":{"fr":-0.00008584,"ts":1644912966000}} --------
+2022-02-15 16:16:09.138 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912968753"} --------
+2022-02-15 16:16:09.138 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912968753"}
+2022-02-15 16:16:09.169 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912969306,"data":{"fr":0.0000368,"ts":1644912969001}} --------
+2022-02-15 16:16:09.171 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912969307,"data":{"fr":-0.00008584,"ts":1644912969001}} --------
+2022-02-15 16:16:11.979 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912972087,"data":{"fr":-0.00008584,"ts":1644912972004}} --------
+2022-02-15 16:16:12.390 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912972418,"data":{"fr":0.0000368,"ts":1644912972004}} --------
+2022-02-15 16:16:14.141 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912973756"} --------
+2022-02-15 16:16:14.141 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912973756"}
+2022-02-15 16:16:15.027 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912975162,"data":{"fr":0.0000368,"ts":1644912975002}} --------
+2022-02-15 16:16:15.027 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912975164,"data":{"fr":-0.00008584,"ts":1644912975002}} --------
+2022-02-15 16:16:18.333 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912978375,"data":{"fr":0.0000368,"ts":1644912978000}} --------
+2022-02-15 16:16:18.334 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912978376,"data":{"fr":-0.00008584,"ts":1644912978000}} --------
+2022-02-15 16:16:19.139 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912978760"} --------
+2022-02-15 16:16:19.140 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912978760"}
+2022-02-15 16:16:20.959 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912981095,"data":{"fr":0.0000368,"ts":1644912981007}} --------
+2022-02-15 16:16:20.960 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912981097,"data":{"fr":-0.00008584,"ts":1644912981007}} --------
+2022-02-15 16:16:22.937 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644912983027,"data":{"fr":-0.0002884426586627,"ts":1644912960602}} --------
+2022-02-15 16:16:24.138 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912983763"} --------
+2022-02-15 16:16:24.139 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912983763"}
+2022-02-15 16:16:24.183 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912984319,"data":{"fr":-0.00008584,"ts":1644912984000}} --------
+2022-02-15 16:16:27.423 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912987559,"data":{"fr":-0.00008584,"ts":1644912987001}} --------
+2022-02-15 16:16:28.776 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644912988838,"data":{"fr":-0.000146635901209,"ts":1644912960559}} --------
+2022-02-15 16:16:29.143 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912988767"} --------
+2022-02-15 16:16:29.143 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912988767"}
+2022-02-15 16:16:34.153 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912993770"} --------
+2022-02-15 16:16:34.154 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912993770"}
+2022-02-15 16:16:39.139 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644912998773"} --------
+2022-02-15 16:16:39.139 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644912998773"}
+2022-02-15 16:16:44.245 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913003777"} --------
+2022-02-15 16:16:44.246 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913003777"}
+2022-02-15 16:16:49.244 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913008781"} --------
+2022-02-15 16:16:49.244 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913008781"}
+2022-02-15 16:16:54.171 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913013784"} --------
+2022-02-15 16:16:54.171 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913013784"}
+2022-02-15 16:16:59.189 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913018788"} --------
+2022-02-15 16:16:59.190 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913018788"}
+2022-02-15 16:17:00.315 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913020351,"data":{"fr":-0.0002717205944452,"ts":1644913020300}} --------
+2022-02-15 16:17:00.316 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913020369,"data":{"fr":-0.0001394351792022,"ts":1644913020283}} --------
+2022-02-15 16:17:04.205 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913023792"} --------
+2022-02-15 16:17:04.205 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913023792"}
+2022-02-15 16:17:09.140 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913028796"} --------
+2022-02-15 16:17:09.140 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913028796"}
+2022-02-15 16:17:14.140 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913033798"} --------
+2022-02-15 16:17:14.140 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913033798"}
+2022-02-15 16:17:19.142 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913038801"} --------
+2022-02-15 16:17:19.142 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913038801"}
+2022-02-15 16:17:24.180 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913043804"} --------
+2022-02-15 16:17:24.180 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913043804"}
+2022-02-15 16:17:29.142 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913048809"} --------
+2022-02-15 16:17:29.142 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913048809"}
+2022-02-15 16:17:34.212 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913053812"} --------
+2022-02-15 16:17:34.212 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913053812"}
+2022-02-15 16:17:39.141 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913058817"} --------
+2022-02-15 16:17:39.142 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913058817"}
+2022-02-15 16:17:41.959 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913062092,"data":{"fr":-0.00008642,"ts":1644913062005}} --------
+2022-02-15 16:17:42.288 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913062421,"data":{"fr":0.00003587,"ts":1644913062005}} --------
+2022-02-15 16:17:44.248 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913063821"} --------
+2022-02-15 16:17:44.248 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913063821"}
+2022-02-15 16:17:45.037 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913065169,"data":{"fr":0.00003587,"ts":1644913065004}} --------
+2022-02-15 16:17:45.037 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913065170,"data":{"fr":-0.00008642,"ts":1644913065004}} --------
+2022-02-15 16:17:48.344 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913068377,"data":{"fr":0.00003587,"ts":1644913068001}} --------
+2022-02-15 16:17:48.344 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913068380,"data":{"fr":-0.00008642,"ts":1644913068001}} --------
+2022-02-15 16:17:49.163 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913068825"} --------
+2022-02-15 16:17:49.164 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913068825"}
+2022-02-15 16:17:51.007 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913071094,"data":{"fr":0.00003587,"ts":1644913071001}} --------
+2022-02-15 16:17:51.007 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913071095,"data":{"fr":-0.00008642,"ts":1644913071001}} --------
+2022-02-15 16:17:54.147 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913073829"} --------
+2022-02-15 16:17:54.148 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913073829"}
+2022-02-15 16:17:54.181 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913074314,"data":{"fr":0.00003587,"ts":1644913074004}} --------
+2022-02-15 16:17:54.183 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913074315,"data":{"fr":-0.00008642,"ts":1644913074004}} --------
+2022-02-15 16:17:57.051 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913077094,"data":{"fr":-0.00008642,"ts":1644913077000}} --------
+2022-02-15 16:17:57.291 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913077423,"data":{"fr":0.00003587,"ts":1644913077000}} --------
+2022-02-15 16:17:59.143 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913078833"} --------
+2022-02-15 16:17:59.143 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913078833"}
+2022-02-15 16:18:00.037 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913080169,"data":{"fr":0.00003605,"ts":1644913080008}} --------
+2022-02-15 16:18:00.038 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913080170,"data":{"fr":-0.00008607,"ts":1644913080008}} --------
+2022-02-15 16:18:03.295 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913083400,"data":{"fr":0.00003605,"ts":1644913083000}} --------
+2022-02-15 16:18:03.296 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913083401,"data":{"fr":-0.00008607,"ts":1644913083000}} --------
+2022-02-15 16:18:04.218 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913083837"} --------
+2022-02-15 16:18:04.218 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913083837"}
+2022-02-15 16:18:05.952 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913086083,"data":{"fr":0.00003605,"ts":1644913086000}} --------
+2022-02-15 16:18:05.952 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913086084,"data":{"fr":-0.00008607,"ts":1644913086000}} --------
+2022-02-15 16:18:09.143 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913088840"} --------
+2022-02-15 16:18:09.144 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913088840"}
+2022-02-15 16:18:09.185 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913089316,"data":{"fr":0.00003605,"ts":1644913089001}} --------
+2022-02-15 16:18:09.186 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913089318,"data":{"fr":-0.00008607,"ts":1644913089001}} --------
+2022-02-15 16:18:10.772 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913090846,"data":{"fr":-0.0001272520206897,"ts":1644913080291}} --------
+2022-02-15 16:18:11.030 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913091157,"data":{"fr":-0.0002650893979028,"ts":1644913080330}} --------
+2022-02-15 16:18:14.142 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913093843"} --------
+2022-02-15 16:18:14.143 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913093843"}
+2022-02-15 16:18:19.167 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913098846"} --------
+2022-02-15 16:18:19.167 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913098846"}
+2022-02-15 16:18:24.143 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913103850"} --------
+2022-02-15 16:18:24.143 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913103850"}
+2022-02-15 16:18:29.204 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913108852"} --------
+2022-02-15 16:18:29.205 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913108852"}
+2022-02-15 16:18:34.223 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913113856"} --------
+2022-02-15 16:18:34.224 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913113856"}
+2022-02-15 16:18:39.144 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913118859"} --------
+2022-02-15 16:18:39.144 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913118859"}
+2022-02-15 16:18:44.204 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913123862"} --------
+2022-02-15 16:18:44.204 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913123862"}
+2022-02-15 16:18:49.144 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913128867"} --------
+2022-02-15 16:18:49.145 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913128867"}
+2022-02-15 16:18:53.974 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913134103,"data":{"fr":0.00003605,"ts":1644913134002}} --------
+2022-02-15 16:18:54.144 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913133869"} --------
+2022-02-15 16:18:54.144 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913133869"}
+2022-02-15 16:18:54.306 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913134430,"data":{"fr":-0.00008607,"ts":1644913134002}} --------
+2022-02-15 16:18:57.033 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913137163,"data":{"fr":-0.00008607,"ts":1644913137004}} --------
+2022-02-15 16:18:57.035 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913137165,"data":{"fr":0.00003605,"ts":1644913137004}} --------
+2022-02-15 16:18:59.209 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913138872"} --------
+2022-02-15 16:18:59.209 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913138872"}
+2022-02-15 16:19:00.334 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913140386,"data":{"fr":-0.00008598,"ts":1644913140003}} --------
+2022-02-15 16:19:00.334 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913140387,"data":{"fr":0.00003587,"ts":1644913140003}} --------
+2022-02-15 16:19:02.956 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913143083,"data":{"fr":-0.00008598,"ts":1644913143000}} --------
+2022-02-15 16:19:02.956 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913143084,"data":{"fr":0.00003587,"ts":1644913143000}} --------
+2022-02-15 16:19:04.227 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913143875"} --------
+2022-02-15 16:19:04.227 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913143875"}
+2022-02-15 16:19:06.222 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913146303,"data":{"fr":-0.00008598,"ts":1644913146000}} --------
+2022-02-15 16:19:06.222 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913146305,"data":{"fr":0.00003587,"ts":1644913146000}} --------
+2022-02-15 16:19:09.142 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913149088,"data":{"fr":0.00003587,"ts":1644913149000}} --------
+2022-02-15 16:19:09.145 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913148880"} --------
+2022-02-15 16:19:09.145 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913148880"}
+2022-02-15 16:19:09.290 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913149419,"data":{"fr":-0.00008598,"ts":1644913149000}} --------
+2022-02-15 16:19:12.112 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913152160,"data":{"fr":-0.00008598,"ts":1644913152005}} --------
+2022-02-15 16:19:12.113 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913152161,"data":{"fr":0.00003587,"ts":1644913152005}} --------
+2022-02-15 16:19:14.145 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913153883"} --------
+2022-02-15 16:19:14.145 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913153883"}
+2022-02-15 16:19:15.287 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913155376,"data":{"fr":-0.00008598,"ts":1644913155000}} --------
+2022-02-15 16:19:15.288 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913155378,"data":{"fr":0.00003587,"ts":1644913155000}} --------
+2022-02-15 16:19:18.052 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913158105,"data":{"fr":-0.00008598,"ts":1644913158005}} --------
+2022-02-15 16:19:18.052 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913158107,"data":{"fr":0.00003587,"ts":1644913158005}} --------
+2022-02-15 16:19:19.145 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913158885"} --------
+2022-02-15 16:19:19.146 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913158885"}
+2022-02-15 16:19:21.207 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913161333,"data":{"fr":-0.00008598,"ts":1644913161000}} --------
+2022-02-15 16:19:21.208 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913161334,"data":{"fr":0.00003587,"ts":1644913161000}} --------
+2022-02-15 16:19:22.718 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913162844,"data":{"fr":-0.0001092708307308,"ts":1644913140316}} --------
+2022-02-15 16:19:23.068 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913163167,"data":{"fr":-0.000255486672583,"ts":1644913140317}} --------
+2022-02-15 16:19:24.146 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913163889"} --------
+2022-02-15 16:19:24.146 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913163889"}
+2022-02-15 16:19:29.146 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913168893"} --------
+2022-02-15 16:19:29.146 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913168893"}
+2022-02-15 16:19:34.232 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913173898"} --------
+2022-02-15 16:19:34.232 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913173898"}
+2022-02-15 16:19:39.146 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913178901"} --------
+2022-02-15 16:19:39.147 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913178901"}
+2022-02-15 16:19:44.165 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913183905"} --------
+2022-02-15 16:19:44.165 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913183905"}
+2022-02-15 16:19:49.148 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913188909"} --------
+2022-02-15 16:19:49.148 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913188909"}
+2022-02-15 16:19:54.147 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913193912"} --------
+2022-02-15 16:19:54.147 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913193912"}
+2022-02-15 16:19:59.155 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913198915"} --------
+2022-02-15 16:19:59.155 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913198915"}
+2022-02-15 16:20:01.164 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913201176,"data":{"fr":-0.0002530282229393,"ts":1644913200650}} --------
+2022-02-15 16:20:01.164 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913201177,"data":{"fr":-0.0000942286757283,"ts":1644913200856}} --------
+2022-02-15 16:20:04.147 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913203918"} --------
+2022-02-15 16:20:04.148 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913203918"}
+2022-02-15 16:20:09.155 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913208923"} --------
+2022-02-15 16:20:09.155 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913208923"}
+2022-02-15 16:20:14.147 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913213927"} --------
+2022-02-15 16:20:14.148 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913213927"}
+2022-02-15 16:20:19.148 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913218930"} --------
+2022-02-15 16:20:19.149 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913218930"}
+2022-02-15 16:20:24.148 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913223933"} --------
+2022-02-15 16:20:24.149 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913223933"}
+2022-02-15 16:20:29.224 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913228936"} --------
+2022-02-15 16:20:29.224 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913228936"}
+2022-02-15 16:20:34.241 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913233940"} --------
+2022-02-15 16:20:34.242 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913233940"}
+2022-02-15 16:20:39.149 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913238944"} --------
+2022-02-15 16:20:39.149 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913238944"}
+2022-02-15 16:20:42.266 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913242391,"data":{"fr":0.00003584,"ts":1644913242009}} --------
+2022-02-15 16:20:44.173 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913243948"} --------
+2022-02-15 16:20:44.174 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913243948"}
+2022-02-15 16:20:45.096 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913245129,"data":{"fr":0.00003584,"ts":1644913245002}} --------
+2022-02-15 16:20:45.403 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913245454,"data":{"fr":-0.00008542,"ts":1644913245002}} --------
+2022-02-15 16:20:48.167 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913248186,"data":{"fr":-0.00008542,"ts":1644913248002}} --------
+2022-02-15 16:20:48.167 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913248187,"data":{"fr":0.00003584,"ts":1644913248002}} --------
+2022-02-15 16:20:49.194 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913248952"} --------
+2022-02-15 16:20:49.196 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913248952"}
+2022-02-15 16:20:51.344 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913251409,"data":{"fr":-0.00008542,"ts":1644913251000}} --------
+2022-02-15 16:20:51.344 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913251410,"data":{"fr":0.00003584,"ts":1644913251000}} --------
+2022-02-15 16:20:54.009 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913254100,"data":{"fr":-0.00008542,"ts":1644913254006}} --------
+2022-02-15 16:20:54.011 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913254102,"data":{"fr":0.00003584,"ts":1644913254006}} --------
+2022-02-15 16:20:54.150 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913253956"} --------
+2022-02-15 16:20:54.150 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913253956"}
+2022-02-15 16:20:57.285 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913257324,"data":{"fr":-0.00008542,"ts":1644913257000}} --------
+2022-02-15 16:20:57.286 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913257326,"data":{"fr":0.00003584,"ts":1644913257000}} --------
+2022-02-15 16:20:59.228 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913258960"} --------
+2022-02-15 16:20:59.228 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913258960"}
+2022-02-15 16:21:00.049 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913260120,"data":{"fr":0.00003511,"ts":1644913260000}} --------
+2022-02-15 16:21:00.357 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913260439,"data":{"fr":-0.00008535,"ts":1644913260000}} --------
+2022-02-15 16:21:03.057 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913263181,"data":{"fr":-0.00008535,"ts":1644913263002}} --------
+2022-02-15 16:21:03.061 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913263182,"data":{"fr":0.00003511,"ts":1644913263002}} --------
+2022-02-15 16:21:04.247 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913263963"} --------
+2022-02-15 16:21:04.247 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913263963"}
+2022-02-15 16:21:06.294 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913266397,"data":{"fr":-0.00008535,"ts":1644913266000}} --------
+2022-02-15 16:21:06.294 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913266398,"data":{"fr":0.00003511,"ts":1644913266000}} --------
+2022-02-15 16:21:09.064 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913269088,"data":{"fr":-0.00008535,"ts":1644913269000}} --------
+2022-02-15 16:21:09.065 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913269089,"data":{"fr":0.00003511,"ts":1644913269000}} --------
+2022-02-15 16:21:09.149 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913268965"} --------
+2022-02-15 16:21:09.150 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913268965"}
+2022-02-15 16:21:10.901 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913271025,"data":{"fr":-0.0002388334862263,"ts":1644913260327}} --------
+2022-02-15 16:21:12.190 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913272314,"data":{"fr":-0.00008535,"ts":1644913272003}} --------
+2022-02-15 16:21:14.150 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913273967"} --------
+2022-02-15 16:21:14.150 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913273967"}
+2022-02-15 16:21:15.414 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913275536,"data":{"fr":-0.00008535,"ts":1644913275000}} --------
+2022-02-15 16:21:16.710 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913276828,"data":{"fr":-0.0000900777445505,"ts":1644913260301}} --------
+2022-02-15 16:21:19.196 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913278972"} --------
+2022-02-15 16:21:19.196 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913278972"}
+2022-02-15 16:21:24.151 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913283975"} --------
+2022-02-15 16:21:24.151 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913283975"}
+2022-02-15 16:21:29.151 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913288978"} --------
+2022-02-15 16:21:29.151 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913288978"}
+2022-02-15 16:21:34.236 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913293983"} --------
+2022-02-15 16:21:34.238 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913293983"}
+2022-02-15 16:21:39.153 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913298987"} --------
+2022-02-15 16:21:39.153 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913298987"}
+2022-02-15 16:21:44.152 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913303991"} --------
+2022-02-15 16:21:44.152 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913303991"}
+2022-02-15 16:21:49.230 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913308994"} --------
+2022-02-15 16:21:49.230 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913308994"}
+2022-02-15 16:21:54.147 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913314148,"data":{"fr":0.00003511,"ts":1644913314000}} --------
+2022-02-15 16:21:54.165 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913313997"} --------
+2022-02-15 16:21:54.165 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913313997"}
+2022-02-15 16:21:57.284 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913317367,"data":{"fr":0.00003511,"ts":1644913317003}} --------
+2022-02-15 16:21:59.240 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913319000"} --------
+2022-02-15 16:21:59.241 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913319000"}
+2022-02-15 16:22:00.004 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913320126,"data":{"fr":0.00003476,"ts":1644913320009}} --------
+2022-02-15 16:22:00.335 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913320451,"data":{"fr":-0.00008494,"ts":1644913320009}} --------
+2022-02-15 16:22:03.064 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913323186,"data":{"fr":-0.00008494,"ts":1644913323003}} --------
+2022-02-15 16:22:03.066 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913323188,"data":{"fr":0.00003476,"ts":1644913323003}} --------
+2022-02-15 16:22:04.258 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913324003"} --------
+2022-02-15 16:22:04.258 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913324003"}
+2022-02-15 16:22:06.305 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913326408,"data":{"fr":-0.00008494,"ts":1644913326005}} --------
+2022-02-15 16:22:06.306 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913326409,"data":{"fr":0.00003476,"ts":1644913326005}} --------
+2022-02-15 16:22:09.070 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913329098,"data":{"fr":-0.00008494,"ts":1644913329008}} --------
+2022-02-15 16:22:09.071 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913329100,"data":{"fr":0.00003476,"ts":1644913329008}} --------
+2022-02-15 16:22:09.155 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913329006"} --------
+2022-02-15 16:22:09.155 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913329006"}
+2022-02-15 16:22:12.249 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913332325,"data":{"fr":0.00003476,"ts":1644913332000}} --------
+2022-02-15 16:22:12.249 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913332325,"data":{"fr":-0.00008494,"ts":1644913332000}} --------
+2022-02-15 16:22:14.153 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913334010"} --------
+2022-02-15 16:22:14.154 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913334010"}
+2022-02-15 16:22:14.984 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913335105,"data":{"fr":-0.00008494,"ts":1644913335005}} --------
+2022-02-15 16:22:15.319 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913335419,"data":{"fr":0.00003476,"ts":1644913335005}} --------
+2022-02-15 16:22:18.083 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913338159,"data":{"fr":0.00003476,"ts":1644913338000}} --------
+2022-02-15 16:22:18.083 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913338160,"data":{"fr":-0.00008494,"ts":1644913338000}} --------
+2022-02-15 16:22:19.210 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913339014"} --------
+2022-02-15 16:22:19.211 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913339014"}
+2022-02-15 16:22:21.360 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913341376,"data":{"fr":-0.00008494,"ts":1644913341000}} --------
+2022-02-15 16:22:21.360 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913341377,"data":{"fr":0.00003476,"ts":1644913341000}} --------
+2022-02-15 16:22:22.793 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913342821,"data":{"fr":-0.0002400760220045,"ts":1644913320592}} --------
+2022-02-15 16:22:23.991 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913344111,"data":{"fr":-0.00008494,"ts":1644913344000}} --------
+2022-02-15 16:22:24.153 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913344018"} --------
+2022-02-15 16:22:24.154 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913344018"}
+2022-02-15 16:22:27.299 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913347332,"data":{"fr":-0.00008494,"ts":1644913347002}} --------
+2022-02-15 16:22:29.153 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913349021"} --------
+2022-02-15 16:22:29.154 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913349021"}
+2022-02-15 16:22:30.472 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913350548,"data":{"fr":-0.00008494,"ts":1644913350001}} --------
+2022-02-15 16:22:31.721 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913351841,"data":{"fr":-0.0000790391057822,"ts":1644913320603}} --------
+2022-02-15 16:22:34.263 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913354025"} --------
+2022-02-15 16:22:34.264 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913354025"}
+2022-02-15 16:22:39.162 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913359028"} --------
+2022-02-15 16:22:39.162 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913359028"}
+2022-02-15 16:22:44.197 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913364033"} --------
+2022-02-15 16:22:44.197 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913364033"}
+2022-02-15 16:22:49.212 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913369036"} --------
+2022-02-15 16:22:49.212 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913369036"}
+2022-02-15 16:22:54.232 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913374040"} --------
+2022-02-15 16:22:54.232 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913374040"}
+2022-02-15 16:22:59.251 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"ping":"1644913379043"} --------
+2022-02-15 16:22:59.251 [Thread-2] INFO  com.client.MyWebSocketClient - 发送：：：{"pong":"1644913379043"}
+2022-02-15 16:23:00.376 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_btcusdt_funding_rate","ts":1644913380394,"data":{"fr":-0.0000681303118122,"ts":1644913380328}} --------
+2022-02-15 16:23:00.683 [Thread-2] INFO  com.client.MyWebSocketClient - -------- ByteBuffer接收到服务端数据：{"status":"ok","event_rep":"","cb_id":"","channel":"market_ethusdt_funding_rate","ts":1644913380716,"data":{"fr":-0.0002327709226636,"ts":1644913380327}} --------
+2022-02-15 16:23:00.713 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-02-15 16:23:00.728 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
