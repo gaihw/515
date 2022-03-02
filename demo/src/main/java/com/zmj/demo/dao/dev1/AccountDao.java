@@ -28,7 +28,7 @@ public interface AccountDao {
 
 
     /**
-     * user_bill表，查询单个用户的该段时间内的钱数变化
+     * user_bill表，查询单个用户的该段时间内的钱数变化,去掉该用户type=16的类型，这个是用户返佣的钱，应该加到user_partner_balance表中
      * @param time
      * @param userId
      * @return
@@ -36,7 +36,7 @@ public interface AccountDao {
      */
     @Select("SELECT user_id userId,sum(size) total " +
             "from `bib_cfd`.`user_bill` " +
-            "where created_date>'${time}' and user_id = #{userId}")
+            "where created_date>'${time}' and user_id = #{userId} and type!=16")
     UserBillChain getUserBillTotal(@Param("time") String time, @Param("userId") String userId);
 
     /**
@@ -63,11 +63,10 @@ public interface AccountDao {
     @Select({"<script>"+
             "select user_id userId,type,size,pre_balance preBalance,post_balance postBalance,pre_profit preProfit,post_profit postProfit,pre_margin preMargin,post_margin postMargin,partner_id partnerId,parent_id parentId,source_id sourceId,note,created_date createdDate,from_user_id fromUserId " +
             "from `bib_cfd`.`user_bill` " +
-            "where user_id=#{partnerId} and from_user_id=#{userId} and source_id='${sourceId}' and type=#{type} " +
-            "order by id ${orderBy} " +
+            "where user_id=#{partnerId}  and source_id='${sourceId}' and type=#{type} " +
             " limit 0,1"+
             "</script>"})
-    UserBillChain getUserBill(@Param("userId") String userId,@Param("partnerId") String partnerId,@Param("sourceId") String sourceId,@Param("type") int type,@Param("orderBy") String orderBy);
+    UserBillChain getUserBill(@Param("partnerId") String partnerId,@Param("sourceId") String sourceId,@Param("type") int type);
 
     /**
      * 查询给用户返的手续费

@@ -11,12 +11,11 @@ import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
 @Component
 @Slf4j
-public class HttpUtils {
+public class HttpUtil {
     private  HttpClient client = new HttpClient();
     private  PostMethod post ;
     private  GetMethod get ;

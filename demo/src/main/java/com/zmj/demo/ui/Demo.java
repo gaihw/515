@@ -1,19 +1,14 @@
 package com.zmj.demo.ui;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zmj.demo.common.HttpUtils;
+import com.zmj.demo.common.HttpUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
-import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.util.concurrent.ListenableFutureCallback;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Demo {
 
         @Autowired
-        private HttpUtils httpUtils;
+        private HttpUtil httpUtils;
 
 
         @RequestMapping(value = "/test",method = RequestMethod.GET)

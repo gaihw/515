@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.security.MessageDigest;
 
 @Component
-public class BaseUtils {
+public class BaseUtil {
 
     public String generate(String password) {
         password = md5Hex(password + getRandomSalt());

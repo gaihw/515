@@ -2,8 +2,8 @@ package com.zmj.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.common.HttpThread;
-import com.zmj.demo.common.HttpUtils;
-import com.zmj.demo.common.SqlUtils;
+import com.zmj.demo.common.HttpUtil;
+import com.zmj.demo.common.SqlUtil;
 import com.zmj.demo.common.excel.ExcelUtils;
 import com.zmj.demo.dao.demodata.auto.CaseDao;
 import com.zmj.demo.domain.JsonResult;
@@ -30,13 +30,13 @@ public class CaseServiceImpl implements CaseService {
     private CaseDao caseDao;
 
     @Autowired
-    private SqlUtils sqlUtils;
+    private SqlUtil sqlUtils;
 
     @Autowired
     private ExcelUtils excelUtils;
 
     @Autowired
-    private HttpUtils httpUtils;
+    private HttpUtil httpUtils;
 
     CyclicBarrier cyclicBarrier = new CyclicBarrier(10);
 

@@ -6,12 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HttpThread extends Thread {
 
-    private HttpUtils httpUtils;
-    private SqlUtils sqlUtils;
+    private HttpUtil httpUtils;
+    private SqlUtil sqlUtils;
     private CaseExecuteChain caseExecuteChain;
     private String url;
 
-    public HttpThread(HttpUtils httpUtils,SqlUtils sqlUtils,CaseExecuteChain caseExecuteChain, String url){
+    public HttpThread(HttpUtil httpUtils, SqlUtil sqlUtils, CaseExecuteChain caseExecuteChain, String url){
         this.httpUtils = httpUtils;
         this.sqlUtils = sqlUtils;
         this.caseExecuteChain = caseExecuteChain;

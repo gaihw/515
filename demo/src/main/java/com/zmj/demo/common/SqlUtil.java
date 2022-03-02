@@ -1,7 +1,6 @@
 package com.zmj.demo.common;
 
 
-import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.config.Config;
 import com.zmj.demo.dao.demodata.auto.CaseDao;
 import com.zmj.demo.dao.dev1.AccountDao;
@@ -17,7 +16,7 @@ import java.util.List;
 
 @Slf4j
 @Configuration
-public class SqlUtils {
+public class SqlUtil {
 
     @Autowired
     private CaseDao caseDao;

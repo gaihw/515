@@ -2,7 +2,7 @@ package com.zmj.demo.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.zmj.demo.common.BaseUtils;
+import com.zmj.demo.common.BaseUtil;
 import com.zmj.demo.config.Config;
 import com.zmj.demo.dao.demodata.UserDao;
 import com.zmj.demo.domain.JsonResult;
@@ -29,7 +29,7 @@ public class LoginController {
     private RedisService redisService;
 
     @Autowired
-    private BaseUtils baseUtils;
+    private BaseUtil baseUtils;
 
     @Resource
     private UserDao userDao;
