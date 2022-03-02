@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -28,23 +29,25 @@ public class Test {
 //        String receiveBatch_res = postByForm(receiveBatch_url, auth, receiveBatch_param);
 //        System.out.println(receiveBatch_res);
 
-        String val = "";
-        Random random = new Random();
-        for ( int i = 0; i < "Tx9C7XoB0cXftHbaU8Tl".length(); i++ )
-        {
-            String str = random.nextInt( 2 ) % 2 == 0 ? "num" : "char";
-            if ( "char".equalsIgnoreCase( str ) )
-            { // 产生字母
-                int nextInt = random.nextInt( 2 ) % 2 == 0 ? 65 : 97;
-                // System.out.println(nextInt + "!!!!"); 1,0,1,1,1,0,0
-                val += (char) ( nextInt + random.nextInt( 26 ) );
-            }
-            else if ( "num".equalsIgnoreCase( str ) )
-            { // 产生数字
-                val += String.valueOf( random.nextInt( 10 ) );
-            }
-        }
-        System.out.println(val);
+//        String val = "";
+//        Random random = new Random();
+//        for ( int i = 0; i < "Tx9C7XoB0cXftHbaU8Tl".length(); i++ )
+//        {
+//            String str = random.nextInt( 2 ) % 2 == 0 ? "num" : "char";
+//            if ( "char".equalsIgnoreCase( str ) )
+//            { // 产生字母
+//                int nextInt = random.nextInt( 2 ) % 2 == 0 ? 65 : 97;
+//                // System.out.println(nextInt + "!!!!"); 1,0,1,1,1,0,0
+//                val += (char) ( nextInt + random.nextInt( 26 ) );
+//            }
+//            else if ( "num".equalsIgnoreCase( str ) )
+//            { // 产生数字
+//                val += String.valueOf( random.nextInt( 10 ) );
+//            }
+//        }
+//        System.out.println(val);
+
+        System.out.println(BigDecimal.valueOf(0.067784).compareTo(BigDecimal.valueOf(0.067784)));
 
 
 

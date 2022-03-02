@@ -109,9 +109,9 @@ public class SqlUtils {
             case 6:
                 return "转出";
             case 7:
-                return "过夜费-扣用户";
+                return "闪电-过夜费-扣用户";
             case 14:
-                return "合伙人过夜费（得到过夜费）给合伙人";
+                return "闪电-合伙人过夜费（得到过夜费）给合伙人";
             case 16:
                 return "合伙人手续费  (合伙人收取下面邀请人的交易手续费) 区分普通和默认";
             case 21:
@@ -119,9 +119,9 @@ public class SqlUtils {
             case 22:
                 return "手动撤单 --取消订单解冻保证金";
             case 23:
-                return "跟单跟随者支出返佣 -扣用户";
+                return "闪电-跟单跟随者支出返佣 -扣用户";
             case 24:
-                return "跟单leader收入返佣 查询是否默认合伙人是带单老师";
+                return "闪电-跟单leader收入返佣 查询是否默认合伙人是带单老师";
             case 27:
                 return "和用户对赌收益(头寸分佣) 区分普通和默认";
             case 30:

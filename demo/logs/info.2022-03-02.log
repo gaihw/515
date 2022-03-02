@@ -1,0 +1,35 @@
+2022-03-02 10:57:20.153 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_312 on gai.local with PID 39189 (/Users/mac/tools/gitPro/515/demo/target/classes started by mac in /Users/mac/tools/gitPro/515/demo)
+2022-03-02 10:57:20.160 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2022-03-02 10:57:21.806 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-02 10:57:21.810 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2022-03-02 10:57:21.844 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 0 Elasticsearch repository interfaces.
+2022-03-02 10:57:21.852 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-02 10:57:21.853 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2022-03-02 10:57:21.872 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2022-03-02 10:57:21.902 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-02 10:57:21.905 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-02 10:57:21.938 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2022-03-02 10:57:23.054 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2022-03-02 10:57:23.081 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2022-03-02 10:57:23.082 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-02 10:57:23.082 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-03-02 10:57:23.280 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-02 10:57:23.281 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3027 ms
+2022-03-02 10:57:25.167 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2022-03-02 10:57:26.507 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Spring Data Elasticsearch: 4.2.1
+2022-03-02 10:57:26.509 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client in build: 7.12.1
+2022-03-02 10:57:26.509 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client used: 7.12.1
+2022-03-02 10:57:26.849 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-10090"]
+2022-03-02 10:57:26.879 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 10090 (http) with context path ''
+2022-03-02 10:57:26.900 [main] INFO  com.zmj.demo.DemoApplication - Started DemoApplication in 7.792 seconds (JVM running for 8.446)
+2022-03-02 10:57:36.225 [http-nio-10090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-02 10:57:36.226 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-03-02 10:57:36.228 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2022-03-02 10:57:36.515 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-02 10:57:39.505 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-02 10:57:39.517 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserBalanceHold - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_balance` WHERE `user_id` = '51905047' LIMIT 0,1 
+2022-03-02 10:57:39.551 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserBalanceHold - ==> Parameters: 
+2022-03-02 10:57:39.692 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserBalanceHold - <==      Total: 1
+2022-03-02 10:57:39.855 [http-nio-10090-exec-1] INFO  com.zmj.demo.service.impl.ToolServiceImpl - 用户:51905047,账户:[UserBalanceChain(userId=51905047, currencyId=6, balance=996.7691794400000000, hold=0E-16)]
+2022-03-02 10:58:08.336 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-02 10:58:08.348 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
