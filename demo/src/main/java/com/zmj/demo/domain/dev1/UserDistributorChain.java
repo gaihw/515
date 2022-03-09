@@ -16,4 +16,21 @@ public class UserDistributorChain {
     private int openBet;
     private String isProfession;
     private String config;
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"userId\":\"" + userId + "\"," +
+                "\"parentId\":\"" + parentId + "\"," +
+                "\"gparentId\":\"" + gparentId + "\"," +
+                "\"partnerId\":\"" + partnerId + "\"," +
+                "\"distId\":\"" + distId + "\"," +
+                "\"level\":\"" + level + "\"," +
+                "\"type\":" + type +","+
+                "\"defaulted\":\"" + defaulted + "\"," +
+                "\"openBet\":" + openBet +","+
+                "\"isProfession\":\"" + isProfession + "\"," +
+                "\"config\":" + config  +
+                "}";
+    }
 }

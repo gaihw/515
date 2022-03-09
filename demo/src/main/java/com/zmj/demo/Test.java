@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -47,9 +48,21 @@ public class Test {
 //        }
 //        System.out.println(val);
 
-        System.out.println(BigDecimal.valueOf(0.067784).compareTo(BigDecimal.valueOf(0.067784)));
+//        System.out.println(BigDecimal.valueOf(0.067784).compareTo(BigDecimal.valueOf(0.067784)));
+        List list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        list.add("e");
+        System.out.println(list);
+        for (int i = 1; i < list.size()-1; i++) {
+            if (list.get(i).equals("b")){
+                list.remove(i);
+            }
+        }
 
-
+        System.out.println(list);
 
     }
 

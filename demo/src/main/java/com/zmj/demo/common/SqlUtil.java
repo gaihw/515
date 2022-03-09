@@ -71,6 +71,11 @@ public class SqlUtil {
             user_partner.add(user_distributor);
             return user_partner;
         }
+        //如果用户的合伙人ID=0，则直接返回
+        if (user_distributor.getPartnerId().equalsIgnoreCase("0") || user_distributor.getParentId().equalsIgnoreCase("0")){
+            user_partner.add(user_distributor);
+            return user_partner;
+        }
         //列表插入当前查询的用户
         user_partner.add(user_distributor);
         //当前用户，查出合伙人，如果不是顶级合伙人，则根据合伙人id查询信息，并添加到列表，然后再迭代，直到找到顶级合伙人
@@ -167,8 +172,8 @@ public class SqlUtil {
                 return "逐仓保证金划出";
             case 58:
                 return "订单成交后，退还订单冻结保证金";
-//            case 59:
-//                return "订单成交后，退还订单冻结保证金";
+            case 59:
+                return "爆仓剩余金额，返回给默认合伙人";
             default:
                 return "无";
         }
