@@ -38,6 +38,17 @@ public class ToolController {
     }
 
     /**
+     * 推送行情
+     * @param symbol
+     * @param price
+     * @return
+     */
+    @RequestMapping(value = "/symbol/updateMarket", method = RequestMethod.GET)
+    public String updateMarket(@Param(value = "symbol") String symbol, @Param(value = "price") String price) {
+        return toolService.updateMarket(symbol,price);
+    }
+
+    /**
      * 余额同步
      *
      * @param userId

@@ -90,15 +90,25 @@ public class ProfitCalc {
         String partnerId = userPartner.get(1).getUserId();
         //订单
         String sourceId = userBillChain.getSourceId();
+        List<PositionActionChain> positionAction = accountDao.positionAction(userId,sourceId,null);
+        BigDecimal oneLotSize = accountDao.instruments(positionAction.get(0).getSymbol());
         //盈亏对赌校验
         //获取订单类型
-        SwapOrderChain swapOrderChain = accountDao.getMarginType(userBillChain.getSourceId());
+//        SwapOrderChain swapOrderChain = accountDao.getMarginType(userBillChain.getSourceId());
         BigDecimal userProfit = BigDecimal.ZERO;
         //逐仓单,计算盈亏需要去clearing_transfer中取值，因为盈亏和保证金和在一起计算了
-        if (swapOrderChain.getMarginType().equalsIgnoreCase("FIXED")){
-            userProfit = accountDao.getClearlingTransfer(userBillChain.getUserId(),userBillChain.getSourceId(),swapOrderChain.getMarginType()).getProfit().setScale(Config.newScale, BigDecimal.ROUND_DOWN);
-        }else {//全仓单
-            userProfit = userBillChain.getSize().setScale(Config.newScale, BigDecimal.ROUND_DOWN);
+//        if (swapOrderChain.getMarginType().equalsIgnoreCase("FIXED")){
+//            userProfit = accountDao.getClearlingTransfer(userBillChain.getUserId(),userBillChain.getSourceId(),swapOrderChain.getMarginType()).getProfit().setScale(Config.newScale, BigDecimal.ROUND_DOWN);
+//        }else {//全仓单
+//            userProfit = userBillChain.getSize().setScale(Config.newScale, BigDecimal.ROUND_DOWN);
+//        }
+        //多仓
+        if (positionAction.get(0).getDirection().equalsIgnoreCase("LONG")){
+            //(平仓价格-开仓价格)*数量*面值
+            userProfit = (positionAction.get(0).getClosePrice().subtract(positionAction.get(0).getOpenPrice())).multiply(positionAction.get(0).getQuantity()).multiply(oneLotSize).setScale(Config.newScale, BigDecimal.ROUND_DOWN);
+        }else {
+            //(开仓价格-平仓价格)*数量*面值
+            userProfit = (positionAction.get(0).getOpenPrice().subtract(positionAction.get(0).getClosePrice())).multiply(positionAction.get(0).getQuantity()).multiply(oneLotSize).setScale(Config.newScale, BigDecimal.ROUND_DOWN);
         }
         BigDecimal partnerTransferOutRatio = BigDecimal.ZERO;
         if (!userPartner.get(1).getConfig().equalsIgnoreCase("")){

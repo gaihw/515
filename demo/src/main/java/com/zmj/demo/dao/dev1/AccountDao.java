@@ -25,7 +25,7 @@ public interface AccountDao {
             "FROM `bib_cfd`.`user_balance` " +
             "WHERE `user_id` = '${userId}'  " +
             "LIMIT 0,1")
-    List<UserBalanceChain> getUserBalanceHoldByUserId(@Param("userId") String userId);
+    List<UserBalanceChain> getUserBalanceByUser(@Param("userId") String userId);
 
     /**
      * 查询user_balance表,部分用户批量查询
@@ -33,8 +33,8 @@ public interface AccountDao {
      */
     @Select("SELECT user_id userId,currency_id currencyId,balance,hold " +
             "FROM `bib_cfd`.`user_balance` " +
-            "LIMIT 0,1000")
-    List<UserBalanceChain> getUserBalanceHold();
+            "LIMIT 0,10")
+    List<UserBalanceChain> getUserBalance();
 
     /**
      * 获取user_balance表所有账户的总金额
@@ -42,7 +42,7 @@ public interface AccountDao {
      */
     @Select("SELECT sum(balance) balance,sum(hold) hold " +
             "FROM `bib_cfd`.`user_balance`")
-    UserBalanceChain getAllUserBalanceHold();
+    UserBalanceChain getAllUserBalance();
 
     /**
      * 获取user_partner_balance表所有账户的总金额
@@ -50,15 +50,7 @@ public interface AccountDao {
      */
     @Select("SELECT sum(balance) balance,sum(hold) hold " +
             "FROM `bib_cfd`.`user_partner_balance`")
-    UserBalanceChain getAllUserPartnerBalanceHold();
-
-    /**
-     * 获取user_bill表所有账户的变化金额总和
-     * @return
-     */
-    @Select("SELECT SUM(size) size " +
-            "FROM `bib_cfd`.`user_bill` ")
-    UserBillChain getAllUserBill();
+    UserBalanceChain getAllUserPartnerBalance();
 
 
     /**
@@ -70,11 +62,11 @@ public interface AccountDao {
             "FROM `bib_cfd`.`user_partner_balance` " +
             "WHERE `user_id` = '${userId}'  " +
             "LIMIT 0,1")
-    List<UserBalanceChain> getUserPartnerBalanceHoldByUserId(@Param("userId") String userId);
+    List<UserBalanceChain> getUserPartnerBalanceByUser(@Param("userId") String userId);
 
 
     /**
-     * user_bill表，查询单个用户的该段时间内的钱数变化,去掉该用户type=16和27的类型，这个是用户返佣的钱，应该加到user_partner_balance表中
+     * user_bill表，查询单个用户的该段时间内的钱数变化,去掉该用户type=16,27,38,59的类型，这个是用户返佣的钱，应该加到user_partner_balance表中
      * @param time
      * @param userId
      * @return
@@ -82,19 +74,19 @@ public interface AccountDao {
      */
     @Select("SELECT user_id userId,sum(size) total " +
             "from `bib_cfd`.`user_bill` " +
-            "where created_date>'${time}' and user_id = #{userId} and type not in (16,27)")
-    UserBillChain getUserBillTotal(@Param("time") String time, @Param("userId") String userId);
+            "where created_date>'${time}' and user_id = #{userId} and type not in (16,27,38,59)")
+    UserBillChain getUserBillTotalByUser(@Param("userId") String userId,@Param("time") String time);
 
     /**
-     * 查询user_bill表，获取type=16和27的类型，统计user_partner_balance表中增加的金额
+     * 查询user_bill表，获取type=16,27,38,59的类型，统计user_partner_balance表中增加的金额
      * @param time
      * @param userId
      * @return
      */
     @Select("SELECT user_id userId,sum(size) total " +
             "from `bib_cfd`.`user_bill` " +
-            "where created_date>'${time}' and user_id = #{userId} and type in (16,27)")
-    UserBillChain getUserBillTotalForPartner(@Param("time") String time, @Param("userId") String userId);
+            "where created_date>'${time}' and user_id = #{userId} and type in (16,27,38,59)")
+    UserBillChain getUserBillTotalToPartnerBalanceByUser(@Param("time") String time, @Param("userId") String userId);
 
     /**
      * 查询user_bill表
@@ -123,6 +115,24 @@ public interface AccountDao {
             " limit 0,1"+
             "</script>"})
     UserBillChain getUserBill(@Param("userId") String userId,@Param("sourceId") String sourceId,@Param("type") int type);
+
+    /**
+     * 获取user_bill表,所有账户type=16,27,38,59的类型变化金额总和，即获取了user_partner_balance表的变化总和
+     * @return
+     */
+    @Select("SELECT SUM(size) size " +
+            "FROM `bib_cfd`.`user_bill` " +
+            "where type in (16,27,38,59) ")
+    UserBillChain getAllUserBillToPartnerBalance();
+
+    /**
+     * 获取user_bill表,所有账户type不等于16,27,38,59的类型变化金额总和，即获取了user_balance表的变化总和
+     * @return
+     */
+    @Select("SELECT SUM(size) size " +
+            "FROM `bib_cfd`.`user_bill` " +
+            "where type not in (16,27,38,59) ")
+    UserBillChain getAllUserBillTotal();
 
 
     /**
@@ -167,7 +177,7 @@ public interface AccountDao {
      */
     @Select("SELECT id,position_id positionId,order_id orderId,user_id userId,symbol,leverage,margin_type marginType,direction,side,quantity,closed_quantity closedQuantity,margin, open_price openPrice,close_price closePrice,avg_cost avgCost,fee,partner_id partnerId,parent_id parentId,liquidate_by liquidateBy " +
             "FROM `bib_cfd`.`position_finish` " +
-            "WHERE `user_id` = '${userId}' AND `liquidate_by` LIKE '%coerceClose%' " +
+            "WHERE `user_id` = '${userId}' "+//AND `liquidate_by` LIKE '%coerceClose%' " +
             "LIMIT 0,1000")
     List<PositionFinishChain> positionFinish(@Param("userId") String userId);
 

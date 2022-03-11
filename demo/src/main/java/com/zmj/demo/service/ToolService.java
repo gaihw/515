@@ -23,4 +23,6 @@ public interface ToolService {
     JsonResult getAllUserBalance();
 
     String throughPositions(String userId, BigDecimal money,int marginType);
+
+    String updateMarket(String symbol,String price);
 }

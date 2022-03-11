@@ -60,7 +60,7 @@ public class FeeCalc {
             }
             //判断用户是不是合伙人，如果是合伙人，需要给用户按照比列返佣
             //先返给用户的手续费后，剩下的手续费返给合伙人
-            BigDecimal feeToPartner = userBillChain.getSize().multiply(BigDecimal.ONE.subtract(rebateUserRatio)).setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs();
+            BigDecimal feeToPartner = userBillChain.getSize().multiply(BigDecimal.ONE.subtract(rebateUserRatio)).setScale(8, BigDecimal.ROUND_DOWN).abs();
             String[] s = feeToPartnerClac(userPartner,userBillChain,feeToPartner);
             stringBuffer.append(s[0]);
             if (s.length ==2){
@@ -68,7 +68,7 @@ public class FeeCalc {
             }
         }else {//先不给用户返手续费,直接给合伙人人返手续费
             //从数据库获取该笔订单的手续费
-            BigDecimal feeToPartner = userBillChain.getSize().setScale(Config.newScale,BigDecimal.ROUND_DOWN);
+            BigDecimal feeToPartner = userBillChain.getSize().setScale(8,BigDecimal.ROUND_DOWN);
             String[] s = feeToPartnerClac(userPartner,userBillChain,feeToPartner);
             stringBuffer.append(s[0]);
             if (s.length ==2){
@@ -89,7 +89,7 @@ public class FeeCalc {
     private String[] feeToPartnerClac(List<UserDistributorChain> userPartner,UserBillChain userBillChain,BigDecimal feeToPartner) {
         //先看合伙人列表，查询非用户自己和非默认合伙人，user_partner_balance表是否有合伙人数据，如果无数据，移除列表，不参与返佣
         for (int i = 1; i < userPartner.size()-1; i++) {
-            if (accountDao.getUserPartnerBalanceHoldByUserId(userPartner.get(i).getUserId()) == null){
+            if (accountDao.getUserPartnerBalanceByUser(userPartner.get(i).getUserId()) == null){
                 userPartner.remove(i);
             }
         }
@@ -111,7 +111,7 @@ public class FeeCalc {
         }
         //先判断用户是不是合伙人，如果是合伙人，那用户需要给自己分佣,注意：给用户自己返佣时，不根据type=0字段，根据user_partner_balance表判断，如果该表中有数据，则返佣；反之，不返佣
         //如果用户自己是合伙人，并且用户配置allotLowerFeeRate的值大于0，则给用户和合伙人按照比列返佣
-        Boolean isBackFeeToUser = accountDao.getUserPartnerBalanceHoldByUserId(userId) == null ? false:true;
+        Boolean isBackFeeToUser = accountDao.getUserPartnerBalanceByUser(userId) == null ? false:true;
 
         if (isBackFeeToUser && allotLowerFeeRate0.compareTo(BigDecimal.ZERO) == 1){
             //如果用户只有一个合伙人，则特殊处理

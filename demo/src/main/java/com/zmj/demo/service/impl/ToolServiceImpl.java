@@ -1,11 +1,9 @@
 package com.zmj.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zmj.demo.common.HttpUtil;
 import com.zmj.demo.common.SqlUtil;
-import com.zmj.demo.common.dev1.AccountUtil;
-import com.zmj.demo.common.dev1.FeeCalc;
-import com.zmj.demo.common.dev1.ProfitCalc;
-import com.zmj.demo.common.dev1.ThroughPositionsCalc;
+import com.zmj.demo.common.dev1.*;
 import com.zmj.demo.config.Config;
 import com.zmj.demo.dao.dev1.AccountDao;
 import com.zmj.demo.dao.test.SmsEmailCode;
@@ -59,6 +57,12 @@ public class ToolServiceImpl implements ToolService {
     @Autowired
     private AccountUtil accountUtil;
 
+    @Autowired
+    private HttpUtil httpUtil;
+
+    @Autowired
+    private BalanceCalc balanceCalc;
+
     @Override
     public List<SmsEmailcodeDomain> getList() {
         return smsEmailCode.getList();
@@ -74,38 +78,29 @@ public class ToolServiceImpl implements ToolService {
             //redis获取对账前的金额
             redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(new JSONObject().getClass()));
             JSONObject userBalanceR = (JSONObject) redisService.get("user_balance:"+userId);
-            JSONObject userPartnerBalanceR = (JSONObject) redisService.get("user_partner_balance:"+userId);
-            if (userBalanceR == null || userPartnerBalanceR == null){
-                return "请先同步账户余额！";
+            if (userBalanceR == null){
+                return "请先同步user_balance账户余额！";
             }
-            //数据库流水表聚合统计的值
-            UserBillChain userBillTotal = accountDao.getUserBillTotal(time, userId);
-            //操作后，查询数据库金额
-            BigDecimal balancePost = BigDecimal.ZERO;
-            BigDecimal holdPost = BigDecimal.ZERO;
-            List<UserBalanceChain> balanceHoldJbPost = accountDao.getUserBalanceHoldByUserId(userId);
-            for (UserBalanceChain j : balanceHoldJbPost
-            ) {
-                balancePost = j.getBalance();
-                holdPost = j.getHold();
+            String balanceRes = balanceCalc.balanceCalc(userBalanceR,userId,time);
+            if(balanceRes.contains("user_balance账号总额不正确") ) {
+                error.append(balanceRes);
             }
-            log.info("操作后，数据库金额，balance:{},hold:{}", balancePost, holdPost);
-            //操作前，账户金额
-            BigDecimal totalPre = userBalanceR.getBigDecimal("balance").add(userBalanceR.getBigDecimal("hold"));
-            //操作后，账户变化金额,如果无流水账单，默认赋值为0
-            BigDecimal totalIng = userBillTotal == null ? BigDecimal.ZERO : userBillTotal.getTotal();
-            //操作后，计算剩余的总金额
-            BigDecimal totalPostCalc = totalPre.add(totalIng);
-            //操作后，数据库总的金额
-            BigDecimal totalPost = balancePost.add(holdPost);
-            log.info("下单前，账户金额:{},操作后，账户变化金额:{},操作后，计算剩余的金额:{},操作后，数据库存储的总金额:{}" , totalPre,totalIng,totalPostCalc,totalPost);
-            stringBuffer.append("下单前，账户总金额:" + totalPre+"，balance:"+userBalanceR.getBigDecimal("balance")+"，hold:"+userBalanceR.getBigDecimal("hold")).append("</br>");
-            stringBuffer.append("操作后，账户变化金额:" + totalIng).append("</br>");
-            stringBuffer.append("操作后，计算剩余总金额:" + totalPostCalc).append("</br>");
-            stringBuffer.append("操作后，数据库总金额:" + totalPost+"，balance:"+balancePost+"，hold:"+holdPost).append("</br>");
-            if (totalPost.setScale(Config.newScale,BigDecimal.ROUND_DOWN).compareTo(totalPostCalc.setScale(Config.newScale,BigDecimal.ROUND_DOWN)) != 0){
-                flag = true;
-                error.append("账号总额不正确，请检查!").append("</br>");
+            stringBuffer.append(balanceRes);
+            //如果user_partner_balance表无用户数据，则不计算流水的变化
+            if (accountDao.getUserPartnerBalanceByUser(userId) == null){
+                log.info("用户:{}，user_partner_balance表无数据，不做流水校验！",userId);
+                stringBuffer.append("用户:"+userId+"，user_partner_balance表无数据，不做流水校验！").append("</br>");
+            }else {
+//                redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(new JSONObject().getClass()));
+                JSONObject userPartnerBalanceR = (JSONObject) redisService.get("user_partner_balance:"+userId);
+                if (userPartnerBalanceR == null){
+                    return "请先同步user_partner_balance账户余额！";
+                }
+                String partnerBalanceRes = balanceCalc.partnerBalanceCalc(userPartnerBalanceR,userId,time);
+                if(partnerBalanceRes.contains("user_partner_balance账号总额不正确") ) {
+                    error.append(partnerBalanceRes);
+                }
+                stringBuffer.append(partnerBalanceRes);
             }
 
             //用户及合伙人列表
@@ -232,8 +227,8 @@ public class ToolServiceImpl implements ToolService {
 
     @Override
     public JsonResult getUserBalance(String userId, String time) {
-        List<UserBalanceChain> resUserBalance = accountDao.getUserBalanceHoldByUserId(userId);
-        List<UserBalanceChain> resUserParterBalance = accountDao.getUserPartnerBalanceHoldByUserId(userId);;
+        List<UserBalanceChain> resUserBalance = accountDao.getUserBalanceByUser(userId);
+        List<UserBalanceChain> resUserParterBalance = accountDao.getUserPartnerBalanceByUser(userId);;
         List<UserBalanceChain> res = new ArrayList<UserBalanceChain>();
         for (UserBalanceChain u : resUserBalance
         ) {
@@ -274,7 +269,23 @@ public class ToolServiceImpl implements ToolService {
 
     @Override
     public JsonResult getAllUserBalance() {
-        List<UserBalanceChain> resUserBalance = accountDao.getUserBalanceHold();
+        //查询user_balance表全部账户总的balance和hold值
+        UserBalanceChain userBalance = accountDao.getAllUserBalance();
+        JSONObject userBalanceJ = new JSONObject();
+        userBalanceJ.put("balance", userBalance.getBalance());
+        userBalanceJ.put("hold", userBalance.getHold());
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(userBalanceJ.getClass()));
+        redisService.set("user_balance:all", userBalanceJ);
+        log.info("user_balance:all--->{}",userBalanceJ);
+        //查询user_partner_balance表全部账户总的balance和hold值
+        userBalance =  accountDao.getAllUserPartnerBalance();
+        userBalanceJ.put("balance", userBalance.getBalance());
+        userBalanceJ.put("hold", userBalance.getHold());
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(userBalanceJ.getClass()));
+        redisService.set("user_partner_balance:all", userBalanceJ);
+        log.info("user_partner_balance:all--->{}",userBalanceJ);
+
+        List<UserBalanceChain> resUserBalance = accountDao.getUserBalance();
         List<UserBalanceChain> resUserParterBalance = null;
         List<UserBalanceChain> res = new ArrayList<UserBalanceChain>();
         List<String> userList = new ArrayList<String>();
@@ -302,7 +313,7 @@ public class ToolServiceImpl implements ToolService {
         res.add(new UserBalanceChain());
         for (String str: userList
              ) {
-            resUserParterBalance = accountDao.getUserPartnerBalanceHoldByUserId(str);
+            resUserParterBalance = accountDao.getUserPartnerBalanceByUser(str);
             for (UserBalanceChain u : resUserParterBalance
             ) {
                 try {
@@ -381,12 +392,12 @@ public class ToolServiceImpl implements ToolService {
                 totalFeeBack = totalFee.multiply(rebateUserRatio).setScale(Config.newScale,BigDecimal.ROUND_DOWN);
             }
             moneyPost = money.add(totalFeeBack).add(totalProfit).subtract(totalFee).setScale(Config.newScale,BigDecimal.ROUND_DOWN);
-            log.info("账户初始金额:{},盈亏金额:{},手续费:{},返的手续费:{},最后金额:{}",money,totalProfit,totalFee,totalFeeBack,moneyPost);
-            stringBuffer.append("账户初始金额:"+money+",盈亏金额:"+totalProfit+",手续费:"+totalFee+",返的手续费:"+totalFeeBack+",最后金额:"+moneyPost).append("</br>");
+            log.info("账户初始金额:{}，盈亏金额:{}，手续费:{}，返的手续费:{}，最后金额:{}",money,totalProfit,totalFee,totalFeeBack,moneyPost);
+            stringBuffer.append("账户初始金额:"+money+"，盈亏金额:"+totalProfit+"，手续费:"+totalFee+"，返的手续费:"+totalFeeBack+"，最后金额:"+moneyPost).append("</br>");
             if (moneyPost.compareTo(BigDecimal.ZERO) == -1){
                 String tmp = accountUtil.throughBack(userPartner,moneyPost);
-                log.info("用户:{},合伙人的穿仓回退:{}",userId,tmp);
-                stringBuffer.append("用户:"+userId+",合伙人的穿仓回退:"+tmp).append("</br>");
+                log.info("用户:{}，合伙人的穿仓回退--->{}",userId,tmp);
+                stringBuffer.append("用户:"+userId+"，合伙人的穿仓回退--->"+tmp).append("</br>");
             }
         }else {
             List<PositionActionChain> positionList = accountDao.positionAction(userId,null,"coerceClose");
@@ -400,6 +411,8 @@ public class ToolServiceImpl implements ToolService {
             BigDecimal fee = BigDecimal.ZERO;
             BigDecimal feeBack = BigDecimal.ZERO;
             BigDecimal marginProfit = BigDecimal.ZERO;
+            BigDecimal balance = BigDecimal.ZERO;
+            //逐仓获取账户余额
             for (PositionActionChain position : positionList) {
                 BigDecimal oneLotSize = accountDao.instruments(position.getSymbol());
                 margin =  position.getMargin();
@@ -416,7 +429,7 @@ public class ToolServiceImpl implements ToolService {
                     BigDecimal rebateUserRatio = accountUtil.rebateUserRatio(userId);
                     feeBack = fee.multiply(rebateUserRatio).setScale(Config.newScale,BigDecimal.ROUND_DOWN);
                 }
-                marginProfit = margin.add(profit).subtract(fee).add(feeBack);
+                marginProfit = money.add(margin).add(profit).subtract(fee).add(feeBack);
                 log.info("账户初始保证金:{},盈亏金额:{},手续费:{},返的手续费:{},最后金额:{}",margin,profit,fee,feeBack,marginProfit);
                 stringBuffer.append("账户初始金额:"+margin+",盈亏金额:"+profit+",手续费:"+fee+",返的手续费:"+feeBack+",最后金额:"+marginProfit).append("</br>");
                 if (marginProfit.compareTo(BigDecimal.ZERO) == -1){
@@ -427,6 +440,17 @@ public class ToolServiceImpl implements ToolService {
             }
         }
         return stringBuffer.toString();
+    }
+
+    @Override
+    public String updateMarket(String symbol, String price) {
+        String url = "http://10.0.50.148:8081/test/market?symbol="+symbol+"&price="+price;
+        try {
+            httpUtil.get(url);
+            return "推送成功!";
+        }catch (Exception e){
+            return "推送失败!";
+        }
     }
 
     //废弃
@@ -459,11 +483,11 @@ public class ToolServiceImpl implements ToolService {
                     return "请先同步账户余额！";
                 }
                 //数据库流水表聚合统计的值
-                UserBillChain userBillTotal = accountDao.getUserBillTotal(time, userId);
+                UserBillChain userBillTotal = accountDao.getUserBillTotalByUser(userId,time);
                 //操作后，查询数据库金额
                 BigDecimal balancePost = BigDecimal.ZERO;
                 BigDecimal holdPost = BigDecimal.ZERO;
-                List<UserBalanceChain> balanceHoldJbPost = accountDao.getUserBalanceHoldByUserId(userId);
+                List<UserBalanceChain> balanceHoldJbPost = accountDao.getUserBalanceByUser(userId);
                 for (UserBalanceChain j : balanceHoldJbPost
                 ) {
                     balancePost = j.getBalance();
