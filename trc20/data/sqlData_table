@@ -1,1 +1,0 @@
-select * from tb_bdr_user_kpi where user_id=333387939 and business_id=

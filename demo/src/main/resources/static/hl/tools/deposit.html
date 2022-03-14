@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>58coin工具集</title>
+    <link rel="stylesheet" href="../../lib/layui/css/layui.css">
+</head>
+<body>
+<div class="layui-tab layui-tab-brief" lay-filter="publicTool" style="width: 96%;margin:3px 6px 0 8px">
+    <div class="layui-tab-content">
+        <!--充值-->
+        <div class="layui-tab-item layui-show">
+            <div style="display: table;width: 100%">
+                <div style="display: table-cell">
+                    <fieldset class="layui-elem-field">
+                        <legend style="margin-top:6px;"><span class="layui-badge" style="background-color: #8b8583;">充值</span></legend>
+                        <form class="layui-form" id="recharge_form_58ex">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">选择币种</label>
+                                <div class="layui-input-block">
+                                    <select id="currencyNameMain" name="currencyName" lay-filter="currencyRecharge"
+                                            lay-verify="required"
+                                            lay-search="">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">金&emsp;&emsp;额</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="rechargeAmount" required lay-verify="required|number"
+                                           placeholder="请输入充值金额" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item" style="margin-bottom: 15px">
+                                <label class="layui-form-label">账户类型</label>
+                                <div class="layui-input-inline">
+                                    <input type="radio" name="rechargeUserType" value="mobile" title="手机号" checked>
+                                    <input type="radio" name="rechargeUserType" value="userId" title="用户ID">
+
+                                </div>
+                                <div class="layui-form-mid layui-word-aux">选择用户ID可以批量充值，格式：10001-10009</div>
+                            </div>
+
+                            <div class="layui-form-item" style="margin-bottom: 15px">
+                                <label class="layui-form-label">账户信息</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="rechargeUserVal" required lay-verify="required"
+                                           placeholder="请输入手机号或者用户ID" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="recharge_58ex">立即充值
+                                    </button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重&emsp;&emsp;置</button>
+                                </div>
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
+<!--                <div style="display: table-cell">-->
+<!--                    <fieldset class="layui-elem-field">-->
+<!--                        <legend style="margin-top:6px;"><span class="layui-badge" style="background-color: #8b8583;">FEX充值</span></legend>-->
+<!--                        <form class="layui-form" id="recharge_form">-->
+<!--                            <div class="layui-form-item">-->
+<!--                                <label class="layui-form-label">选择币种</label>-->
+<!--                                <div class="layui-input-block">-->
+<!--                                    <select id="currencyNameFex" name="currencyName" lay-filter="currencyRecharge"-->
+<!--                                            lay-verify="required" lay-search="">-->
+<!--                                        <option value=""></option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="layui-form-item">-->
+<!--                                <label class="layui-form-label">金&emsp;&emsp;额</label>-->
+<!--                                <div class="layui-input-block">-->
+<!--                                    <input type="text" name="rechargeAmount" required lay-verify="required|number"-->
+<!--                                           placeholder="请输入充值金额" autocomplete="off" class="layui-input">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="layui-form-item" style="margin-bottom: 15px">-->
+<!--                                <label class="layui-form-label">账户类型</label>-->
+<!--                                <div class="layui-input-inline">-->
+<!--                                    <input type="radio" name="rechargeUserType" value="mobile" title="手机号" checked>-->
+<!--                                    <input type="radio" name="rechargeUserType" value="userId" title="用户ID">-->
+
+<!--                                </div>-->
+<!--                                <div class="layui-form-mid layui-word-aux">选择用户ID可以批量充值，格式：10001-10009</div>-->
+<!--                            </div>-->
+
+<!--                            <div class="layui-form-item" style="margin-bottom: 15px">-->
+<!--                                <label class="layui-form-label">账户信息</label>-->
+<!--                                <div class="layui-input-block">-->
+<!--                                    <input type="text" name="rechargeUserVal" required lay-verify="required"-->
+<!--                                           placeholder="请输入手机号或者用户ID" autocomplete="off" class="layui-input">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="layui-form-item">-->
+<!--                                <div class="layui-input-block">-->
+<!--                                    <button class="layui-btn" lay-submit lay-filter="recharge_fex">立即充值</button>-->
+<!--                                    <button type="reset" class="layui-btn layui-btn-primary">重&emsp;&emsp;置</button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                    </fieldset>-->
+<!--                </div>-->
+            </div>
+        </div>
+        <div>
+            <fieldset class="layui-elem-field" style="display:none;color:green" id="currencyField">
+                <legend style="margin-bottom: 8px;"><span class="layui-badge">响应结果</span></legend>
+                <div class="layui-field-box"><p id="currencyResult" style="padding-left: 15px"></p></div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+<script src="../../lib/layui/layui.all.js"></script>
+<script src="../../js/tools/common.js"></script>
+<script src="../../lib/jquery-2.1.1.min.js"></script>
+<script>
+    layui.use(['form', 'element', 'table'], function () {
+        var form = layui.form;
+        var element = layui.element;
+        var table = layui.table;
+        // 58EX用户充值
+        form.on('submit(recharge_58ex)', function (data) {
+            $.ajax({
+                type: 'post',  //数据提交方式(post/get/put)
+                url: "/main/recharge",  //提交到的url
+                contentType: "application/json; charset=utf-8",
+                headers: {"token":layui.data('setter')['token']},
+                data: JSON.stringify(data.field),//提交的数据
+                dataType: "json",//返回的数据类型格式
+                success: function (result) {
+                    if(result.code == 0){
+                        console.log(result.msg);
+                        $("#currencyField").css("display", "block");
+                        $("#currencyResult").html(result.msg);
+                    }else if(result.code == 401){
+                        layer.msg("token失效,请重新登录!", {  
+                            offset: '15px',  
+                            icon: 5,  
+                            time: 1000  
+                        }, function () {  
+                            window.top.location.href = "../../login.html";
+                        });
+                    }
+                }
+            });
+            return false;
+        });
+
+        // fex用户充值
+        form.on('submit(recharge_fex)', function (data) {
+            $.ajax({
+                type: 'post',  //数据提交方式(post/get/put)
+                url: "/fex/recharge",  //提交到的url
+                contentType: "application/json; charset=utf-8",
+                headers: {"token":layui.data('setter')['token']},
+                data: JSON.stringify(data.field),//提交的数据
+                dataType: "json",//返回的数据类型格式
+                success: function (result) {
+                    if(result.code == 0){
+                        $("#currencyField").css("display", "block");
+                        $("#currencyResult").html(result.msg);
+                    }else if(result.code == 401){
+                        layer.msg("token失效,请重新登录!", {  
+                            offset: '15px',  
+                            icon: 5,  
+                            time: 1000  
+                        }, function () {  
+                            window.top.location.href = "../../login.html";
+                        });
+                    }
+                }
+            });
+            return false;
+        });
+
+        /**
+         * 充值
+         */
+        // $("#rechargeLi").click(function () {
+        //     selectInit('/main/getCurrencyNames', $("select[id='currencyNameMain']"), '请选择币种');
+        //     selectInit('/fex/getCurrencyNames', $("select[id='currencyNameFex']"), '请选择币种');
+        //     // selectInit('/main/getSites', $("select[name*='Site']"), '请选择账户');
+        // });
+
+        layer.ready(function(){
+            selectInit('/main/getCurrencyNames', $("select[id='currencyNameMain']"), '请选择币种');
+<!--            selectInit('/fex/getCurrencyNames', $("select[id='currencyNameFex']"), '请选择币种');-->
+        });
+        // 监听合约种类选择事件
+        form.on("radio(contractId)", function (data) {
+            var contractId = data.value;
+            console.log("contractId---->", contractId);
+            swapDethTable(contractId);
+            // $.ajax({
+            //     type: 'get',
+            //     url: '/swap/deth?contractId=' + contractId,
+            //     contentType: "application/json; charset=utf-8",
+            //     success: function (result) {
+            //         if (result.code === "0") {
+            //             swapDethTable();
+            //         }
+            //     }, error: function (e) {
+            //         console.log(e, 'error');
+            //     }
+            // });
+        });
+    });
+
+</script>
+
+</body>
+</html>

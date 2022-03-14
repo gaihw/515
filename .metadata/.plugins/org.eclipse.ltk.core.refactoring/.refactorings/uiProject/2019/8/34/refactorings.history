@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;Accounts.java&apos; to &apos;uiProject/src/com.uiPackage.utils&apos;&#x0A;- Original project: &apos;uiProject&apos;&#x0A;- Destination element: &apos;uiProject/src/com.uiPackage.utils&apos;&#x0A;- Original element: &apos;com.uiPackage.utils.mine.Accounts.java&apos;" description="Copy compilation unit" destination="/src&lt;com.uiPackage.utils" element1="/src&lt;com.uiPackage.utils.mine{Accounts.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1566272650691" units="1" version="1.0"/>
-</session>

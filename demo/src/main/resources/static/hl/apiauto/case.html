@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui/css/layui.css">
+   
+	<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+	<style>
+		body .demo-class .layui-layer-content{
+			height: 230px!important;
+		}
+		
+	</style>
+</head>
+<body>
+<table class="layui-hide" id="case_table" lay-filter="test"></table>
+
+<script type="text/html" id="toolbarDemo">
+	<div class="demoTable" id="search">
+		<div class="layui-input-inline" style=" float:left">
+			<input id="demoReload" type="text" name="pro" placeholder="请输入接口名称" autocomplete="off" class="layui-input" style="width: 130px;;height:36px">
+		</div>
+		<div class="layui-btn-container" style=" float:left; padding-left:5px;" >
+			<button class="layui-btn layui-btn-sm" lay-event="searchData" data-type="reload"><i class="layui-icon">&#xe615;</i> 查询</button>
+		</div>
+	</div>
+<!--	<div class="demoTable">-->
+<!--		搜索ID：-->
+<!--		<div class="layui-inline">-->
+<!--			<input class="layui-input" name="id" id="demoReload" autocomplete="off">-->
+<!--		</div>-->
+<!--		<button class="layui-btn" data-type="reload">搜索</button>-->
+<!--	</div>-->
+	<div class="layui-btn-container" style=" float:left; padding-left:5px;" >
+		<button class="layui-btn layui-btn-sm" lay-event="getCheckLength"  style="display:none">获取选中数目</button>
+		<button class="layui-btn layui-btn-sm" lay-event="isAll"  style="display:none">验证是否全选</button>
+		<button class="layui-btn layui-btn-sm" lay-event="addData"><i class="layui-icon">&#xe61f;</i> 新增</button>
+		<button class="layui-btn layui-btn-sm" lay-event="flushData"><i class="layui-icon">&#xe9aa;</i> 刷新</button>
+		<button class="layui-btn layui-btn-sm" lay-event="getCheckData"><i class="layui-icon">&#xe6b2;</i> 获取选中行数据</button>
+	</div>
+</script>
+
+
+<script type="text/html" id="barDemo">
+	<a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</a>
+	<a class="layui-btn layui-bg-orange layui-btn-xs" lay-event="info"><i class="layui-icon">&#xe6b2;</i>详情</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+</script>
+<script type="text/html" id="num">
+	{{d.LAY_TABLE_INDEX+1}}
+</script>
+
+<script src="../../lib/jquery-2.1.1.min.js"></script>
+<script src="../../lib/layui/layui.all.js"></script>
+<script src="../../js/tools/common.js"></script>
+
+<script>
+layui.use(['element','form','table','jquery'], function(){
+	var element = layui.element;
+	var table = layui.table;
+	var form = layui.form;
+	var $ = layui.jquery;
+	var tmp_platform='';
+	var tmp_project='';
+	var tmp_module = '';
+	var tmp_module_id='';
+	var tmp_method = '';
+	var tmp_name = '';
+	var tmp_assertType = 3;
+
+  table.render({
+    elem: '#case_table'
+	,url:'/api/auto/case/list'
+	,method:'post'
+	,headers: {"token":layui.data('setter')['token']}
+	,contentType: 'application/json'
+    ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+    , even: true //开启隔行背景
+    ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+      title: '提示'
+      ,layEvent: 'LAYTABLE_TIPS'
+      ,icon: 'layui-icon-tips'
+    }]
+    // ,title: '项目信息表'
+	// ,height: '400px'
+    ,cols: [[
+      {type: 'checkbox', fixed: 'left'}
+	  ,{title:'ID', width:'5%', fixed: 'left', unresize: true, sort: true,align:'center',templet:'#num'}
+	  ,{field:'id', title:'用例编号', width:'8%', align:'center'}//,hide:true
+	  ,{field:'interfaceManageID', title:'关联外键',align:'center',hide:true}
+      ,{field:'platform', title:'平台', width:'8%',align:'center'}
+      ,{field:'project', title:'项目', width:'8%',align:'center'}
+      ,{field:'module', title:'模块', width:'12%',align:'center'}
+	  ,{field:'name', title:'接口名称', width:'14%',align:'center'}
+	  ,{field:'caseName', title:'用例名称', width:'14%',align:'center'}
+	  ,{field:'paramData', title:'参数体', width:'18%',align:'center'}
+	  ,{field:'assertType', title:'断言类型', width:'18%',align:'center',templet:function(data){
+				if(parseInt(data.assertType) == 0)
+					return "包含"
+				else if(parseInt(data.assertType) == 1)
+					return "相等"				
+				else
+					return "无"
+		}}
+	  ,{field:'assertData', title:'断言数据', width:'6%',align:'center'}
+	  ,{field:'isSuccess', title:'结果', width:'6%',align:'center',templet:function(data){
+				if(parseInt(data.isSuccess) == 0)
+					return "未执行"
+				else if(parseInt(data.isSuccess) == 1)
+					return '<span style="color: #FF5722;">未通过</span>'
+				else if(parseInt(data.isSuccess) == 2)
+					return '<span style="color: #009688;">通 过</span>'
+				else
+					return "无"
+		}}
+      ,{field:'state', title:'备注', width:'12%',align:'center'}
+      ,{field:'creator', title:'操作者', width:'12%',align:'center'}
+      ,{field:'createDate', title:'创建时间', align:'center',hide:true}
+	  ,{field:'updateDate', title:'修改时间', width:'18%',align:'center'}
+	  ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:'18%'}
+    ]]
+	,done:function(res,page,count){
+		if(res.code == 401){
+			layer.msg("token失效,请重新登录!", {  
+					offset: '15px',  
+					icon: 5,  
+					time: 1000  
+				}, function () {  
+					window.top.location.href = "../../login.html";
+				});
+		}
+	}
+    ,page: true
+    , limit: 10
+    , limits: [1, 5, 10, 20, 50, 100]
+  });
+
+  
+  	//监听平台下拉框
+  	form.on('select(platfromfilter)',function(data){
+        // console.log(data.value);
+		tmp_platform = data.value;
+		$("select[id='idproject']").empty();
+		$("select[id='idproject']").append(new Option("请选择项目",""));
+		$("select[id='idmodule']").empty();
+		$("select[id='idmodule']").append(new Option("请选择模块",""));
+		$("select[id='idname']").empty();
+		$("select[id='idname']").append(new Option("请选择接口名称",""));
+		$.ajax({
+			type: 'get',
+			url: "/api/auto/api/list/project?platform="+tmp_platform,
+			headers: {"token":layui.data('setter')['token']},
+			success: function (data) {
+				// $("select[id='idproject']").empty();
+				// $("select[id='idproject']").append(new Option("请选择项目",""));
+				for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+					var content = $('<option value="' + data.data[i] + '">' + data.data[i] + '</option>');
+					$("select[id='idproject']").append(content);
+				}
+				layui.form.render();//菜单渲染 把内容加载进去
+			}, error: function (e) {//响应不成功时返回的函数
+				console.log(e, 'error');
+			}
+		});
+	});
+	//监听项目下拉框
+	form.on('select(projectfilter)',function(data){
+        // console.log(data.value);
+		tmp_project = data.value;
+		$("select[id='idmodule']").empty();
+		$("select[id='idmodule']").append(new Option("请选择模块",""));
+		$("select[id='idname']").empty();
+		$("select[id='idname']").append(new Option("请选择接口名称",""));
+		$.ajax({
+			type: 'get',
+			url: "/api/auto/interface/list/module?platform="+tmp_platform+"&project="+tmp_project,
+			headers: {"token":layui.data('setter')['token']},
+			success: function (data) {
+				
+				for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+					var content = $('<option value="' + data.data[i].module + '">' + data.data[i].module + '</option>');
+					$("select[id='idmodule']").append(content);
+				}
+				layui.form.render();//菜单渲染 把内容加载进去
+			}, error: function (e) {//响应不成功时返回的函数
+				console.log(e, 'error');
+			}
+		});
+	});
+	//监听模块下拉框
+	form.on('select(modulefilter)',function(data){
+		tmp_module = $('#idmodule option:selected').text();
+		$("select[id='idname']").empty();
+		$("select[id='idname']").append(new Option("请选择接口名称",""));
+		$.ajax({
+			type: 'get',
+			url: "/api/auto/case/list/name?platform="+tmp_platform+"&project="+tmp_project+"&module="+tmp_module,
+			headers: {"token":layui.data('setter')['token']},
+			success: function (data) {
+				
+				for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+					var content = $('<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>');
+					$("select[id='idname']").append(content);
+				}
+				layui.form.render();//菜单渲染 把内容加载进去
+			}, error: function (e) {//响应不成功时返回的函数
+				console.log(e, 'error');
+			}
+		});
+	});
+	form.on('select(namefilter)',function(data){
+		tmp_name = $('#idname option:selected').text();
+		
+	});
+
+	//头工具栏事件
+	table.on('toolbar(test)', function(obj){
+		var checkStatus = table.checkStatus(obj.config.id);
+		switch(obj.event){
+		case 'getCheckData':
+			var data = checkStatus.data;
+			layer.alert(JSON.stringify(data));
+		break;
+		case 'getCheckLength':
+			var data = checkStatus.data;
+			layer.msg('选中了：'+ data.length + ' 个');
+		break;
+		case 'isAll':
+			layer.msg(checkStatus.isAll ? '全选': '未全选');
+		break;
+		case 'searchData':
+			var type = $(this).data('type');
+			active[type] ? active[type].call(this) : '';
+		break;
+		case 'addData':
+				//点击添加接口时，清空下拉框内容
+				$("select[id='idplatform']").empty();
+				$("select[id='idplatform']").append(new Option("请选择平台",""));
+				$("select[id='idproject']").empty();
+				$("select[id='idproject']").append(new Option("请选择项目",""));
+				$("select[id='idmodule']").empty();
+				$("select[id='idmodule']").append(new Option("请选择模块",""));
+				$("select[id='idname']").empty();
+				$("select[id='idname']").append(new Option("请选择接口名称",""));
+				$("select[id='idmethod']").val("");
+				$("select[id='idparam']").val("");
+
+				//渲染平台下拉框
+				$.ajax({
+					type: 'get',
+					url: "/api/auto/interface/list/platform",
+					headers: {"token":layui.data('setter')['token']},
+					success: function (data) {
+						for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+							var content = $('<option value="' + data.data[i] + '">' + String(data.data[i]) + '</option>');
+							$("select[id='idplatform']").append(content);
+						}
+						layui.form.render();//菜单渲染 把内容加载进去
+					}, error: function (e) {//响应不成功时返回的函数
+						console.log(e, 'error');
+					}
+				});
+			layer.open({
+				skin: 'demo-class',
+				type: 1,
+				title: '新增接口',
+				closeBtn: 1,
+				content:  $("#window"),
+				offset: '150px',
+				// btnAlign: 'c',
+				resize: true,
+				scrollbar: true,
+				area:['700px','340px'],
+				btn: ['提交', '取消'],
+				//点击新增，渲染表单，下拉框不显示问题
+				success: function(layero){
+					form.render();
+					// layui.use('form',function(){
+					// 	var form = layui.form;
+					// 	form.render();
+					// });
+					
+				},
+				yes: function (index,layero) {
+					$.ajax({
+						type: 'POST',
+						url: '/api/auto/case/add',
+						headers: {"token":layui.data('setter')['token']},
+						contentType: "application/json; charset=utf-8",
+						data: JSON.stringify({'apiId':parseInt($('#idname').val()),
+												'platform':$('#idplatform').val(),
+												'project':$('#idproject').val(),
+												'module':$('#idmodule option:selected').text(),
+												'name':$('#idname option:selected').text(),
+												'param':JSON.stringify(layui.data('param')),
+												'assertData':JSON.stringify(layui.data('assertData')),
+												'state':$('#state').val()}),
+						dataType: "json",
+						success: function (data) {
+							if(data.code == 0){
+								layer.close(index);//关闭弹出层
+								layer.msg("添加成功！");
+								$("#projectform")[0].reset();//重置form
+								layui.form.render();
+								$("#window").css("display","none");
+								layui.data('param', {
+									key: 'header'
+									,remove: true
+								});
+								layui.data('param', {
+									key: 'body'
+									,remove: true
+								});
+								table.reload('case_table', {
+									method:'post'
+									,url:'/api/auto/case/list'
+									,headers: {"token":layui.data('setter')['token']}
+									,contentType: 'application/json'
+									,where: null
+								}, 'data');
+							}else if(data.code == 401){
+								layer.msg("token失效,请重新登录!", {  
+										offset: '15px',  
+										icon: 5,  
+										time: 1000  
+									}, function () {  
+										window.top.location.href = "../../login.html";
+									});
+							}
+						}
+					});
+				}
+				,btn2:function(index, layero){
+					layer.close(index);//关闭弹出层
+					layui.form.render();
+					$("#window").css("display","none");
+				}
+				,cancel:function(){
+					layui.form.render();
+					$("#window").css("display","none");
+				}
+			});
+			
+			break;
+			case 'flushData':
+				table.reload('case_table', {
+					method:'post'
+					,url:'/api/auto/case/list'
+					,headers: {"token":layui.data('setter')['token']}
+					,contentType: 'application/json'			
+					,where: null
+				}, 'data');
+			break;
+			//自定义头工具栏右侧图标 - 提示
+			case 'LAYTABLE_TIPS':
+				layer.alert('这是工具栏右侧自定义的一个图标按钮');
+			break;
+		};
+	});
+
+  	//监听行工具事件
+  	table.on('tool(test)', function(obj){
+		var data = obj.data;//得到所在行所有键值
+		//console.log(obj)
+		if(obj.event === 'del'){
+		layer.confirm('真的删除行么', function(index){
+			$.ajax({
+				type: 'POST',
+				url: '/api/auto/case/delete',
+				headers: {"token":layui.data('setter')['token']},
+				contentType: "application/json; charset=utf-8",
+				data: JSON.stringify({'id':data.id}),
+				dataType: "json",
+				success: function (data) {
+					if(data.code == 0){
+						obj.del();
+						layer.close(index);
+					}else if(data.code == 401){
+						layer.msg("token失效,请重新登录!", {  
+								offset: '15px',  
+								icon: 5,  
+								time: 1000  
+							}, function () {  
+								window.top.location.href = "../../login.html";
+							});
+					}
+				}
+			});
+
+		});
+		} else if(obj.event === 'edit'){
+			// console.log(data);
+			layer.open({
+				skin: 'demo-class',
+				type: 1,
+				closeBtn: 1,
+				shift: 7,
+				//shadeClose: true,
+				content: $("#window"),
+				offset: '150px',
+				title:"编辑接口",
+				// btnAlign: 'c',
+				area:['700px','340px'],
+				btn:['提交','取消']
+				,success:function(layero,index){
+					// var platformRole=data.platform;
+					tmp_platform = data.platform;
+					// var projectRole=data.project;
+					tmp_project = data.project;
+					// var modulemRole=data.platformId;
+					tmp_module = data.module;
+					var nameRole = data.apiId;
+					tmp_name = data.name;
+					// console.log("nameRole="+nameRole);
+					$("select[id='idplatform']").empty();
+					$("select[id='idplatform']").append(new Option("请选择平台",""));
+					$("select[id='idproject']").empty();
+					$("select[id='idproject']").append(new Option("请选择项目",""));
+					$("select[id='idmodule']").empty();
+					$("select[id='idmodule']").append(new Option("请选择模块",""));
+					$("select[id='idname']").empty();
+					$("select[id='idname']").append(new Option("请选择接口名称",""));
+					//渲染平台下拉框，进行回显
+					$.ajax({
+						type: 'get',
+						url: "/api/auto/interface/list/platform",
+						headers: {"token":layui.data('setter')['token']},
+						success: function (data) {
+							for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+								var content = $('<option value="' + data.data[i] + '">' + String(data.data[i])+ '</option>');
+								$("select[id='idplatform']").append(content);
+							}
+							//点击编辑，渲染表单，下拉框不显示问题
+							$("#idplatform").each(function() {
+								// this代表的是<option></option>，对option再进行遍历
+								$(this).children("option").each(function() {
+									// 判断需要对那个选项进行回显
+									if (this.value == tmp_platform) {
+										// 进行回显
+										$(this).attr("selected","selected");
+									}
+								});
+							});
+							layui.form.render();//菜单渲染 把内容加载进去
+						}, error: function (e) {//响应不成功时返回的函数
+							console.log(e, 'error');
+						}
+					});
+					//项目下拉框回显
+					$.ajax({
+						type: 'get',
+						url: "/api/auto/interface/list/project?platform="+tmp_platform,
+						headers: {"token":layui.data('setter')['token']},
+						success: function (data) {
+							// $("select[id='idproject']").empty();
+							// $("select[id='idproject']").append(new Option("请选择项目",""));
+							for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+								var content = $('<option value="' + data.data[i] + '">' + String(data.data[i]) + '</option>');
+								$("select[id='idproject']").append(content);
+							}
+							$("#idproject").each(function() {
+								// this代表的是<option></option>，对option再进行遍历
+								$(this).children("option").each(function() {
+									// 判断需要对那个选项进行回显
+									if (this.value == tmp_project) {
+										// 进行回显
+										$(this).attr("selected","selected");
+									}
+								});
+							});
+							layui.form.render();//菜单渲染 把内容加载进去
+						}, error: function (e) {//响应不成功时返回的函数
+							console.log(e, 'error');
+						}
+					});
+					//模块下拉框回显
+					$.ajax({
+						type: 'get',
+						url: "/api/auto/interface/list/module?platform="+tmp_platform+"&project="+tmp_project,
+						headers: {"token":layui.data('setter')['token']},
+						success: function (data) {
+							for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+								var content = $('<option value="' + data.data[i].module + '">' + String(data.data[i].module) + '</option>');
+								$("select[id='idmodule']").append(content);
+							}
+							$("#idmodule").each(function() {
+								// this代表的是<option></option>，对option再进行遍历
+								$(this).children("option").each(function() {
+									// 判断需要对那个选项进行回显
+									if (this.value == tmp_module) {
+										// 进行回显
+										$(this).attr("selected","selected");
+									}
+								});
+							});
+							layui.form.render();//菜单渲染 把内容加载进去
+						}, error: function (e) {//响应不成功时返回的函数
+							console.log(e, 'error');
+						}
+					});
+					//接口名称回显
+					$.ajax({
+						type: 'get',
+						url: "/api/auto/case/list/name?platform="+tmp_platform+"&project="+tmp_project+"&module="+tmp_module,
+						headers: {"token":layui.data('setter')['token']},
+						success: function (data) {
+							for (var i in data.data) {// 遍历数据赋值给二级列表的内容
+								var content = $('<option value="' + data.data[i].id + '">' + String(data.data[i].name) + '</option>');
+								$("select[id='idname']").append(content);
+							}
+							$("#idname").each(function() {
+								// this代表的是<option></option>，对option再进行遍历
+								$(this).children("option").each(function() {
+									// 判断需要对那个选项进行回显
+									if (this.value == nameRole) {
+										// 进行回显
+										$(this).attr("selected","selected");
+									}
+								});
+							});
+							layui.form.render();//菜单渲染 把内容加载进去
+						}, error: function (e) {//响应不成功时返回的函数
+							console.log(e, 'error');
+						}
+					});
+					//初始化弹窗表格中的内容
+					console.log("data.param=="+data.param);
+					
+					var paramList = JSON.parse(data.param);
+					console.log("data.param.header=="+paramList.header);
+					console.log("data.param.body=="+paramList.body);
+					if(paramList != "{}"){
+						console.log("data.param.header01=="+paramList.header);
+						console.log("data.param.body01=="+paramList.body);
+						if(paramList.header != "{}" ){
+							console.log("data.param.header02=="+paramList.header);
+							layui.data('param', {
+								key: 'header',
+								value: paramList.header
+							});
+						}
+						if(paramList.body !== "{}"){
+							console.log("data.param.body02=="+paramList.body);
+							layui.data('param',{
+								key: 'body',
+								value: paramList.body
+							})
+						}
+					}
+					
+					$('#state').val(data.state);
+					layui.form.render();
+				},yes:function(index,layero){
+						$.ajax({
+							type: 'POST',
+							url: '/api/auto/interface/edit',
+							headers: {"token":layui.data('setter')['token']},
+							contentType: "application/json; charset=utf-8",
+							data: JSON.stringify({'id':data.id,
+												'apiId':parseInt($('#idname').val()),
+												'platform':$('#idplatform').val(),
+												'project':$('#idproject').val(),
+												'module':$('#idmodule option:selected').text(),
+												'name':$('#idname option:selected').text(),
+												'param':JSON.stringify(layui.data('param')),
+												'assertData':JSON.stringify(layui.data('assertData')),
+												'state':$('#state').val()}),
+							dataType: "json",
+							success: function (data) {
+								if(data.code == 0){
+	// <!--								layer.alert('编辑成功',{icon:1,title:'提示'},function(i){-->
+	// <!--									layer.close(i);-->
+									layer.close(index);//关闭弹出层
+									$("#projectform")[0].reset();//重置form
+									layui.form.render();
+									$("#window").css("display","none");
+	// <!--								});-->
+									layui.data('param', {
+										key: 'header'
+										,remove: true
+									});
+									layui.data('param', {
+										key: 'body'
+										,remove: true
+									});
+									table.reload('test',{//重载表格
+										page:{
+											curr:1
+										}
+									});
+								}else if(data.code == 401){
+									layer.msg("token失效,请重新登录!", {  
+										offset: '15px',  
+										icon: 5,  
+										time: 1000  
+									}, function () {  
+										window.top.location.href = "../../login.html";
+									});
+								}
+							}
+						});
+					}
+				,btn2:function(index, layero){
+					layer.close(index);//关闭弹出层
+					$("#projectform")[0].reset();//重置form
+					layui.form.render();
+					$("#window").css("display","none");
+				}
+				,cancel:function(){
+					$("#projectform")[0].reset();//重置form
+					layui.form.render();
+					$("#window").css("display","none");
+				}
+			});
+		}else if(obj.event === 'info'){
+			layer.open({
+				// skin: 'demo-class',
+				type: 1,
+				closeBtn: 1,
+				shift: 7,
+				//shadeClose: true,
+				scrollbar: false,// 父页面 滚动条 禁止
+				content: $("#window03"),
+				title:"用例信息",
+				// btnAlign: 'c',
+				area:['100%','100%']
+				,success:function(layero,index){
+					$.ajax({
+						type: 'get',
+						url: "/api/auto/case/info?id="+data.id,
+						headers: {"token":layui.data('setter')['token']},
+						success: function (data) {
+							var method = data.data.method;
+							var contentType = data.data.contentType;
+							
+							if( method == 0){
+								method = 'GET';
+							}else if(method == 1){
+								method = 'POST';
+							}
+							
+							if( contentType == 0){
+								var paramData = JSON.parse(data.data.paramData);
+								contentType = 'FORM';
+								$("#t_paramInfo").css("display","block");
+								$("#paramInfoJson").css("display","none");
+								$("#p_paramInfo").css("display","none");
+								
+								var html_paramInfo = '';
+								for(var key in paramData){
+									html_paramInfo = html_paramInfo + '<tr>'+
+									'<td style="text-align: center;">'+key+'</td>'+
+									'<td style="text-align: center;">'+paramData[key]+'</td>'+
+									'</tr>';
+								}
+								
+								//添加到表格最后
+								$(html_paramInfo).appendTo($('#t_paramInfo tbody:last'));
+							
+							}else if(contentType == 1){
+								var paramData = JSON.parse(data.data.paramData);
+								contentType = 'JSON';
+								//返回参数，json化显示
+								$("#paramInfoJson").text(JSON.stringify(paramData,null,'\t'));
+								
+								$("#t_paramInfo").css("display","none");
+								$("#paramInfoJson").css("display","block");
+								$("#p_paramInfo").css("display","none");
+								$("#paramInfoJson").text(JSON.stringify(paramData,null,'\t'));
+								
+							}else if(contentType == 2){
+								contentType = 'TEXT';
+								$("#t_paramInfo").css("display","none");
+								$("#paramInfoJson").css("display","block");
+								$("#p_paramInfo").css("display","none");
+								$("#paramInfoJson").html(data.data.paramData);
+								
+							}else if(contentType == 3){
+								contentType = '无';
+								$("#t_paramInfo").css("display","none");
+								$("#paramInfoJson").css("display","none");
+								$("#p_paramInfo").css("display","block");
+							}
+							var html_caseInfo = '<tr>'+
+									'<td style="text-align: center;">'+data.data.platformId+'</td>'+
+									'<td style="text-align: center;">'+data.data.project+'</td>'+
+									'<td style="text-align: center;">'+data.data.interfaceId+'</td>'+
+									'<td style="text-align: center;">'+data.data.name+'</td>'+
+									'<td style="text-align: center;">'+data.data.id+'</td>'+
+									'<td style="text-align: center;">'+data.data.caseName+'</td>'+
+									'<td style="text-align: center;">'+data.data.module+'</td>'+
+									'<td style="text-align: center;">'+data.data.ip+'</td>'+
+									'<td style="text-align: center;">'+data.data.path+'</td>'+
+									'<td style="text-align: center;">'+method+'</td>'+
+									'<td style="text-align: center;">'+contentType+'</td>'+
+								'</tr>';
+							//添加到表格最后
+							$(html_caseInfo).appendTo($('#t_caseInfo tbody:last'));
+							// var html1='<p>'+data.data.headerData+'</p>';
+							// $(html1).appendTo($('#t_interface_name'));
+
+							var html_headerInfo = '';
+							if(data.data.headerData != '无'){
+								$("#t_headerInfo").css("display","block");
+								$("#p_headerInfo").css("display","none");
+								var headerData = JSON.parse(data.data.headerData);
+								for(var key in headerData){
+									html_headerInfo = html_headerInfo + '<tr>'+
+									'<td style="text-align: center;">'+key+'</td>'+
+									'<td style="text-align: center;">'+headerData[key]+'</td>'+
+									'</tr>';
+								}
+								
+							}else{
+								$("#t_headerInfo").css("display","none");
+							}
+							$(html_headerInfo).appendTo($('#t_headerInfo tbody:last'));
+							
+							form.render();
+						}, error: function (e) {//响应不成功时返回的函数
+							console.log(e, 'error');
+						}
+					});
+					//元素刷新
+					layui.element.render('collapse');
+					layui.table.render();
+				}
+				,cancel:function(){
+					$("#window03").css("display","none");
+					$('#t_caseInfo tbody').html('');
+					$('#t_headerInfo tbody').html('');					
+					$("#t_paramInfo tbody").html('');
+					$("#paramInfoJson").html('');
+					
+				}
+			});
+		}
+  	});
+	var $ = layui.$, active = {
+		reload: function(){
+		var demoReload = $('#demoReload');     
+		//执行重载
+		table.reload('test', {
+	// <!--        page: {-->
+	// <!--          curr: 1 //重新从第 1 页开始-->
+	// <!--        },-->
+			method:'post'
+			,url:'/api/auto/case/list'
+			,headers: {"token":layui.data('setter')['token']}
+			,contentType: 'application/json'
+			,where: {
+	// <!--          key: {-->
+				project: demoReload.val()
+	// <!--          }-->
+			}
+		}, 'data');
+		}
+	};
+	
+	//监听添加参数按钮
+	$(document).on('click','#idparams',function(){
+		var index = layer.open({
+			type: 1,
+			closeBtn: 1,
+			shift: 7,
+			resize: true,
+			area : ['100%', '100%'],
+			content: $("#window01"),
+			title:"新增参数",
+			btn:['确定','取消'],
+			success:function(layero,index){
+				//初始化tab
+				for(var i = 0 ; i < 4 ; i++){
+					if(i == 0){
+						$("#paramType li:eq("+i+")").addClass("layui-this");
+						$("#paramType"+i).addClass("layui-show");
+					}else{
+						$("#paramType li:eq("+i+")").css("pointer-events","auto");
+						$("#paramType li:eq("+i+")").removeClass("layui-btn-disabled");
+					}
+				}
+				//切换
+				for(var i = 0 ; i < 4 ; i++){
+					if(i == parseInt(layui.data('api')[String(tmp_platform+tmp_project+tmp_module+tmp_name).toLocaleUpperCase()])){
+						$("#paramType li:eq("+i+")").addClass("layui-this");
+						$("#paramType"+i).addClass("layui-show");
+						$("#paramType li:eq("+i+")").removeClass("layui-btn-disabled");
+					}else{
+						$("#paramType li:eq("+i+")").removeClass("layui-this");
+						$("#paramType"+i).removeClass("layui-show");
+						$("#paramType li:eq("+i+")").css("pointer-events","none");
+						$("#paramType li:eq("+i+")").addClass("layui-btn-disabled");
+						// $("#paramType li:eq("+i+")").css("lay-event","forbidden");
+					}
+				}
+				var headerList = layui.data('param')['header'];
+				//如果缓存中，包含值，就赋值
+				if(headerList !== undefined ){
+					for(var i = 0 ; i < headerList.length ; i ++ ){
+						var html = '<tr>'+
+								'<td><input type="text" class="layui-input" value="'+headerList[i].name+'" lay-verify="required" name="paramsname"></td>'+
+								'<td><input type="text" class="layui-input" value="'+headerList[i].value+'" lay-verify="required" name="paramsvalue"></td>'+
+								'<td><input type="text" class="layui-input" value="'+headerList[i].state+'" lay-verify="required" name="paramsstate"></td>'+
+								'<td style="text-align: center;">'+
+									// '<a class="layui-btn layui-btn-xs add">添加</a>'+
+									'<a class="layui-btn layui-btn-danger layui-btn-xs delheader">删除</a>'+
+								'</td>'+
+							'</tr>';
+						//添加到表格最后
+						$(html).appendTo($('#tableheader tbody:last'));
+						form.render();
+					}
+				}
+				//初始化弹窗表格中的内容
+				if(parseInt(layui.data('api')[String(tmp_platform+tmp_project+tmp_module+tmp_name).toLocaleUpperCase()]) == 0){
+					$("#textarea").val(layui.data('param')['body']);
+				}else if(parseInt(layui.data('api')[String(tmp_platform+tmp_project+tmp_module+tmp_name).toLocaleUpperCase()]) == 1){
+					var bodyList = layui.data('param')['body'];
+					if(bodyList !== undefined){
+						for(var i = 0 ; i < bodyList.length ; i ++ ){
+							var html = '<tr>'+
+									'<td><input type="text" class="layui-input" value="'+bodyList[i].name+'" lay-verify="required" name="paramsname"></td>'+
+									'<td><input type="text" class="layui-input" value="'+bodyList[i].value+'" lay-verify="required" name="paramsvalue"></td>'+
+									'<td><input type="text" class="layui-input" value="'+bodyList[i].state+'" lay-verify="required" name="paramsstate"></td>'+
+									'<td style="text-align: center;">'+
+										// '<a class="layui-btn layui-btn-xs add">添加</a>'+
+										'<a class="layui-btn layui-btn-danger layui-btn-xs delbody">删除</a>'+
+									'</td>'+
+								'</tr>';
+							//添加到表格最后
+							$(html).appendTo($('#tablebody tbody:last'));
+							form.render();
+						}
+					}
+				}else if(parseInt(layui.data('api')[String(tmp_platform+tmp_project+tmp_module+tmp_name).toLocaleUpperCase()]) == 2){
+					$("#textarea01").val(layui.data('param')['body']);
+				}
+				
+			},yes:function(index,layero){
+				//获取参数表格添加的内容
+				//方法一
+				// var tb = document.getElementById('tableheader');    // table 的 id
+				// var rows = tb.rows;                           // 获取表格所有行
+				// for(var i = 1; i<rows.length; i++ ){
+				// 	for(var j = 0; j<rows[i].cells.length; j++ ){    // 遍历该行的 td
+				// 		// alert("第"+(i+1)+"行，第"+(j+1)+"个td的值："+rows[i].cells[j].innerHTML+"。");           // 输出每个td的内容
+				// 		console.log("第"+(i+1)+"行，第"+(j+1)+"个td的值："+rows[i].cells[j].childNodes[0].value+".");
+				// 	}
+				// }
+				//方法二
+				//头信息保存到缓存
+				var headerList = [];
+				$('#tableheader tbody tr').each(function(){
+					var tmp = {}
+					tmp.name =$(this).children("td:eq(0)").find("input").val();
+					tmp.value=$(this).children("td:eq(1)").find("input").val();
+					tmp.state=$(this).children("td:eq(2)").find("input").val();
+					if($(this).children("td:eq(0)").find("input").val() == '' || $(this).children("td:eq(1)").find("input").val() == ''){
+						layer.msg("参数不能为空！");
+						return;
+					}
+					headerList.push(tmp)
+				});
+				//放入到缓存中
+				layui.data('param', {
+					key: 'header',
+					value: headerList
+				});
+				//参数信息保存到缓存中
+				if(parseInt(layui.data('api')[String(tmp_platform+tmp_project+tmp_module+tmp_name).toLocaleUpperCase()]) == 0){
+					layui.data('param', {
+						key: 'body',
+						value: $("#textarea").val()
+					});
+				}else if(parseInt(layui.data('api')[String(tmp_platform+tmp_project+tmp_module+tmp_name).toLocaleUpperCase()]) == 1){
+					// console.log(headerList)
+					var bodyList = [];
+					$('#tablebody tbody tr').each(function(){
+						var tmp = {}
+						tmp.name =$(this).children("td:eq(0)").find("input").val();
+						tmp.value=$(this).children("td:eq(1)").find("input").val();
+						tmp.state=$(this).children("td:eq(2)").find("input").val();
+						bodyList.push(tmp)
+					});
+					//放入到缓存中
+					layui.data('param', {
+						key: 'body',
+						value: bodyList
+					});
+					//点击提交后，删除表格行
+					// $(".tbody-del tr:gt(0)").remove();//删除第一行外的所有行
+					$(".tbody-del tr").remove();//删除第一行外的所有行
+				}else if(parseInt(layui.data('api')[String(tmp_platform+tmp_project+tmp_module+tmp_name).toLocaleUpperCase()]) == 2){
+					layui.data('param', {
+						key: 'body',
+						value: $("#textarea01").val()
+					});
+				}else {
+					layui.data('param', {
+						key: 'body',
+						value: ''
+					});
+				}
+				layer.close(index);//关闭弹出层
+				$("#window01").css("display","none");
+			}
+			,btn2:function(index, layero){
+				layer.close(index);//关闭弹出层
+				$("#window01").css("display","none");
+				$(".tbody-del tr").remove();//删除第一行外的所有行
+				layui.data('param', {
+					key: 'header'
+					,remove: true
+				});
+				layui.data('param', {
+					key: 'body'
+					,remove: true
+				});
+			}
+			,cancel:function(){
+				$("#window01").css("display","none");
+				$(".tbody-del tr").remove();//删除第一行外的所有行
+				layui.data('param', {
+					key: 'header'
+					,remove: true
+				});
+				layui.data('param', {
+					key: 'body'
+					,remove: true
+				});
+			}
+		});
+		//最大化
+		// layer.full(index);
+	});
+
+	//因为动态添加的元素class属性是无效的，所以不能用$('.add').click(function(){});
+    $('body').on('click', '.addheader', function() {
+		//你要添加的html
+		var html = '<tr>'+
+				'<td><input type="text" class="layui-input" lay-verify="required" name="paramsname"></td>'+
+				'<td><input type="text" class="layui-input" lay-verify="required" name="paramsvalue"></td>'+
+				'<td><input type="text" class="layui-input" lay-verify="required" name="paramsstate"></td>'+
+				'<td style="text-align: center;">'+
+					// '<a class="layui-btn layui-btn-xs add">添加</a>'+
+					'<a class="layui-btn layui-btn-danger layui-btn-xs delheader">删除</a>'+
+				'</td>'+
+			'</tr>';
+		//添加到表格最后
+		$(html).appendTo($('#tableheader tbody:last'));
+		form.render();
+   });
+   $('body').on('click', '.delheader', function() {
+		// if ($('#table tbody tr').length === 1) {
+		// 	layer.msg('只有一条不允许删除。', {
+		// 		time : 2000
+		// 	});
+		// } else {
+		// 	//删除当前按钮所在的tr
+		// 	$(this).closest('tr').remove();
+		// }
+		$(this).closest('tr').remove();
+   });
+
+   $('body').on('click', '.addbody', function() {
+		//你要添加的html
+		var html = '<tr>'+
+				'<td><input type="text" class="layui-input" lay-verify="required" name="paramsname"></td>'+
+				'<td><input type="text" class="layui-input" lay-verify="required" name="paramsvalue"></td>'+
+				'<td><input type="text" class="layui-input" lay-verify="required" name="paramsstate"></td>'+
+				'<td style="text-align: center;">'+
+					// '<a class="layui-btn layui-btn-xs add">添加</a>'+
+					'<a class="layui-btn layui-btn-danger layui-btn-xs delbody">删除</a>'+
+				'</td>'+
+			'</tr>';
+		//添加到表格最后
+		$(html).appendTo($('#tablebody tbody:last'));
+		form.render();
+   });
+   $('body').on('click', '.delbody', function() {
+		// if ($('#table tbody tr').length === 1) {
+		// 	layer.msg('只有一条不允许删除。', {
+		// 		time : 2000
+		// 	});
+		// } else {
+		// 	//删除当前按钮所在的tr
+		// 	$(this).closest('tr').remove();
+		// }
+		$(this).closest('tr').remove();
+   });
+   $(document).on('click','#paramisjson',function(){
+		var str=String($("#textarea").val()).replace(/\s+/g,"");
+		console.log(str);
+		isJSON(str);
+   });
+   function isJSON(jsonContent) {
+		if (typeof jsonContent == 'string') {
+			try {
+				var obj=JSON.parse(jsonContent);
+				if(jsonContent.indexOf('{')>-1){
+						layer.msg("JSON格式正确")
+				}else{
+					layer.msg("JSON格式错误")
+				}
+
+			} catch(e) {
+				layer.msg("JSON格式错误")
+			}
+		}
+	};
+
+	//监听断言参数按钮
+	$(document).on('click','#idassert',function(){
+		var index = layer.open({
+			type: 1,
+			closeBtn: 1,
+			shift: 7,
+			resize: true,
+			content: $("#window02"),
+			area : ['100%', '100%'],
+			title:"新增断言",
+			btn:['确定','取消'],
+			success:function(layero,index){
+				for(var i = 0 ; i < 4 ; i++){
+					if(i == 3){
+						$("#assertType li:eq("+i+")").addClass("layui-this");
+						$("#assertType"+i).addClass("layui-show");
+					}else{
+						$("#assertType li:eq("+i+")").css("pointer-events","auto");
+						$("#assertType li:eq("+i+")").removeClass("layui-btn-disabled");
+						$("#assertType li:eq("+i+")").removeClass("layui-this");
+						$("#assertType"+i).removeClass("layui-show");
+					}
+				}
+				
+			},yes:function(index,layero){
+				layui.data('assertData',{
+					key: 'type'
+					,value : tmp_assertType
+				});
+				if(parseInt(tmp_assertType) != 3){
+					layui.data('assertData',{
+						key: 'data'
+						,value:  $("#asserttextarea"+tmp_assertType).val()
+					})
+				}else{
+					layui.data('assertData',{
+						key: 'data'
+						,value: ''
+					})
+				}
+				for(var i = 0 ; i < 3 ; i++){
+					$("#asserttextarea"+i).val('')
+				}
+				layer.close(index);//关闭弹出层
+				$("#window02").css("display","none");
+			}
+			,btn2:function(index, layero){
+				layer.close(index);//关闭弹出层
+				$("#window02").css("display","none");
+				layui.data('assertData',{
+					key: 'type'
+					,remove: true
+				});
+				layui.data('assertData', {
+					key: 'data'
+					,remove: true
+				});
+				for(var i = 0 ; i < 3 ; i++){
+					$("#asserttextarea"+i).val('')
+				}
+			}
+			,cancel:function(){
+				$("#window02").css("display","none");
+				layui.data('assertData',{
+					key: 'type'
+					,remove: true
+				});
+				layui.data('assertData', {
+					key: 'data'
+					,remove: true
+				});
+				for(var i = 0 ; i < 3 ; i++){
+					$("#asserttextarea"+i).val('')
+				}
+			}
+		});
+		//最大化
+		// layer.full(index);
+	});
+	//监听json格式校验事件
+   $(document).on('click','#assertisjson',function(){
+		var str=String($("#asserttextarea0").val()).replace(/\s+/g,"");
+		console.log(str);
+		isJSON(str);
+   });
+   	element.on('tab(demo01)', function(){
+		tmp_assertType = this.getAttribute('lay-id');
+    	console.log();
+  	});
+});
+
+</script>
+<div class="site-text" style="margin: 4% 5% 0% 5% ; display: none;" id="window"  target="test">	
+	<form class="layui-form" id="projectform" method="post" lay-filter="example">
+		<div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">平&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;台</label>
+				<div class="layui-input-block" style="width: 200px;">
+					<select id="idplatform" name="platformname" lay-filter="platfromfilter" lay-verify="required" lay-search >
+						<option value="">请选择平台</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目</label>
+				<div class="layui-input-block" style="width: 200px;">
+					<select id="idproject" name="projectname" lay-filter="projectfilter" lay-verify="required" lay-search >
+						<option value="">请选择项目</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="layui-form-item layui-input-inline">
+				<label class="layui-form-label">模&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;块</label>
+				<div class="layui-input-block" style="width: 200px;">
+					<select id="idmodule" name="modulename" lay-filter="modulefilter" lay-verify="required" lay-search >
+						<option value="">请选择模块</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">接口名称</label>
+				<div class="layui-input-block" style="width: 200px;">
+					<select id="idname" name="name" lay-filter="namefilter" lay-verify="required" lay-search >
+						<option value="">请选择接口名称</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">添加参数</label>
+				<div class="layui-input-block" style="width: 200px;">
+					<button type="button" class="layui-btn layui-btn-primary layui-btn-fluid" id="idparams" name="paramsname" lay-verify="paramsfilter"><i class="layui-icon">&#xe608;</i>点击添加参数</button>
+				</div>
+			</div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">添加断言</label>
+				<div class="layui-input-block" style="width: 200px;">
+					<button type="button" class="layui-btn layui-btn-primary layui-btn-fluid" id="idassert" name="assertname" lay-verify="assertfilter"><i class="layui-icon">&#xe608;</i>点击添加断言</button>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="layui-form-item layui-input-inline" >
+				<label class="layui-form-label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label>
+				<div class="layui-input-block" style="width: 495px;">
+					<input type="text" id="state" name="state" lay-verify="statefilter" autocomplete="off" placeholder="请输入备注" class="layui-input" >
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+<div class="site-text" style="margin: 4% 5% 0% 5% ; display: none;" id="window01"  target="test01">	
+	<div class="layui-collapse">
+		<div class="layui-colla-item">
+			<blockquote class="layui-elem-quote layui-quote-nm">Request Header</blockquote>
+			<div class="layui-colla-content layui-show">
+				<table class="layui-table" id="tableheader" lay-filter="tableheader">
+					<thead>
+						<tr>
+							<td style="text-align: center;">名称</td>
+							<td style="text-align: center;">值</td>
+							<td style="text-align: center;">说明</td>
+							<td style="text-align: center;">操作</td>
+						</tr>
+					</thead>
+					<tbody class="tbody-del">
+					</tbody>
+				</table>
+				<a class="layui-btn layui-btn-xs addheader"><i class="layui-icon">&#xe61f;</i>添加</a>
+			</div>
+		</div>
+		<div class="layui-colla-item">
+			<blockquote class="layui-elem-quote layui-quote-nm">Request Body</blockquote>
+			<div class="layui-colla-content layui-show">
+				<div class="layui-tab" lay-filter="demo">
+					<ul class="layui-tab-title" id="paramType">
+						<li lay-id="1">json</li>
+						<li lay-id="2" >form</li>
+						<li lay-id="3">text</li>
+						<li lay-id="4">无</li>
+					</ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item" id="paramType0">
+							<div>
+								<!-- 禁止横向拉升 resize: vertical;纵向拉伸 resize: horizontal;不显示拉伸状态 resize: none;/resize: unset; -->
+								<textarea style="width:100%;height:200px;border:solid 1px #eee;resize: vertical;"  placeholder="请输入json参数" id="textarea"></textarea>
+							</div>
+							<div>
+								<button type="button" class="layui-btn layui-btn-danger" id="paramisjson">json格式校验</button>
+							</div>
+						</div>
+						<div class="layui-tab-item" id="paramType1">
+							<table class="layui-table" id="tablebody" lay-filter="tablebody">
+								<thead>
+									<tr>
+										<td style="text-align: center;">名称</td>
+										<td style="text-align: center;">值</td>
+										<td style="text-align: center;">说明</td>
+										<td style="text-align: center;">操作</td>
+									</tr>
+								</thead>
+								<tbody class="tbody-del">
+								</tbody>
+							</table>
+							<a class="layui-btn layui-btn-xs addbody"><i class="layui-icon">&#xe61f;</i>添加</a>
+						</div>
+						<div class="layui-tab-item" id="paramType2">
+							<textarea style="width:100%;height:200px;border:solid 1px #eee;resize: vertical;" placeholder="请输入文本参数" id="textarea01"></textarea>
+						</div>
+						<div class="layui-tab-item" id="paramType3">无</div>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="site-text" style="margin: 4% 5% 0% 5% ; display: none;" id="window02"  target="test02">	
+	<div class="layui-collapse">
+		<div class="layui-colla-item">
+			<blockquote class="layui-elem-quote layui-quote-nm">断言</blockquote>
+			<div class="layui-colla-content layui-show">
+				<div class="layui-tab" lay-filter="demo01">
+					<ul class="layui-tab-title" id="assertType">
+						<li lay-id="0">json</li>
+						<li lay-id="1" >包含</li>
+						<li lay-id="2">等于</li>
+						<li lay-id="3">无</li>
+					</ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item" id="assertType0">
+							<div>
+								<!-- 禁止横向拉升 resize: vertical;纵向拉伸 resize: horizontal;不显示拉伸状态 resize: none;/resize: unset; -->
+								<textarea style="width:100%;height:200px;border:solid 1px #eee;resize: vertical;"  placeholder="请输入json参数" id="asserttextarea0"></textarea>
+							</div>
+							<div>
+								<button type="button" class="layui-btn layui-btn-danger" id="assertisjson">json格式校验</button>
+							</div>
+						</div>
+						<div class="layui-tab-item" id="assertType1">
+							<textarea style="width:100%;height:200px;border:solid 1px #eee;resize: vertical;" placeholder="请输入参数" id="asserttextarea1"></textarea>
+						</div>
+						<div class="layui-tab-item" id="assertType2">
+							<textarea style="width:100%;height:200px;border:solid 1px #eee;resize: vertical;" placeholder="请输入参数" id="asserttextarea2"></textarea>
+						</div>
+						<div class="layui-tab-item" id="assertType3">无</div>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="site-text" style="display: none;" id="window03">
+	<!-- <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+		<legend>用例信息</legend>
+	</fieldset> -->
+	<div class="layui-collapse" lay-filter="test">
+		<div class="layui-colla-item">
+			<h2 class="layui-colla-title">基础信息</h2>
+			<div class="layui-colla-content layui-show">
+				<table class="layui-table" id="t_caseInfo">
+					<colgroup>
+						<col width="150">
+						<col width="200">
+						<col width="200">
+					</colgroup>
+					<thead>
+						<tr>
+							<th style="text-align: center;">项目编号</th>
+							<th style="text-align: center;">项目名称</th>
+							<th style="text-align: center;">接口编号</th>
+							<th style="text-align: center;">接口名称</th>
+							<th style="text-align: center;">用例编号</th>
+							<th style="text-align: center;">用例名称</th>
+							<th style="text-align: center;">模块名称</th>
+							<th style="text-align: center;">接口地址</th>
+							<th style="text-align: center;">接口路径</th>
+							<th style="text-align: center;">请求方法</th>
+							<th style="text-align: center;">参数类型</th>
+						</tr> 
+					</thead>
+					<tbody>
+					</tbody>
+				</table>				
+				
+			</div>
+		</div>
+		<div class="layui-colla-item">
+			<h2 class="layui-colla-title">请求头</h2>
+			<div class="layui-colla-content layui-show">
+				<table class="layui-table" id="t_headerInfo" style="display: none;">
+					<colgroup>
+						<col width="300">
+						<col width="300">
+					</colgroup>
+					<thead>
+						<tr>
+							<th style="text-align: center;">名称</th>
+							<th style="text-align: center;">值</th>
+						</tr> 
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<p style="display: block;" id="p_headerInfo">暂无数据</p>
+			</div>
+		</div>
+		<div class="layui-colla-item">
+			<h2 class="layui-colla-title">请求参数</h2>
+			<div class="layui-colla-content layui-show" >
+				<table class="layui-table" id="t_paramInfo" style="display: none;">
+					<colgroup>
+						<col width="300">
+						<col width="300">
+					</colgroup>
+					<thead>
+						<tr>
+							<th style="text-align: center;">名称</th>
+							<th style="text-align: center;">值</th>
+						</tr> 
+					</thead>						
+					<tbody>
+					</tbody>
+				</table>
+				<!-- <div  id="" style="display: none;height: 200px;overflow: auto"> -->
+					<p  id="paramInfoJson" style="display: none; border: 1px solid #8d8c8c;padding: 5px;white-space: pre-wrap;word-wrap: break-word;"></p>
+				<!-- </div> -->
+				
+				<p style="display: block;" id="p_paramInfo">暂无数据</p>
+			</div>
+		</div>
+		<div class="layui-colla-item">
+			<h2 class="layui-colla-title">断言</h2>
+			<div class="layui-colla-content layui-show">
+				
+                <p style="display: block;" id="p_assertInfo">暂无数据</p>
+			</div>
+		</div>
+		<div class="layui-colla-item">
+			<h2 class="layui-colla-title">响应</h2>
+			<div class="layui-colla-content layui-show">
+                <p style="display: block;" id="p_responseInfo">暂无数据</p>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

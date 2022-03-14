@@ -1,8 +1,0 @@
-eclipse.preferences.version=1
-encoding//config/dataSource.properties=UTF-8
-encoding//result/allTestResult.txt=UTF-8
-encoding//result/dbFutureAll.txt=UTF-8
-encoding//result/dbFutureResult.txt=UTF-8
-encoding//result/testResult.txt=UTF-8
-encoding//src/service/business=ISO-8859-1
-encoding//src/service/business/DbCheckFuture.java=UTF-8
