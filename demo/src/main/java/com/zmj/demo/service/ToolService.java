@@ -12,7 +12,7 @@ public interface ToolService {
 
     List<SmsEmailcodeDomain> getList();
 
-    String userCheck(String userId,String time);
+    String userCheck(String userId,String money,String time);
 
     String allUserCheck();
 

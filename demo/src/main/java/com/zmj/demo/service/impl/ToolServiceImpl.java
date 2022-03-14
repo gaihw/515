@@ -69,7 +69,7 @@ public class ToolServiceImpl implements ToolService {
     }
 
     @Override
-    public String userCheck(String userId,String time) {
+    public String userCheck(String userId,String money,String time) {
         StringBuffer stringBuffer = new StringBuffer();
         time = time == null ? Config.startTime : time;
         Boolean flag = false;
@@ -87,7 +87,7 @@ public class ToolServiceImpl implements ToolService {
             }
             stringBuffer.append(balanceRes);
             //如果user_partner_balance表无用户数据，则不计算流水的变化
-            if (accountDao.getUserPartnerBalanceByUser(userId) == null){
+            if (accountDao.getUserPartnerBalanceByUser(userId).size() == 0){
                 log.info("用户:{}，user_partner_balance表无数据，不做流水校验！",userId);
                 stringBuffer.append("用户:"+userId+"，user_partner_balance表无数据，不做流水校验！").append("</br>");
             }else {
@@ -97,7 +97,7 @@ public class ToolServiceImpl implements ToolService {
                     return "请先同步user_partner_balance账户余额！";
                 }
                 String partnerBalanceRes = balanceCalc.partnerBalanceCalc(userPartnerBalanceR,userId,time);
-                if(partnerBalanceRes.contains("user_partner_balance账号总额不正确") ) {
+                if(partnerBalanceRes.contains("账号总额不正确") ) {
                     error.append(partnerBalanceRes);
                 }
                 stringBuffer.append(partnerBalanceRes);
@@ -222,7 +222,92 @@ public class ToolServiceImpl implements ToolService {
 
     @Override
     public String allUserCheck(){
-        return null;
+        StringBuffer stringBuffer = new StringBuffer();
+        Boolean flag = false;
+        StringBuffer error = new StringBuffer();
+        //获取平台交易前的账户总额
+        //redis获取对账前的金额
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(new JSONObject().getClass()));
+        JSONObject userAllBalanceR = (JSONObject) redisService.get("user_balance:all");
+        if (userAllBalanceR == null){
+            return "请先同步user_balance账户总余额！";
+        }
+        //操作前，账户金额
+        BigDecimal totalPre = userAllBalanceR.getBigDecimal("balance").add(userAllBalanceR.getBigDecimal("hold"));
+        //获取流水变化的值
+        //数据库流水表聚合统计的值
+        BigDecimal userBillTotal = accountDao.getAllUserBillTotal();
+        //操作后，账户变化金额,如果无流水账单，默认赋值为0
+        BigDecimal totalIng = userBillTotal == null ? BigDecimal.ZERO : userBillTotal;
+        //操作后，计算剩余的总金额
+        BigDecimal totalPostCalc = totalPre.add(totalIng);
+        //操作后，查询数据库金额
+        UserBalanceChain balanceHoldJbPost = accountDao.getAllUserBalanceTotal();
+        BigDecimal balancePost = balanceHoldJbPost.getBalance();
+        BigDecimal holdPost = balanceHoldJbPost.getHold();
+        //操作后，数据库总的金额
+        BigDecimal totalPost = balancePost.add(holdPost);
+        log.info("user_balance操作后，数据库金额，balance:{},hold:{}", balancePost, holdPost);
+        log.info("user_balance下单前，账户金额:{},操作后，账户变化金额:{},操作后，计算剩余的金额:{},操作后，数据库存储的总金额:{}" , totalPre,totalIng,totalPostCalc,totalPost);
+        stringBuffer.append("user_balance下单前，账户总金额:" + totalPre+"，balance:"+userAllBalanceR.getBigDecimal("balance")+"，hold:"+userAllBalanceR.getBigDecimal("hold")).append("</br>");
+        stringBuffer.append("user_balance操作后，账户变化金额:" + totalIng).append("</br>");
+        stringBuffer.append("user_balance操作后，计算剩余总金额:" + totalPostCalc).append("</br>");
+        stringBuffer.append("user_balance操作后，数据库总金额:" + totalPost+"，balance:"+balancePost+"，hold:"+holdPost).append("</br>");
+        if (totalPost.setScale(Config.newScale,BigDecimal.ROUND_DOWN).compareTo(totalPostCalc.setScale(Config.newScale,BigDecimal.ROUND_DOWN)) != 0){
+            flag = true;
+            error.append("账号总额不正确，请检查!").append("</br>").toString();
+        }
+        stringBuffer.append("-----------").append("</br>");
+        //redis获取对账前的金额
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(new JSONObject().getClass()));
+        JSONObject userPartnerAllBalanceR = (JSONObject) redisService.get("user_partner_balance:all");
+        if (userPartnerAllBalanceR == null){
+            return "请先同步user_partner_balance账户总余额！";
+        }
+        //操作前，账户金额
+        BigDecimal partnerTotalPre = userPartnerAllBalanceR.getBigDecimal("balance").add(userPartnerAllBalanceR.getBigDecimal("hold"));
+        //获取流水变化的值
+        //数据库流水表聚合统计的值
+        BigDecimal userBillPartnerTotal = accountDao.getAllUserBillToPartnerBalance();
+        //操作后，账户变化金额,如果无流水账单，默认赋值为0
+        BigDecimal partnerTotalIng = userBillPartnerTotal == null ? BigDecimal.ZERO : userBillPartnerTotal;
+        //操作后，计算剩余的总金额
+        BigDecimal partnerTotalPostCalc = partnerTotalPre.add(partnerTotalIng);
+        //操作后，查询数据库金额
+        UserBalanceChain partnerBalanceHoldJbPost = accountDao.getAllUserPartnerBalanceTotal();
+        BigDecimal partnerBalancePost = partnerBalanceHoldJbPost.getBalance();
+        BigDecimal partnerHoldPost = partnerBalanceHoldJbPost.getHold();
+        //操作后，数据库总的金额
+        BigDecimal partnertotalPost = partnerBalancePost.add(partnerHoldPost);
+        log.info("user_partner_balance操作后，数据库金额，balance:{},hold:{}", partnerBalancePost, partnerHoldPost);
+        log.info("user_partner_balance下单前，账户金额:{},操作后，账户变化金额:{},操作后，计算剩余的金额:{},操作后，数据库存储的总金额:{}" , partnerTotalPre,partnerTotalIng,partnerTotalPostCalc,partnertotalPost);
+        stringBuffer.append("user_partner_balance下单前，账户总金额:" + partnerTotalPre+"，balance:"+userPartnerAllBalanceR.getBigDecimal("balance")+"，hold:"+userPartnerAllBalanceR.getBigDecimal("hold")).append("</br>");
+        stringBuffer.append("user_partner_balance操作后，账户变化金额:" + partnerTotalIng).append("</br>");
+        stringBuffer.append("user_partner_balance操作后，计算剩余总金额:" + partnerTotalPostCalc).append("</br>");
+        stringBuffer.append("user_partner_balance操作后，数据库总金额:" + partnertotalPost+"，balance:"+partnerBalancePost+"，hold:"+partnerHoldPost).append("</br>");
+        if (partnertotalPost.setScale(Config.newScale,BigDecimal.ROUND_DOWN).compareTo(partnerTotalPostCalc.setScale(Config.newScale,BigDecimal.ROUND_DOWN)) != 0){
+            flag = true;
+            error.append("user_partner_balance账号总额不正确，请检查!").append("</br>").toString();
+        }
+
+        //对type类型为16,27,38,50,54,55,56,58,59的流水账单
+        int count = accountDao.getUserBillByTypeCount();
+        if (count == 0){
+            stringBuffer.append("无type类型为16,27,38,50,54,55,56,58,59的流水账单").append("</br>");
+            return stringBuffer.append("<font color=\"#FF0000\">对账异常账单:</font> ").append("</br>").append(error).toString();
+        }
+        count = BigDecimal.valueOf(count).divide(BigDecimal.valueOf(1000),0,BigDecimal.ROUND_UP).intValue();
+        for (int i = 0; i < count; i++) {
+            List<UserBillChain> userBillChains = accountDao.getUserBillByType(1000*i);
+            for (UserBillChain u:userBillChains) {
+                log.info("用户ID:{},类型:{},size:{},pre_balance:{},post_balance:{},订单ID:{}",u.getUserId(),u.getType(),u.getSize(),u.getPreBalance(),u.getPostBalance(),u.getSourceId());
+                if(u.getSize().add(u.getPreBalance()).compareTo(u.getPostBalance()) != 0){
+                    log.info("流水未加上，请查看--->用户ID:{},类型:{},size:{},pre_balance:{},post_balance:{},订单ID:{}",u.getUserId(),u.getType(),u.getSize(),u.getPreBalance(),u.getPostBalance(),u.getSourceId());
+                    error.append("流水未加上，请查看--->用户ID:"+u.getUserId()+"，类型:"+u.getType()+"，size:"+u.getSize()+"，pre_balance:"+u.getPreBalance()+"，post_balance:"+u.getPostBalance()+"，订单ID:"+u.getSourceId()).append("</br>");
+                }
+            }
+        }
+        return stringBuffer.append("<font color=\"#FF0000\">对账异常账单:</font> ").append("</br>").append(error).toString();
     }
 
     @Override
@@ -262,33 +347,39 @@ public class ToolServiceImpl implements ToolService {
     }
 
     @Override
-    public List<UserDistributorChain> getUserPartner(String userId) {
-        List<UserDistributorChain> userPartner = sqlUtils.getUserPartner(userId);
-        return userPartner;
-    }
-
-    @Override
     public JsonResult getAllUserBalance() {
         //查询user_balance表全部账户总的balance和hold值
-        UserBalanceChain userBalance = accountDao.getAllUserBalance();
+        UserBalanceChain userBalance = accountDao.getAllUserBalanceTotal();
+        userBalance.setUserId("user_balance");
+
         JSONObject userBalanceJ = new JSONObject();
         userBalanceJ.put("balance", userBalance.getBalance());
         userBalanceJ.put("hold", userBalance.getHold());
         redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(userBalanceJ.getClass()));
         redisService.set("user_balance:all", userBalanceJ);
         log.info("user_balance:all--->{}",userBalanceJ);
+
         //查询user_partner_balance表全部账户总的balance和hold值
-        userBalance =  accountDao.getAllUserPartnerBalance();
-        userBalanceJ.put("balance", userBalance.getBalance());
-        userBalanceJ.put("hold", userBalance.getHold());
+        UserBalanceChain userPartnerBalance =  accountDao.getAllUserPartnerBalanceTotal();
+        userPartnerBalance.setUserId("user_partner_balance");
+
+        userBalanceJ.put("balance", userPartnerBalance.getBalance());
+        userBalanceJ.put("hold", userPartnerBalance.getHold());
         redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(userBalanceJ.getClass()));
         redisService.set("user_partner_balance:all", userBalanceJ);
         log.info("user_partner_balance:all--->{}",userBalanceJ);
 
+        List<UserBalanceChain> userBalanceChains = new ArrayList<UserBalanceChain>();
+        userBalanceChains.add(userBalance);
+        userBalanceChains.add(new UserBalanceChain());
+        userBalanceChains.add(userPartnerBalance);
+        return  new JsonResult<>(0, userBalanceChains);
+        /**
         List<UserBalanceChain> resUserBalance = accountDao.getUserBalance();
         List<UserBalanceChain> resUserParterBalance = null;
         List<UserBalanceChain> res = new ArrayList<UserBalanceChain>();
         List<String> userList = new ArrayList<String>();
+
 
         for (UserBalanceChain u : resUserBalance
         ) {
@@ -330,9 +421,14 @@ public class ToolServiceImpl implements ToolService {
                 }
             }
         }
-
-
         return new JsonResult<>(0, res);
+         **/
+    }
+
+    @Override
+    public List<UserDistributorChain> getUserPartner(String userId) {
+        List<UserDistributorChain> userPartner = sqlUtils.getUserPartner(userId);
+        return userPartner;
     }
 
     /**

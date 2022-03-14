@@ -174,7 +174,7 @@ public class FeeCalc {
         }else {//不给用户返佣
             if (userPartner.size() == 2){
                 //计算给合伙人的返佣
-                BigDecimal feeToPartnerTmp = feeToPartner.abs();
+                BigDecimal feeToPartnerTmp = feeToPartner.setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs();
                 //从数据库获取该笔订单给合伙人的返佣
                 UserBillChain partnerBillJb = accountDao.getUserBill(userPartner.get(1).getUserId(), sourceId, 16);
                 if (partnerBillJb == null){
@@ -182,7 +182,7 @@ public class FeeCalc {
                 }
                 log.info("feeToPartnerClac--只有默认合伙人--用户自己无返佣--给默认合伙人返佣--手续费校验-->用户:{},合伙人:{},交易类型:{},订单:{},比列:{},数据库:{},计算:{}", userId, userPartner.get(1).getUserId(), type, sourceId,BigDecimal.ONE.subtract(allotLowerFeeRate0),feeToPartnerTmp , partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN));
                 stringBuffer.append("--只有默认合伙人--用户自己无返佣--手续费返佣校验-->用户:" + userId + ",合伙人:" + userPartner.get(1).getUserId() + ",交易类型:" + type + ",订单:" + sourceId +",比列:"+BigDecimal.ONE.subtract(allotLowerFeeRate0)+ ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算:" + feeToPartnerTmp).append("</br>");
-                if (feeToPartnerTmp.compareTo(partnerBillJb.getSize().abs().setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs()) != 0){
+                if (feeToPartnerTmp.compareTo(partnerBillJb.getSize().setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs()) != 0){
                     flag = true;
                     error.append("--只有默认合伙人--用户自己无返佣--手续费返佣不正确，请检查--->用户:" + userId + ",合伙人:" + userPartner.get(1).getUserId() + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算:" + feeToPartnerTmp).append("</br>");
                 }

@@ -112,24 +112,24 @@ public class SqlUtil {
                 return "转入";
             case 6:
                 return "转出";
-            case 7:
-                return "闪电-过夜费-扣用户";
-            case 14:
-                return "闪电-合伙人过夜费（得到过夜费）给合伙人";
+//            case 7:
+//                return "闪电-过夜费-扣用户";
+//            case 14:
+//                return "闪电-合伙人过夜费（得到过夜费）给合伙人";
             case 16:
                 return "合伙人手续费  (合伙人收取下面邀请人的交易手续费) 区分普通和默认";
             case 21:
                 return "计划委托";
             case 22:
-                return "手动撤单 --取消订单解冻保证金";
-            case 23:
-                return "闪电-跟单跟随者支出返佣 -扣用户";
-            case 24:
-                return "闪电-跟单leader收入返佣 查询是否默认合伙人是带单老师";
+                return "手动撤单 --取消订单解冻保证金";//clear会有记录，但是不会产生流水
+//            case 23:
+//                return "闪电-跟单跟随者支出返佣 -扣用户";
+//            case 24:
+//                return "闪电-跟单leader收入返佣 查询是否默认合伙人是带单老师";
             case 27:
                 return "和用户对赌收益(头寸分佣) 区分普通和默认";
-            case 30:
-                return "无限模式盈利转入(实盘收入) 虚增";
+//            case 30:
+//                return "无限模式盈利转入(实盘收入) 虚增";
             case 32:
                 return "合伙人保证金转入";
             case 33:
@@ -146,16 +146,16 @@ public class SqlUtil {
                 return "资金超限系统撤单(全仓用户账户下的单超过了最大限制的时候取消委托单)";
             case 41:
                 return "返手续费(给用户) 直接去掉不去返佣";
-            case 43:
-                return "兑换(收入)";
-            case 44:
-                return "兑换(支出)";
-            case 45:
-                return "兑换手续费(合伙人收入)";
-            case 47:
-                return "限价委托";
-            case 48:
-                return "执行计划委托";
+//            case 43:
+//                return "兑换(收入)";
+//            case 44:
+//                return "兑换(支出)";
+//            case 45:
+//                return "兑换手续费(合伙人收入)";
+//            case 47:
+//                return "限价委托";//限价委托或者限价成交，无此状态码
+//            case 48:
+//                return "执行计划委托";
             case 49:
                 return "不购买全仓撤单";
             case 50:

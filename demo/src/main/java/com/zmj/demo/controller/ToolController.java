@@ -66,8 +66,8 @@ public class ToolController {
     }
 
     @RequestMapping(value = "/check/userCheck", method = RequestMethod.GET)
-    public String userCheck(@Param(value = "userId") String userId, @Param(value = "time") String time) {
-        return toolService.userCheck(userId,time);
+    public String userCheck(@Param(value = "userId") String userId,@Param(value = "money") String money, @Param(value = "time") String time) {
+        return toolService.userCheck(userId,money,time);
     }
 
     @RequestMapping(value = "/check/allUserCheck", method = RequestMethod.GET)
