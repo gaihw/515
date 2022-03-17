@@ -24,26 +24,36 @@ public class Test {
     public static GetMethod get;
     public static void main(String[] args) {
 
-        String val = "";
-        Random random = new Random();
-        for ( int i = 0; i < "Tx9C7XoB0cXftHbaU8Tl".length(); i++ )
-        {
-            String str = random.nextInt( 2 ) % 2 == 0 ? "num" : "char";
-            if ( "char".equalsIgnoreCase( str ) )
-            { // 产生字母
-                int nextInt = random.nextInt( 2 ) % 2 == 0 ? 65 : 97;
-                // System.out.println(nextInt + "!!!!"); 1,0,1,1,1,0,0
-                val += (char) ( nextInt + random.nextInt( 26 ) );
-            }
-            else if ( "num".equalsIgnoreCase( str ) )
-            { // 产生数字
-                val += String.valueOf( random.nextInt( 10 ) );
-            }
+//        String val = "";
+//        Random random = new Random();
+//        for ( int i = 0; i < "Tx9C7XoB0cXftHbaU8Tl".length(); i++ )
+//        {
+//            String str = random.nextInt( 2 ) % 2 == 0 ? "num" : "char";
+//            if ( "char".equalsIgnoreCase( str ) )
+//            { // 产生字母
+//                int nextInt = random.nextInt( 2 ) % 2 == 0 ? 65 : 97;
+//                // System.out.println(nextInt + "!!!!"); 1,0,1,1,1,0,0
+//                val += (char) ( nextInt + random.nextInt( 26 ) );
+//            }
+//            else if ( "num".equalsIgnoreCase( str ) )
+//            { // 产生数字
+//                val += String.valueOf( random.nextInt( 10 ) );
+//            }
+//        }
+//        System.out.println(val);
+
+        Random r = new Random();
+        int rTmp = r.nextInt(100);
+        String symbol = "btc";
+        if(rTmp>70){
+            symbol = "btc";
+        }else if(rTmp>35 && rTmp<=70){
+            symbol = "eth";
+        }else{
+            symbol = "ltc";
         }
-        System.out.println(val);
-
-
-
+        System.out.println(rTmp);
+        System.out.println(symbol);
     }
 
     public static String postByForm(String url, String authorization, String params) {

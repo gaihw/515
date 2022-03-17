@@ -19,6 +19,8 @@ public class Config {
 
     public static BigDecimal partnerTransferOutRatio = BigDecimal.valueOf(0.7);
 
+    public static BigDecimal rate = BigDecimal.valueOf(0.1);
+
 
 
 

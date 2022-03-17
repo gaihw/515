@@ -3,6 +3,7 @@ package com.zmj.demo.common.dev1;
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.config.Config;
 import com.zmj.demo.dao.dev1.AccountDao;
+import com.zmj.demo.domain.dev1.PositionChain;
 import com.zmj.demo.domain.dev1.SwapOrderChain;
 import com.zmj.demo.domain.dev1.UserBillChain;
 import com.zmj.demo.domain.dev1.UserDistributorChain;
@@ -15,23 +16,10 @@ import java.util.List;
 
 @Slf4j
 @Configuration
-public class ThroughPositionsCalc {
+public class PositionsCalc {
 
     @Autowired
     private AccountDao accountDao;
-
-    public String throughBack(UserBillChain userBillChain){
-
-        //获取订单类型
-        SwapOrderChain swapOrderChain = accountDao.getMarginType(userBillChain.getSourceId());
-        //逐仓单，计算穿仓
-        if (swapOrderChain.getMarginType().equalsIgnoreCase("FIXED")){
-
-        }else {//全仓单，计算穿仓
-
-        }
-        return null;
-    }
 
     /**
      * 单校验type=54,对应合伙人的回补金额是否正确，不计算比例
@@ -172,5 +160,57 @@ public class ThroughPositionsCalc {
 
         }
         return new String[]{stringBuffer.toString(),error.toString()};
+    }
+
+    /**
+     * 计算仓位的浮动盈亏
+     * 币数量 = 张数 * 合约面值
+     * 浮盈亏 = （标记价 - 开仓均价）* 币数量 * 合约方向
+     * @param positionChains
+     * @param indexPrice
+     * @return
+     */
+    public BigDecimal floatProfitLoss(List<PositionChain> positionChains,JSONObject indexPrice) {
+        BigDecimal total = BigDecimal.ZERO;
+        for (PositionChain pc:positionChains) {
+            BigDecimal oneLotSize = accountDao.instruments(pc.getSymbol());
+            if (pc.getDirection().equalsIgnoreCase("long")){
+                total = total.add((indexPrice.getBigDecimal(pc.getSymbol()).subtract(pc.getOpenPrice())).multiply(pc.getQuantity().multiply(oneLotSize)));
+            }else {
+                total = total.add((pc.getOpenPrice().subtract(indexPrice.getBigDecimal(pc.getSymbol()))).multiply(pc.getQuantity().multiply(oneLotSize)));
+            }
+        }
+        return total;
+    }
+
+    /**
+     * 计算仓位的总手续费
+     * 手续费=开仓价格*数量*合约面值*费率
+     * @param positionChains
+     * @return
+     */
+    public BigDecimal fee(List<PositionChain> positionChains) {
+        BigDecimal total = BigDecimal.ZERO;
+        for (PositionChain pc:positionChains) {
+            BigDecimal oneLotSize = accountDao.instruments(pc.getSymbol());
+            total = total.add(pc.getOpenPrice().multiply(pc.getQuantity()).multiply(oneLotSize).multiply(Config.taker));
+        }
+        return total;
+    }
+
+    /**
+     * 计算仓位的总保证金
+     * 保证金 = 开仓价 * 张数 * 合约面值  / 杠杆
+     * @param positionChains
+     * @return
+     */
+    public BigDecimal margin(List<PositionChain> positionChains) {
+        BigDecimal total = BigDecimal.ZERO;
+        for (PositionChain pc:positionChains) {
+            BigDecimal oneLotSize = accountDao.instruments(pc.getSymbol());
+//            total = total.add(pc.getOpenPrice().multiply(pc.getQuantity()).multiply(oneLotSize).divide(BigDecimal.valueOf(pc.getLeverage()),Config.newScale,BigDecimal.ROUND_UP));
+            total = total.add(pc.getMargin());
+        }
+        return total;
     }
 }

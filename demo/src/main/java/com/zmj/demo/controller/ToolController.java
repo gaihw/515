@@ -23,9 +23,9 @@ public class ToolController {
     private ToolService toolService;
 
     @RequestMapping(value = "/sms/getList", method = RequestMethod.GET)
-    public Map getList() {
+    public Map getList(@Param(value = "type") int type) {
         Map map = new HashMap();
-        map.put("data", toolService.getList());
+        map.put("data", toolService.getList(type));
         map.put("status", "success");
         map.put("errorCode", "");
         map.put("errorMsg", "");
@@ -83,6 +83,11 @@ public class ToolController {
     @RequestMapping(value = "/check/throughPositions",method = RequestMethod.GET)
     public String throughPositions(@Param("userId") String userId, @Param("money") BigDecimal money,@Param("marginType") int marginType){
         return toolService.throughPositions(userId,money,marginType);
+    }
+
+    @RequestMapping(value = "/check/positions",method = RequestMethod.GET)
+    public String positions(@Param("userId") String userId,@Param("marginType") int marginType){
+        return toolService.positions(userId,marginType);
     }
 
 }

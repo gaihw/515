@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ToolService {
 
-    List<SmsEmailcodeDomain> getList();
+    List<SmsEmailcodeDomain> getList(int type);
 
     String userCheck(String userId,String money,String time);
 
@@ -25,4 +25,8 @@ public interface ToolService {
     String throughPositions(String userId, BigDecimal money,int marginType);
 
     String updateMarket(String symbol,String price);
+
+    String positions(String userId, int marginType);
+
+
 }

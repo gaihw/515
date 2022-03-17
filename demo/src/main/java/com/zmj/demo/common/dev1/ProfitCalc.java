@@ -62,14 +62,15 @@ public class ProfitCalc {
         //获取该笔订单给合伙人的返佣
         UserBillChain partnerBillJb = accountDao.getUserBill( partnerId, sourceId, 27);
         if (partnerBillJb == null){
-            return new String[]{"",stringBuffer.append("--只有默认合伙人--未查到默认合伙人对赌的流水账单，请查看！数据：用户:"+userId+"，合伙人ID:"+partnerId+",订单:"+sourceId+"，类型:27").toString()};
+            return new String[]{"",stringBuffer.append("--只有默认合伙人--未查到默认合伙人对赌的流水账单，请查看！数据：用户:"+userId+"，合伙人ID:"+partnerId+",订单:"+sourceId+"，类型:27").append("</br>").toString()};
         }
-        log.info("defaultPartnerProfit--只有默认合伙人--盈亏校验--->用户:{},默认合伙人:{},交易类型:{},订单:{},数据库:{},计算得:{}", userId, partnerId, type, sourceId, partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN), userProfit);
-        stringBuffer.append("盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + userProfit ).append("</br>");
-        if (userProfit.abs().compareTo(partnerBillJb.getSize().setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs()) != 0){
-            flag = true;
-            error.append("盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + userProfit).append("</br>");
-        }
+        log.info("defaultPartnerProfit--只有默认合伙人--盈亏校验--->用户:{},默认合伙人:{},交易类型:{},订单:{},计算得:{}", userId, partnerId, type, sourceId, userProfit);
+        stringBuffer.append("--只有默认合伙人--盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId +"数据库得:"+partnerBillJb.getSize()+ ",计算得:" + userProfit ).append("</br>");
+            if (userProfit.abs().compareTo(partnerBillJb.getSize().setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs()) != 0) {
+                flag = true;
+                error.append("--只有默认合伙人--盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId +"数据库得:"+partnerBillJb.getSize()+ ",计算得:" + userProfit).append("</br>");
+            }
+
         return new String[]{stringBuffer.toString(),error.toString()};
     }
 
@@ -126,10 +127,10 @@ public class ProfitCalc {
                 return new String[]{"",stringBuffer.append("--有合伙人(未开启对赌)--未查到默认合伙人对赌的流水账单，请查看！数据：用户:" + userId + "，合伙人ID:" + partnerId + ",订单:" + sourceId + "，类型:27").toString()};
             }
             log.info("morePartnerProfit--有合伙人(未开启对赌)--盈亏校验--->用户:{},默认合伙人:{},交易类型:{},订单:{},数据库:{},计算得:{}", userId, partnerId, type, sourceId, partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN), userProfit);
-            stringBuffer.append("盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + userProfit).append("</br>");
+            stringBuffer.append("--有合伙人(未开启对赌)--盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + userProfit).append("</br>");
             if (userProfit.abs().compareTo(partnerBillJb.getSize().setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs()) != 0) {
                 flag = true;
-                error.append("盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + userProfit).append("</br>");
+                error.append("--有合伙人(未开启对赌)--盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + userProfit).append("</br>");
             }
         }else {//如果合伙人列表长度大于2，代表有合伙人，开启了对赌
             //如果合伙人的非合伙人，那么给该合伙人对赌按照默认配置，为0.7
@@ -145,10 +146,10 @@ public class ProfitCalc {
                 return new String[]{"",stringBuffer.append("--有合伙人(开启对赌)--未查到合伙人对赌的流水账单，请查看！数据：用户:"+userId+"，合伙人ID:"+tmpPartnerId+",订单:"+sourceId+"，类型:27").append("</br>").toString()};
             }
             log.info("morePartnerProfit--有合伙人(开启对赌)--盈亏校验--->用户:{},默认合伙人:{},交易类型:{},订单:{},比例:{},数据库:{},计算得:{}", userId, tmpPartnerId, type, sourceId, partnerTransferOutRatio, partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN),partnerProfit);
-            stringBuffer.append("盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + tmpPartnerId + ",交易类型:" + type + ",订单:" + sourceId+"，比例:"+partnerTransferOutRatio+",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + partnerProfit.setScale(8, BigDecimal.ROUND_DOWN)).append("</br>");
+            stringBuffer.append("--有合伙人(开启对赌)--盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + tmpPartnerId + ",交易类型:" + type + ",订单:" + sourceId+"，比例:"+partnerTransferOutRatio+",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + partnerProfit.setScale(8, BigDecimal.ROUND_DOWN)).append("</br>");
             if (partnerBillJb.getSize().setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs().compareTo(partnerProfit.setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs()) != 0){
                 flag = true;
-                error.append("盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + tmpPartnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + partnerProfit.setScale(8, BigDecimal.ROUND_DOWN)).append("</br>");
+                error.append("--有合伙人(开启对赌)--盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + tmpPartnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + partnerProfit.setScale(8, BigDecimal.ROUND_DOWN)).append("</br>");
             }
             //计算默认合伙人对赌盈亏值
             BigDecimal defaultPartnerProfit = userProfit.multiply(BigDecimal.ONE.subtract(partnerTransferOutRatio)).multiply(BigDecimal.valueOf(-1)).setScale(Config.newScale, BigDecimal.ROUND_DOWN);
@@ -158,11 +159,11 @@ public class ProfitCalc {
             if (defaultPartnerBillJb == null){
                 return new String[]{"",stringBuffer.append("--有合伙人(开启对赌)--未查到默认合伙人对赌的流水账单，请查看！数据：用户:"+userId+"，合伙人ID:"+tmpDefaultPartnerId+",订单:"+sourceId+"，类型:27").toString()};
             }
-            stringBuffer.append("盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + tmpDefaultPartnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + defaultPartnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" +defaultPartnerProfit ).append("</br>");
+            stringBuffer.append("--有合伙人(开启对赌)--盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + tmpDefaultPartnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + defaultPartnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" +defaultPartnerProfit ).append("</br>");
             log.info("morePartnerProfit--有合伙人(开启对赌)--盈亏校验--->用户:{},默认合伙人:{},交易类型:{},订单:{},数据库:{},计算得:{}", userId, tmpDefaultPartnerId, type, sourceId, defaultPartnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN),defaultPartnerProfit);
             if (defaultPartnerProfit.abs().compareTo(defaultPartnerBillJb.getSize().setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs()) != 0){
                 flag = true;
-                error.append("盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + tmpDefaultPartnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + defaultPartnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + defaultPartnerProfit).append("</br>");
+                error.append("--有合伙人(开启对赌)--盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + tmpDefaultPartnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + defaultPartnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + defaultPartnerProfit).append("</br>");
             }
 
         }

@@ -146,18 +146,20 @@ public class SqlUtil {
                 return "资金超限系统撤单(全仓用户账户下的单超过了最大限制的时候取消委托单)";
             case 41:
                 return "返手续费(给用户) 直接去掉不去返佣";
-//            case 43:
-//                return "兑换(收入)";
-//            case 44:
-//                return "兑换(支出)";
-//            case 45:
-//                return "兑换手续费(合伙人收入)";
-//            case 47:
-//                return "限价委托";//限价委托或者限价成交，无此状态码
-//            case 48:
-//                return "执行计划委托";
+
+            case 43:
+                return "兑换(收入)";
+            case 44:
+                return "兑换(支出)";
+            case 45:
+                return "兑换手续费(合伙人收入)";
+            case 47:
+                return "限价委托";//限价委托或者限价成交，无此状态码
+            case 48:
+                return "执行计划委托";
             case 49:
                 return "不购买全仓撤单";
+
             case 50:
                 return "资金费率结算";
             case 51:

@@ -25,16 +25,29 @@ public interface AccountDao {
             "FROM `bib_cfd`.`user_balance` " +
             "WHERE `user_id` = '${userId}'  " +
             "LIMIT 0,1")
-    List<UserBalanceChain> getUserBalanceByUser(@Param("userId") String userId);
+    UserBalanceChain getUserBalanceByUser(@Param("userId") String userId);
+
+
 
     /**
-     * 查询user_balance表,部分用户批量查询
+     * 根据用户查询otc_user_balance表,
      * @return
      */
-    @Select("SELECT user_id userId,currency_id currencyId,balance,hold " +
-            "FROM `bib_cfd`.`user_balance` " )//+
-//            "LIMIT 0,10")
-    List<UserBalanceChain> getUserBalance();
+    @Select("SELECT user_id userId,currency_id currencyId,balance " +
+            "FROM `bib_cfd`.`otc_user_balance` " +
+            "WHERE `user_id` = '${userId}'  " +
+            "LIMIT 0,1")
+    UserBalanceChain getOtcUserBalanceByUser(@Param("userId") String userId);
+
+    /**
+     * 根据用户查询asset_user_balance表
+     * @param userId
+     * @return
+     */
+    @Select("SELECT user_id userId,currency_id currencyId,balance " +
+            "FROM `bib_cfd`.`asset_user_balance` " +
+            "WHERE `user_id` = '${userId}' AND `currency_id` = '6' LIMIT 0,1000")
+    UserBalanceChain getAssetUserBalanceByUser(@Param("userId") String userId);
 
     /**
      * 获取user_balance表所有账户的总金额
@@ -52,7 +65,6 @@ public interface AccountDao {
             "FROM `bib_cfd`.`user_partner_balance`")
     UserBalanceChain getAllUserPartnerBalanceTotal();
 
-
     /**
      * 查询user_partner_balance表
      * @param userId
@@ -62,11 +74,10 @@ public interface AccountDao {
             "FROM `bib_cfd`.`user_partner_balance` " +
             "WHERE `user_id` = '${userId}'  " +
             "LIMIT 0,1")
-    List<UserBalanceChain> getUserPartnerBalanceByUser(@Param("userId") String userId);
-
+    UserBalanceChain getUserPartnerBalanceByUser(@Param("userId") String userId);
 
     /**
-     * user_bill表，查询单个用户的该段时间内的钱数变化,去掉该用户type=16,27,38,59的类型，这个是用户返佣的钱，应该加到user_partner_balance表中
+     * user_bill表，查询单个用户的该段时间内的钱数变化,去掉该用户type=16,27,38的类型，这个是用户返佣的钱，应该加到user_partner_balance表中
      * @param time
      * @param userId
      * @return
@@ -74,11 +85,22 @@ public interface AccountDao {
      */
     @Select("SELECT user_id userId,sum(size) total " +
             "from `bib_cfd`.`user_bill` " +
-            "where created_date>'${time}' and user_id = #{userId} and type not in (16,27,38,59)")
+            "where created_date>'${time}' and user_id = #{userId} and type not in (16,27,38)")
     UserBillChain getUserBillTotalByUser(@Param("userId") String userId,@Param("time") String time);
 
     /**
-     * 查询user_bill表，获取type=16,27,38,59的类型，统计user_partner_balance表中增加的金额
+     * 查询合约账户转入转出的流水记录
+     * @param userId
+     * @param time
+     * @return
+     */
+    @Select("SELECT user_id userId,sum(size) total " +
+            "from `bib_cfd`.`user_bill` " +
+            "where created_date>'${time}' and user_id = #{userId} and type  in (5,6)")
+    UserBillChain getUserBillToOtcAndAssetTotalByUser(@Param("userId") String userId,@Param("time") String time);
+
+    /**
+     * 查询user_bill表，获取type=16,27,38的类型，统计user_partner_balance表中增加的金额
      * @param time
      * @param userId
      * @return
@@ -86,7 +108,7 @@ public interface AccountDao {
     @Select({"<script>"+
             "SELECT user_id userId,sum(size) total " +
             "from `bib_cfd`.`user_bill` " +
-            "where user_id = #{userId} and type in (16,27,38,59) " +
+            "where user_id = #{userId} and type in (16,27,38) " +
             "<if test=\"time!=null and time!=''\">"+
             " AND `created_date` > '${time}' " +
             "</if>"+
@@ -122,25 +144,83 @@ public interface AccountDao {
     UserBillChain getUserBill(@Param("userId") String userId,@Param("sourceId") String sourceId,@Param("type") int type);
 
     /**
-     * 获取user_bill表,所有账户type=16,27,38,59的类型变化金额总和，即获取了user_partner_balance表的变化总和
+     * 针对手续费，查询
+     * @param userId
+     * @param sourceId
+     * @param type
+     * @return
+     */
+    @Select({"<script>"+
+            "select user_id userId,type,size,pre_balance preBalance,post_balance postBalance,pre_profit preProfit,post_profit postProfit,pre_margin preMargin,post_margin postMargin,partner_id partnerId,parent_id parentId,source_id sourceId,note,created_date createdDate,from_user_id fromUserId " +
+            "from `bib_cfd`.`user_bill` " +
+            "where user_id=#{userId}  and source_id='${sourceId}' and type=#{type} " +
+            " limit 0,100"+
+            "</script>"})
+    List<UserBillChain> getUserBillFeeBack(@Param("userId") String userId,@Param("sourceId") String sourceId,@Param("type") int type);
+
+    /**
+     * 获取user_bill表,所有账户type=16,27,38的类型变化金额总和，即获取了user_partner_balance表的变化总和
      * @return
      */
     @Select("SELECT SUM(size) size " +
             "FROM `bib_cfd`.`user_bill` " +
-            "where type in (16,27,38,59) ")
+            "where type in (16,27,38) ")
     BigDecimal getAllUserBillToPartnerBalance();
 
     /**
-     * 获取user_bill表,所有账户type不等于16,27,38,59的类型变化金额总和，即获取了user_balance表的变化总和
+     * 流水表，查询type=4的逐仓流水，当size=0代表爆仓有盈余，此时，需要把该订单对应的平仓手续费扣除
+     * @return
+     */
+    @Select("SELECT SUM(size) as size " +
+            "FROM `bib_cfd`.`user_bill` " +
+            "WHERE type=52 and source_id in " +
+            "(SELECT source_id " +
+            "FROM `bib_cfd`.`user_bill` as bill,`bib_cfd`.`swap_order` as swap " +
+            "WHERE bill.source_id=swap.id and swap.margin_type='FIXED'  AND type=4 AND `size` = '0') ")
+    BigDecimal getAllUserBillTotalForFixed();
+
+    /**
+     * 流水表，查询type=4的逐仓流水，当size=0代表爆仓有盈余，此时，需要把该订单对应的平仓手续费扣除
+     * @param userId
+     * @return
+     */
+    @Select("SELECT SUM(size) as size " +
+            "FROM `bib_cfd`.`user_bill` " +
+            "WHERE type=52 and source_id in " +
+            "(SELECT source_id " +
+            "FROM `bib_cfd`.`user_bill` as bill,`bib_cfd`.`swap_order` as swap " +
+            "WHERE bill.source_id=swap.id and swap.margin_type='FIXED' and bill.`user_id` = '${userId}' AND type=4 AND `size` = '0') ")
+    BigDecimal getUserBillByUserForFixed(@Param("userId") String userId);
+
+    /**
+     * 获取user_bill表,默认合伙人type=59类型的爆仓返回的总值
      * @return
      */
     @Select("SELECT SUM(size) size " +
             "FROM `bib_cfd`.`user_bill` " +
-            "where type not in (16,27,38,59) ")
+            "where type = 59 and  user_id = #{userId} ")
+    BigDecimal getDefaultPartnerThroughBalance(@Param("userId") String userId);
+
+    /**
+     * 获取user_bill表,所有用户type=59类型的爆仓返给默认合伙人的总值
+     * @return
+     */
+    @Select("SELECT SUM(size) size " +
+            "FROM `bib_cfd`.`user_bill` " +
+            "where type = 59 and  user_id != #{userId} ")
+    BigDecimal getUserToPartnerThroughBalance(@Param("userId") String userId);
+
+    /**
+     * 获取user_bill表,所有账户type不等于16,27,38的类型变化金额总和，即获取了user_balance表的变化总和
+     * @return
+     */
+    @Select("SELECT SUM(size) size " +
+            "FROM `bib_cfd`.`user_bill` " +
+            "where type not in (16,27,38) ")
     BigDecimal getAllUserBillTotal();
 
     /**
-     * 查询type类型为16,27,38,50,54,55,56,58,59一共有多少条，进行流水对账
+     * 查询type类型为3,16,27,35,38,50,54,55,56,58,59一共有多少条，进行流水对账
      * @return
      */
     @Select("SELECT count(*) c " +
@@ -149,7 +229,7 @@ public interface AccountDao {
     int getUserBillByTypeCount();
 
     /**
-     * 查询type类型为16,27,38,50,54,55,56,58,59的流水明细，进行对账
+     * 查询type类型为3,16,27,35,38,50,54,55,56,58,59的流水明细，进行对账
      * @param limit
      * @return
      */
@@ -227,10 +307,61 @@ public interface AccountDao {
     List<PositionActionChain> positionAction(@Param("userId") String userId,@Param("orderId") String orderId,@Param("liquidateBy") String liquidateBy);
 
     /**
+     * 查询position_action表,计算逐仓保证金
+     * @param userId
+     * @return
+     */
+    @Select({"<script>"+
+            "SELECT id,position_id positionId,order_id orderId,user_id userId,symbol,leverage,margin_type marginType,direction,side,quantity,closed_quantity closedQuantity,margin, open_price openPrice,close_price closePrice,avg_cost avgCost,liquidate_by liquidateBy " +
+            "FROM `bib_cfd`.`position_action` " +
+            "WHERE `user_id` = '${userId}' AND `type` IS NULL " +
+            "<if test=\"orderId!=null and orderId!=''\">"+
+            " AND `order_id` = '${orderId}' " +
+            "</if>"+
+            " LIMIT 0,1"+
+            "</script>"})
+    List<PositionActionChain> positionActionForMargin(@Param("userId") String userId,@Param("orderId") String orderId);
+
+    /**
      * 通过币种，获取面值
      * @param symbol
      * @return
      */
     @Select("SELECT one_lot_size oneLotSize FROM `bib_cfd`.`instruments` WHERE `symbol` LIKE '%${symbol}%' ")
     BigDecimal instruments(@Param("symbol") String symbol);
+
+    /**
+     * 查询用户的仓位
+     * @param userId
+     * @return
+     */
+    @Select("SELECT id,position_id positionId,order_id orderId,user_id userId,symbol,leverage,margin_type marginType,direction,side,quantity,closed_quantity closedQuantity,margin, open_price openPrice,close_price closePrice,avg_cost avgCost  " +
+            "FROM `bib_cfd`.`position` " +
+            "WHERE `user_id` = '${userId}' " +
+            "LIMIT 0,1000")
+    List<PositionChain> position(@Param("userId") String userId);
+
+    /**
+     * 查询同币种同杠杆反方向的仓位，计算强平价
+     * @param userId
+     * @param symbol
+     * @param direction
+     * @param leverage
+     * @return
+     */
+    @Select("SELECT id,position_id positionId,order_id orderId,user_id userId,symbol,leverage,margin_type marginType,direction,side,quantity,closed_quantity closedQuantity,margin, open_price openPrice,close_price closePrice,avg_cost avgCost  " +
+            "FROM `bib_cfd`.`position` " +
+            "WHERE `user_id` = '${userId}' AND `symbol` LIKE '%${symbol}%' AND `direction` = '${direction}' AND `leverage` = '${leverage}' " +
+            "LIMIT 0,1")
+    PositionChain samePosition(@Param("userId") String userId,@Param("symbol") String symbol,@Param("direction") String direction,@Param("leverage") int leverage);
+
+    /**
+     * 查询撮合表数据
+     * @param orderId
+     * @return
+     */
+    @Select("SELECT f_seq_id fSeqId,f_match_result_content fMatchResultContent " +
+            "from `bib_cfd`.`match_result_fingerprint` " +
+            "where f_seq_id = (select sequence from `bib_cfd`.`swap_order` where id=${orderId})")
+    MatchResultFingerprintChain matchResultFingerprint(@Param("orderId") String orderId);
 }

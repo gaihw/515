@@ -66,6 +66,12 @@ spring:
       session-timeout-ms: 15000
       auto-coomit-interval-ms: 100
 
+socket:
+  config:
+    url: wss://np-dev1.tfbeee.com/v1/np/ws
+#    url: ws://localhost:8081/websocket/test
+#    url: wss://ws.chimchim.top
+#    url: ws://192.168.216.163:8651/v1/np/ws
 
 ## Mybatis 连接
 mybatis :
