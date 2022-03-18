@@ -173,20 +173,20 @@ public interface AccountDao {
      */
     @Select("SELECT SUM(size) as size " +
             "FROM `bib_cfd`.`user_bill` " +
-            "WHERE type=52 and source_id in " +
+            "WHERE type in (41,52) and source_id in " +
             "(SELECT source_id " +
             "FROM `bib_cfd`.`user_bill` as bill,`bib_cfd`.`swap_order` as swap " +
             "WHERE bill.source_id=swap.id and swap.margin_type='FIXED'  AND type=4 AND `size` = '0') ")
     BigDecimal getAllUserBillTotalForFixed();
 
     /**
-     * 流水表，查询type=4的逐仓流水，当size=0代表爆仓有盈余，此时，需要把该订单对应的平仓手续费扣除
+     * 流水表，查询type=4的逐仓流水，当size=0代表爆仓有盈余，此时，需要把该订单对应的平仓手续费和返还的手续费扣除
      * @param userId
      * @return
      */
     @Select("SELECT SUM(size) as size " +
             "FROM `bib_cfd`.`user_bill` " +
-            "WHERE type=52 and source_id in " +
+            "WHERE type in (41,52) and source_id in " +
             "(SELECT source_id " +
             "FROM `bib_cfd`.`user_bill` as bill,`bib_cfd`.`swap_order` as swap " +
             "WHERE bill.source_id=swap.id and swap.margin_type='FIXED' and bill.`user_id` = '${userId}' AND type=4 AND `size` = '0') ")

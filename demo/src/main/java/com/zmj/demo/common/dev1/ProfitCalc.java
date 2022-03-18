@@ -124,7 +124,7 @@ public class ProfitCalc {
             //获取该笔订单给合伙人的返佣
             UserBillChain partnerBillJb = accountDao.getUserBill(partnerId, sourceId, 27);
             if (partnerBillJb == null) {
-                return new String[]{"",stringBuffer.append("--有合伙人(未开启对赌)--未查到默认合伙人对赌的流水账单，请查看！数据：用户:" + userId + "，合伙人ID:" + partnerId + ",订单:" + sourceId + "，类型:27").toString()};
+                return new String[]{"",stringBuffer.append("--有合伙人(未开启对赌)--未查到默认合伙人对赌的流水账单，请查看！数据：用户:" + userId + "，合伙人ID:" + partnerId + ",订单:" + sourceId + "，类型:27").append("</br>").toString()};
             }
             log.info("morePartnerProfit--有合伙人(未开启对赌)--盈亏校验--->用户:{},默认合伙人:{},交易类型:{},订单:{},数据库:{},计算得:{}", userId, partnerId, type, sourceId, partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN), userProfit);
             stringBuffer.append("--有合伙人(未开启对赌)--盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + userProfit).append("</br>");
