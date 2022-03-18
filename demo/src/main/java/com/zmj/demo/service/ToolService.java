@@ -29,4 +29,5 @@ public interface ToolService {
     String positions(String userId, int marginType);
 
 
+    String userInfo(int type, String data);
 }

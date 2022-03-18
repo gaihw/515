@@ -364,4 +364,18 @@ public interface AccountDao {
             "from `bib_cfd`.`match_result_fingerprint` " +
             "where f_seq_id = (select sequence from `bib_cfd`.`swap_order` where id=${orderId})")
     MatchResultFingerprintChain matchResultFingerprint(@Param("orderId") String orderId);
+
+    @Select({"<script>"+
+            "SELECT ui.id as userId,ui.mobile as mobile ,ub.balance as balance,ub.hold as hold,oub.balance as otcBalance,aub.balance as assetBalance " +
+            "from `bib_cfd`.`user_info` as ui,`bib_cfd`.`user_balance` as ub,`bib_cfd`.`otc_user_balance` as oub,`bib_cfd`.`asset_user_balance` as aub " +
+            "WHERE ui.id=ub.user_id and ui.id=oub.user_id and ui.id=aub.user_id and aub.currency_id = 6  " +
+            "<if test=\"userId!=null and userId!=''\">"+
+            " AND ui.id = '${userId}' " +
+            "</if>"+
+            "<if test=\"mobile!=null and mobile!=''\">"+
+            " AND ui.mobile = '${mobile}' " +
+            "</if>"+
+            " LIMIT 0,1"+
+            "</script>"})
+    UserInfoDataChain getUserInfo(@Param("userId")String userId, @Param("mobile")String mobile);
 }

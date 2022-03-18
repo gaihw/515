@@ -815,4 +815,29 @@ public class ToolServiceImpl implements ToolService {
         }
         return stringBuffer.toString();
     }
+
+    /**
+     * 获取用户信息
+     * @param type 0-手机号;1-用户ID
+     * @param data
+     * @return
+     */
+    @Override
+    public String userInfo(int type, String data) {
+        StringBuffer stringBuffer = new StringBuffer();
+        UserInfoDataChain userInfoDataChain ;
+        if (type == 0) {
+            userInfoDataChain = accountDao.getUserInfo(null,data);
+        }else {
+            userInfoDataChain = accountDao.getUserInfo(data,null);
+        }
+        stringBuffer.append("用户ID:"+userInfoDataChain.getUserId()).append("</br>");
+        stringBuffer.append("手机号:"+userInfoDataChain.getMobile()).append("</br>");
+        stringBuffer.append("余额:"+userInfoDataChain.getBalance()).append("</br>");
+        stringBuffer.append("冻结:"+userInfoDataChain.getHold()).append("</br>");
+        stringBuffer.append("otc余额:"+userInfoDataChain.getOtcBalance()).append("</br>");
+        stringBuffer.append("asset余额:"+userInfoDataChain.getAssetBalance()).append("</br>");
+
+        return stringBuffer.toString();
+    }
 }

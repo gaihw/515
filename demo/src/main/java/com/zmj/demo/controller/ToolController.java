@@ -32,10 +32,7 @@ public class ToolController {
         return map;
     }
 
-    @RequestMapping(value = "/base/test", method = RequestMethod.GET)
-    public String test() {
-        return "test...";
-    }
+
 
     /**
      * 推送行情
@@ -75,10 +72,7 @@ public class ToolController {
         return toolService.allUserCheck();
     }
 
-    @RequestMapping(value = "/account/getUserPartner",method = RequestMethod.GET)
-    public JsonResult getUserPartner(@Param("userId") String userId){
-        return new JsonResult<>(0,toolService.getUserPartner(userId));
-    }
+
 
     @RequestMapping(value = "/check/throughPositions",method = RequestMethod.GET)
     public String throughPositions(@Param("userId") String userId, @Param("money") BigDecimal money,@Param("marginType") int marginType){
@@ -88,6 +82,16 @@ public class ToolController {
     @RequestMapping(value = "/check/positions",method = RequestMethod.GET)
     public String positions(@Param("userId") String userId,@Param("marginType") int marginType){
         return toolService.positions(userId,marginType);
+    }
+
+    @RequestMapping(value = "/account/getUserPartner",method = RequestMethod.GET)
+    public JsonResult getUserPartner(@Param("userId") String userId){
+        return new JsonResult<>(0,toolService.getUserPartner(userId));
+    }
+
+    @RequestMapping(value = "/account/userInfo", method = RequestMethod.GET)
+    public String userInfo(@Param("type") int type, @Param("data") String data) {
+        return toolService.userInfo(type,data);
     }
 
 }
