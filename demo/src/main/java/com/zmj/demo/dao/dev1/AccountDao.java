@@ -6,6 +6,7 @@ import com.zmj.demo.domain.dev1.UserDistributorChain;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -378,4 +379,9 @@ public interface AccountDao {
             " LIMIT 0,1"+
             "</script>"})
     UserInfoDataChain getUserInfo(@Param("userId")String userId, @Param("mobile")String mobile);
+
+    @Update("UPDATE `bib_cfd`.`user_balance` " +
+            "SET balance=${data},hold=0,freeze=0,borrow=0 " +
+            "where user_id= ${userId}")
+    int deposit(String userId, String data);
 }

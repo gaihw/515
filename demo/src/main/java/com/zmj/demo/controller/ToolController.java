@@ -94,4 +94,9 @@ public class ToolController {
         return toolService.userInfo(type,data);
     }
 
+    @RequestMapping(value = "/account/deposit", method = RequestMethod.GET)
+    public String deposit(@Param("userId") String userId, @Param("data") String data) {
+        return toolService.deposit(userId,data);
+    }
+
 }

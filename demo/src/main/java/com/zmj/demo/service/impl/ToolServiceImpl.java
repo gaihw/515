@@ -840,4 +840,19 @@ public class ToolServiceImpl implements ToolService {
 
         return stringBuffer.toString();
     }
+
+    @Override
+    public String deposit(String userId, String data) {
+        try {
+            int result = accountDao.deposit(userId,data);
+            if (result == 1){
+                return "充值成功!";
+            }else {
+                return "充值失败!";
+            }
+        }catch (Exception e){
+            log.info("充值失败:"+e.toString());
+        }
+        return "充值成功!";
+    }
 }

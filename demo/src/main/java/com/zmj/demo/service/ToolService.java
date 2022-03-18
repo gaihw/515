@@ -30,4 +30,6 @@ public interface ToolService {
 
 
     String userInfo(int type, String data);
+
+    String deposit(String userId, String data);
 }
