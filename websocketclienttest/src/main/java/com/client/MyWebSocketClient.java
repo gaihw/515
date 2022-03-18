@@ -44,7 +44,7 @@ public class MyWebSocketClient extends WebSocketClient {
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_ticker\"}}");
 
         //k线
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_kline_5min\",\"cb_id\":\"10001\"}}");
 
         //历史K线
@@ -55,22 +55,23 @@ public class MyWebSocketClient extends WebSocketClient {
 
 
         //标记价格
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_mark_price\",\"cb_id\":\"10001\"}}");
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ethusdt_mark_price\",\"cb_id\":\"10001\"}}");
+        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_mark_price\",\"cb_id\":\"10001\"}}");
+        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ethusdt_mark_price\",\"cb_id\":\"10001\"}}");
+        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_mark_price\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_mark_price\",\"cb_id\":\"10001\"}}");
 
         //指数价格
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_index_price\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_eosusdt_index_price\",\"cb_id\":\"10001\"}}");
 
         //市场深度行情数据
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_depth_step0\",\"cb_id\":\"10001\",\"asks\":150,\"bids\":150}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_depth_step0\",\"cb_id\":\"10001\",\"asks\":150,\"bids\":150}}");
 
         //资金费率
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_funding_rate\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ethusdt_funding_rate\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_funding_rate\",\"cb_id\":\"10001\"}}");
 
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_ticker\",\"cb_id\":\"Android_qoz6\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_ticker\",\"cb_id\":\"Android_qoz6\"}}");
 
         //测试环境
 //        scheduledThreadPool.scheduleAtFixedRate(() -> {
@@ -119,7 +120,36 @@ public class MyWebSocketClient extends WebSocketClient {
                 e.printStackTrace();
             }
         }
-
+        if (res.contains("market_btcusdt_mark_price")){
+            try {
+                if (JSONObject.parseObject(res).getJSONObject("data") != null) {
+                    String mp = JSONObject.parseObject(res).getJSONObject("data").getString("mp");
+                    redisService.addValue("btc", mp);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (res.contains("market_ethusdt_mark_price")){
+            try {
+                if (JSONObject.parseObject(res).getJSONObject("data") != null) {
+                    String mp = JSONObject.parseObject(res).getJSONObject("data").getString("mp");
+                    redisService.addValue("eth", mp);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (res.contains("market_ltcusdt_mark_price")){
+            try {
+                if (JSONObject.parseObject(res).getJSONObject("data") != null) {
+                    String mp = JSONObject.parseObject(res).getJSONObject("data").getString("mp");
+                    redisService.addValue("ltc", mp);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 
