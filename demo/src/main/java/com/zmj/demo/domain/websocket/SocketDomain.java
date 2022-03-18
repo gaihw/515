@@ -1,4 +1,4 @@
-package com.zmj.demo.domain.dev1;
+package com.zmj.demo.domain.websocket;
 
 
 import lombok.Data;

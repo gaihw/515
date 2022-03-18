@@ -15883,3 +15883,249 @@ java.sql.SQLSyntaxErrorException: This version of MySQL doesn't yet support 'LIM
 2022-03-17 20:28:47.395 [http-nio-10090-exec-4] INFO  com.zmj.demo.service.impl.ToolServiceImpl - 分佣金额余额加减--->用户:51905047,类型:16,之前余额:35718.5506040040000000,分佣金额:0.0345349200000000,之后余额:35718.5851389240000000
 2022-03-17 20:28:47.395 [http-nio-10090-exec-4] INFO  com.zmj.demo.service.impl.ToolServiceImpl - --------51905047流水--------
 2022-03-17 21:01:57.889 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m37s87ms).
+2022-03-17 21:11:00.491 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-17 21:11:00.496 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-17 21:45:05.823 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2022-03-17 21:45:10.834 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_312 on gai.local with PID 28340 (/Users/mac/tools/gitPro/515/demo/target/classes started by mac in /Users/mac/tools/gitPro/515/demo)
+2022-03-17 21:45:10.835 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2022-03-17 21:45:11.959 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 21:45:11.962 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2022-03-17 21:45:11.989 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 0 Elasticsearch repository interfaces.
+2022-03-17 21:45:11.994 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 21:45:11.995 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2022-03-17 21:45:12.003 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2022-03-17 21:45:12.019 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 21:45:12.021 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-17 21:45:12.040 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2022-03-17 21:45:12.808 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2022-03-17 21:45:12.822 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2022-03-17 21:45:12.823 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-17 21:45:12.823 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-03-17 21:45:12.967 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-17 21:45:12.968 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2071 ms
+2022-03-17 21:45:14.232 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2022-03-17 21:45:15.176 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Spring Data Elasticsearch: 4.2.1
+2022-03-17 21:45:15.178 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client in build: 7.12.1
+2022-03-17 21:45:15.178 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client used: 7.12.1
+2022-03-17 21:45:15.450 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-10090"]
+2022-03-17 21:45:15.467 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 10090 (http) with context path ''
+2022-03-17 21:45:15.480 [main] INFO  com.zmj.demo.DemoApplication - Started DemoApplication in 25.46 seconds (JVM running for 26.187)
+2022-03-17 21:46:26.904 [http-nio-10090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-17 21:46:26.906 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-03-17 21:46:26.907 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-03-17 21:46:27.348 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-17 21:46:28.943 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-17 21:46:28.956 [http-nio-10090-exec-1] DEBUG c.z.d.dao.dev1.AccountDao.getUserBillTotalByUser - ==>  Preparing: SELECT user_id userId,sum(size) total from `bib_cfd`.`user_bill` where created_date>'' and user_id = ? and type not in (16,27,38) 
+2022-03-17 21:46:28.993 [http-nio-10090-exec-1] DEBUG c.z.d.dao.dev1.AccountDao.getUserBillTotalByUser - ==> Parameters: 51905047(String)
+2022-03-17 21:46:29.139 [http-nio-10090-exec-1] DEBUG c.z.d.dao.dev1.AccountDao.getUserBillTotalByUser - <==      Total: 1
+2022-03-17 21:46:29.146 [http-nio-10090-exec-1] DEBUG c.z.d.d.dev1.AccountDao.getUserBillByUserForFixed - ==>  Preparing: SELECT SUM(size) as size FROM `bib_cfd`.`user_bill` WHERE type=52 and source_id in (SELECT source_id FROM `bib_cfd`.`user_bill` as bill,`bib_cfd`.`swap_order` as swap WHERE bill.source_id=swap.id and swap.margin_type='FIXED' and bill.`user_id` = '51905047' AND type=4 AND `size` = '0') 
+2022-03-17 21:46:29.147 [http-nio-10090-exec-1] DEBUG c.z.d.d.dev1.AccountDao.getUserBillByUserForFixed - ==> Parameters: 
+2022-03-17 21:46:29.239 [http-nio-10090-exec-1] DEBUG c.z.d.d.dev1.AccountDao.getUserBillByUserForFixed - <==      Total: 1
+2022-03-17 21:46:29.240 [http-nio-10090-exec-1] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_balance` WHERE `user_id` = '51905047' LIMIT 0,1 
+2022-03-17 21:46:29.241 [http-nio-10090-exec-1] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==> Parameters: 
+2022-03-17 21:46:29.330 [http-nio-10090-exec-1] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - <==      Total: 1
+2022-03-17 21:46:29.331 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.dev1.BalanceCalc - 操作后，数据库金额，balance:1000.0000000000000000,hold:0E-16
+2022-03-17 21:46:29.332 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.dev1.BalanceCalc - 下单前，账户金额:1000.0,操作后，账户变化金额:0,逐仓爆仓盈余对应的平仓手续费总值:0,操作后，计算剩余的金额:1000.0,操作后，数据库存储的总金额:1000.0000000000000000
+2022-03-17 21:46:29.336 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_partner_balance` WHERE `user_id` = '51905047' LIMIT 0,1 
+2022-03-17 21:46:29.336 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==> Parameters: 
+2022-03-17 21:46:29.424 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - <==      Total: 1
+2022-03-17 21:46:29.446 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.A.getUserBillTotalToPartnerBalanceByUser - ==>  Preparing: SELECT user_id userId,sum(size) total from `bib_cfd`.`user_bill` where user_id = ? and type in (16,27,38) 
+2022-03-17 21:46:29.446 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.A.getUserBillTotalToPartnerBalanceByUser - ==> Parameters: 51905047(String)
+2022-03-17 21:46:29.531 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.A.getUserBillTotalToPartnerBalanceByUser - <==      Total: 1
+2022-03-17 21:46:29.533 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_partner_balance` WHERE `user_id` = '51905047' LIMIT 0,1 
+2022-03-17 21:46:29.533 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==> Parameters: 
+2022-03-17 21:46:29.620 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - <==      Total: 1
+2022-03-17 21:46:29.621 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.dev1.BalanceCalc - 操作后，user_partner_balance数据库金额，balance:35718.5851389240000000,hold:0E-16
+2022-03-17 21:46:29.621 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.dev1.BalanceCalc - 下单前，user_partner_balance账户金额:35718.550604004,操作后，账户变化金额:0.0345349200000000,操作后，计算剩余的金额:35718.5851389240000000,操作后，数据库存储的总金额:35718.5851389240000000
+2022-03-17 21:46:29.644 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.A.getUserBillToOtcAndAssetTotalByUser - ==>  Preparing: SELECT user_id userId,sum(size) total from `bib_cfd`.`user_bill` where created_date>'' and user_id = ? and type in (5,6) 
+2022-03-17 21:46:29.644 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.A.getUserBillToOtcAndAssetTotalByUser - ==> Parameters: 51905047(String)
+2022-03-17 21:46:29.737 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.A.getUserBillToOtcAndAssetTotalByUser - <==      Total: 1
+2022-03-17 21:46:29.738 [http-nio-10090-exec-1] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`otc_user_balance` WHERE `user_id` = '51905047' LIMIT 0,1 
+2022-03-17 21:46:29.738 [http-nio-10090-exec-1] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==> Parameters: 
+2022-03-17 21:46:29.837 [http-nio-10090-exec-1] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - <==      Total: 1
+2022-03-17 21:46:29.838 [http-nio-10090-exec-1] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`asset_user_balance` WHERE `user_id` = '51905047' AND `currency_id` = '6' LIMIT 0,1000 
+2022-03-17 21:46:29.838 [http-nio-10090-exec-1] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==> Parameters: 
+2022-03-17 21:46:29.928 [http-nio-10090-exec-1] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - <==      Total: 1
+2022-03-17 21:46:29.928 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.dev1.BalanceCalc - 操作后，otc&asset_user_balance数据库金额，balance:1.1100000000000000
+2022-03-17 21:46:29.928 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.dev1.BalanceCalc - 下单前，otc&asset_user_balance账户金额:1.11,操作后，账户变化金额:0,操作后，计算剩余的金额:1.11,操作后，数据库存储的总金额:1.1100000000000000
+2022-03-17 21:46:29.929 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - ==>  Preparing: SELECT user_id userId,parent_id parentId,gparent_id gparentId,partner_id partnerId,dist_id distId,level,type,defaulted,config,open_bet openBet,is_profession isProfession FROM `bib_cfd`.`user_distributor` WHERE `user_id` = '51905047' LIMIT 0,1 
+2022-03-17 21:46:29.930 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - ==> Parameters: 
+2022-03-17 21:46:30.035 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - <==      Total: 1
+2022-03-17 21:46:30.036 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - ==>  Preparing: SELECT user_id userId,parent_id parentId,gparent_id gparentId,partner_id partnerId,dist_id distId,level,type,defaulted,config,open_bet openBet,is_profession isProfession FROM `bib_cfd`.`user_distributor` WHERE `user_id` = '51905041' LIMIT 0,1 
+2022-03-17 21:46:30.037 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - ==> Parameters: 
+2022-03-17 21:46:30.130 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - <==      Total: 1
+2022-03-17 21:46:30.132 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - ==>  Preparing: SELECT user_id userId,parent_id parentId,gparent_id gparentId,partner_id partnerId,dist_id distId,level,type,defaulted,config,open_bet openBet,is_profession isProfession FROM `bib_cfd`.`user_distributor` WHERE `user_id` = '51905043' LIMIT 0,1 
+2022-03-17 21:46:30.132 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - ==> Parameters: 
+2022-03-17 21:46:30.222 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - <==      Total: 1
+2022-03-17 21:46:30.223 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - ==>  Preparing: SELECT user_id userId,parent_id parentId,gparent_id gparentId,partner_id partnerId,dist_id distId,level,type,defaulted,config,open_bet openBet,is_profession isProfession FROM `bib_cfd`.`user_distributor` WHERE `user_id` = '51905052' LIMIT 0,1 
+2022-03-17 21:46:30.224 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - ==> Parameters: 
+2022-03-17 21:46:30.310 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - <==      Total: 1
+2022-03-17 21:46:30.312 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - ==>  Preparing: SELECT user_id userId,parent_id parentId,gparent_id gparentId,partner_id partnerId,dist_id distId,level,type,defaulted,config,open_bet openBet,is_profession isProfession FROM `bib_cfd`.`user_distributor` WHERE `user_id` = '51904446' LIMIT 0,1 
+2022-03-17 21:46:30.312 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - ==> Parameters: 
+2022-03-17 21:46:30.404 [http-nio-10090-exec-1] DEBUG c.zmj.demo.dao.dev1.AccountDao.getUserDistributor - <==      Total: 1
+2022-03-17 21:46:30.404 [http-nio-10090-exec-1] INFO  com.zmj.demo.common.SqlUtil - 用户:51905047,合伙人:[{"userId":"51905047","parentId":"51905041","gparentId":"0","partnerId":"51905041","distId":"0","level":"1","type":3,"defaulted":"0","openBet":0,"isProfession":"0","config":{"allotLowerFeeRate":0.100000,"level":0,"maxConfigLevel":10,"partnerTransferOutMin":0.200000,"partnerTransferOutRatio":0.100000,"rebateUserRatio":0.100000,"userLossGivingBonsRate":0.000000}}, {"userId":"51905041","parentId":"51905043","gparentId":"0","partnerId":"51905043","distId":"0","level":"1","type":0,"defaulted":"0","openBet":0,"isProfession":"0","config":{"allotLowerFeeRate":0.200000,"level":0,"maxConfigLevel":10,"partnerTransferOutMin":0.200000,"partnerTransferOutRatio":0.100000,"rebateUserRatio":0.100000,"userLossGivingBonsRate":0.000000}}, {"userId":"51905043","parentId":"51905052","gparentId":"0","partnerId":"51905052","distId":"0","level":"1","type":3,"defaulted":"0","openBet":1,"isProfession":"0","config":{"allotLowerFeeRate":0.500000,"level":0,"maxConfigLevel":10,"partnerTransferOutMin":0.000000,"partnerTransferOutRatio":0.200000,"rebateUserRatio":0.100000,"userLossGivingBonsRate":0.000000}}, {"userId":"51905052","parentId":"51904446","gparentId":"0","partnerId":"51904446","distId":"0","level":"1","type":0,"defaulted":"0","openBet":1,"isProfession":"0","config":{"allotLowerFeeRate":0.700000,"level":0,"maxConfigLevel":10,"partnerTransferOutMin":0.000000,"partnerTransferOutRatio":0.200000,"rebateUserRatio":0.300000,"userLossGivingBonsRate":0.000000}}, {"userId":"51904446","parentId":"0","gparentId":"0","partnerId":"0","distId":"0","level":"0","type":0,"defaulted":"1","openBet":0,"isProfession":"0","config":{"allotLowerFeeRate":0.500000,"level":0,"maxConfigLevel":10,"partnerTransferOutMin":0.000000,"partnerTransferOutRatio":0.000000,"rebateUserRatio":0.000000,"userLossGivingBonsRate":0.000000}}]
+2022-03-17 21:46:30.406 [http-nio-10090-exec-1] DEBUG com.zmj.demo.dao.dev1.AccountDao.getUserBillByUser - ==>  Preparing: SELECT user_id userId,type,size,pre_balance preBalance,post_balance postBalance,pre_profit preProfit,post_profit postProfit,pre_margin preMargin,post_margin postMargin,partner_id partnerId,parent_id parentId,source_id sourceId,note,created_date createdDate,from_user_id fromUserId FROM `bib_cfd`.`user_bill` WHERE `user_id` = '51905047' and created_date>='' 
+2022-03-17 21:46:30.406 [http-nio-10090-exec-1] DEBUG com.zmj.demo.dao.dev1.AccountDao.getUserBillByUser - ==> Parameters: 
+2022-03-17 21:46:30.506 [http-nio-10090-exec-1] DEBUG com.zmj.demo.dao.dev1.AccountDao.getUserBillByUser - <==      Total: 1
+2022-03-17 21:46:30.507 [http-nio-10090-exec-1] INFO  com.zmj.demo.service.impl.ToolServiceImpl - 用户:51905047,流水:[UserBillChain(userId=51905047, type=16, size=0.0345349200000000, preBalance=35718.5506040040000000, postBalance=35718.5851389240000000, preProfit=0E-16, postProfit=0E-16, preMargin=0E-16, postMargin=0E-16, partnerId=null, parentId=null, sourceId=11904, note=手续费返佣：0.03453492,单号来源:11904,用户来源: 51905058, createdDate=2022-03-17 20:17:39, fromUserId=51905058, total=null)]
+2022-03-17 21:46:30.508 [http-nio-10090-exec-1] INFO  com.zmj.demo.service.impl.ToolServiceImpl - --------51905047流水--------
+2022-03-17 21:46:30.508 [http-nio-10090-exec-1] INFO  com.zmj.demo.service.impl.ToolServiceImpl - 合伙人手续费  (合伙人收取下面邀请人的交易手续费) 区分普通和默认:0.0345349200000000
+2022-03-17 21:46:30.508 [http-nio-10090-exec-1] INFO  com.zmj.demo.service.impl.ToolServiceImpl - 分佣金额余额加减--->用户:51905047,类型:16,之前余额:35718.5506040040000000,分佣金额:0.0345349200000000,之后余额:35718.5851389240000000
+2022-03-17 21:46:30.508 [http-nio-10090-exec-1] INFO  com.zmj.demo.service.impl.ToolServiceImpl - --------51905047流水--------
+2022-03-17 22:35:06.401 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m37s272ms).
+2022-03-17 22:37:32.449 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-17 22:37:32.460 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-17 22:37:52.573 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5002 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2022-03-17 22:37:57.583 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_312 on gai.local with PID 28757 (/Users/mac/tools/gitPro/515/demo/target/classes started by mac in /Users/mac/tools/gitPro/515/demo)
+2022-03-17 22:37:57.584 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2022-03-17 22:37:58.495 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 22:37:58.497 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2022-03-17 22:37:58.517 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Elasticsearch repository interfaces.
+2022-03-17 22:37:58.522 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 22:37:58.523 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2022-03-17 22:37:58.532 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2022-03-17 22:37:58.543 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 22:37:58.544 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-17 22:37:58.563 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2022-03-17 22:37:59.244 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2022-03-17 22:37:59.291 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2022-03-17 22:37:59.291 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-17 22:37:59.292 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-03-17 22:37:59.391 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-17 22:37:59.391 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1749 ms
+2022-03-17 22:38:00.616 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2022-03-17 22:38:01.412 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Spring Data Elasticsearch: 4.2.1
+2022-03-17 22:38:01.413 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client in build: 7.12.1
+2022-03-17 22:38:01.413 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client used: 7.12.1
+2022-03-17 22:38:01.687 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-10090"]
+2022-03-17 22:38:01.704 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 10090 (http) with context path ''
+2022-03-17 22:38:01.717 [main] INFO  com.zmj.demo.DemoApplication - Started DemoApplication in 24.679 seconds (JVM running for 25.169)
+2022-03-17 22:39:06.144 [http-nio-10090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-17 22:39:06.145 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-03-17 22:39:06.147 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2022-03-17 22:39:06.420 [http-nio-10090-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-17 22:39:07.715 [http-nio-10090-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-17 22:39:07.727 [http-nio-10090-exec-2] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:39:07.760 [http-nio-10090-exec-2] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:39:07.874 [http-nio-10090-exec-2] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - <==      Total: 1
+2022-03-17 22:39:07.880 [http-nio-10090-exec-2] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_partner_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:39:07.880 [http-nio-10090-exec-2] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==> Parameters: 
+2022-03-17 22:39:07.967 [http-nio-10090-exec-2] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - <==      Total: 0
+2022-03-17 22:39:07.968 [http-nio-10090-exec-2] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`otc_user_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:39:07.968 [http-nio-10090-exec-2] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:39:08.070 [http-nio-10090-exec-2] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - <==      Total: 1
+2022-03-17 22:39:08.072 [http-nio-10090-exec-2] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`asset_user_balance` WHERE `user_id` = '51905058' AND `currency_id` = '6' LIMIT 0,1000 
+2022-03-17 22:39:08.072 [http-nio-10090-exec-2] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:39:08.163 [http-nio-10090-exec-2] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - <==      Total: 1
+2022-03-17 22:39:08.309 [http-nio-10090-exec-2] INFO  com.zmj.demo.service.impl.ToolServiceImpl - 用户:51905058,账户user_balance:UserBalanceChain(userId=user_balance, currencyId=6, balance=9642252.0406304800000000, hold=0E-16),user_partner_balance:null,otc_user_balance:UserBalanceChain(userId=51905058, currencyId=6, balance=224.0814000000000000, hold=null),assert_user_balance:UserBalanceChain(userId=51905058, currencyId=6, balance=97.3400000000000000, hold=null)
+2022-03-17 22:41:01.670 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-17 22:41:01.681 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-17 22:41:21.777 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5005 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2022-03-17 22:41:26.786 [main] INFO  com.zmj.demo.DemoApplication - Starting DemoApplication using Java 1.8.0_312 on gai.local with PID 28771 (/Users/mac/tools/gitPro/515/demo/target/classes started by mac in /Users/mac/tools/gitPro/515/demo)
+2022-03-17 22:41:26.787 [main] INFO  com.zmj.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2022-03-17 22:41:27.638 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 22:41:27.640 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2022-03-17 22:41:27.659 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Elasticsearch repository interfaces.
+2022-03-17 22:41:27.664 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 22:41:27.664 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2022-03-17 22:41:27.672 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2022-03-17 22:41:27.683 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-03-17 22:41:27.685 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-03-17 22:41:27.700 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2022-03-17 22:41:28.379 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 10090 (http)
+2022-03-17 22:41:28.391 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-10090"]
+2022-03-17 22:41:28.391 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-17 22:41:28.391 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2022-03-17 22:41:28.513 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-17 22:41:28.514 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1667 ms
+2022-03-17 22:41:29.591 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2022-03-17 22:41:30.343 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Spring Data Elasticsearch: 4.2.1
+2022-03-17 22:41:30.345 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client in build: 7.12.1
+2022-03-17 22:41:30.345 [main] INFO  o.s.data.elasticsearch.support.VersionInfo - Version Elasticsearch Client used: 7.12.1
+2022-03-17 22:41:30.583 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-10090"]
+2022-03-17 22:41:30.600 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 10090 (http) with context path ''
+2022-03-17 22:41:30.610 [main] INFO  com.zmj.demo.DemoApplication - Started DemoApplication in 24.439 seconds (JVM running for 24.936)
+2022-03-17 22:41:36.297 [http-nio-10090-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-17 22:41:36.298 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-03-17 22:41:36.299 [http-nio-10090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-03-17 22:41:36.545 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-17 22:41:38.015 [http-nio-10090-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-17 22:41:38.028 [http-nio-10090-exec-1] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:41:38.061 [http-nio-10090-exec-1] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:41:38.183 [http-nio-10090-exec-1] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - <==      Total: 1
+2022-03-17 22:41:38.190 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_partner_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:41:38.190 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==> Parameters: 
+2022-03-17 22:41:38.292 [http-nio-10090-exec-1] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - <==      Total: 0
+2022-03-17 22:41:38.293 [http-nio-10090-exec-1] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`otc_user_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:41:38.293 [http-nio-10090-exec-1] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:41:38.410 [http-nio-10090-exec-1] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - <==      Total: 1
+2022-03-17 22:41:38.411 [http-nio-10090-exec-1] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`asset_user_balance` WHERE `user_id` = '51905058' AND `currency_id` = '6' LIMIT 0,1000 
+2022-03-17 22:41:38.411 [http-nio-10090-exec-1] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:41:38.498 [http-nio-10090-exec-1] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - <==      Total: 1
+2022-03-17 22:41:38.669 [http-nio-10090-exec-1] INFO  com.zmj.demo.service.impl.ToolServiceImpl - 用户:51905058,账户user_balance:UserBalanceChain(userId=user_balance, currencyId=6, balance=9642252.0406304800000000, hold=0E-16),user_partner_balance:null,otc_user_balance:UserBalanceChain(userId=otc_user_balance, currencyId=6, balance=224.0814000000000000, hold=null),assert_user_balance:UserBalanceChain(userId=asset_user_balance, currencyId=6, balance=97.3400000000000000, hold=null)
+2022-03-17 22:42:37.756 [http-nio-10090-exec-3] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:42:37.758 [http-nio-10090-exec-3] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:38.152 [http-nio-10090-exec-3] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - <==      Total: 1
+2022-03-17 22:42:38.153 [http-nio-10090-exec-3] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_partner_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:42:38.153 [http-nio-10090-exec-3] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:38.255 [http-nio-10090-exec-3] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - <==      Total: 0
+2022-03-17 22:42:38.256 [http-nio-10090-exec-3] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`otc_user_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:42:38.257 [http-nio-10090-exec-3] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:38.362 [http-nio-10090-exec-3] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - <==      Total: 1
+2022-03-17 22:42:38.364 [http-nio-10090-exec-3] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`asset_user_balance` WHERE `user_id` = '51905058' AND `currency_id` = '6' LIMIT 0,1000 
+2022-03-17 22:42:38.364 [http-nio-10090-exec-3] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:38.457 [http-nio-10090-exec-3] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - <==      Total: 1
+2022-03-17 22:42:38.503 [http-nio-10090-exec-3] INFO  com.zmj.demo.service.impl.ToolServiceImpl - 用户:51905058,账户user_balance:UserBalanceChain(userId=user_balance, currencyId=6, balance=9642252.0406304800000000, hold=0E-16),user_partner_balance:null,otc_user_balance:UserBalanceChain(userId=otc_user_balance, currencyId=6, balance=224.0814000000000000, hold=null),assert_user_balance:UserBalanceChain(userId=asset_user_balance, currencyId=6, balance=97.3400000000000000, hold=null)
+2022-03-17 22:42:42.674 [http-nio-10090-exec-4] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:42:42.675 [http-nio-10090-exec-4] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:42.788 [http-nio-10090-exec-4] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - <==      Total: 1
+2022-03-17 22:42:42.789 [http-nio-10090-exec-4] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_partner_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:42:42.790 [http-nio-10090-exec-4] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:42.891 [http-nio-10090-exec-4] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - <==      Total: 0
+2022-03-17 22:42:42.892 [http-nio-10090-exec-4] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`otc_user_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:42:42.893 [http-nio-10090-exec-4] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:42.993 [http-nio-10090-exec-4] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - <==      Total: 1
+2022-03-17 22:42:42.994 [http-nio-10090-exec-4] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`asset_user_balance` WHERE `user_id` = '51905058' AND `currency_id` = '6' LIMIT 0,1000 
+2022-03-17 22:42:42.995 [http-nio-10090-exec-4] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:43.102 [http-nio-10090-exec-4] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - <==      Total: 1
+2022-03-17 22:42:43.152 [http-nio-10090-exec-4] INFO  com.zmj.demo.service.impl.ToolServiceImpl - 用户:51905058,账户user_balance:UserBalanceChain(userId=user_balance, currencyId=6, balance=9642252.0406304800000000, hold=0E-16),user_partner_balance:null,otc_user_balance:UserBalanceChain(userId=otc_user_balance, currencyId=6, balance=224.0814000000000000, hold=null),assert_user_balance:UserBalanceChain(userId=asset_user_balance, currencyId=6, balance=97.3400000000000000, hold=null)
+2022-03-17 22:42:44.784 [http-nio-10090-exec-6] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:42:44.785 [http-nio-10090-exec-6] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:44.891 [http-nio-10090-exec-6] DEBUG c.z.demo.dao.dev1.AccountDao.getUserBalanceByUser - <==      Total: 1
+2022-03-17 22:42:44.892 [http-nio-10090-exec-6] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance,hold FROM `bib_cfd`.`user_partner_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:42:44.893 [http-nio-10090-exec-6] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:44.998 [http-nio-10090-exec-6] DEBUG c.z.d.d.d.AccountDao.getUserPartnerBalanceByUser - <==      Total: 0
+2022-03-17 22:42:44.999 [http-nio-10090-exec-6] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`otc_user_balance` WHERE `user_id` = '51905058' LIMIT 0,1 
+2022-03-17 22:42:45.000 [http-nio-10090-exec-6] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:45.096 [http-nio-10090-exec-6] DEBUG c.z.d.dao.dev1.AccountDao.getOtcUserBalanceByUser - <==      Total: 1
+2022-03-17 22:42:45.097 [http-nio-10090-exec-6] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==>  Preparing: SELECT user_id userId,currency_id currencyId,balance FROM `bib_cfd`.`asset_user_balance` WHERE `user_id` = '51905058' AND `currency_id` = '6' LIMIT 0,1000 
+2022-03-17 22:42:45.098 [http-nio-10090-exec-6] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - ==> Parameters: 
+2022-03-17 22:42:45.197 [http-nio-10090-exec-6] DEBUG c.z.d.d.dev1.AccountDao.getAssetUserBalanceByUser - <==      Total: 1
+2022-03-17 22:42:45.236 [http-nio-10090-exec-6] INFO  com.zmj.demo.service.impl.ToolServiceImpl - 用户:51905058,账户user_balance:UserBalanceChain(userId=user_balance, currencyId=6, balance=9642252.0406304800000000, hold=0E-16),user_partner_balance:null,otc_user_balance:UserBalanceChain(userId=otc_user_balance, currencyId=6, balance=224.0814000000000000, hold=null),assert_user_balance:UserBalanceChain(userId=asset_user_balance, currencyId=6, balance=97.3400000000000000, hold=null)
+2022-03-17 23:06:06.459 [http-nio-10090-exec-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2022-03-17 23:06:07.857 [http-nio-10090-exec-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2022-03-17 23:06:07.858 [http-nio-10090-exec-9] DEBUG com.zmj.demo.dao.test.SmsEmailCode.getList - ==>  Preparing: SELECT id,created_date as createdDate,mobile,email,template_params as templateParams,status FROM `bib_intgr`.`intgr_message` WHERE `template_code` IN (SELECT DISTINCT template_code FROM `bib_intgr`.`intgr_message` WHERE `template_params` LIKE '%code%' ) ORDER BY `id` DESC LIMIT 0,10 
+2022-03-17 23:06:07.859 [http-nio-10090-exec-9] DEBUG com.zmj.demo.dao.test.SmsEmailCode.getList - ==> Parameters: 
+2022-03-17 23:06:09.080 [http-nio-10090-exec-9] DEBUG com.zmj.demo.dao.test.SmsEmailCode.getList - <==      Total: 10
+2022-03-17 23:06:09.178 [http-nio-10090-exec-10] DEBUG com.zmj.demo.dao.test.SmsEmailCode.getList - ==>  Preparing: SELECT id,created_date as createdDate,mobile,email,template_params as templateParams,status FROM `bib_intgr`.`intgr_message` WHERE `template_code` IN (SELECT DISTINCT template_code FROM `bib_intgr`.`intgr_message` WHERE `template_params` LIKE '%code%' ) ORDER BY `id` DESC LIMIT 0,10 
+2022-03-17 23:06:09.179 [http-nio-10090-exec-10] DEBUG com.zmj.demo.dao.test.SmsEmailCode.getList - ==> Parameters: 
+2022-03-17 23:06:09.560 [http-nio-10090-exec-10] DEBUG com.zmj.demo.dao.test.SmsEmailCode.getList - <==      Total: 10
+2022-03-17 23:06:20.272 [http-nio-10090-exec-2] DEBUG com.zmj.demo.dao.dev1.SmsEmailCodeDao.getSmsList - ==>  Preparing: SELECT id,created_date as createdDate,mobile,email,template_params as templateParams,status FROM `bib_cfd`.`intgr_message` WHERE `template_code` IN (SELECT DISTINCT template_code FROM `bib_cfd`.`intgr_message` WHERE `template_params` LIKE '%code%' ) ORDER BY `id` DESC LIMIT 0,10 
+2022-03-17 23:06:20.272 [http-nio-10090-exec-2] DEBUG com.zmj.demo.dao.dev1.SmsEmailCodeDao.getSmsList - ==> Parameters: 
+2022-03-17 23:06:20.657 [http-nio-10090-exec-2] DEBUG com.zmj.demo.dao.dev1.SmsEmailCodeDao.getSmsList - <==      Total: 10
+2022-03-17 23:06:25.663 [http-nio-10090-exec-4] DEBUG com.zmj.demo.dao.test.SmsEmailCode.getList - ==>  Preparing: SELECT id,created_date as createdDate,mobile,email,template_params as templateParams,status FROM `bib_intgr`.`intgr_message` WHERE `template_code` IN (SELECT DISTINCT template_code FROM `bib_intgr`.`intgr_message` WHERE `template_params` LIKE '%code%' ) ORDER BY `id` DESC LIMIT 0,10 
+2022-03-17 23:06:25.664 [http-nio-10090-exec-4] DEBUG com.zmj.demo.dao.test.SmsEmailCode.getList - ==> Parameters: 
+2022-03-17 23:06:26.085 [http-nio-10090-exec-4] DEBUG com.zmj.demo.dao.test.SmsEmailCode.getList - <==      Total: 10
+2022-03-17 23:06:26.806 [http-nio-10090-exec-6] DEBUG com.zmj.demo.dao.dev1.SmsEmailCodeDao.getSmsList - ==>  Preparing: SELECT id,created_date as createdDate,mobile,email,template_params as templateParams,status FROM `bib_cfd`.`intgr_message` WHERE `template_code` IN (SELECT DISTINCT template_code FROM `bib_cfd`.`intgr_message` WHERE `template_params` LIKE '%code%' ) ORDER BY `id` DESC LIMIT 0,10 
+2022-03-17 23:06:26.807 [http-nio-10090-exec-6] DEBUG com.zmj.demo.dao.dev1.SmsEmailCodeDao.getSmsList - ==> Parameters: 
+2022-03-17 23:06:27.133 [http-nio-10090-exec-6] DEBUG com.zmj.demo.dao.dev1.SmsEmailCodeDao.getSmsList - <==      Total: 10
+2022-03-17 23:10:01.781 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=53s795ms).
+2022-03-17 23:10:02.186 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s858ms).
+2022-03-18 10:02:02.539 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=10h52m739ms).
+2022-03-18 10:02:02.844 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10h52m658ms).
+2022-03-18 10:02:30.927 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Retrograde clock change detected (housekeeper delta=28s406ms), soft-evicting connections from pool.
+2022-03-18 10:02:31.183 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Retrograde clock change detected (housekeeper delta=28s339ms), soft-evicting connections from pool.
+2022-03-18 10:17:33.861 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2022-03-18 10:17:33.867 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2022-03-18 10:17:33.868 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-18 10:17:33.875 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

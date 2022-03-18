@@ -34,6 +34,11 @@ public class RedisService {
         vo.set(key, value, time, TimeUnit.SECONDS);
     }
 
+    public void addValue(String key, Object value) throws Exception {
+
+        redisTemplate.boundValueOps(key).set(value);//.opsForValue().set(key,value);
+    }
+
     public Object get(String key) {
         ValueOperations<String,Object> vo = redisTemplate.opsForValue();
         return vo.get(key);

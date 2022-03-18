@@ -319,10 +319,10 @@ public class ToolServiceImpl implements ToolService {
         BigDecimal userBillTotalFixed = accountDao.getAllUserBillTotalForFixed();
         userBillTotalFixed = userBillTotalFixed == null ? BigDecimal.ZERO : userBillTotalFixed;
         //获取type=59类型，所用用户爆仓返给默认合伙人的总值
-        BigDecimal userToPartnerThroughBalance = accountDao.getUserToPartnerThroughBalance(Config.high_partner);
-        userToPartnerThroughBalance = userToPartnerThroughBalance == null ? BigDecimal.ZERO : userToPartnerThroughBalance;
+//        BigDecimal userToPartnerThroughBalance = accountDao.getUserToPartnerThroughBalance(Config.high_partner);
+//        userToPartnerThroughBalance = userToPartnerThroughBalance == null ? BigDecimal.ZERO : userToPartnerThroughBalance;
         //操作后，账户变化金额,如果无流水账单，默认赋值为0
-        BigDecimal totalIng = userBillTotal == null ? BigDecimal.ZERO : userBillTotal.subtract(userBillTotalFixed).add(userToPartnerThroughBalance);
+        BigDecimal totalIng = userBillTotal == null ? BigDecimal.ZERO : userBillTotal.subtract(userBillTotalFixed);//.add(userToPartnerThroughBalance);
         //操作后，计算剩余的总金额
         BigDecimal totalPostCalc = totalPre.add(totalIng);
         //操作后，查询数据库金额
@@ -334,7 +334,8 @@ public class ToolServiceImpl implements ToolService {
         log.info("user_balance操作后，数据库金额，balance:{},hold:{}", balancePost, holdPost);
         log.info("user_balance下单前，账户金额:{},操作后，账户变化金额:{},操作后，计算剩余的金额:{},操作后，数据库存储的总金额:{}" , totalPre,totalIng,totalPostCalc,totalPost);
         stringBuffer.append("user_balance下单前，账户总金额:" + totalPre+"，balance:"+userAllBalanceR.getBigDecimal("balance")+"，hold:"+userAllBalanceR.getBigDecimal("hold")).append("</br>");
-        stringBuffer.append("user_balance操作后，账户变化金额:" + totalIng+",逐仓爆仓，不统计type=4对应的平仓手续费的流水账单总额:"+userBillTotalFixed+",type=59类型，所有用户爆仓返给默认合伙人的总额:"+userToPartnerThroughBalance).append("</br>");
+//        stringBuffer.append("user_balance操作后，账户变化金额:" + totalIng+",逐仓爆仓，不统计type=4对应的平仓手续费的流水账单总额:"+userBillTotalFixed+",type=59类型，所有用户爆仓返给默认合伙人的总额:"+userToPartnerThroughBalance).append("</br>");
+        stringBuffer.append("user_balance操作后，账户变化金额:" + totalIng+",逐仓爆仓，不统计type=4对应的平仓手续费的流水账单总额:"+userBillTotalFixed).append("</br>");
         stringBuffer.append("user_balance操作后，计算剩余总金额:" + totalPostCalc).append("</br>");
         stringBuffer.append("user_balance操作后，数据库总金额:" + totalPost+"，balance:"+balancePost+"，hold:"+holdPost).append("</br>");
         if (totalPost.setScale(Config.newScale,BigDecimal.ROUND_DOWN).compareTo(totalPostCalc.setScale(Config.newScale,BigDecimal.ROUND_DOWN)) != 0){
@@ -342,6 +343,8 @@ public class ToolServiceImpl implements ToolService {
             error.append("账号总额不正确，请检查!").append("</br>").toString();
         }
         stringBuffer.append("-----------").append("</br>");
+
+
         //redis获取对账前的金额
         redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(new JSONObject().getClass()));
         JSONObject userPartnerAllBalanceR = (JSONObject) redisService.get("user_partner_balance:all");
@@ -411,6 +414,7 @@ public class ToolServiceImpl implements ToolService {
             j.put("hold", resUserBalance.getHold());
             redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(j.getClass()));
             redisService.set("user_balance:"+userId, j);
+            resUserBalance.setUserId("user_balance");
             res.add(resUserBalance);
         } catch (Exception e) {
             return new JsonResult<>(0, "user_balance账号同步redis失败！");
@@ -421,10 +425,17 @@ public class ToolServiceImpl implements ToolService {
             if (resUserParterBalance == null){
                 j.put("balance", BigDecimal.ZERO);
                 j.put("hold", BigDecimal.ZERO);
+                UserBalanceChain u = new UserBalanceChain() ;
+                u.setUserId("user_partner_balance");
+                u.setBalance(BigDecimal.ZERO);
+                u.setHold(BigDecimal.ZERO);
+                res.add(u);
             }else {
                 j.put("balance", resUserParterBalance.getBalance());
                 j.put("hold", resUserParterBalance.getHold());
+                resUserParterBalance.setUserId("user_partner_balance");
                 res.add(resUserParterBalance);
+
             }
             redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(j.getClass()));
             redisService.set("user_partner_balance:"+userId, j);
@@ -442,6 +453,7 @@ public class ToolServiceImpl implements ToolService {
             }
             redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(j.getClass()));
             redisService.set("otc_user_balance:"+userId, j);
+            resOtcUserBalance.setUserId("otc_user_balance");
             res.add(resOtcUserBalance);
         } catch (Exception e) {
             return new JsonResult<>(0, "otc_user_balance账号同步redis失败！");
@@ -457,6 +469,7 @@ public class ToolServiceImpl implements ToolService {
             }
             redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(j.getClass()));
             redisService.set("asset_user_balance:"+userId, j);
+            resAssetuserBalance.setUserId("asset_user_balance");
             res.add(resAssetuserBalance);
         } catch (Exception e) {
             return new JsonResult<>(0, "assert_user_balance账号同步redis失败！");
