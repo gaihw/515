@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * restTemplate配置文件，接口请求
  */
-@Component
+//@Component
 public class RestTemplateConfig {
 
     private static final boolean romePresent = ClassUtils.isPresent("com.rometools.rome.feed.WireFeed", RestTemplate

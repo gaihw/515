@@ -3,8 +3,6 @@ package com.zmj.demo.common.dev1;
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.config.Config;
 import com.zmj.demo.dao.dev1.AccountDao;
-import com.zmj.demo.domain.dev1.PositionActionChain;
-import com.zmj.demo.domain.dev1.SwapOrderChain;
 import com.zmj.demo.domain.dev1.UserBillChain;
 import com.zmj.demo.domain.dev1.UserDistributorChain;
 import lombok.extern.slf4j.Slf4j;
@@ -62,7 +60,7 @@ public class FeeCalc {
             }
             //判断用户是不是合伙人，如果是合伙人，需要给用户按照比列返佣
             //先返给用户的手续费后，剩下的手续费返给合伙人
-            BigDecimal feeToPartner = userBillChain.getSize().multiply(BigDecimal.ONE.subtract(rebateUserRatio)).setScale(8, BigDecimal.ROUND_DOWN).abs();
+            BigDecimal feeToPartner = userBillChain.getSize().multiply(BigDecimal.ONE.subtract(rebateUserRatio));
             String[] s = feeToPartnerClac(userPartner,userBillChain,feeToPartner);
             stringBuffer.append(s[0]);
             if (s.length ==2){
@@ -70,7 +68,7 @@ public class FeeCalc {
             }
         }else {//先不给用户返手续费,直接给合伙人人返手续费
             //从数据库获取该笔订单的手续费
-            BigDecimal feeToPartner = userBillChain.getSize().setScale(8,BigDecimal.ROUND_DOWN);
+            BigDecimal feeToPartner = userBillChain.getSize();
             String[] s = feeToPartnerClac(userPartner,userBillChain,feeToPartner);
             stringBuffer.append(s[0]);
             if (s.length ==2){
@@ -194,11 +192,11 @@ public class FeeCalc {
                         return new String[]{"",stringBuffer.append("--有合伙人--用户自己有返佣--未查到给合伙人流水账单，请查看！数据：用户:"+userId+"，合伙人ID:"+tmpPartnerId+",订单:"+sourceId+"，类型:16").append("</br>").toString()};
                     }
                     //计算给合伙人的返佣
-                    BigDecimal feeToPartnerTmp = feeToPartner.multiply(allotLowerFeeRate).abs().setScale(Config.newScale, BigDecimal.ROUND_DOWN);
+                    BigDecimal feeToPartnerTmp = feeToPartner.multiply(allotLowerFeeRate).abs().setScale(8, BigDecimal.ROUND_DOWN);
                     if (partnerBillJb.size() == 1) {
                         log.info("feeToPartnerClac--有合伙人--用户自己有返佣--手续费校验-->用户:{},合伙人:{},交易类型:{},订单:{},比列:{},数据库:{},计算:{}", userId, tmpPartnerId, type, sourceId, allotLowerFeeRate, partnerBillJb.get(0).getSize().setScale(8, BigDecimal.ROUND_DOWN), feeToPartnerTmp);
                         stringBuffer.append("--有合伙人--用户自己有返佣--手续费返佣校验-->用户:" + userId + ",合伙人:" + tmpPartnerId + ",交易类型:" + type + ",订单:" + sourceId + ",比列:" + allotLowerFeeRate + ",数据库:" + partnerBillJb.get(0).getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算:" + feeToPartnerTmp).append("</br>");
-                        if (feeToPartnerTmp.compareTo(partnerBillJb.get(0).getSize().abs().setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs()) != 0) {
+                        if (feeToPartnerTmp.compareTo(partnerBillJb.get(0).getSize().abs().setScale(8, BigDecimal.ROUND_DOWN).abs()) != 0) {
                             flag = true;
                             error.append("--有合伙人--用户自己有返佣--给合伙人手续费返佣不正确，请检查--->用户:" + userId + ",合伙人:" + tmpPartnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.get(0).getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算:" + feeToPartnerTmp).append("</br>");
                         }
@@ -207,7 +205,7 @@ public class FeeCalc {
                         Boolean feeFlag = true;
                         for (UserBillChain ubc: partnerBillJb) {
                             log.info("feeToPartnerClac--有合伙人--用户自己有返佣--手续费校验-->用户:{},合伙人:{},交易类型:{},订单:{},比列:{},数据库:{},计算:{}", userId, tmpPartnerId, type, sourceId, allotLowerFeeRate, ubc.getSize().setScale(8, BigDecimal.ROUND_DOWN), feeToPartnerTmp);
-                            if (feeToPartnerTmp.compareTo(ubc.getSize().abs().setScale(Config.newScale, BigDecimal.ROUND_DOWN)) == 0){
+                            if (feeToPartnerTmp.compareTo(ubc.getSize().abs().setScale(8, BigDecimal.ROUND_DOWN)) == 0){
                                 feeFlag = false;
                                 break;
                             }

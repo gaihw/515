@@ -13,12 +13,16 @@ public class Config {
     //顶级合伙人
     public static final String high_partner = "51904446";
 
+    //流水默认开始计算时间
     public static final String startTime = "2022-02-25 00:00:00";
 
+    //精度
     public static int newScale = 6;
 
+    //合伙人type类型不是0，则配置默认比例
     public static BigDecimal partnerTransferOutRatio = BigDecimal.valueOf(0.7);
 
+    //风险率
     public static BigDecimal rate = BigDecimal.valueOf(0.1);
 
 

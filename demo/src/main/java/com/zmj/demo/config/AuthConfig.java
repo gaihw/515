@@ -3,6 +3,9 @@ package com.zmj.demo.config;
 import com.zmj.demo.interceptor.AuthInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -22,6 +25,32 @@ public class AuthConfig implements WebMvcConfigurer {
         return new AuthInterceptor();
     }
 
+    @Bean
+    public CorsFilter corsFilter() {
+        //1.添加CORS配置信息
+        CorsConfiguration config = new CorsConfiguration();
+        //放行哪些原始域
+        config.addAllowedOrigin("*");
+        //是否发送Cookie信息
+        config.setAllowCredentials(false);
+        //放行哪些原始域(请求方式)
+        config.addAllowedMethod("OPTIONS");
+        config.addAllowedMethod("HEAD");
+        config.addAllowedMethod("GET");     //get
+        config.addAllowedMethod("PUT");     //put
+        config.addAllowedMethod("POST");    //post
+        config.addAllowedMethod("DELETE");  //delete
+        config.addAllowedMethod("PATCH");
+        config.addAllowedHeader("*");
+
+        //2.添加映射路径
+        UrlBasedCorsConfigurationSource configSource = new UrlBasedCorsConfigurationSource();
+        configSource.registerCorsConfiguration("/**", config);
+
+        //3.返回新的CorsFilter.
+        return new CorsFilter(configSource);
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         /*调用我们创建的SessionInterceptor。
@@ -33,31 +62,11 @@ public class AuthConfig implements WebMvcConfigurer {
          * 所以这里有个大坑，搞了很久才发现问题。
          *
          * */
-//        registry.addInterceptor(initAuthInterceptor())
-//                .addPathPatterns("/api/auto/**")
-//                .addPathPatterns("/index")
-//                .excludePathPatterns("/login/**","/register/**");
+        registry.addInterceptor(initAuthInterceptor())
+                .addPathPatterns("/api/auto/**")
+                .addPathPatterns("/index")
+                .excludePathPatterns("/login/**","/register/**");
 
-//        registry.addInterceptor(new HandlerInterceptor() {
-//            @Override
-//            public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//                response.addHeader("Access-Control-Allow-Origin", "*");
-//                response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-//                response.addHeader("Access-Control-Allow-Headers",
-//                        "Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,token");
-//                return true;
-//            }
-//
-//            @Override
-//            public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-//
-//            }
-//
-//            @Override
-//            public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-//
-//            }
-//        });
     }
 
 }

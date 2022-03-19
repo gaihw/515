@@ -133,7 +133,7 @@ public class ProfitCalc {
                 error.append("--有合伙人(未开启对赌)--盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + userProfit).append("</br>");
             }
         }else {//如果合伙人列表长度大于2，代表有合伙人，开启了对赌
-            //如果合伙人的非合伙人，那么给该合伙人对赌按照默认配置，为0.7
+            //如果合伙人是非合伙人，那么给该合伙人对赌按照默认配置，为0.7
             if (userPartner.get(1).getType() !=0 ){
                 partnerTransferOutRatio = Config.partnerTransferOutRatio;
             }
