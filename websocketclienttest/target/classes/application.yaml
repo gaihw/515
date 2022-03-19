@@ -1,0 +1,31 @@
+server:
+  port: 8002
+#  设置服务名
+spring:
+  application:
+    name: websocket-client
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password: 123456
+  dev1:
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://rm-gs5da3x946bp408j8.mysql.singapore.rds.aliyuncs.com?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+      username: bl_admin_rw
+      password: iIrWRquy0kx2DnOs
+
+## Mybatis 配置
+mybatis :
+  typeAliasesPackage : com.domain
+  mapperLocations : classpath:mapper/*.xml
+
+
+socket:
+  config:
+    url: wss://np-dev1.tfbeee.com/v1/np/ws
+#    url: ws://localhost:8081/websocket/test
+#    url: wss://ws.chimchim.top
+#    url: ws://192.168.216.163:8651/v1/np/ws
