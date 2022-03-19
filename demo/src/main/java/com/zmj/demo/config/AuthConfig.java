@@ -25,6 +25,10 @@ public class AuthConfig implements WebMvcConfigurer {
         return new AuthInterceptor();
     }
 
+    /**
+     * 跨域设置
+     * @return
+     */
     @Bean
     public CorsFilter corsFilter() {
         //1.添加CORS配置信息
@@ -51,6 +55,10 @@ public class AuthConfig implements WebMvcConfigurer {
         return new CorsFilter(configSource);
     }
 
+    /**
+     * 拦截设置
+     * @param registry
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         /*调用我们创建的SessionInterceptor。

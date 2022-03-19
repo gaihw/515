@@ -1,7 +1,5 @@
 package winCoin;
 
-import old.Calc.fuZi.B;
-
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
