@@ -129,10 +129,10 @@ public class ToolServiceImpl implements ToolService {
             if(otcUserBalanceRes.contains("账号总额不正确") ) {
                 error.append(otcUserBalanceRes);
             }
-            stringBuffer.append(otcUserBalanceRes);
+            stringBuffer.append(otcUserBalanceRes).append("</br>");
 
             //用户及合伙人列表
-            List<UserDistributorChain> userPartner = sqlUtils.getUserPartner(userId);
+            List<UserDistributorChain> userPartner;
             //查询用户的每条流水
             List<UserBillChain> userBillRes = accountDao.getUserBillByUser(userId, time) ;
             log.info("用户:{},流水:{}",userId,userBillRes);
@@ -170,6 +170,7 @@ public class ToolServiceImpl implements ToolService {
                         }
                     }
                 }else if (type == 4){
+                    userPartner = sqlUtils.getUserPartner(userId);
                     List<PositionActionChain> positionAction = accountDao.positionAction(userBillChain.getUserId(),userBillChain.getSourceId(),null);
                     BigDecimal oneLotSize = accountDao.instruments(positionAction.get(0).getSymbol());
                     BigDecimal profit = BigDecimal.ZERO;
@@ -219,6 +220,7 @@ public class ToolServiceImpl implements ToolService {
                     }
                     //爆仓剩余金额，返回给默认合伙人
                 }else if (type == 51 || type == 52){
+                    userPartner = sqlUtils.getUserPartner(userId);
                     List<PositionActionChain> positionAction = accountDao.positionAction(userBillChain.getUserId(),userBillChain.getSourceId(),null);
                     BigDecimal oneLotSize = accountDao.instruments(positionAction.get(0).getSymbol());
                     BigDecimal fee = BigDecimal.ZERO;
@@ -448,13 +450,17 @@ public class ToolServiceImpl implements ToolService {
             JSONObject j = new JSONObject();
             if (resOtcUserBalance == null){
                 j.put("balance", BigDecimal.ZERO);
+                UserBalanceChain u = new UserBalanceChain() ;
+                u.setUserId("otc_user_balance");
+                u.setBalance(BigDecimal.ZERO);
+                res.add(u);
             }else {
                 j.put("balance", resOtcUserBalance.getBalance());
+                resOtcUserBalance.setUserId("otc_user_balance");
+                res.add(resOtcUserBalance);
             }
             redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(j.getClass()));
             redisService.set("otc_user_balance:"+userId, j);
-            resOtcUserBalance.setUserId("otc_user_balance");
-            res.add(resOtcUserBalance);
         } catch (Exception e) {
             return new JsonResult<>(0, "otc_user_balance账号同步redis失败！");
         }
@@ -464,13 +470,18 @@ public class ToolServiceImpl implements ToolService {
             JSONObject j = new JSONObject();
             if (resAssetuserBalance == null){
                 j.put("balance", BigDecimal.ZERO);
+                UserBalanceChain u = new UserBalanceChain() ;
+                u.setUserId("asset_user_balance");
+                u.setBalance(BigDecimal.ZERO);
+                res.add(u);
             }else {
                 j.put("balance", resAssetuserBalance.getBalance());
+                resAssetuserBalance.setUserId("asset_user_balance");
+                res.add(resAssetuserBalance);
             }
             redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(j.getClass()));
             redisService.set("asset_user_balance:"+userId, j);
-            resAssetuserBalance.setUserId("asset_user_balance");
-            res.add(resAssetuserBalance);
+
         } catch (Exception e) {
             return new JsonResult<>(0, "assert_user_balance账号同步redis失败！");
         }
@@ -830,6 +841,9 @@ public class ToolServiceImpl implements ToolService {
             userInfoDataChain = accountDao.getUserInfo(null,data);
         }else {
             userInfoDataChain = accountDao.getUserInfo(data,null);
+        }
+        if (userInfoDataChain == null){
+            return "无此用户！";
         }
         stringBuffer.append("用户ID:"+userInfoDataChain.getUserId()).append("</br>");
         stringBuffer.append("手机号:"+userInfoDataChain.getMobile()).append("</br>");

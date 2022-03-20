@@ -149,7 +149,7 @@ public class BalanceCalc {
         BigDecimal balancePost = BigDecimal.ZERO;
         UserBalanceChain otcPost = accountDao.getOtcUserBalanceByUser(userId);
         UserBalanceChain assertPost = accountDao.getAssetUserBalanceByUser(userId);
-        balancePost = otcPost.getBalance().add(assertPost.getBalance());
+        balancePost = otcPost == null ? BigDecimal.ZERO : otcPost.getBalance() .add(assertPost == null ? BigDecimal.ZERO : assertPost.getBalance());
         //操作后，数据库总的金额
         BigDecimal totalPost = balancePost;
         log.info("操作后，otc&asset_user_balance数据库金额，balance:{}", balancePost);

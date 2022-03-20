@@ -116,10 +116,12 @@ public class ProfitCalc {
             partnerTransferOutRatio = JSONObject.parseObject(userPartner.get(1).getConfig()).getBigDecimal("partnerTransferOutRatio") == null
                     ? BigDecimal.ZERO:JSONObject.parseObject(userPartner.get(1).getConfig()).getBigDecimal("partnerTransferOutRatio");
         }
-        //如果有普通合伙人，但是普通合伙人未开启对赌或者合伙人的类型type不是0，那合伙人不参与盈亏的对赌，只和默认合伙人有关
-        //普通合伙人是合伙人，并且开启了对赌，但是配置的比例为0，那也不给该普通合伙人对赌
-//        if(userPartner.get(1).getOpenBet() == 0 || userPartner.get(1).getType() !=0  || partnerTransferOutRatio.compareTo(BigDecimal.ZERO) == 0) {
-        if(userPartner.get(1).getOpenBet() == 0 || partnerTransferOutRatio.compareTo(BigDecimal.ZERO) == 0) {
+        //1.如果有普通合伙人，但是普通合伙人未开启对赌，那合伙人不参与盈亏的对赌，只和默认合伙人有关
+        //2.普通合伙人是合伙人，并且开启了对赌，但是配置的比例为0，那也不给该普通合伙人对赌
+        //3.普通合伙人是合伙人，并且开启了对赌，但是user_partner_balance表无该合伙人的数据，那也不参与对赌
+        if(userPartner.get(1).getOpenBet() == 0
+                || partnerTransferOutRatio.compareTo(BigDecimal.ZERO) == 0
+                || accountDao.getUserPartnerBalanceByUser(userPartner.get(1).getUserId())== null) {
             partnerId =userPartner.get(userPartner.size()-1).getUserId();
             //获取该笔订单给合伙人的返佣
             UserBillChain partnerBillJb = accountDao.getUserBill(partnerId, sourceId, 27);
@@ -133,7 +135,7 @@ public class ProfitCalc {
                 error.append("--有合伙人(未开启对赌)--盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + partnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + userProfit).append("</br>");
             }
         }else {//如果合伙人列表长度大于2，代表有合伙人，开启了对赌
-            //如果合伙人是非合伙人，那么给该合伙人对赌按照默认配置，为0.7
+            //如果合伙人是非合伙人，并且开启了对赌，那么给该合伙人对赌按照默认配置，为0.7
             if (userPartner.get(1).getType() !=0 ){
                 partnerTransferOutRatio = Config.partnerTransferOutRatio;
             }
