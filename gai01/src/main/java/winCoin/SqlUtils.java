@@ -1,7 +1,5 @@
 package winCoin;
 
-import old.Calc.Config;
-
 import java.sql.*;
 
 public class SqlUtils {

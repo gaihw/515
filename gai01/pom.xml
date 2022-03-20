@@ -62,6 +62,12 @@
             <artifactId>mongodb-driver-async</artifactId>
             <version>3.10.2</version>
         </dependency>
+        <!-- 阿里fastjson包JSON转换-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
 
 <!--        <dependency>-->
 <!--            <groupId>org.projectlombok</groupId>-->

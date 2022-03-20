@@ -5,30 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fdfc3a4-deb0-4585-a76e-85c24df24c29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/GzipUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/ZipUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev1/TfbeeKline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/dev1/Market1minBtcusdt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/dev1/PositionChain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/dev1/SocketDomain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/logs/info.2022-03-14.log" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/logs/info.2022-03-14.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/SqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/SqlUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/TestDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_47.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jedis_4_1_0__2_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/threadTest/Demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/threadTest/ThreadTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/logs/info.2022-03-19.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/Test.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/BalanceCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/BalanceCalc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/FeeCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/FeeCalc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/ProfitCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/ProfitCalc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/ThroughPositionsCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/PositionsCalc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/controller/ToolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/controller/ToolController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/redisConfig/RestTemplateConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev1/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev1/AccountDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/ToolService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/ToolService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/dev1/ClearingTransferChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/dev1/ClearingTransferChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/dev1/UserInfoDataChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/dev1/UserInfoDataChain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/ToolServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/ToolServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/DemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/old/blockchain/Utils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/winCoin/FullPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/winCoin/FullPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../websocketclienttest/src/main/java/com/client/MyWebSocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../websocketclienttest/src/main/java/com/client/MyWebSocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../websocketclienttest/target/classes/com/client/MyWebSocketClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../websocketclienttest/target/classes/com/client/MyWebSocketClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gai01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gai01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/MySingleNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/nodeTest/MySingleNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/SingleNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/nodeTest/SingleNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/SingleNodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/nodeTest/SingleNodeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/winCoin/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/winCoin/BaseUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +49,15 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$USER_HOME$/Desktop/apache-maven-3.8.4/repository" />
+        <option name="mavenHome" value="$USER_HOME$/Desktop/apache-maven-3.8.4" />
+        <option name="userSettingsFile" value="$USER_HOME$/Desktop/apache-maven-3.8.4/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1vkH880biJnA41jjMclrj509RfG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -57,9 +67,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libs" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -70,7 +82,7 @@
       <recent name="C:\work\git\515\gai01\libs" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test1">
+  <component name="RunManager" selected="Application.ThreadTest">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="allin.prometheus.Demo" />
       <module name="gai01" />
@@ -110,6 +122,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ThreadTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.threadTest.ThreadTest" />
+      <module name="gai01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.threadTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Utils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="old.blockchain.Utils" />
       <module name="gai01" />
@@ -125,6 +150,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ThreadTest" />
         <item itemvalue="Application.Test1" />
         <item itemvalue="Application.Demo" />
         <item itemvalue="Application.Test" />
@@ -163,59 +189,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1877" height="356" key="GridCell.Tab.0.bottom" timestamp="1630311344525">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-571.2560.1400@0.0.1920.1040" timestamp="1630311344525" />
-    <state width="2502" height="615" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-571.2560.1400@1920.-571.2560.1400" timestamp="1627527313212" />
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627389494560" />
-    <state width="1877" height="356" key="GridCell.Tab.0.center" timestamp="1630311344525">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-571.2560.1400@0.0.1920.1040" timestamp="1630311344525" />
-    <state width="2502" height="615" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-571.2560.1400@1920.-571.2560.1400" timestamp="1627527313212" />
-    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627389494560" />
-    <state width="1877" height="356" key="GridCell.Tab.0.left" timestamp="1630311344525">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-571.2560.1400@0.0.1920.1040" timestamp="1630311344525" />
-    <state width="2502" height="615" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-571.2560.1400@1920.-571.2560.1400" timestamp="1627527313212" />
-    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627389494560" />
-    <state width="1877" height="356" key="GridCell.Tab.0.right" timestamp="1630311344525">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-571.2560.1400@0.0.1920.1040" timestamp="1630311344525" />
-    <state width="2502" height="615" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-571.2560.1400@1920.-571.2560.1400" timestamp="1627527313212" />
-    <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627389494560" />
-    <state width="1877" height="356" key="GridCell.Tab.1.bottom" timestamp="1630311344526">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.-571.2560.1400@0.0.1920.1040" timestamp="1630311344526" />
-    <state width="2502" height="568" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.-571.2560.1400@1920.-571.2560.1400" timestamp="1627527147942" />
-    <state width="1877" height="351" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1627389014704" />
-    <state width="1877" height="356" key="GridCell.Tab.1.center" timestamp="1630311344525">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.1.center/0.0.1920.1040/1920.-571.2560.1400@0.0.1920.1040" timestamp="1630311344525" />
-    <state width="2502" height="568" key="GridCell.Tab.1.center/0.0.1920.1040/1920.-571.2560.1400@1920.-571.2560.1400" timestamp="1627527147942" />
-    <state width="1877" height="351" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1627389014704" />
-    <state width="1877" height="356" key="GridCell.Tab.1.left" timestamp="1630311344525">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.1.left/0.0.1920.1040/1920.-571.2560.1400@0.0.1920.1040" timestamp="1630311344525" />
-    <state width="2502" height="568" key="GridCell.Tab.1.left/0.0.1920.1040/1920.-571.2560.1400@1920.-571.2560.1400" timestamp="1627527147941" />
-    <state width="1877" height="351" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1627389014704" />
-    <state width="1877" height="356" key="GridCell.Tab.1.right" timestamp="1630311344526">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.1.right/0.0.1920.1040/1920.-571.2560.1400@0.0.1920.1040" timestamp="1630311344526" />
-    <state width="2502" height="568" key="GridCell.Tab.1.right/0.0.1920.1040/1920.-571.2560.1400@1920.-571.2560.1400" timestamp="1627527147942" />
-    <state width="1877" height="351" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1627389014704" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1627383414126">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.-571.2560.1400@0.0.1920.1040" timestamp="1627383414126" />
   </component>
 </project>
