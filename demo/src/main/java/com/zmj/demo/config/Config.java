@@ -25,6 +25,9 @@ public class Config {
     //风险率
     public static BigDecimal rate = BigDecimal.valueOf(0.1);
 
+    //手续费返佣的层级
+    public static final int level = 2;
+
 
 
 

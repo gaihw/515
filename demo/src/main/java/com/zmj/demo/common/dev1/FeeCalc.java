@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -87,13 +88,24 @@ public class FeeCalc {
      * @return
      */
     private String[] feeToPartnerClac(List<UserDistributorChain> userPartner,UserBillChain userBillChain,BigDecimal feeToPartner) {
-        //先看合伙人列表，查询非用户自己和非默认合伙人，user_partner_balance表是否有合伙人数据，如果无数据，移除列表，不参与返佣
+        //先看合伙人列表，查询非用户自己和非默认合伙人，user_partner_balance表是否有合伙人数据，如果无数据，表示为普通用户，移除列表，不参与返佣
         for (int i = 1; i < userPartner.size()-1; i++) {
             if (accountDao.getUserPartnerBalanceByUser(userPartner.get(i).getUserId())== null){
                 userPartner.remove(i);
                 i--;
             }
         }
+        //合伙人的列表长度-2大于配置的层级比例，根据层级返佣
+        List<UserDistributorChain> userPartnerTmp = new ArrayList<UserDistributorChain>();
+        if (userPartner.size()-2 > Config.level){
+            userPartnerTmp.add(userPartner.get(0));
+            for (int i = 1; i <= Config.level; i++) {
+                userPartnerTmp.add(userPartner.get(i));
+            }
+            userPartnerTmp.add(userPartner.get(userPartner.size()-1));
+            userPartner = userPartnerTmp;
+        }
+
         StringBuffer stringBuffer = new StringBuffer();
         StringBuffer error = new StringBuffer();
         Boolean flag = false;
