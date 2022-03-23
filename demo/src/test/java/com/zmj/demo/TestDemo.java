@@ -37,25 +37,9 @@ public class TestDemo {
         list.add(1);
         list.add("vvv");
         list.add("373");
-        list.add("vvv");
-        list.add("vvv");
-        list.add("37443");
-        list.add(333373);
-        list.add(333373);
-        list.add(333373);
-        list.add("vvv");
-        list.add(333373);
+
         System.out.println(list);
-        for (int i = 0; i <list.size() ; i++) { //i=3
-            if (list.get(i).equals("vvv")){
-                list.remove(i);// i=2 [fadsfa, 1, 373, vvv, 37443, 333373, 333373, 333373, vvv, 333373]
-                i--;
-            }
-//            if (list.get(i).equals("373")){
-//                list.remove(i);// i=2 [fadsfa, 1, vvv, 37443, 333373, 333373, 333373, vvv, 333373] i--=2-1=1
-//                i--;
-//            }
-        }
-        System.out.println(list);
+        ;
+        System.out.println(list.subList(1+1,list.size()));
     }
 }

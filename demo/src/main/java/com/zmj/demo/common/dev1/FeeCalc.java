@@ -95,8 +95,32 @@ public class FeeCalc {
                 i--;
             }
         }
-        //合伙人的列表长度-2大于配置的层级比例，根据层级返佣
+        //返佣比例
+        BigDecimal allotLowerFeeRate0 = BigDecimal.ZERO;
+        //临时存储合伙人的变量
         List<UserDistributorChain> userPartnerTmp = new ArrayList<UserDistributorChain>();
+        //如果合伙人配置的返佣比例为0，则不给合伙人返佣以及合伙人的下级返佣，如：A的合伙人->B的合伙人->C(0)的合伙人->D的合伙人->E，此时，A和B是不返佣的从列表移除
+        int partnerIndex = 0;
+        for (int i = 1; i < userPartner.size()-1; i++) {
+            allotLowerFeeRate0 = JSONObject.parseObject(userPartner.get(i).getConfig()).getBigDecimal("allotLowerFeeRate") == null
+                    ? BigDecimal.ZERO:JSONObject.parseObject(userPartner.get(i).getConfig()).getBigDecimal("allotLowerFeeRate");
+            //记录合伙人返佣比例为0的最大索引
+            if (allotLowerFeeRate0.compareTo(BigDecimal.ZERO) == 0){
+                partnerIndex = i;
+            }
+        }
+        //如果partnerIndex大于0，说明有合伙人的返佣比例配置的0，那么需要过滤掉
+        if (partnerIndex > 0 ){
+            userPartnerTmp.add(userPartner.get(0));
+            for (UserDistributorChain u:userPartner.subList(partnerIndex+1,userPartner.size())) {
+                userPartnerTmp.add(u);
+            }
+            userPartner = userPartnerTmp;
+        }
+
+        //重置
+        userPartnerTmp.clear();
+        //合伙人的列表长度-2大于配置的层级比例，根据层级返佣
         if (userPartner.size()-2 > Config.level){
             userPartnerTmp.add(userPartner.get(0));
             for (int i = 1; i <= Config.level; i++) {
@@ -116,7 +140,7 @@ public class FeeCalc {
         String partnerId = userPartner.get(1).getUserId();
         //订单
         String sourceId = userBillChain.getSourceId();
-        BigDecimal allotLowerFeeRate0 = BigDecimal.ZERO;
+
         if (!userPartner.get(0).getConfig().equalsIgnoreCase("")){
             //获取用户config的配置，读取allotLowerFeeRate字段的值
             allotLowerFeeRate0 = JSONObject.parseObject(userPartner.get(0).getConfig()).getBigDecimal("allotLowerFeeRate") == null
