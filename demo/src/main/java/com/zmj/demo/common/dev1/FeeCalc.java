@@ -99,7 +99,7 @@ public class FeeCalc {
         BigDecimal allotLowerFeeRate0 = BigDecimal.ZERO;
         //临时存储合伙人的变量
         List<UserDistributorChain> userPartnerTmp = new ArrayList<UserDistributorChain>();
-        //如果合伙人配置的返佣比例为0，则不给合伙人返佣以及合伙人的下级返佣，如：A的合伙人->B的合伙人->C(0)的合伙人->D的合伙人->E，此时，A和B是不返佣的从列表移除
+        //如果合伙人配置的返佣比例为0，则不给合伙人返佣以及合伙人的下级返佣，如：A的合伙人->B的合伙人->C(0)的合伙人->D的合伙人->E，此时，A、B和C是不返佣的从列表移除
         int partnerIndex = 0;
         for (int i = 1; i < userPartner.size()-1; i++) {
             allotLowerFeeRate0 = JSONObject.parseObject(userPartner.get(i).getConfig()).getBigDecimal("allotLowerFeeRate") == null
@@ -112,7 +112,8 @@ public class FeeCalc {
         //如果partnerIndex大于0，说明有合伙人的返佣比例配置的0，那么需要过滤掉
         if (partnerIndex > 0 ){
             userPartnerTmp.add(userPartner.get(0));
-            for (UserDistributorChain u:userPartner.subList(partnerIndex+1,userPartner.size())) {
+            userPartner = userPartner.subList(partnerIndex+1,userPartner.size());
+            for (UserDistributorChain u:userPartner) {
                 userPartnerTmp.add(u);
             }
             userPartner = userPartnerTmp;

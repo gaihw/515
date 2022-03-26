@@ -118,10 +118,10 @@ public class ProfitCalc {
         }
         //1.如果有普通合伙人，但是普通合伙人未开启对赌，那合伙人不参与盈亏的对赌，只和默认合伙人有关
         //2.普通合伙人是合伙人，并且开启了对赌，但是配置的比例为0，那也不给该普通合伙人对赌
-        //3.普通合伙人是合伙人，并且开启了对赌，但是user_partner_balance表无该合伙人的数据，那也不参与对赌
+        //忽略---3.普通合伙人是合伙人，并且开启了对赌，但是user_partner_balance表无该合伙人的数据，那也不参与对赌 accountDao.getUserPartnerBalanceByUser(userPartner.get(1).getUserId())== null
         if(userPartner.get(1).getOpenBet() == 0
                 || partnerTransferOutRatio.compareTo(BigDecimal.ZERO) == 0
-                || accountDao.getUserPartnerBalanceByUser(userPartner.get(1).getUserId())== null) {
+                ) {
             partnerId =userPartner.get(userPartner.size()-1).getUserId();
             //获取该笔订单给合伙人的返佣
             UserBillChain partnerBillJb = accountDao.getUserBill(partnerId, sourceId, 27);
@@ -142,16 +142,20 @@ public class ProfitCalc {
             String tmpPartnerId = userPartner.get(1).getUserId();
             //计算合伙人对赌盈亏值
             BigDecimal partnerProfit = userProfit.multiply(partnerTransferOutRatio).multiply(BigDecimal.valueOf(-1)).setScale(Config.newScale, BigDecimal.ROUND_DOWN);
-            //获取该笔订单给合伙人的返佣
-            UserBillChain partnerBillJb = accountDao.getUserBill( tmpPartnerId, sourceId, 27);
-            if (partnerBillJb == null){
-                return new String[]{"",stringBuffer.append("--有合伙人(开启对赌)--未查到合伙人对赌的流水账单，请查看！数据：用户:"+userId+"，合伙人ID:"+tmpPartnerId+",订单:"+sourceId+"，类型:27").append("</br>").toString()};
-            }
-            log.info("morePartnerProfit--有合伙人(开启对赌)--盈亏校验--->用户:{},默认合伙人:{},交易类型:{},订单:{},比例:{},数据库:{},计算得:{}", userId, tmpPartnerId, type, sourceId, partnerTransferOutRatio, partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN),partnerProfit);
-            stringBuffer.append("--有合伙人(开启对赌)--盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + tmpPartnerId + ",交易类型:" + type + ",订单:" + sourceId+"，比例:"+partnerTransferOutRatio+",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + partnerProfit.setScale(8, BigDecimal.ROUND_DOWN)).append("</br>");
-            if (partnerBillJb.getSize().setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs().compareTo(partnerProfit.setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs()) != 0){
-                flag = true;
-                error.append("--有合伙人(开启对赌)--盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + tmpPartnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + partnerProfit.setScale(8, BigDecimal.ROUND_DOWN)).append("</br>");
+            if(accountDao.getUserPartnerBalanceByUser(userPartner.get(1).getUserId())== null){
+                stringBuffer.append("--有合伙人(开启对赌)--user_partner_balance表无合伙人数据，流水表不记录合伙人的对赌数据，只在clearing_transfer表记录，状态status=4-->用户:"+userId+",合伙人:"+userPartner.get(1).getUserId()+",订单:"+sourceId).append("</br>");
+            }else {
+                //获取该笔订单给合伙人的返佣
+                UserBillChain partnerBillJb = accountDao.getUserBill( tmpPartnerId, sourceId, 27);
+                if (partnerBillJb == null){
+                    return new String[]{"",stringBuffer.append("--有合伙人(开启对赌)--未查到合伙人对赌的流水账单，请查看！数据：用户:"+userId+"，合伙人ID:"+tmpPartnerId+",订单:"+sourceId+"，类型:27").append("</br>").toString()};
+                }
+                log.info("morePartnerProfit--有合伙人(开启对赌)--盈亏校验--->用户:{},默认合伙人:{},交易类型:{},订单:{},比例:{},数据库:{},计算得:{}", userId, tmpPartnerId, type, sourceId, partnerTransferOutRatio, partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN),partnerProfit);
+                stringBuffer.append("--有合伙人(开启对赌)--盈亏对赌校验--->用户:" + userId + ",默认合伙人:" + tmpPartnerId + ",交易类型:" + type + ",订单:" + sourceId+"，比例:"+partnerTransferOutRatio+",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + partnerProfit.setScale(8, BigDecimal.ROUND_DOWN)).append("</br>");
+                if (partnerBillJb.getSize().setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs().compareTo(partnerProfit.setScale(Config.newScale, BigDecimal.ROUND_DOWN).abs()) != 0){
+                    flag = true;
+                    error.append("--有合伙人(开启对赌)--盈亏对赌不正确，请检查--->用户:" + userId + ",默认合伙人:" + tmpPartnerId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + partnerBillJb.getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算得:" + partnerProfit.setScale(8, BigDecimal.ROUND_DOWN)).append("</br>");
+                }
             }
             //计算默认合伙人对赌盈亏值
             BigDecimal defaultPartnerProfit = userProfit.multiply(BigDecimal.ONE.subtract(partnerTransferOutRatio)).multiply(BigDecimal.valueOf(-1)).setScale(Config.newScale, BigDecimal.ROUND_DOWN);

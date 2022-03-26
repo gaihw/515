@@ -140,7 +140,7 @@ public class SqlUtil {
             case 33:
                 return "合伙人保证金转出";
             case 34:
-                return "部分平仓";
+                return "部分平仓,闪电合约";
             case 35:
                 return "追加保证金";
             case 38:

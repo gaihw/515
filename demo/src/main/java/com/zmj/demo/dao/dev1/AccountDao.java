@@ -308,6 +308,8 @@ public interface AccountDao {
             "</script>"})
     List<PositionActionChain> positionAction(@Param("userId") String userId,@Param("orderId") String orderId,@Param("liquidateBy") String liquidateBy);
 
+
+
     /**
      * 查询position_action表,计算逐仓保证金
      * @param userId
@@ -322,7 +324,7 @@ public interface AccountDao {
             "</if>"+
             " LIMIT 0,1"+
             "</script>"})
-    List<PositionActionChain> positionActionForMargin(@Param("userId") String userId,@Param("orderId") String orderId);
+    PositionActionChain positionActionForMargin(@Param("userId") String userId,@Param("orderId") String orderId);
 
     /**
      * 通过币种，获取面值

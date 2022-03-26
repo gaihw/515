@@ -39,7 +39,7 @@ public class TestDemo {
         list.add("373");
 
         System.out.println(list);
-        ;
-        System.out.println(list.subList(1+1,list.size()));
+        list = list.subList(1+1,list.size());
+        System.out.println(list);
     }
 }
