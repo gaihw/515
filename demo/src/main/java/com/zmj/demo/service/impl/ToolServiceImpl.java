@@ -38,9 +38,6 @@ public class ToolServiceImpl implements ToolService {
     private SmsEmailCodeDao smsEmailCodeDao;
 
     @Autowired
-    private ToolService baseService;
-
-    @Autowired
     private AccountDao accountDao;
 
     @Autowired
@@ -151,8 +148,8 @@ public class ToolServiceImpl implements ToolService {
                 log.info("{}:{}", sqlUtils.getState(userBillChain.getType()), userBillChain.getSize());
                 stringBuffer.append("<font color=\"#67C23A\">类型:</font> " + sqlUtils.getState(userBillChain.getType()) + ",金额:" + userBillChain.getSize()).append("</br>");
                 //是否使用多线程执行
-                if (false) {
-                    CompletableFuture<String[]> userCheckRun = userCheckThread.run(userId, time, userBillChain, userPartner);
+                if (true) {
+                    CompletableFuture<String[]> userCheckRun = userCheckThread.run(userId, userBillChain, userPartner);
 //                    CompletableFuture.allOf(userCheckRun).join();
                     s = userCheckRun.get();
                     stringBuffer.append(s[0]);
@@ -380,7 +377,6 @@ public class ToolServiceImpl implements ToolService {
         }
         stringBuffer.append("-----------").append("</br>");
 
-
         //redis获取对账前的金额
         redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(new JSONObject().getClass()));
         JSONObject userPartnerAllBalanceR = (JSONObject) redisService.get("user_partner_balance:all");
@@ -416,6 +412,42 @@ public class ToolServiceImpl implements ToolService {
             flag = true;
             error.append("user_partner_balance账号总额不正确，请检查!").append("</br>").toString();
         }
+        stringBuffer.append("-----------").append("</br>");
+
+        //redis获取对账前的金额
+        JSONObject otcUserAllBalanceR = (JSONObject) redisService.get("otc_user_balance:all");
+        if (otcUserAllBalanceR == null){
+            return "请先同步otc_user_balance账户总余额！";
+        }
+        //redis获取对账前的金额
+        JSONObject assetUserAllBalanceR = (JSONObject) redisService.get("asset_user_balance:all");
+        if (assetUserAllBalanceR == null){
+            return "请先同步asset_user_balance账户总余额！";
+        }
+        //操作前，otc_user_balance账户总额和asset_user_balance总额
+        BigDecimal otcAndAssetTotalPre = otcUserAllBalanceR.getBigDecimal("balance").add(assetUserAllBalanceR.getBigDecimal("balance"));
+        //获取合约账户转出转入到otc和asset账户的流水总额
+        BigDecimal userBillOtcAndAssetTotal = accountDao.getAllUserBillToOtcAndAssetBalance();
+        //操作后，账户变化金额,如果无流水账单，默认赋值为0
+        BigDecimal userBillOtcAndAssetTotalIng = userBillOtcAndAssetTotal == null ? BigDecimal.ZERO : userBillOtcAndAssetTotal;
+        //操作后，计算剩余的总金额
+        BigDecimal userBillOtcAndAssetTotalPostCalc = otcAndAssetTotalPre.add(userBillOtcAndAssetTotalIng);
+        //操作后，查询数据库金额
+        UserBalanceChain otcUserBalancePost = accountDao.getAllOtcUserBalanceTotal();
+        UserBalanceChain assetUserBalancePost = accountDao.getAllAssetUserBalanceTotal();
+        //操作后，数据库总的金额
+        BigDecimal otcAndAssetBalancePost = otcUserBalancePost.getBalance().add(assetUserBalancePost.getBalance());
+
+        log.info("otcAndAsset下单前，账户金额:{},操作后，账户变化金额:{},操作后，计算剩余的金额:{},操作后，数据库存储的总金额:{}" , otcAndAssetTotalPre,userBillOtcAndAssetTotalIng,userBillOtcAndAssetTotalPostCalc,otcAndAssetBalancePost);
+        stringBuffer.append("otcAndAsset下单前，账户总金额:" + otcAndAssetTotalPre+"，otc-balance:"+otcUserAllBalanceR.getBigDecimal("balance")+"，asset-balance:"+assetUserAllBalanceR.getBigDecimal("balance")).append("</br>");
+        stringBuffer.append("otcAndAsset操作后，账户变化金额:" + userBillOtcAndAssetTotalIng).append("</br>");
+        stringBuffer.append("otcAndAsset操作后，计算剩余总金额:" + userBillOtcAndAssetTotalPostCalc).append("</br>");
+        stringBuffer.append("otcAndAsset操作后，数据库总金额:" + otcAndAssetBalancePost+"，otc-balance:"+otcUserBalancePost.getBalance()+"，asset-balance:"+assetUserBalancePost.getBalance()).append("</br>");
+        if (otcAndAssetBalancePost.setScale(Config.newScale,BigDecimal.ROUND_DOWN).compareTo(userBillOtcAndAssetTotalPostCalc.setScale(Config.newScale,BigDecimal.ROUND_DOWN)) != 0){
+            flag = true;
+            error.append("otcAndAsset账号总额不正确，请检查!").append("</br>").toString();
+        }
+
 
         //对type类型为16,27,38,50,54,55,56,58,59的流水账单
         int count = accountDao.getUserBillByTypeCount();
@@ -529,7 +561,6 @@ public class ToolServiceImpl implements ToolService {
         //查询user_balance表全部账户总的balance和hold值
         UserBalanceChain userBalance = accountDao.getAllUserBalanceTotal();
         userBalance.setUserId("user_balance");
-
         JSONObject userBalanceJ = new JSONObject();
         userBalanceJ.put("balance", userBalance.getBalance());
         userBalanceJ.put("hold", userBalance.getHold());
@@ -540,67 +571,43 @@ public class ToolServiceImpl implements ToolService {
         //查询user_partner_balance表全部账户总的balance和hold值
         UserBalanceChain userPartnerBalance =  accountDao.getAllUserPartnerBalanceTotal();
         userPartnerBalance.setUserId("user_partner_balance");
+        JSONObject userPartnerBalanceJ = new JSONObject();
+        userPartnerBalanceJ.put("balance", userPartnerBalance.getBalance());
+        userPartnerBalanceJ.put("hold", userPartnerBalance.getHold());
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(userPartnerBalanceJ.getClass()));
+        redisService.set("user_partner_balance:all", userPartnerBalanceJ);
+        log.info("user_partner_balance:all--->{}",userPartnerBalanceJ);
 
-        userBalanceJ.put("balance", userPartnerBalance.getBalance());
-        userBalanceJ.put("hold", userPartnerBalance.getHold());
-        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(userBalanceJ.getClass()));
-        redisService.set("user_partner_balance:all", userBalanceJ);
-        log.info("user_partner_balance:all--->{}",userBalanceJ);
+        //查询otc_user_balance表全部账户总的balance和hold值
+        UserBalanceChain otcUserBalance = accountDao.getAllOtcUserBalanceTotal();
+        otcUserBalance.setUserId("otc_user_balance");
+        JSONObject otcUserBalanceJ = new JSONObject();
+        otcUserBalanceJ.put("balance",otcUserBalance.getBalance());
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(otcUserBalanceJ.getClass()));
+        redisService.set("otc_user_balance:all", otcUserBalanceJ);
+        log.info("otc_user_balance:all--->{}",otcUserBalanceJ);
+
+
+
+        //查询asset_user_balance表全部账户总的balance和hold值
+        UserBalanceChain assetuserBalance = accountDao.getAllAssetUserBalanceTotal();
+        assetuserBalance.setUserId("asset_user_balance");
+        JSONObject assetuserBalanceJ = new JSONObject();
+        assetuserBalanceJ.put("balance",otcUserBalance.getBalance());
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(assetuserBalanceJ.getClass()));
+        redisService.set("asset_user_balance:all", assetuserBalanceJ);
+        log.info("asset_user_balance:all--->{}",assetuserBalanceJ);
 
         List<UserBalanceChain> userBalanceChains = new ArrayList<UserBalanceChain>();
         userBalanceChains.add(userBalance);
         userBalanceChains.add(new UserBalanceChain());
         userBalanceChains.add(userPartnerBalance);
+        userBalanceChains.add(new UserBalanceChain());
+        userBalanceChains.add(otcUserBalance);
+        userBalanceChains.add(new UserBalanceChain());
+        userBalanceChains.add(assetuserBalance);
         return  new JsonResult<>(0, userBalanceChains);
-        /**
-        List<UserBalanceChain> resUserBalance = accountDao.getUserBalance();
-        List<UserBalanceChain> resUserParterBalance = null;
-        List<UserBalanceChain> res = new ArrayList<UserBalanceChain>();
-        List<String> userList = new ArrayList<String>();
 
-
-        for (UserBalanceChain u : resUserBalance
-        ) {
-            try {
-                JSONObject j = new JSONObject();
-                j.put("balance", u.getBalance());
-                j.put("hold", u.getHold());
-                redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(j.getClass()));
-                redisService.set("user_balance:"+u.getUserId(), j);
-                res.add(u);
-                userList.add(u.getUserId());
-                log.info("用户:{},账户user_balance:{}", u.getUserId(), resUserBalance);
-
-            } catch (Exception e) {
-                return new JsonResult<>(0, "账号同步redis失败！");
-            }
-        }
-        //把用户列表存入redis
-        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(userList.getClass()));
-        redisService.set("user_list", userList);
-
-        res.add(new UserBalanceChain());
-        for (String str: userList
-             ) {
-            resUserParterBalance = accountDao.getUserPartnerBalanceByUser(str);
-            for (UserBalanceChain u : resUserParterBalance
-            ) {
-                try {
-                    JSONObject j = new JSONObject();
-                    j.put("balance", u.getBalance());
-                    j.put("hold", u.getHold());
-                    redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(j.getClass()));
-                    redisService.set("user_partner_balance:"+u.getUserId(), j);
-                    res.add(u);
-                    log.info("用户:{},账户user_partner_balance:{}", u.getUserId(),resUserParterBalance);
-
-                } catch (Exception e) {
-                    return new JsonResult<>(0, "账号同步redis失败！");
-                }
-            }
-        }
-        return new JsonResult<>(0, res);
-         **/
     }
 
     @Override

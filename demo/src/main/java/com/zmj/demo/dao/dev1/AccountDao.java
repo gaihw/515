@@ -390,4 +390,31 @@ public interface AccountDao {
             "SET balance=${data},hold=0,freeze=0,borrow=0 " +
             "where user_id= ${userId}")
     int deposit(String userId, String data);
+
+    /**
+     * 查询otc_user_balance表总余额
+     * @return
+     */
+    @Select("SELECT sum(balance) balance " +
+            "FROM `bib_cfd`.`otc_user_balance` " +
+            "LIMIT 0,1")
+    UserBalanceChain getAllOtcUserBalanceTotal();
+
+    /**
+     * 查询asset_user_balance表总余额
+     * @return
+     */
+    @Select("SELECT sum(balance) balance " +
+            "FROM `bib_cfd`.`asset_user_balance` " +
+            "WHERE `currency_id` = '6' LIMIT 0,1000")
+    UserBalanceChain getAllAssetUserBalanceTotal();
+
+    /**
+     * 查询合约账户转入转出到OTC和asset账户的流水记录
+     * @return
+     */
+    @Select("SELECT sum(size) total " +
+            "from `bib_cfd`.`user_bill` " +
+            "where type  in (5,6)")
+    BigDecimal getAllUserBillToOtcAndAssetBalance();
 }

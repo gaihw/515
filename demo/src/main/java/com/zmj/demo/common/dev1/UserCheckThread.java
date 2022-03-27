@@ -2,17 +2,13 @@ package com.zmj.demo.common.dev1;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.zmj.demo.common.HttpUtil;
 import com.zmj.demo.common.SqlUtil;
 import com.zmj.demo.config.Config;
 import com.zmj.demo.dao.dev1.AccountDao;
-import com.zmj.demo.dao.dev1.SmsEmailCodeDao;
-import com.zmj.demo.dao.test.SmsEmailCode;
 import com.zmj.demo.domain.dev1.MatchResultFingerprintChain;
 import com.zmj.demo.domain.dev1.PositionActionChain;
 import com.zmj.demo.domain.dev1.UserBillChain;
 import com.zmj.demo.domain.dev1.UserDistributorChain;
-import com.zmj.demo.service.ToolService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -48,9 +44,8 @@ public class UserCheckThread {
     private BalanceCalc balanceCalc;
 
     @Async("asynExecutor")
-    public CompletableFuture<String[]> run(String userId, String time, UserBillChain userBillChain, List<UserDistributorChain> userPartner) {
+    public CompletableFuture<String[]> run(String userId, UserBillChain userBillChain, List<UserDistributorChain> userPartner) {
         StringBuffer stringBuffer = new StringBuffer();
-        time = time == null ? Config.startTime : time;
         Boolean flag = false;
         StringBuffer error = new StringBuffer();
         //交易类型
@@ -220,5 +215,17 @@ public class UserCheckThread {
             }
         }
         return CompletableFuture.completedFuture(new String[]{stringBuffer.toString(),error.toString()});
+    }
+
+
+    @Async("asynExecutor")
+    public String test(String message) {
+        try {
+            Thread.sleep(1000);
+            log.info("thread run, message={}", message);
+        } catch (InterruptedException e) {
+            log.error("thread run error: ", e);
+        }
+        return message;
     }
 }
