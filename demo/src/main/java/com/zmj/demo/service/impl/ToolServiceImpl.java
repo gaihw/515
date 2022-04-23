@@ -384,7 +384,7 @@ public class ToolServiceImpl implements ToolService {
             return "请先同步user_partner_balance账户总余额！";
         }
         //操作前，账户金额
-        BigDecimal partnerTotalPre = userPartnerAllBalanceR.getBigDecimal("balance").add(userPartnerAllBalanceR.getBigDecimal("hold"));
+        BigDecimal partnerTotalPre = userPartnerAllBalanceR.getBigDecimal("balance").add(userPartnerAllBalanceR.getBigDecimal("hold")).add(userPartnerAllBalanceR.getBigDecimal("freeze"));
         //获取流水变化的值
         //数据库流水表聚合统计的值
         BigDecimal userBillPartnerTotal = accountDao.getAllUserBillToPartnerBalance();
@@ -400,8 +400,9 @@ public class ToolServiceImpl implements ToolService {
         UserBalanceChain partnerBalanceHoldJbPost = accountDao.getAllUserPartnerBalanceTotal();
         BigDecimal partnerBalancePost = partnerBalanceHoldJbPost.getBalance();
         BigDecimal partnerHoldPost = partnerBalanceHoldJbPost.getHold();
+        BigDecimal freezePost = partnerBalanceHoldJbPost.getFreeze();
         //操作后，数据库总的金额
-        BigDecimal partnertotalPost = partnerBalancePost.add(partnerHoldPost);
+        BigDecimal partnertotalPost = partnerBalancePost.add(partnerHoldPost).add(freezePost);
         log.info("user_partner_balance操作后，数据库金额，balance:{},hold:{}", partnerBalancePost, partnerHoldPost);
         log.info("user_partner_balance下单前，账户金额:{},操作后，账户变化金额:{},操作后，计算剩余的金额:{},操作后，数据库存储的总金额:{}" , partnerTotalPre,partnerTotalIng,partnerTotalPostCalc,partnertotalPost);
         stringBuffer.append("user_partner_balance下单前，账户总金额:" + partnerTotalPre+"，balance:"+userPartnerAllBalanceR.getBigDecimal("balance")+"，hold:"+userPartnerAllBalanceR.getBigDecimal("hold")).append("</br>");
@@ -574,6 +575,7 @@ public class ToolServiceImpl implements ToolService {
         JSONObject userPartnerBalanceJ = new JSONObject();
         userPartnerBalanceJ.put("balance", userPartnerBalance.getBalance());
         userPartnerBalanceJ.put("hold", userPartnerBalance.getHold());
+        userPartnerBalanceJ.put("freeze", userPartnerBalance.getFreeze());
         redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(userPartnerBalanceJ.getClass()));
         redisService.set("user_partner_balance:all", userPartnerBalanceJ);
         log.info("user_partner_balance:all--->{}",userPartnerBalanceJ);
@@ -593,7 +595,7 @@ public class ToolServiceImpl implements ToolService {
         UserBalanceChain assetuserBalance = accountDao.getAllAssetUserBalanceTotal();
         assetuserBalance.setUserId("asset_user_balance");
         JSONObject assetuserBalanceJ = new JSONObject();
-        assetuserBalanceJ.put("balance",otcUserBalance.getBalance());
+        assetuserBalanceJ.put("balance",assetuserBalance.getBalance());
         redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(assetuserBalanceJ.getClass()));
         redisService.set("asset_user_balance:all", assetuserBalanceJ);
         log.info("asset_user_balance:all--->{}",assetuserBalanceJ);

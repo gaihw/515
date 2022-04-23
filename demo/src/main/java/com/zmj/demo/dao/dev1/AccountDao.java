@@ -63,7 +63,7 @@ public interface AccountDao {
      * 获取user_partner_balance表所有账户的总金额
      * @return
      */
-    @Select("SELECT sum(balance) balance,sum(hold) hold " +
+    @Select("SELECT sum(balance) balance,sum(hold) hold ,sum(freeze) freeze " +
             "FROM `bib_cfd`.`user_partner_balance`")
     UserBalanceChain getAllUserPartnerBalanceTotal();
 
@@ -218,7 +218,7 @@ public interface AccountDao {
      */
     @Select("SELECT SUM(size) size " +
             "FROM `bib_cfd`.`user_bill` " +
-            "where type not in (16,27,38) ")
+            "where type not in (16,27,38,60) ")
     BigDecimal getAllUserBillTotal();
 
     /**

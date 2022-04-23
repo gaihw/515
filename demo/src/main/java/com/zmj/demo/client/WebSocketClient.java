@@ -7,7 +7,11 @@ import com.zmj.demo.service.impl.plugin.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.java_websocket.handshake.ServerHandshake;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
+import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.net.URI;
 import java.nio.ByteBuffer;
 import java.util.concurrent.Executors;
@@ -26,6 +30,9 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
     @Autowired
     private RedisService redisService;
 
+    @Resource
+    private RedisTemplate redisTemplate;
+
     @Autowired
     private TfbeeKline tfbeeKline;
 
@@ -38,24 +45,28 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_ticker\"}}");
 
         //k线
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
+        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_kline_5min\",\"cb_id\":\"10001\"}}");
 
         //历史K线
-//        webSocketClient.send("{\"event\":\"req\",\"params\":{\"channel\":\"market_btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"req\",\"params\":{\"channel\":\"market_xxOi.btcusdt_kline_60min\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"req\",\"params\":{\"channel\":\"market_GjFt.btcusdt_kline_60min\",\"cb_id\":\"10001\"}}");
 
         //全部行情
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"review\"}}");
 
 
         //标记价格
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_mark_price\",\"cb_id\":\"10001\"}}");
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ethusdt_mark_price\",\"cb_id\":\"10001\"}}");
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_mark_price\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_mark_price\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ethusdt_mark_price\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_mark_price\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_mark_price\",\"cb_id\":\"10001\"}}");
 
         //指数价格
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_eosusdt_index_price\",\"cb_id\":\"10001\"}}");
+
+        //最新成交价market_qoz6.btcusdt_ticker
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_ticker\",\"cb_id\":\"10001\"}}");
 
         //市场深度行情数据
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_depth_step0\",\"cb_id\":\"10001\",\"asks\":150,\"bids\":150}}");
@@ -103,22 +114,22 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
             webSocketClient.send("{\"pong\": \"" + time + "\"}");
             log.info("发送：：：{\"pong\":\"{}\"}",time);
         }
-
         if (res.contains("market_btcusdt_depth_step0")){
             try {
                 if (JSONObject.parseObject(res).getJSONObject("tick") != null) {
                     String bids_0 = JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("bids").getJSONArray(0).getString(0);
-                    redisService.addValue("btc", bids_0);
+                    redisService.set("btc", bids_0);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+
         if (res.contains("market_btcusdt_mark_price")){
             try {
                 if (JSONObject.parseObject(res).getJSONObject("data") != null) {
                     String mp = JSONObject.parseObject(res).getJSONObject("data").getString("mp");
-                    redisService.addValue("btc", mp);
+                    redisService.set("btc", mp);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -128,7 +139,7 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
             try {
                 if (JSONObject.parseObject(res).getJSONObject("data") != null) {
                     String mp = JSONObject.parseObject(res).getJSONObject("data").getString("mp");
-                    redisService.addValue("eth", mp);
+                    redisService.set("eth", mp);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -138,7 +149,7 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
             try {
                 if (JSONObject.parseObject(res).getJSONObject("data") != null) {
                     String mp = JSONObject.parseObject(res).getJSONObject("data").getString("mp");
-                    redisService.addValue("ltc", mp);
+                    redisService.set("ltc", mp);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -154,7 +165,7 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
             JSONObject jsonObject = JSONObject.parseObject(arg0);
             System.out.println(jsonObject.getString("base")+"==="+jsonObject.getJSONObject("data").getBigDecimal("p"));
             try {
-                redisService.addValue(jsonObject.getString("base"),jsonObject.getJSONObject("data").getString("p"));
+                redisService.set(jsonObject.getString("base"),jsonObject.getJSONObject("data").getBigDecimal("p"));
             } catch (Exception e) {
                 e.printStackTrace();
             }

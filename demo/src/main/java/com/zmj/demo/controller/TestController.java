@@ -1,12 +1,17 @@
 package com.zmj.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zmj.demo.common.HttpUtil;
 import com.zmj.demo.common.dev1.UserCheckThread;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 @RestController
 @Slf4j
@@ -15,7 +20,8 @@ public class TestController {
     @Autowired
     private UserCheckThread userCheckThread;
 
-    @RequestMapping(value = "/v1/test",method = RequestMethod.POST)
+
+    @RequestMapping(value = "/v1/test",method = RequestMethod.GET)
     public JSONObject test(){
         return JSONObject.parseObject("{\"status\":\"success\",\"errorCode\":\"\",\"errorMsg\":\"\",\"data\":{\"accessNumberList\":[1,2,2,1,15000000001],\"levelNameList\":[\"四级\",\"一级\",\"三级\",\"二级\",\"其他\"]}}");
     }
@@ -44,4 +50,20 @@ public class TestController {
 
     }
 
+    @RequestMapping(value = "/v1/test5",method = RequestMethod.GET)
+    public void test05() throws IOException {
+        File mobile = new File("/Users/mac/Desktop/user.csv");
+        FileWriter fw = new FileWriter(mobile,true);
+        HttpUtil httpUtil = new HttpUtil();
+        String url = "https://www-demo.hpx.today/v1/users/membership/sign-in";
+        String param = "";
+        for (int i = 0; i < 500; i++) {
+            param = "{\"username\":\"16600000"+String.format("%03d",i)+"\",\"password\":\"ghw111111\"}";
+            String res = httpUtil.postByJson(url,param);
+            String accessToken = JSONObject.parseObject(res).getJSONObject("data").getString("accessToken");
+            int rd=Math.random()>0.5?1:0;
+            fw.write(accessToken+","+rd+"\n");
+            fw.flush();
+        }
+    }
 }
