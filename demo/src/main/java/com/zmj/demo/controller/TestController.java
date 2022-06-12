@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.*;
 
 @RestController
 @Slf4j
@@ -42,7 +45,7 @@ public class TestController {
 
     @RequestMapping(value = "/v1/test4",method = RequestMethod.GET)
     public String test04(){
-        int count = 10;
+        int count = 100;
         for (int i = 0; i < count; i++) {
             userCheckThread.test("index = " + i);
         }
@@ -65,5 +68,57 @@ public class TestController {
             fw.write(accessToken+","+rd+"\n");
             fw.flush();
         }
+    }
+
+    @RequestMapping(value = "/v1/test6",method = RequestMethod.GET)
+    public void test06(){
+        List<String> list = new ArrayList<String>();
+        for (int i = 0; i < 111; i++) {
+            list.add(i + ",");
+        }
+        StringBuffer coupons = getCoupons(list, 5);
+        System.out.println(coupons);
+    }
+    public static StringBuffer getCoupons(List<String> list , final int threadNum){
+        int size = list.size();
+        if (size == 0 || list == null){
+            return null;
+        }
+        StringBuffer bf = new StringBuffer();
+        ExecutorService executorService = Executors.newFixedThreadPool(threadNum);
+        List<Future<String>> futures = new ArrayList<Future<String>>(size);
+        for (int i = 0; i < threadNum; i++) {
+            //将数据分成threadNum份，线程同时执行
+            final List<String> subList = list.subList(size / threadNum * i, size / threadNum * (i + 1));
+            Callable<String> task = new Callable<String>() {
+                @Override
+                public String call() throws Exception {
+                    StringBuffer buffer = new StringBuffer();
+                    buffer.append(Thread.currentThread().getName()+">>>");
+                    //对每个线程(线程中的每份数据)的逻辑操作
+                    for (String subString : subList) {
+//                        System.out.println(subString);
+                        buffer.append(subString);
+                    }
+                    buffer.append("\n");
+                    return buffer.toString();
+                }
+            };
+            //添加线程到队列
+            futures.add(executorService.submit(task));
+        }
+
+        for (int i = 0; i < futures.size(); i++) {
+            try {
+                bf.append(futures.get(i).get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
+        //结束线程执行
+        executorService.shutdown();
+        return bf;
     }
 }

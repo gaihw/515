@@ -162,8 +162,8 @@ public class FeeCalc {
                     return new String[]{"",stringBuffer.append("--只有默认合伙人--用户不返回手续费--用户自己有返佣--未查到给用户自己的流水账单，请查看！数据：用户:"+userId+",订单:"+sourceId+"，类型:16").append("</br>").toString()};
                 }
                 if (userselfBillJb.size() == 1) {
-                    log.info("--有合伙人--用户自己有返佣--给用户的手续费返佣不正确，请检查--->用户:{},交易类型:{},订单:{},数据库:{},计算:{}", userId, type, sourceId, userselfBillJb.get(0).getSize().setScale(8, BigDecimal.ROUND_DOWN), feeToUserself);
-                    stringBuffer.append("--有合伙人--用户自己有返佣--给用户的手续费返佣校验，请检查--->用户:" + userId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + userselfBillJb.get(0).getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算:" + feeToUserself).append("</br>");
+                    log.info("--有合伙人--用户自己有返佣--给用户的手续费返佣校验--->用户:{},交易类型:{},订单:{},数据库:{},计算:{}", userId, type, sourceId, userselfBillJb.get(0).getSize().setScale(8, BigDecimal.ROUND_DOWN), feeToUserself);
+                    stringBuffer.append("--有合伙人--用户自己有返佣--给用户的手续费返佣校验--->用户:" + userId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + userselfBillJb.get(0).getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算:" + feeToUserself).append("</br>");
                     if (feeToUserself.compareTo(userselfBillJb.get(0).getSize().abs().setScale(Config.newScale, BigDecimal.ROUND_DOWN)) != 0) {
                         flag = true;
                         error.append("--有合伙人--用户自己有返佣--给用户的手续费返佣不正确，请检查--->用户:" + userId + ",交易类型:" + type + ",订单:" + sourceId + ",数据库:" + userselfBillJb.get(0).getSize().setScale(8, BigDecimal.ROUND_DOWN) + ",计算:" + feeToUserself).append("</br>");
@@ -172,7 +172,7 @@ public class FeeCalc {
                     //手续费正确标识,true代表手续费计算不正确
                     Boolean feeFlag = true;
                     for (UserBillChain ubc: userselfBillJb) {
-                        log.info("--有合伙人--用户自己有返佣--给用户的手续费返佣不正确，请检查--->用户:{},交易类型:{},订单:{},数据库:{},计算:{}", userId, type, sourceId, ubc.getSize().setScale(8, BigDecimal.ROUND_DOWN), feeToUserself);
+                        log.info("--有合伙人--用户自己有返佣--给用户的手续费返佣校验--->用户:{},交易类型:{},订单:{},数据库:{},计算:{}", userId, type, sourceId, ubc.getSize().setScale(8, BigDecimal.ROUND_DOWN), feeToUserself);
                         if (feeToUserself.compareTo(ubc.getSize().abs().setScale(Config.newScale, BigDecimal.ROUND_DOWN)) == 0){
                             feeFlag = false;
                             break;

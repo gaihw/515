@@ -2,24 +2,13 @@ package com.zmj.demo.common;
 
 import com.zmj.demo.domain.auto.CaseExecuteChain;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 @Slf4j
-public class HttpThread extends Thread {
+@Component
+public class HttpThread {
 
-    private HttpUtil httpUtils;
-    private SqlUtil sqlUtils;
-    private CaseExecuteChain caseExecuteChain;
-    private String url;
-
-    public HttpThread(HttpUtil httpUtils, SqlUtil sqlUtils, CaseExecuteChain caseExecuteChain, String url){
-        this.httpUtils = httpUtils;
-        this.sqlUtils = sqlUtils;
-        this.caseExecuteChain = caseExecuteChain;
-        this.url = url;
-    }
-
-    @Override
-    public void run() {
+    public void run(HttpUtil httpUtils, SqlUtil sqlUtils, CaseExecuteChain caseExecuteChain, String url) {
         String res = "无";
         try {
 //            System.out.println("Thread:" + Thread.currentThread().getName() + "准备完毕,time:" + System.currentTimeMillis());

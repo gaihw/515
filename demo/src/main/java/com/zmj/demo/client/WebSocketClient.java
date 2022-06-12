@@ -1,5 +1,6 @@
 package com.zmj.demo.client;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.common.GzipUtil;
 import com.zmj.demo.dao.dev1.TfbeeKline;
@@ -45,7 +46,7 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_ticker\"}}");
 
         //k线
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_kline_5min\",\"cb_id\":\"10001\"}}");
 
         //历史K线
@@ -70,7 +71,8 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
 
         //市场深度行情数据
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_depth_step0\",\"cb_id\":\"10001\",\"asks\":150,\"bids\":150}}");
-
+        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"asks\":20,\"channel\":\"market_FaJ6.dogeusdt_depth_step0\",\"bids\":20,\"cb_id\":\"Android_FaJ6\"}}");
+        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"asks\":20,\"channel\":\"market_FaJ6.trxusdt_depth_step0\",\"bids\":20,\"cb_id\":\"Android_FaJ6\"}}");
         //资金费率
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_funding_rate\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ethusdt_funding_rate\",\"cb_id\":\"10001\"}}");
@@ -107,7 +109,7 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
             bytes[i] = buffer.get();
         }
         String res = GzipUtil.uncompressToString(bytes);
-        log.info("-------- ByteBuffer接收到服务端数据：{} --------" , res);
+//        log.info("-------- ByteBuffer接收到服务端数据：{} --------" , res);
 
         if (res.contains("ping")) {
             String time = JSONObject.parseObject(res).getString("ping");
@@ -152,6 +154,38 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
                     redisService.set("ltc", mp);
                 }
             } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (res.contains("market_FaJ6.dogeusdt_depth_step0")){
+            try {
+                JSONObject tick = JSONObject.parseObject(res).getJSONObject("tick");
+                if (tick != null)
+                    if (tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0))== 0||
+                            tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0)) ==0 ||
+                            tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0)) ==0) {
+//                        log.info("doge***买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
+//                        log.info("doge***卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
+                    }
+//                log.info("买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
+//                log.info("卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
+                }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        if (res.contains("market_FaJ6.trxusdt_depth_step0")){
+            try {
+                JSONObject tick = JSONObject.parseObject(res).getJSONObject("tick");
+                if (tick != null)
+                    if (tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0))== 0||
+                            tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0)) ==0 ||
+                            tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0)) ==0) {
+//                        log.info("trx***买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
+//                        log.info("trx***卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
+                    }
+//                log.info("买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
+//                log.info("卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
+            }catch (Exception e){
                 e.printStackTrace();
             }
         }

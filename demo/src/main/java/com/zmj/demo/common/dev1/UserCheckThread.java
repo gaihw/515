@@ -221,7 +221,7 @@ public class UserCheckThread {
     @Async("asynExecutor")
     public String test(String message) {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(5000);
             log.info("thread run, message={}", message);
         } catch (InterruptedException e) {
             log.error("thread run error: ", e);

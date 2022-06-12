@@ -1,6 +1,7 @@
 package com.zmj.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zmj.demo.common.CollectionUtil;
 import com.zmj.demo.common.HttpThread;
 import com.zmj.demo.common.HttpUtil;
 import com.zmj.demo.common.SqlUtil;
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -37,6 +39,12 @@ public class CaseServiceImpl implements CaseService {
 
     @Autowired
     private HttpUtil httpUtils;
+
+    @Autowired
+    private CollectionUtil collectionUtil;
+
+    @Autowired
+    private HttpThread httpThread;
 
     CyclicBarrier cyclicBarrier = new CyclicBarrier(10);
 
@@ -143,36 +151,37 @@ public class CaseServiceImpl implements CaseService {
     @Override
     public JsonResult caseExecute(List<Integer> caseList) {
         //每页显示的条数
-        int SIZE = 10;
-
-        //初始线程数量
-        int threadPoolNum = 1;
-
+        int SIZE = 1000;
         //执行用例总数，除以每页条数，需要分割多少次
         int caseListSplitNum = caseList.size()/SIZE;
-
-        if (caseList.size() <=10){
-            threadPoolNum = 1;
-        }else {
-            threadPoolNum = 10;
-        }
-
-        ExecutorService executorService = Executors.newFixedThreadPool(threadPoolNum);
-
         for (int i = 0; i <= caseListSplitNum; i++) {
             List<CaseExecuteChain> caseExecuteChainList = sqlUtils.getCaseExecuteList(caseList,SIZE*i,SIZE);
-
-            //遍历用例集合
-            for (CaseExecuteChain caseExecuteChain : caseExecuteChainList) {
-                //拼接请求的url
-                String url = "http://" + caseExecuteChain.getIp() + caseExecuteChain.getPath();
-                log.info("用例ID:{},访问路径:{},请求方法:{},请求格式:{},请求头信息:{},请求体信息:{},断言方式:{},断言数据:{}"
-                        , caseExecuteChain.getId(), url, caseExecuteChain.getMethod(), caseExecuteChain.getContentType()
-                        , caseExecuteChain.getHeaderData(), caseExecuteChain.getParamData(), caseExecuteChain.getAssertType(), caseExecuteChain.getAssertData());
-                // 生成所有测试线程
-                executorService.execute(new HttpThread(httpUtils,sqlUtils,caseExecuteChain,url));
+            List<List<CaseExecuteChain>> groupList = collectionUtil.partition(caseExecuteChainList, 100);
+            CountDownLatch countDownLatch = new CountDownLatch(groupList.size());
+            ExecutorService executorService = Executors.newFixedThreadPool(groupList.size());
+            // 2.根据分组长度循环处理
+            for (int j = 0; j < groupList.size(); j++) {
+                int finalI = j;
+                executorService.execute(() -> {
+                    List<CaseExecuteChain> CaseExecuteChainGroup = groupList.get(finalI);
+                    for (CaseExecuteChain caseExecuteChain : CaseExecuteChainGroup) {
+                        //拼接请求的url
+                        String url = "http://" + caseExecuteChain.getIp() + caseExecuteChain.getPath();
+                        log.info("用例ID:{},访问路径:{},请求方法:{},请求格式:{},请求头信息:{},请求体信息:{},断言方式:{},断言数据:{}"
+                                , caseExecuteChain.getId(), url, caseExecuteChain.getMethod(), caseExecuteChain.getContentType()
+                                , caseExecuteChain.getHeaderData(), caseExecuteChain.getParamData(), caseExecuteChain.getAssertType(), caseExecuteChain.getAssertData());
+                        // 生成所有测试线程
+                        httpThread.run(httpUtils,sqlUtils,caseExecuteChain,url);
+                    }
+                    countDownLatch.countDown();
+                });
             }
-            executorService.shutdown();
+            try {
+                countDownLatch.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            executorService.shutdown();   //关闭线程池
         }
 
         return new JsonResult(0, "用例执行成功!", caseList.size());
