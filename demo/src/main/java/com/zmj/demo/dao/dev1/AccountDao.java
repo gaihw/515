@@ -191,8 +191,8 @@ public interface AccountDao {
             "WHERE type in (41,52) and source_id in " +
             "(SELECT source_id " +
             "FROM `bib_cfd`.`user_bill` as bill,`bib_cfd`.`swap_order` as swap " +
-            "WHERE bill.source_id=swap.id and swap.margin_type='FIXED' and bill.`user_id` = '${userId}' AND type=4 AND `size` = '0') ")
-    BigDecimal getUserBillByUserForFixed(@Param("userId") String userId);
+            "WHERE bill.source_id=swap.id and swap.margin_type='FIXED' and bill.`user_id` = '${userId}' AND type=4 AND `size` = '0' and created_date>'${time}' ) ")
+    BigDecimal getUserBillByUserForFixed(@Param("userId") String userId,@Param("time") String time);
 
     /**
      * 获取user_bill表,默认合伙人type=59类型的爆仓返回的总值

@@ -45,7 +45,7 @@ public class BalanceCalc {
         //数据库流水表聚合统计的值
         UserBillChain userBillTotal = accountDao.getUserBillTotalByUser(userId,time);
         //逐仓爆仓对应的流水账单
-        BigDecimal fixedFee = accountDao.getUserBillByUserForFixed(userId) ;
+        BigDecimal fixedFee = accountDao.getUserBillByUserForFixed(userId,time) ;
         fixedFee = fixedFee== null ? BigDecimal.ZERO:fixedFee;
         //操作后，账户变化金额,如果无流水账单，默认赋值为0
         BigDecimal totalIng = userBillTotal == null ? BigDecimal.ZERO : userBillTotal.getTotal().subtract(fixedFee);
