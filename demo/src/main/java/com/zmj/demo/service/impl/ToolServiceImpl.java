@@ -359,7 +359,11 @@ public class ToolServiceImpl implements ToolService {
                                     continue;
                                 }
                                 BigDecimal oneLotSize = accountDao.instruments(positionActionForMargin.getSymbol());
-                                BigDecimal marginTmp = positionActionForMargin.getOpenPrice().multiply(positionActionForMargin.getQuantity()).multiply(oneLotSize).divide(BigDecimal.valueOf(positionActionForMargin.getLeverage()), Config.newScale, BigDecimal.ROUND_DOWN);
+                                BigDecimal marginTmp = BigDecimal.ZERO;
+                                //如果是全仓，margin保证金为0,逐仓需要计算
+                                if (positionActionForMargin.getMarginType().equalsIgnoreCase("FIXED")){
+                                    marginTmp = positionActionForMargin.getOpenPrice().multiply(positionActionForMargin.getQuantity()).multiply(oneLotSize).divide(BigDecimal.valueOf(positionActionForMargin.getLeverage()), Config.newScale, BigDecimal.ROUND_DOWN);
+                                }
                                 //先根据position_action表计算保证金
                                 if (marginTmp.compareTo(userBillChain.getSize().abs().setScale(Config.newScale, BigDecimal.ROUND_DOWN)) != 0) {
                                     //如果position_action表计算保证金不正确，再根据撮合表中的数据校验
