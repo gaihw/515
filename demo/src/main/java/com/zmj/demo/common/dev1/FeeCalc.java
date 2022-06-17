@@ -61,7 +61,8 @@ public class FeeCalc {
             }
             //判断用户是不是合伙人，如果是合伙人，需要给用户按照比列返佣
             //先返给用户的手续费后，剩下的手续费返给合伙人
-            BigDecimal feeToPartner = userBillChain.getSize().multiply(BigDecimal.ONE.subtract(rebateUserRatio));
+//            BigDecimal feeToPartner = userBillChain.getSize().multiply(BigDecimal.ONE.subtract(rebateUserRatio));
+            BigDecimal feeToPartner = userBillChain.getSize().add(feeToUser);
             String[] s = feeToPartnerClac(userPartner,userBillChain,feeToPartner);
             stringBuffer.append(s[0]);
             if (s.length ==2){

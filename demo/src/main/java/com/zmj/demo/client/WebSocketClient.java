@@ -109,7 +109,7 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
             bytes[i] = buffer.get();
         }
         String res = GzipUtil.uncompressToString(bytes);
-//        log.info("-------- ByteBuffer接收到服务端数据：{} --------" , res);
+        log.info("-------- ByteBuffer接收到服务端数据：{} --------" , res);
 
         if (res.contains("ping")) {
             String time = JSONObject.parseObject(res).getString("ping");
@@ -160,31 +160,34 @@ public class WebSocketClient extends org.java_websocket.client.WebSocketClient {
         if (res.contains("market_FaJ6.dogeusdt_depth_step0")){
             try {
                 JSONObject tick = JSONObject.parseObject(res).getJSONObject("tick");
-                if (tick != null)
-                    if (tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0))== 0||
-                            tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0)) ==0 ||
-                            tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0)) ==0) {
-//                        log.info("doge***买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
-//                        log.info("doge***卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
+                if (tick != null) {
+                    if (tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0)) == 0 ||
+                            tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0)) == 0 ||
+                            tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0)) == 0) {
+                        log.info("doge***买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
+                        log.info("doge***卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
+
                     }
-//                log.info("买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
-//                log.info("卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
-                }catch (Exception e){
+                    log.info("买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
+                    log.info("卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
+                }
+            }catch (Exception e){
                 e.printStackTrace();
             }
         }
         if (res.contains("market_FaJ6.trxusdt_depth_step0")){
             try {
                 JSONObject tick = JSONObject.parseObject(res).getJSONObject("tick");
-                if (tick != null)
+                if (tick != null){
                     if (tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0))== 0||
                             tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0)) ==0 ||
                             tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0).compareTo(tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0)) ==0) {
-//                        log.info("trx***买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
-//                        log.info("trx***卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
+                        log.info("trx***买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
+                        log.info("trx***卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
                     }
-//                log.info("买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
-//                log.info("卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
+                    log.info("买一:{},买二:{}", tick.getJSONArray("bids").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("bids").getJSONArray(1).getBigDecimal(0));
+                    log.info("卖一:{},卖二:{}", tick.getJSONArray("asks").getJSONArray(0).getBigDecimal(0), tick.getJSONArray("asks").getJSONArray(1).getBigDecimal(0));
+                }
             }catch (Exception e){
                 e.printStackTrace();
             }

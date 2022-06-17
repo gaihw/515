@@ -150,7 +150,7 @@ public class ToolServiceImpl implements ToolService {
             log.info("--------" + userId + "流水--------");
             stringBuffer.append("--------" + userId + "流水--------").append("</br>");
 
-            if (true) {
+            if (false) {
                 //用户及合伙人列表
                 List<UserDistributorChain> userPartner = null;
                 String[] s;

@@ -87,6 +87,21 @@ public class SqlUtil {
         while (!user_distributor.getPartnerId().contains(Config.high_partner)
                 &&!user_distributor.getParentId().contains(Config.high_partner)){
             user_distributor = accountDao.getUserDistributor(user_distributor.getPartnerId());
+            //如果当前用户为顶级合伙人，直接返回
+            if (userId.equalsIgnoreCase(Config.high_partner)){
+                user_partner.add(user_distributor);
+                return user_partner;
+            }
+            //如果用户的合伙人ID=0，有两种情况：一、为顶级合伙人，即默认合伙人，这个直接返回即可；二、普通合伙人，但是普通合伙人的partner和parent为0，此时，需要把顶级合伙人加到列表中
+            if (user_distributor.getPartnerId().equalsIgnoreCase("0") || user_distributor.getParentId().equalsIgnoreCase("0")){
+                user_partner.add(user_distributor);
+                //如果该用户不是顶级合伙人，并且partner和parent为0，需要把顶级合伙人加到列表中
+                if (!user_distributor.getUserId().equalsIgnoreCase(Config.high_partner)){
+                    user_distributor = accountDao.getUserDistributor(Config.high_partner);
+                    user_partner.add(user_distributor);
+                }
+                return user_partner;
+            }
             if (user_distributor != null){
                 user_partner.add(user_distributor);
             }
