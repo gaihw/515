@@ -2,9 +2,8 @@ package com.zmj.demo.common.dev1;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.config.Config;
-import com.zmj.demo.dao.dev1.AccountDao;
+import com.zmj.demo.dao.test.AccountDao;
 import com.zmj.demo.domain.dev1.PositionChain;
-import com.zmj.demo.domain.dev1.SwapOrderChain;
 import com.zmj.demo.domain.dev1.UserBillChain;
 import com.zmj.demo.domain.dev1.UserDistributorChain;
 import lombok.extern.slf4j.Slf4j;

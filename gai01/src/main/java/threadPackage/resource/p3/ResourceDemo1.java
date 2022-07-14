@@ -1,9 +1,35 @@
-package threadPackage.resource.p2;
+package threadPackage.resource.p3;
 
 class Resource{
-    String name;
-    String sex;
-    boolean flag = false;
+    private String name;
+    private String sex;
+    private boolean flag = false;
+
+    public synchronized void set(String name,String sex){
+        if (flag){
+            try {
+                this.wait();
+            }catch (InterruptedException e){
+
+            }
+        }
+        this.name = name;
+        this.sex = sex;
+        flag = true;
+        this.notify();
+    }
+    public synchronized void out(){
+        if (!flag){
+            try {
+                this.wait();
+            }catch (InterruptedException e){
+
+            }
+        }
+        System.out.println(this.name+"+"+this.sex);
+        flag = false;
+        this.notify();
+    }
 }
 
 class Input implements Runnable{
@@ -15,21 +41,11 @@ class Input implements Runnable{
         int x = 0;
         while (true){
             synchronized (r){
-                if (r.flag)
-                    try {
-                        r.wait();
-                    }catch (InterruptedException e){
-
-                    }
                 if (x == 0){
-                    r.name="zhangsan";
-                    r.sex="nan";
+                    r.set("zhangsan","nan");
                 }else {
-                    r.name="丽丽";
-                    r.sex="女女女女女";
+                    r.set("丽丽","女女女女女");
                 }
-                r.flag = true;
-                r.notify();
                 x = (x+1)%2;
             }
         }
@@ -44,16 +60,7 @@ class Output implements Runnable{
     public void run(){
         while (true){
             synchronized(r){
-                if (!r.flag){
-                    try {
-                        r.wait();
-                    }catch (InterruptedException e){
-
-                    }
-                }
-                System.out.println(r.name+"="+r.sex);
-                r.flag = false;
-                r.notify();
+                r.out();
             }
         }
     }

@@ -1,9 +1,8 @@
 package com.zmj.demo.common.dev1;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zmj.demo.common.SqlUtil;
 import com.zmj.demo.config.Config;
-import com.zmj.demo.dao.dev1.AccountDao;
+import com.zmj.demo.dao.test.AccountDao;
 import com.zmj.demo.domain.dev1.UserBalanceChain;
 import com.zmj.demo.domain.dev1.UserBillChain;
 import com.zmj.demo.service.impl.plugin.RedisService;
@@ -11,11 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Slf4j
 @Configuration

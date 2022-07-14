@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2577aaf4-3bac-4de4-a4e6-a50d72ea0b28" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/demo/logs/info.2022-03-17.log" beforeDir="false" afterPath="$PROJECT_DIR$/demo/logs/info.2022-03-17.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gai01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gai01/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gai01/src/main/java/winCoin/FullPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/gai01/src/main/java/winCoin/FullPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/websocketclienttest/src/main/java/com/client/MyWebSocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/websocketclienttest/src/main/java/com/client/MyWebSocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/websocketclienttest/target/classes/com/client/MyWebSocketClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/websocketclienttest/target/classes/com/client/MyWebSocketClient.class" afterDir="false" />
-    </list>
+    <list default="true" id="2577aaf4-3bac-4de4-a4e6-a50d72ea0b28" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

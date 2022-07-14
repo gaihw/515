@@ -7,9 +7,9 @@ import com.zmj.demo.common.HttpUtil;
 import com.zmj.demo.common.SqlUtil;
 import com.zmj.demo.common.dev1.*;
 import com.zmj.demo.config.Config;
-import com.zmj.demo.dao.dev1.AccountDao;
-import com.zmj.demo.dao.dev1.SmsEmailCodeDao;
-import com.zmj.demo.dao.test.SmsEmailCode;
+import com.zmj.demo.dao.test.AccountDao;
+import com.zmj.demo.dao.test.SmsEmailCodeDao;
+import com.zmj.demo.dao.testAli.SmsEmailCode;
 import com.zmj.demo.domain.JsonResult;
 import com.zmj.demo.domain.dev1.*;
 import com.zmj.demo.domain.tool.SmsEmailcodeDomain;
@@ -19,14 +19,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -86,9 +84,9 @@ public class ToolServiceImpl implements ToolService {
     @Override
     public List<SmsEmailcodeDomain> getList(int type) {
         if (type == 0) {
-            return smsEmailCode.getList();
-        } else {
             return smsEmailCodeDao.getSmsList();
+        } else {
+            return smsEmailCode.getList();
         }
 
     }
@@ -998,8 +996,8 @@ public class ToolServiceImpl implements ToolService {
                         //当前仓位的头寸大
                         if (pc.getQuantity().compareTo(positionChain.getQuantity()) == 1) {
                             estimatedStrongPrice = indexPrice.getBigDecimal(pc.getSymbol()).subtract(direction.multiply(userBalance.getBalance().add(userBalance.getHold()).add(floatProfitLoss).subtract(totalFee).subtract(totalMargin.multiply(Config.rate))).divide((pc.getQuantity().subtract(positionChain.getQuantity()).abs()).multiply(oneLotSize), Config.newScale, BigDecimal.ROUND_DOWN));
-                            log.info("有对冲单，当前仓位头寸大--->用户ID:{},币种:{},方向:{},杠杆:{},强平价:{}", userId, pc.getSymbol(), pc.getDirection(), pc.getLeverage(), estimatedStrongPrice);
-                            stringBuffer.append("有对冲单，当前仓位头寸大--->强平价:" + estimatedStrongPrice).append("</br>");
+                            log.info("有对冲单，当前仓位对冲单头寸大--->用户ID:{},币种:{},方向:{},杠杆:{},强平价:{}", userId, pc.getSymbol(), pc.getDirection(), pc.getLeverage(), estimatedStrongPrice);
+                            stringBuffer.append("有对冲单，当前仓位对冲单头寸大--->强平价:" + estimatedStrongPrice).append("</br>");
                         } else if (pc.getQuantity().compareTo(positionChain.getQuantity()) == 0) {//完全对冲
                             log.info("完全对冲--->用户ID:{},币种:{},方向:{},杠杆:{},强平价:{}", userId, pc.getSymbol(), pc.getDirection(), pc.getLeverage(), estimatedStrongPrice);
                             stringBuffer.append("完全对冲--->,强平价:0").append("</br>");
@@ -1010,8 +1008,8 @@ public class ToolServiceImpl implements ToolService {
                                 direction = BigDecimal.ONE;
                             }
                             estimatedStrongPrice = indexPrice.getBigDecimal(pc.getSymbol()).subtract(direction.multiply(userBalance.getBalance().add(userBalance.getHold()).add(floatProfitLoss).subtract(totalFee).subtract(totalMargin.multiply(Config.rate))).divide((pc.getQuantity().subtract(positionChain.getQuantity()).abs()).multiply(oneLotSize), Config.newScale, BigDecimal.ROUND_DOWN));
-                            log.info("有对冲单，当前仓位对冲单头寸大--->用户ID:{},币种:{},方向:{},杠杆:{},强平价:{}", userId, pc.getSymbol(), pc.getDirection(), pc.getLeverage(), estimatedStrongPrice);
-                            stringBuffer.append("有对冲单，当前仓位对冲单头寸大--->强平价:" + estimatedStrongPrice).append("</br>");
+                            log.info("有对冲单--->用户ID:{},币种:{},方向:{},杠杆:{},强平价:{}", userId, pc.getSymbol(), pc.getDirection(), pc.getLeverage(), estimatedStrongPrice);
+                            stringBuffer.append("有对冲单--->强平价:" + estimatedStrongPrice).append("</br>");
                         }
                     }
                     stringBuffer.append("</br>");

@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.common.SqlUtil;
 import com.zmj.demo.config.Config;
-import com.zmj.demo.dao.dev1.AccountDao;
+import com.zmj.demo.dao.test.AccountDao;
 import com.zmj.demo.domain.dev1.MatchResultFingerprintChain;
 import com.zmj.demo.domain.dev1.PositionActionChain;
 import com.zmj.demo.domain.dev1.UserBillChain;

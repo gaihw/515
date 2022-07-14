@@ -1,4 +1,8 @@
-package threadPackage.producer.p2;
+package threadPackage.producer.p3;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 多生产、多消费
@@ -11,32 +15,53 @@ class Resource{
     private String name;
     private int count = 1;
     private boolean flag = false;
-    public synchronized void set(String name){
-        while (flag){
-            try {
-                this.wait();
-            }catch (InterruptedException e){
+    //创建锁对象
+    Lock lock = new ReentrantLock();
+    //通过已有的锁获取该锁上的监视器对象
+    Condition pro = lock.newCondition();
+    Condition con = lock.newCondition();
+    public void set(String name){
+        lock.lock();
+        try {
+            while (flag){
+                try {
+                    pro.await();
+//                    pro.wait();
+                }catch (InterruptedException e){
 
+                }
             }
+            this.name = name + this.count;
+            this.count = this.count+1;
+            System.out.println(Thread.currentThread().getName()+"......生产者......"+this.name);
+            flag = true;
+            con.signal();
+//            con.notify();
+        }finally {
+            lock.unlock();
         }
-        this.name = name + this.count;
-        this.count = this.count+1;
-        System.out.println(Thread.currentThread().getName()+"......生产者......"+this.name);
 
-        flag = true;
-        this.notifyAll();
     }
-    public synchronized void out(){
-        while (!flag){
-            try {
-                this.wait();
-            }catch (InterruptedException e){
+    public void out(){
+        lock.lock();
+        try {
 
+            while (!flag) {
+                try {
+                    con.await();
+//                    con.wait();
+                } catch (InterruptedException e) {
+
+                }
             }
+            System.out.println(Thread.currentThread().getName() + "............消费者............" + this.name);
+            flag = false;
+            pro.signal();
+//            pro.notify();
+        }finally {
+            lock.unlock();
+
         }
-        System.out.println(Thread.currentThread().getName()+"............消费者............"+this.name);
-        flag = false;
-        this.notifyAll();
     }
 }
 

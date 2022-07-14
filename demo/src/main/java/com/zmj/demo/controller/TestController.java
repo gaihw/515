@@ -58,7 +58,7 @@ public class TestController {
         File mobile = new File("/Users/mac/Desktop/user.csv");
         FileWriter fw = new FileWriter(mobile,true);
         HttpUtil httpUtil = new HttpUtil();
-        String url = "https://www-demo.hpx.today/v1/users/membership/sign-in";
+        String url = "http://www-test1.tfbeee.shop/v1/users/membership/sign-in";
         String param = "";
         for (int i = 0; i < 500; i++) {
             param = "{\"username\":\"16600000"+String.format("%03d",i)+"\",\"password\":\"ghw111111\"}";

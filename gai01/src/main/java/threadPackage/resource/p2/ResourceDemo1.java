@@ -1,8 +1,9 @@
-package threadPackage.resource.p1;
+package threadPackage.resource.p2;
 
 class Resource{
     String name;
     String sex;
+    boolean flag = false;
 }
 
 class Input implements Runnable{
@@ -14,6 +15,12 @@ class Input implements Runnable{
         int x = 0;
         while (true){
             synchronized (r){
+                if (r.flag)
+                    try {
+                        r.wait();
+                    }catch (InterruptedException e){
+
+                    }
                 if (x == 0){
                     r.name="zhangsan";
                     r.sex="nan";
@@ -21,8 +28,10 @@ class Input implements Runnable{
                     r.name="丽丽";
                     r.sex="女女女女女";
                 }
+                r.flag = true;
+                r.notify();
+                x = (x+1)%2;
             }
-            x = ++x%2;
         }
     }
 }
@@ -35,7 +44,16 @@ class Output implements Runnable{
     public void run(){
         while (true){
             synchronized(r){
+                if (!r.flag){
+                    try {
+                        r.wait();
+                    }catch (InterruptedException e){
+
+                    }
+                }
                 System.out.println(r.name+"="+r.sex);
+                r.flag = false;
+                r.notify();
             }
         }
     }

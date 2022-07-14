@@ -2,7 +2,7 @@ package com.zmj.demo.common.dev1;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.config.Config;
-import com.zmj.demo.dao.dev1.AccountDao;
+import com.zmj.demo.dao.test.AccountDao;
 import com.zmj.demo.domain.dev1.UserBillChain;
 import com.zmj.demo.domain.dev1.UserDistributorChain;
 import lombok.extern.slf4j.Slf4j;
@@ -39,8 +39,11 @@ public class FeeCalc {
         String sourceId = userBillChain.getSourceId();
         //先获取用户的上一级合伙人是不是合伙人，如果是合伙人，rebateUserRatio大于0，则先给用户返手续费，剩下的手续费，按照比列返给合伙人和用户
         //1、先获取列表中索引为1的合伙人
-        BigDecimal rebateUserRatio = JSONObject.parseObject(userPartner.get(1).getConfig()).getBigDecimal("rebateUserRatio") != null
-                ? JSONObject.parseObject(userPartner.get(1).getConfig()).getBigDecimal("rebateUserRatio"):BigDecimal.ZERO;
+        BigDecimal rebateUserRatio = BigDecimal.ZERO;
+        if (JSONObject.parseObject(userPartner.get(1).getConfig()) != null){
+            rebateUserRatio = JSONObject.parseObject(userPartner.get(1).getConfig()).getBigDecimal("rebateUserRatio") != null
+                    ? JSONObject.parseObject(userPartner.get(1).getConfig()).getBigDecimal("rebateUserRatio"):BigDecimal.ZERO;
+        }
         //如果该用户直接合伙人的type=0&rebateUserRatio>0，则先给用户返手续费*rebateUserRatio，剩下的手续费*(1-rebateUserRatio)返给合伙人以及每一级合伙人
         if(userPartner.get(1).getType() == 0 && rebateUserRatio.compareTo(BigDecimal.ZERO) == 1){
             //计算先给用户返手续费

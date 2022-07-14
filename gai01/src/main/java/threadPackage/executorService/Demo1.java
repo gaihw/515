@@ -21,7 +21,7 @@ public class Demo1 {
             int finalI = j;
             executorService.execute(() -> {
                 List<String> caseExecuteChainGroup = groupList.get(finalI);
-                System.out.println(caseExecuteChainGroup);
+                System.out.println(Thread.currentThread().getName()+"..."+caseExecuteChainGroup);
                 countDownLatch.countDown();
             });
         }

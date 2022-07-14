@@ -11,7 +11,7 @@ spring:
       jdbc-url: jdbc:mysql://127.0.0.1:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: 123456
-  test:
+  testali:
     datasource:
       type: com.alibaba.druid.pool.DruidDataSource
 #      driver-class-name: com.mysql.jdbc.Driver
@@ -19,7 +19,7 @@ spring:
       jdbc-url: jdbc:mysql://rm-gs523r33n289871n3.mysql.singapore.rds.aliyuncs.com?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
       username: bl_admin_rw
       password: sHl#srOEHsT^Zcl9gv1qm6KmFilL
-  dev1:
+  test:
     datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -78,7 +78,22 @@ socket:
 #    url: ws://localhost:8081/websocket/test
 #    url: wss://ws.chimchim.top
 #    url: ws://192.168.216.163:8651/v1/np/ws
-    url: wss://app.913139.me/v1/np/ws
+#    url: wss://app.913139.me/v1/np/ws
+#    币王生产
+#    url: wss://appws.chuciyishu.com/
+
+#    测试pusher
+#    url: ws://ws-test1.tfbeee.shop/
+#    测试行情
+#    url: ws://www-test1.tfbeee.shop/v1/np/ws
+
+#    榴莲模拟pusher
+#    url: wss://ws.ullucky.org/
+#    榴莲模拟行情
+#    url: wss://app.ullucky.org/v1/np/ws
+
+#    币晟生产
+    url: wss://x.czqun.com/v1/np/ws
 
 ## Mybatis 连接
 mybatis :

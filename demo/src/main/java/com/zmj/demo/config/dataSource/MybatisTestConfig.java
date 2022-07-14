@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 @Configuration
 @MapperScan(basePackages = "com.zmj.demo.dao.test", sqlSessionFactoryRef = "testSqlSessionFactory")
 public class MybatisTestConfig {
+
     @Autowired
     @Qualifier("testDataSource")
     private DataSource testDataSource;

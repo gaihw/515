@@ -3,7 +3,7 @@ package com.zmj.demo.common;
 
 import com.zmj.demo.config.Config;
 import com.zmj.demo.dao.demodata.auto.CaseDao;
-import com.zmj.demo.dao.dev1.AccountDao;
+import com.zmj.demo.dao.test.AccountDao;
 import com.zmj.demo.domain.auto.CaseExecuteChain;
 import com.zmj.demo.domain.dev1.UserDistributorChain;
 import lombok.extern.slf4j.Slf4j;
@@ -196,6 +196,8 @@ public class SqlUtil {
                 return "订单成交后，退还订单冻结保证金";
             case 59:
                 return "爆仓剩余金额，返回给默认合伙人";
+            case 60:
+                return "挂单撤单解冻";
             default:
                 return "无";
         }

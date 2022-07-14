@@ -28,11 +28,11 @@ public class DataSourceConfig {
      *localhost
      * @return
      */
-    @Bean(name = "testDataSource")
-    @Qualifier("testDataSource")
+    @Bean(name = "testAliDataSource")
+    @Qualifier("testAliDataSource")
     @Primary
-    @ConfigurationProperties(prefix = "spring.test.datasource")
-    public DataSource test() {
+    @ConfigurationProperties(prefix = "spring.testali.datasource")
+    public DataSource testAli() {
 
         return DataSourceBuilder.create().build();
     }
@@ -41,11 +41,11 @@ public class DataSourceConfig {
      *localhost
      * @return
      */
-    @Bean(name = "dev1DataSource")
-    @Qualifier("dev1DataSource")
+    @Bean(name = "testDataSource")
+    @Qualifier("testDataSource")
     @Primary
-    @ConfigurationProperties(prefix = "spring.dev1.datasource")
-    public DataSource dev1() {
+    @ConfigurationProperties(prefix = "spring.test.datasource")
+    public DataSource test() {
 
         return DataSourceBuilder.create().build();
     }

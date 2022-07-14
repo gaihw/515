@@ -79,4 +79,11 @@ public class TestDemo {
 
         }
     }
+
+    @Test
+    public void test5(){
+        String s = "market_maticusdt_mark_price";
+        System.out.println(s.split("_")[1].substring(0,s.split("_")[1].length()-4));
+        System.out.println(JSONObject.parseObject("") == null);
+    }
 }
