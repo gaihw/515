@@ -31,8 +31,24 @@ public class WebSocketConfig {
     @Bean
     public ReConnectWSClient reConnectWSClient() {
         try {
-            ReConnectWSClient webSocketClient = new ReConnectWSClient(new URI(socketDomain.getUrl()));
-            webSocketClient.connect();
+            ReConnectWSClient webSocketClient = new ReConnectWSClient(new URI(socketDomain.getUrl()),
+                    socketDomain.getKey(),
+                    // 字符串消息处理
+                    msg -> {
+                        // todo 字符串消息处理
+                        System.out.println("字符串消息:" + msg);
+                    },
+                    null,
+                    // 异常回调
+                    error -> {
+                        // todo 字符串消息处理
+                        System.out.println("异常:" + error.getMessage());
+                    });
+            try {
+                webSocketClient.connect();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             return webSocketClient;
         } catch (URISyntaxException e) {
             e.printStackTrace();

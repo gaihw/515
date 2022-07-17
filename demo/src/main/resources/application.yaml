@@ -85,15 +85,15 @@ socket:
 #    测试pusher
 #    url: ws://ws-test1.tfbeee.shop/
 #    测试行情
-#    url: ws://www-test1.tfbeee.shop/v1/np/ws
-
+    url: ws://www-test1.tfbeee.shop/v1/np/ws
+    key: ulian
 #    榴莲模拟pusher
 #    url: wss://ws.ullucky.org/
 #    榴莲模拟行情
 #    url: wss://app.ullucky.org/v1/np/ws
 
 #    币晟生产
-    url: wss://x.czqun.com/v1/np/ws
+#    url: wss://x.czqun.com/v1/np/ws
 
 ## Mybatis 连接
 mybatis :

@@ -11,4 +11,5 @@ import org.springframework.stereotype.Component;
 public class SocketDomain {
 
     private String url;
+    private String key;
 }

@@ -106,9 +106,6 @@ public class WSClient extends WebSocketClient {
         log.info("------ MyWebSocket onClose ------{}", arg1);
     }
 
-    private void reconnet() {
-
-    }
 
     @Override
     public void onError(Exception arg0) {
