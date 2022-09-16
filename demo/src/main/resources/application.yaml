@@ -69,9 +69,20 @@ spring:
       session-timeout-ms: 15000
       auto-coomit-interval-ms: 100
 
+  rabbitmq:
+    ssl:
+      #aws环境设置ssl为true
+      enabled: true
+    host: b-47fa98e5-facd-4c12-a1cd-bc861b9192e8.mq.ap-southeast-1.amazonaws.com
+    port: 5671
+    username: saas-rmq-test
+    password: nPOd6exIGhRFeDFpaml
+
 socket:
   config:
-#    url: wss://www-demo.manniwd.com/v1/np/ws
+#    重试次数
+    reConnectNum: 20
+    #    url: wss://www-demo.manniwd.com/v1/np/ws
 #    url: ws://www-dev1.tfbeee.shop/v1/np/ws
 #    url: wss://np-dev1.tfbeee.com/v1/np/ws
 #    url: wss://www-demo.hpx.today/v1/np/ws
@@ -85,15 +96,19 @@ socket:
 #    测试pusher
 #    url: ws://ws-test1.tfbeee.shop/
 #    测试行情
-    url: ws://www-test1.tfbeee.shop/v1/np/ws
+    url: wss://x.chimchim.top/v1/np/ws
     key: ulian
 #    榴莲模拟pusher
 #    url: wss://ws.ullucky.org/
 #    榴莲模拟行情
 #    url: wss://app.ullucky.org/v1/np/ws
 
+#    hpx模拟环境
+#    url: ws://x.hpx.today/v1/np/ws
+
 #    币晟生产
 #    url: wss://x.czqun.com/v1/np/ws
+
 
 ## Mybatis 连接
 mybatis :

@@ -1,4 +1,4 @@
-package com.zmj.demo.notice;
+package com.zmj.demo.notice.kafka;
 
 import com.zmj.demo.service.impl.KafkaProducerService;
 import lombok.extern.slf4j.Slf4j;

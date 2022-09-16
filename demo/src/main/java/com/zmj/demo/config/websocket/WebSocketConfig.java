@@ -33,6 +33,7 @@ public class WebSocketConfig {
         try {
             ReConnectWSClient webSocketClient = new ReConnectWSClient(new URI(socketDomain.getUrl()),
                     socketDomain.getKey(),
+                    socketDomain.getReConnectNum(),
                     // 字符串消息处理
                     msg -> {
                         // todo 字符串消息处理

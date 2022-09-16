@@ -12,4 +12,5 @@ public class SocketDomain {
 
     private String url;
     private String key;
+    private int reConnectNum;
 }
