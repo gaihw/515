@@ -94,9 +94,12 @@ public class TestDemo {
 
     @Test
     public void test6() {
+        ((LoggerContext) LoggerFactory.getILoggerFactory())
+                .getLoggerList()
+                .forEach(logger -> logger.setLevel(Level.ERROR));
         com.zmj.demo.HttpUtil httpUtil = new com.zmj.demo.HttpUtil();
-        String authorization = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5TmdVdkNOVzBmajIzWWV5d3pJeWNEcTRGX25RNm1xUkFuNklQajlmN3dFIn0.eyJqdGkiOiI4NmJmNDgzZS04NjlkLTQ1ZTktOTc3Yy0yNDkzZDY2NGZlMTkiLCJleHAiOjE2NjMwMzY1ODAsIm5iZiI6MCwiaWF0IjoxNjYyOTg5NzgwLCJpc3MiOiJodHRwczovL2F1dGguaXRjYXN0LmNuL2F1dGgvcmVhbG1zL2l0Y2FzdCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI1ZDU2NWZlNC0wMzNmLTQwNGUtYjYyMi1jYzg2YjE0Njk3MDYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzY3JtLXVpIiwibm9uY2UiOiJhNDMxOGI1My1kZWRkLTQ2ZWQtODFjMC1iNzg1NWUyNmEwMGUiLCJhdXRoX3RpbWUiOjE2NjI5ODk3NzYsInNlc3Npb25fc3RhdGUiOiJmYzdmYmFiMy0yYzRkLTRhNzAtOGM0OS00OTdjZDVkMWJiMjYiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9zY3JtLXFhLml0Y2FzdC5jbiIsImh0dHA6Ly80Ny45My4yMjkuMjI4IiwiaHR0cDovL3Njcm0tdWF0Lml0Y2FzdC5jbiIsImh0dHBzOi8vc2NybS5pdGNhc3QuY24iLCJodHRwczovL3Njcm0tdWF0Lml0Y2FzdC5jbiIsImh0dHBzOi8vc2NybS1zZXJ2ZXIuaXRjYXN0LmNuIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZGVwYXJ0bWVudE5hbWUgZW1haWwgcHJvZmlsZSBlbXBsb3llZU51bWJlciIsImRlcGFydG1lbnROYW1lIjoiU05T5ZKo6K-i6YOoIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoi6LW1576O6Z2ZIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiemhhb21laWppbmdAaXRjYXN0LmNuIiwibG9jYWxlIjoiemgtQ04iLCJnaXZlbl9uYW1lIjoi6LW1576O6Z2ZIiwiZW1haWwiOiJ6aGFvbWVpamluZ0BpdGNhc3QuY24iLCJlbXBsb3llZU51bWJlciI6Ijk0NjkxIn0.B7GIC7Hdw27fwFsrP8dfLHdui2IqKeOC5ZG-C99RqYgFWeGBqTj6I4RPO6b_KMIWq6rMPV9vjVzKeOIZFApNNct7k9tLxYDYSK0L7P9jgHs_Vrrg52c3dxBz3gL5Nu3tuXMNuCQdQmUy8xz2W4F1_lXcFT7EAL3ORjt6hhF0Z9sDiOETLpqifijj45ZDolOJmidDIMhMDofF1xgX4R6PhrJB8c8eFwFnR5uVzQpEkE0zzDUIUlefsnleajLRPyTGjBHseXZ8vbnRAYB1-MvfnrWAxvzSDP1njVXleYJPVuny65RunEpNC2qMD9GSpAD-nkp-N52jRfuoANC1s83SyA";
-        String nextVisitTime = "2022-09-12 00:00:00";
+        String authorization = "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5TmdVdkNOVzBmajIzWWV5d3pJeWNEcTRGX25RNm1xUkFuNklQajlmN3dFIn0.eyJqdGkiOiJlYzIyY2UwZC00Mjg0LTRhYTEtYmUwZS0yOTBhZmJjMjU4OTEiLCJleHAiOjE2NjM4OTkyNDksIm5iZiI6MCwiaWF0IjoxNjYzODUyNDQ5LCJpc3MiOiJodHRwczovL2F1dGguaXRjYXN0LmNuL2F1dGgvcmVhbG1zL2l0Y2FzdCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI1ZDU2NWZlNC0wMzNmLTQwNGUtYjYyMi1jYzg2YjE0Njk3MDYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzY3JtLXVpIiwibm9uY2UiOiJlMmZkNmZiYi00YzcxLTRjNzktODk1MS1jOTI5ZjcxOWI1Y2EiLCJhdXRoX3RpbWUiOjE2NjM4NTIyNDUsInNlc3Npb25fc3RhdGUiOiI5N2Q0ZjhhOS05NDRkLTRjNzgtOGM3ZS03N2E5MjdkYjkzMGMiLCJhY3IiOiIwIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9zY3JtLXFhLml0Y2FzdC5jbiIsImh0dHA6Ly80Ny45My4yMjkuMjI4IiwiaHR0cDovL3Njcm0tdWF0Lml0Y2FzdC5jbiIsImh0dHBzOi8vc2NybS5pdGNhc3QuY24iLCJodHRwczovL3Njcm0tdWF0Lml0Y2FzdC5jbiIsImh0dHBzOi8vc2NybS1zZXJ2ZXIuaXRjYXN0LmNuIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgZGVwYXJ0bWVudE5hbWUgZW1haWwgcHJvZmlsZSBlbXBsb3llZU51bWJlciIsImRlcGFydG1lbnROYW1lIjoiU05T5ZKo6K-i6YOoIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoi6LW1576O6Z2ZIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiemhhb21laWppbmdAaXRjYXN0LmNuIiwibG9jYWxlIjoiemgtQ04iLCJnaXZlbl9uYW1lIjoi6LW1576O6Z2ZIiwiZW1haWwiOiJ6aGFvbWVpamluZ0BpdGNhc3QuY24iLCJlbXBsb3llZU51bWJlciI6Ijk0NjkxIn0.M6jgoVQG3K5kN-upcAAVNQZsmgH3ijuJ-QPu_EOrUacANYUSiTpLjwYEynBBYdX7UvWZRmqwT4HAa5_Mp_dOXSFD5Z0YXOFk1uVYQFrbA7WCiVIaPH4xUDT-aS3Ga78xaDEG4ksk_kB9pXg4UorPLbVdXhAUPDd9dfZk-Lt9n_o1aJzBpXtNsAhGBVCbO2xH-Hqnv1xh6AJ2uWf_1nS6nPMZmWcEbyEp86lp3ijp3f1LwVaufM-AaaXGt7H-rZKj5S8S9KojEfdP9mZsOca-FNtAUVURWXh9cjxMhv6BWRq2vfuJvdI0geZs18bTo9GG9lVCZMXs5XM8ie74YEXOBA";
+        String nextVisitTime = "2022-09-22 00:00:00";
         String data = httpUtil.postByJson("https://scrm.itcast.cn/customer/list","{\"pageIndex\":1,\"pageSize\":400,\"orderBy\":null,\"where\":{\"onlineFollow\":false,\"levelList\":[],\"originTypeList\":[],\"itcastSchoolIdList\":[],\"itcastSubjectIdList\":[],\"anticipatSignupStartTime\":\"\",\"anticipatSignupEndTime\":\"\",\"lastVisitStartTime\":\"\",\"lastVisitEndTime\":\"\",\"createEndTime\":\"\",\"createStartTime\":\"\",\"nextVisitStartTime\":\"\",\"nextVisitEndTime\":\"\",\"paymentStartTime\":null,\"paymentEndTime\":null,\"experienceCourseClazzList\":[],\"itcastClazzStartTime\":null,\"itcastClazzEndTime\":null,\"originChannels\":\"\",\"appointmentOriginType\":[],\"schoolConsultation\":[],\"isSignup\":false,\"will2PublicCustomer\":true}}","{\"authorization\":\""+authorization+"\"}");
         JSONArray j = JSONObject.parseObject(data).getJSONObject("resultObject").getJSONArray("data");
         for (int i = 0; i < j.size(); i++) {
@@ -110,7 +113,7 @@ public class TestDemo {
         ((LoggerContext) LoggerFactory.getILoggerFactory())
                 .getLoggerList()
                 .forEach(logger -> logger.setLevel(Level.ERROR));
-        String token = "4ac51f77149a0654597b933cbbe7cbfc4f400a849c3d216afd7e9dbcfdb8c500";
+        String token = "6641d03e37daeea04fc80aa37fc82787638cdb228e3e86ac27f53e1b24f4bde5";
         String header = "{\"X-Authorization\":\""+token+"\",\"Content-Type\":\"application/json\"}";
         //划转 币币->合约
         String out_url = "http://test1.123kj.top/v1/asset/transfer/out";
@@ -213,16 +216,39 @@ public class TestDemo {
 
         com.zmj.demo.HttpUtil httpUtil = new com.zmj.demo.HttpUtil();
 
-        String url = "https://b-47fa98e5-facd-4c12-a1cd-bc861b9192e8.mq.ap-southeast-1.amazonaws.com/api/exchanges/%2F/tfbee.test.exchange.externalLatestTicker/publish";
+        String url = "http://mq-demo.saas-inf.com/api/exchanges/%2F/tfbee.demo.exchange.externalLatestTicker/publish";
 
-        String header = "{\"authorization\":\"Basic c2Fhcy1ybXEtdGVzdDpuUE9kNmV4SUdoUkZlREZwYW1s\"}";
+        String header = "{\"authorization\":\"Basic c2Fhcy1ybXEtZGVtbzp6NTlqZzlCdUloS0NwODJm\"}";
 
         long time = System.currentTimeMillis();
-        BigDecimal last = BigDecimal.valueOf(1234099);
+        BigDecimal last = BigDecimal.valueOf(0.5);
 
-        String param = "{\"vhost\":\"/\",\"name\":\"tfbee.test.exchange.externalLatestTicker\",\"properties\":{\"delivery_mode\":2,\"headers\":{}},\"routing_key\":\"\",\"delivery_mode\":\"2\",\"payload\":\"{\\\"symbolId\\\":1,\\\"eventTime\\\":"+time+",\\\"recieveTime\\\":"+time+",\\\"tickerSource\\\":\\\"BINANCE\\\",\\\"open\\\":0.3338,\\\"low\\\":0.3219,\\\"volume\\\":797297398.2,\\\"amount\\\":261551713.03,\\\"last\\\":"+last+",\\\"open\\\":0.3308}\",\"headers\":{},\"props\":{},\"payload_encoding\":\"string\"}";
-
-        System.out.println(httpUtil.postByJson(url,param,header));
+        String param;
+        Random random = new Random();
+        int rTmp = 0;
+        int i = 1;
+        while (true){
+            rTmp = random.nextInt(100);
+            if (rTmp <= 20) {
+                param = "{\"vhost\":\"/\",\"name\":\"tfbee.test.exchange.externalLatestTicker\",\"properties\":{\"delivery_mode\":2,\"headers\":{}},\"routing_key\":\"\",\"delivery_mode\":\"2\",\"payload\":\"{\\\"symbolId\\\":21,\\\"eventTime\\\":"+time+",\\\"recieveTime\\\":"+time+",\\\"tickerSource\\\":\\\"BINANCE\\\",\\\"open\\\":0.3338,\\\"low\\\":0.3219,\\\"volume\\\":797297398.2,\\\"amount\\\":261551713.03,\\\"last\\\":"+last+",\\\"open\\\":0.3308}\",\"headers\":{},\"props\":{},\"payload_encoding\":\"string\"}";
+            }else if (rTmp >20 && rTmp <= 50){
+                last = BigDecimal.valueOf(0.7);
+                param = "{\"vhost\":\"/\",\"name\":\"tfbee.test.exchange.externalLatestTicker\",\"properties\":{\"delivery_mode\":2,\"headers\":{}},\"routing_key\":\"\",\"delivery_mode\":\"2\",\"payload\":\"{\\\"symbolId\\\":21,\\\"eventTime\\\":"+time+",\\\"recieveTime\\\":"+time+",\\\"tickerSource\\\":\\\"BINANCE\\\",\\\"open\\\":0.3338,\\\"low\\\":0.3219,\\\"volume\\\":797297398.2,\\\"amount\\\":261551713.03,\\\"last\\\":"+last+",\\\"open\\\":0.3308}\",\"headers\":{},\"props\":{},\"payload_encoding\":\"string\"}";
+            }else if (rTmp >50 && rTmp <= 70){
+                last = BigDecimal.valueOf(0.8);
+                param = "{\"vhost\":\"/\",\"name\":\"tfbee.test.exchange.externalLatestTicker\",\"properties\":{\"delivery_mode\":2,\"headers\":{}},\"routing_key\":\"\",\"delivery_mode\":\"2\",\"payload\":\"{\\\"symbolId\\\":21,\\\"eventTime\\\":"+time+",\\\"recieveTime\\\":"+time+",\\\"tickerSource\\\":\\\"BINANCE\\\",\\\"open\\\":0.3338,\\\"low\\\":0.3219,\\\"volume\\\":797297398.2,\\\"amount\\\":261551713.03,\\\"last\\\":"+last+",\\\"open\\\":0.3308}\",\"headers\":{},\"props\":{},\"payload_encoding\":\"string\"}";
+            }else {
+                last = BigDecimal.valueOf(0.9);
+                param = "{\"vhost\":\"/\",\"name\":\"tfbee.test.exchange.externalLatestTicker\",\"properties\":{\"delivery_mode\":2,\"headers\":{}},\"routing_key\":\"\",\"delivery_mode\":\"2\",\"payload\":\"{\\\"symbolId\\\":21,\\\"eventTime\\\":"+time+",\\\"recieveTime\\\":"+time+",\\\"tickerSource\\\":\\\"BINANCE\\\",\\\"open\\\":0.3338,\\\"low\\\":0.3219,\\\"volume\\\":797297398.2,\\\"amount\\\":261551713.03,\\\"last\\\":"+last+",\\\"open\\\":0.3308}\",\"headers\":{},\"props\":{},\"payload_encoding\":\"string\"}";
+            }
+            System.out.println("======第"+i+"推消息======>"+httpUtil.postByJson(url,param,header));
+            i ++ ;
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 
@@ -249,22 +275,33 @@ public class TestDemo {
 
         com.zmj.demo.HttpUtil httpUtil = new com.zmj.demo.HttpUtil();
 
-        String url = "http://test1.123kj.top/v1/cfd/trade/btc/open";
+//        String url = "http://test1.123kj.top/v1/cfd/trade/btc/open";
+        String url = "https://www-demo.sefvbs.com/v1/cfd/trade/mana/open";
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("x-authorization", "e29b911ddcdbf91d6efbc54ee015c24453dc82cac4eba4153c97493480cc251d");
+        jsonObject.put("x-authorization", "5805dc305eea9a86aed1a19d477bcf859a267ae0bebf066230d38c6a70e5a886");
         String header = jsonObject.toString();
-        String param = "{\n" +
-                "    \"contractType\":1,\n" +
-                "    \"direction\":\"short\",\n" +
-                "    \"leverage\":100,\n" +
-                "    \"positionModel\":\"1\",\n" +
-                "    \"positionType\":\"execute\",\n" +
-                "    \"quantity\":\"10000000\",\n" +
-                "    \"quantityUnit\":\"1\"\n" +
-                "}";
+        String param ;
+        int rTmp;
         int i = 1;
+        Random random = new Random();
+        String res;
         while (true) {
-            System.out.println("======第"+i+"次下单======>"+httpUtil.postByJson(url, param, header));
+            rTmp = random.nextInt(100);
+            if (rTmp >= 50) {
+                param = "{\"contractType\":1,\"direction\":\"long\",\"leverage\":100,\"positionModel\":\"1\",\"positionType\":\"execute\",\"quantity\":\"10000\",\"quantityUnit\":\"1\",\"stopProfitRate\":0.01,\"stopLossRate\":0.01}";
+            }else {
+                param = "{\"contractType\":1,\"direction\":\"short\",\"leverage\":100,\"positionModel\":\"1\",\"positionType\":\"execute\",\"quantity\":\"10000\",\"quantityUnit\":\"1\",\"stopProfitRate\":0.01,\"stopLossRate\":0.01}";
+            }
+
+            res = httpUtil.postByJson(url, param, header);
+            if (9044 == JSONObject.parseObject(res).getInteger("code")){
+                res = httpUtil.postByJson("https://www-demo.sefvbs.com/v1/cfd/trade/close/all/0?contractType=1",null,header);
+                System.out.println("======平仓======"+res);
+                continue;
+
+            }
+            System.out.println("======第"+i+"次下单======>"+res);
+
             try {
                 Thread.sleep(1200);
             } catch (InterruptedException e) {
@@ -272,5 +309,26 @@ public class TestDemo {
             }
             i++;
         }
+    }
+
+    @Test
+    public void test11(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("symbolId","21");
+        jsonObject.put("eventTime",System.currentTimeMillis());
+        jsonObject.put("recieveTime",System.currentTimeMillis());
+        jsonObject.put("tickerSource","BINANCE");
+        jsonObject.put("high",1);
+        jsonObject.put("low",2);
+        jsonObject.put("volume",33);
+        jsonObject.put("amount",44);
+        jsonObject.put("open",3);
+        jsonObject.put("last",0.5);
+        System.out.println(jsonObject);
+
+        System.out.println(String.valueOf("0.07100000000000001").substring(0,6));
+
+        BigDecimal bigDecimal = BigDecimal.valueOf(0.07100000000000001);
+        System.out.println(String.valueOf(bigDecimal.multiply(BigDecimal.valueOf(0.001)).setScale(8,BigDecimal.ROUND_UP)));
     }
 }

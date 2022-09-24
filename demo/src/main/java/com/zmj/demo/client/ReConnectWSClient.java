@@ -168,7 +168,7 @@ public class ReConnectWSClient {
                         //k线
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_GjFt.btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ty9f.btcusdt_kline_1min\",\"cb_id\":\"10001\"}}");
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_kline_5min\",\"cb_id\":\"10001\"}}");
+        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_Ch3Q.btcusdt_kline_1hour\",\"cb_id\":\"10001\"}}");
 
                         //历史K线
 //        webSocketClient.send("{\"event\":\"req\",\"params\":{\"channel\":\"market_xxOi.btcusdt_kline_60min\",\"cb_id\":\"10001\"}}");

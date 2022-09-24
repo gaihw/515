@@ -70,13 +70,53 @@ spring:
       auto-coomit-interval-ms: 100
 
   rabbitmq:
+    #测试环境
     ssl:
-      #aws环境设置ssl为true
       enabled: true
     host: b-47fa98e5-facd-4c12-a1cd-bc861b9192e8.mq.ap-southeast-1.amazonaws.com
     port: 5671
     username: saas-rmq-test
     password: nPOd6exIGhRFeDFpaml
+    saas:
+      channel: GjFt
+      queue:
+        fundingrate: tfbee.test.GjFt.queue.fundingrate
+        externalTicker: tfbee.test.GjFt.queue.externalLatestTicker
+        externalDepth: tfbee.test.GjFt.queue.externalDepth
+        indexPrice: tfbee.test.GjFt.queue.indexprice
+        markPrice: tfbee.test.GjFt.queues.markprice
+      exchange:
+        fundingrate: tfbee.test.exchange.fundingrate
+        externalTicker: tfbee.test.exchange.externalLatestTicker
+        externalDepth: tfbee.test.exchange.externalDepth
+        indexPrice: tfbee.test.exchange.indexprice
+        markPrice: tfbee.test.exchange.markprice
+    l2quote:
+      exchange:
+        ticker: tfbee.test.l2quote
+        depth: tfbee.test.orderbook
+        indexPrice: tfbee.test.indexprice
+        markPrice: tfbee.test.markprice
+        fundingrate: tfbee.test.fundingrate
+        spotfills: tfbee.test.spotfills
+        kline: tfbee.test.kline
+
+    #币晟模拟环境
+#    ssl:
+#      enabled: true
+#    addresses: ${spring.rabbitmq.host}:${spring.rabbitmq.port}
+#    host: b-f35e9ffc-167a-4cb8-85a9-2b93eb07adf3.mq.ap-southeast-1.amazonaws.com
+##    host: mq-demo.saas-inf.com
+#    port: 5671
+#    username: saas-rmq-demo
+#    password: z59jg9BuIhKCp82f
+##    mode: cluster
+#    saas:
+#      channel: Ch3Q
+#      queue:
+#        externalTicker: tfbee.demo.Ch3Q.queue.externalLatestTicker
+#      exchange:
+#        externalTicker: tfbee.demo.exchange.externalLatestTicker
 
 socket:
   config:
@@ -106,8 +146,10 @@ socket:
 #    hpx模拟环境
 #    url: ws://x.hpx.today/v1/np/ws
 
-#    币晟生产
-#    url: wss://x.czqun.com/v1/np/ws
+#    币晟模拟环境生产
+#    url: wss://www-demo.sefvbs.com/v1/np/ws
+#    key: sunbit
+
 
 
 ## Mybatis 连接

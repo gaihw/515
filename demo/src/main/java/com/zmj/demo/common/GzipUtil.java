@@ -81,7 +81,8 @@ public class GzipUtil {
     }
 
     public static void main(String[] args) throws IOException {
-        byte[] b1 = compress("{\"ping\":\"1642487108646\"}");
+        byte[] b1 = compress("{\"status\":\"ok\",\"event_rep\":\"\",\"channel\":\"market_GjFt.adausdt_kline_1min\",\"ts\":1663832746724,\"tick\":" +
+                "{\"id\":1000042936,\"amount\":65507,\"open\":0.44,\"close\":0.44,\"high\":0.8360,\"low\":0.8360,\"vol\":73872,\"mrid\":-1000}");
         String s1 = uncompressToString(b1);
         System.out.println(s1);
     }
