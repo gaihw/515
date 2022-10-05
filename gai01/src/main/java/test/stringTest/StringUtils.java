@@ -1,7 +1,5 @@
-package com.testing.common.utils;
+package test.stringTest;
 
-import com.testing.common.constant.Constants;
-import com.testing.common.core.text.StrFormatter;
 import org.springframework.util.AntPathMatcher;
 
 import java.util.*;
@@ -259,16 +257,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils
         return StrFormatter.format(template, params);
     }
 
-    /**
-     * 是否为http(s)://开头
-     *
-     * @param link 链接
-     * @return 结果
-     */
-    public static boolean ishttp(String link)
-    {
-        return StringUtils.startsWithAny(link, Constants.HTTP, Constants.HTTPS);
-    }
+
 
     /**
      * 字符串转set

@@ -1,6 +1,4 @@
-package com.testing.common.core.text;
-
-import com.testing.common.utils.StringUtils;
+package test.stringTest;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;

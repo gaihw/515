@@ -51,7 +51,7 @@ public class TicketDemo {
 
         t1.start();
         Thread.sleep(10);
-        t.flag = false;
+//        t.flag = false;
         t2.start();
     }
 

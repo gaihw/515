@@ -20,11 +20,11 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.*;
 
-public class Job_statistics_detail {
+public class JobStatisticsDetail {
     static {
         System.setProperty("fileName", "allin/job_statistics_detail.log");
     }
-    public static Logger log = LoggerFactory.getLogger(Job_statistics_detail.class);
+    public static Logger log = LoggerFactory.getLogger(JobStatisticsDetail.class);
     public static void main(String[] args) {
         //配置linux中mongoDB的端口和地址
         ServerAddress serverAddress = new ServerAddress("mongo-test-01.allintechinc.com", 27017);

@@ -1,6 +1,4 @@
-package com.testing.common.core.text;
-
-import com.testing.common.utils.StringUtils;
+package test.stringTest;
 
 /**
  * 字符串格式化

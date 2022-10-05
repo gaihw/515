@@ -5,41 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fdfc3a4-deb0-4585-a76e-85c24df24c29" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendDepthNotice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/buildPackage/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/buildPackage/People.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/buildPackage/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/buildPackage/build/PeopleBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/logs/info.2022-06-13.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/logs/info.2022-06-16.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/logs/info.2022-06-17.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/client/WebSocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/client/WSClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/SqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/SqlUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/AccountUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/AccountUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/BalanceCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/BalanceCalc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/FeeCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/FeeCalc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/PositionsCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/PositionsCalc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/ProfitCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/ProfitCalc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/UserCheckThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/UserCheckThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/DataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/DataSourceConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisDev1Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisTestAliConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisTestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisTestConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/websocket/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/websocket/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev1/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/test/AccountDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev1/SmsEmailCodeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/test/SmsEmailCodeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev1/TfbeeKline.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/test/TfbeeKline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/test/SmsEmailCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/testAli/SmsEmailCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/ToolServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/ToolServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comautor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../comautor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendKlineNotice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendKlineNotice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/TestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/TestDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/executorService/Demo1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/executorService/Demo1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/executorService/Demo2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/executorService/Demo2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/producer/p1/ProducerConsumerDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/producer/p1/ProducerConsumerDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/producer/p2/ProducerConsumerDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/producer/p2/ProducerConsumerDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/producer/p3/ProducerConsumerDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/producer/p3/ProducerConsumerDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/resource/p1/ResourceDemo1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/resource/p1/ResourceDemo1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/resource/p2/ResourceDemo1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/resource/p2/ResourceDemo1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/resource/p3/ResourceDemo1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/resource/p3/ResourceDemo1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/ticket/p1/TicketDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/ticket/p1/TicketDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/threadTest/Demo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/threadTest/ThreadTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/allin/Job_statistics_detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/allin/JobStatisticsDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/AStringTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/AStringTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/CharsetKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/CharsetKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/Convert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/Convert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/Dome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/Dome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/StrFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/StrFormatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/ticket/p7/TicketDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/ticket/p7/TicketDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/allin/Job_statistics_detail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/threadPackage/executorService/Demo2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/threadPackage/executorService/Demo2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/threadPackage/ticket/p7/TicketDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/threadPackage/ticket/p7/TicketDemo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +43,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -80,29 +76,30 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/threadPackage/producer/p3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/test/stringTest" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/test/stringTest" />
       <recent name="$PROJECT_DIR$/src/main/java/threadPackage/producer/p3" />
       <recent name="$PROJECT_DIR$/src/main/java/threadPackage/producer/p2" />
       <recent name="$PROJECT_DIR$/src/main/java/threadPackage/resource/p3" />
       <recent name="$PROJECT_DIR$/src/main/java/threadPackage/resource/p2" />
-      <recent name="$PROJECT_DIR$/src/main/java/threadPackage/ticket/p7" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="test.stringTest" />
       <recent name="allin.prometheus" />
       <recent name="allin" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Demo2">
-    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="threadPackage.executorService.Demo" />
+  <component name="RunManager" selected="Application.Test (1)">
+    <configuration name="Dome" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.stringTest.Dome" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="threadPackage.executorService.*" />
+          <option name="PATTERN" value="test.stringTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -110,12 +107,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Demo1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="threadPackage.executorService.Demo1" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.stringTest.Test" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="threadPackage.executorService.*" />
+          <option name="PATTERN" value="test.stringTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,12 +120,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Demo2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="threadPackage.executorService.Demo2" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="buildPackage.Test" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="threadPackage.executorService.*" />
+          <option name="PATTERN" value="buildPackage.build.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,12 +133,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProducerConsumerDemo (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="threadPackage.producer.p2.ProducerConsumerDemo" />
+    <configuration name="ThreadDemo3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="threadPackage.ThreadDemo3" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="threadPackage.producer.p2.*" />
+          <option name="PATTERN" value="threadPackage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -149,12 +146,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProducerConsumerDemo (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="threadPackage.producer.p3.ProducerConsumerDemo" />
+    <configuration name="TicketDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="threadPackage.ticket.p7.TicketDemo" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="threadPackage.producer.p3.*" />
+          <option name="PATTERN" value="threadPackage.ticket.p7.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -164,11 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Demo2" />
-        <item itemvalue="Application.Demo1" />
-        <item itemvalue="Application.Demo" />
-        <item itemvalue="Application.ProducerConsumerDemo (2)" />
-        <item itemvalue="Application.ProducerConsumerDemo (1)" />
+        <item itemvalue="Application.Test (1)" />
+        <item itemvalue="Application.TicketDemo" />
+        <item itemvalue="Application.ThreadDemo3" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Dome" />
       </list>
     </recent_temporary>
   </component>
@@ -203,5 +200,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/test/stringTest/Convert.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
