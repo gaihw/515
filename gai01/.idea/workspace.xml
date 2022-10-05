@@ -5,29 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fdfc3a4-deb0-4585-a76e-85c24df24c29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendDepthNotice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/buildPackage/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/buildPackage/People.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/buildPackage/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/buildPackage/build/PeopleBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/listFilterPackage/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/listFilterPackage/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/listFilterPackage/Test1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../comautor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../comautor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendDepthNotice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendDepthNotice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendKlineNotice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendKlineNotice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/TestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/TestDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/allin/Job_statistics_detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/allin/JobStatisticsDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/AStringTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/AStringTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/CharsetKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/CharsetKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/Convert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/Convert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/Dome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/Dome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/StrFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/StrFormatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/stringTest/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/stringTest/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threadPackage/ticket/p7/TicketDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threadPackage/ticket/p7/TicketDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/allin/Job_statistics_detail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/threadPackage/executorService/Demo2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/threadPackage/executorService/Demo2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/threadPackage/ticket/p7/TicketDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/threadPackage/ticket/p7/TicketDemo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,12 +81,12 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Test (1)">
-    <configuration name="Dome" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.stringTest.Dome" />
+    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="listFilterPackage.Test" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.stringTest.*" />
+          <option name="PATTERN" value="listFilterPackage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,6 +100,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="test.stringTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="listFilterPackage.Test1" />
+      <module name="gai01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="listFilterPackage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -162,10 +162,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Test (1)" />
+        <item itemvalue="Application.Test1" />
+        <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.TicketDemo" />
         <item itemvalue="Application.ThreadDemo3" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Dome" />
       </list>
     </recent_temporary>
   </component>
