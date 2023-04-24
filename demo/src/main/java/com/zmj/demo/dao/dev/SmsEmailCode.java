@@ -1,4 +1,4 @@
-package com.zmj.demo.dao.testAli;
+package com.zmj.demo.dao.dev;
 
 import com.zmj.demo.domain.tool.SmsEmailcodeDomain;
 import org.apache.ibatis.annotations.Mapper;

@@ -5,16 +5,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fdfc3a4-deb0-4585-a76e-85c24df24c29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/listFilterPackage/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/listFilterPackage/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/listFilterPackage/Test1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev/OptionsInfoDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/dev1/OptionsInfoChain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/ExchangeDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/SaaSserviceDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test7.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test8.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test9.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/throwPackage/BaseException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/throwPackage/Test1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/throwPackage/Test2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/throwPackage/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/throwPackage/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/winCoin/GridPrice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../comautor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../comautor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/client/ReConnectWSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/wsClient/ReConnectWSClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/client/WSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/wsClient/WSClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/FeeCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/FeeCalc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/DataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/DataSourceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisDemoDataConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisDemoDataConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisTestAliConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisDevConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisTestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisTestConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/websocket/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/websocket/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/testAli/SmsEmailCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev/SmsEmailCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/JsonResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/JsonResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendDepthNotice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendDepthNotice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendKlineNotice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendKlineNotice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/ToolServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/ToolServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/plugin/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/plugin/RedisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/ApiSignUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/ApiSignUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/TestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/TestDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listFilterPackage/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/listFilterPackage/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/old/Calc/AlgorithmDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/Calc/AlgorithmDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/winCoin/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/winCoin/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/listFilterPackage/Test1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/listFilterPackage/Test1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/old/Calc/AlgorithmDemo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/old/Calc/AlgorithmDemo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/old/Calc/AlgorithmDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/old/Calc/AlgorithmDemo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/winCoin/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/winCoin/Login.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,18 +118,19 @@
       <recent name="$PROJECT_DIR$/src/main/java/threadPackage/resource/p2" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="lambdaPackage" />
       <recent name="test.stringTest" />
       <recent name="allin.prometheus" />
       <recent name="allin" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test (1)">
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="listFilterPackage.Test" />
+  <component name="RunManager" selected="Application.GridPrice">
+    <configuration name="AlgorithmDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="old.Calc.AlgorithmDemo" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="listFilterPackage.*" />
+          <option name="PATTERN" value="old.Calc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,12 +138,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.stringTest.Test" />
+    <configuration name="GridPrice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="winCoin.GridPrice" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.stringTest.*" />
+          <option name="PATTERN" value="winCoin.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,12 +151,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="listFilterPackage.Test1" />
+    <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="winCoin.Login" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="listFilterPackage.*" />
+          <option name="PATTERN" value="winCoin.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,12 +164,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="buildPackage.Test" />
+    <configuration name="Test4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lambdaPackage.Test4" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="buildPackage.build.*" />
+          <option name="PATTERN" value="lambdaPackage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,25 +177,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadDemo3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="threadPackage.ThreadDemo3" />
+    <configuration name="Test6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lambdaPackage.Test6" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="threadPackage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TicketDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="threadPackage.ticket.p7.TicketDemo" />
-      <module name="gai01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="threadPackage.ticket.p7.*" />
+          <option name="PATTERN" value="lambdaPackage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -161,11 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test (1)" />
-        <item itemvalue="Application.Test1" />
-        <item itemvalue="Application.Test (1)" />
-        <item itemvalue="Application.TicketDemo" />
-        <item itemvalue="Application.ThreadDemo3" />
+        <item itemvalue="Application.GridPrice" />
+        <item itemvalue="Application.AlgorithmDemo" />
+        <item itemvalue="Application.Login" />
+        <item itemvalue="Application.Test6" />
+        <item itemvalue="Application.Test4" />
       </list>
     </recent_temporary>
   </component>

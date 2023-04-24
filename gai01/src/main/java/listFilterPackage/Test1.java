@@ -24,18 +24,26 @@ public class Test1 {
 
         // 使用map收集
         String name = bookList.stream()
-                .filter(b -> "book4".equals(b.getName()))
+                .filter(b -> "book6".equals(b.getName()) ||"book7".equals(b.getName()) )
                 .map(Book::getName)
                 .findAny()
                 .orElse("");
         System.out.println(name);
         System.out.println("---------");
 
+        //使用map收集，放到列表中
         List<String> names = bookList.stream()
                 .filter(b -> "book4".equals(b.getName()) ||"book3".equals(b.getName()) )
                 .map(Book::getName)
                 .collect(Collectors.toList());
         names.forEach(System.out::println);
+        System.out.println("---------");
+        //使用map收集，放到列表中
+        List<Book> books = bookList.stream()
+                .filter(b -> "book4".equals(b.getName()) ||"book3".equals(b.getName()) )
+                .collect(Collectors.toList());
+        System.out.println(books.get(1).getName());
+//        books.forEach(System.out::println);
 
     }
 

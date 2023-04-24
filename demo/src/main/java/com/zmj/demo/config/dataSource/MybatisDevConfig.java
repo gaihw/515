@@ -12,22 +12,22 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.zmj.demo.dao.testAli", sqlSessionFactoryRef = "testAliSqlSessionFactory")
-public class MybatisTestAliConfig {
+@MapperScan(basePackages = "com.zmj.demo.dao.dev", sqlSessionFactoryRef = "devSqlSessionFactory")
+public class MybatisDevConfig {
     @Autowired
-    @Qualifier("testAliDataSource")
-    private DataSource testAliDataSource;
+    @Qualifier("devDataSource")
+    private DataSource devDataSource;
 
-    @Bean
-    public SqlSessionFactory testAliSqlSessionFactory() throws Exception {
+    @Bean(name = "devSqlSessionFactory")
+    public SqlSessionFactory devSqlSessionFactory(@Qualifier("devDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(testAliDataSource);
+        bean.setDataSource(dataSource);
         return bean.getObject();
     }
 
     @Bean
-    public SqlSessionTemplate testAliSqlSessionTemplate() throws Exception {
-        SqlSessionTemplate template = new SqlSessionTemplate(testAliSqlSessionFactory());
+    public SqlSessionTemplate devSqlSessionTemplate(@Qualifier("devSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory);
         return template;
     }
 }

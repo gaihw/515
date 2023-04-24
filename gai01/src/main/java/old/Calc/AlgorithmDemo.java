@@ -1,5 +1,8 @@
 package old.Calc;
 
+import com.alibaba.fastjson.JSONObject;
+
+import java.math.BigDecimal;
 import java.util.*;
 
 public class AlgorithmDemo {
@@ -10,7 +13,29 @@ public class AlgorithmDemo {
 //        System.out.println(getIndexOf("hello papamelon",'h'));
 //        System.out.println(isHello_PapaMelon("hello papamelon","helloheleeelopapapapaaaaameloooonmelonmon"));
 //        System.out.println(find_left_sub_str("162360838722829306","678"));
-        System.out.println(max_palindrome("acbcxdx"));
+//        System.out.println(max_palindrome("acbcxdx"));
+        String channel = "market_xxOi.BTC-230314-20300-P_depth_step0";
+        String symbol = channel.split("\\.")[1];
+        System.out.println(symbol);
+        String s = "{\"sequence\":10000021299,\"asks\":[[2420.0,78]],\"bids\":[[2130.0,52]],\"symbolName\":\"BTC-230314-20300-C\",\"ts\":1678716452083}";
+        System.out.println(JSONObject.parseObject(s).getJSONArray("asks"));
+        System.out.println(BigDecimal.valueOf(16).divide(BigDecimal.valueOf(5),0,BigDecimal.ROUND_DOWN).multiply(BigDecimal.valueOf(5)));
+        System.out.println("-----");
+        String users = "16610000484,16610000483";
+        Random r = new Random();
+        JSONObject tokenList = new JSONObject();
+        String token;
+        int rTmp;
+        for (int i = 0; i < 10; i++) {
+            rTmp = r.nextInt(users.split(",").length);
+            if (tokenList.keySet().contains(users.split(",")[rTmp])){
+                token = tokenList.getString(users.split(",")[rTmp]);
+            }else {
+                token = users.split(",")[rTmp];
+                tokenList.put(users.split(",")[rTmp],token);
+            }
+            System.out.println(users.split(",")[rTmp]+"======"+tokenList.getString(users.split(",")[rTmp]));
+        }
 
     }
 
