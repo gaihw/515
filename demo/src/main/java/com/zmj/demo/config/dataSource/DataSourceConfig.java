@@ -1,5 +1,7 @@
 package com.zmj.demo.config.dataSource;
 
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -8,6 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 public class DataSourceConfig {
@@ -16,7 +20,6 @@ public class DataSourceConfig {
      * @return
      */
     @Bean(name = "baseDataSource")
-    @Qualifier("baseDataSource")
     @Primary
     @ConfigurationProperties(prefix = "spring.base.datasource")
     public DataSource base() {
@@ -24,29 +27,30 @@ public class DataSourceConfig {
         return DataSourceBuilder.create().build();
     }
 
+
     /**
      *localhost
      * @return
      */
-    @Bean(name = "testAliDataSource")
-    @Qualifier("testAliDataSource")
+    @Bean(name = "devDataSource")
     @Primary
-    @ConfigurationProperties(prefix = "spring.testali.datasource")
-    public DataSource testAli() {
+    @ConfigurationProperties(prefix = "spring.dev.datasource")
+    public DataSource dev() {
 
         return DataSourceBuilder.create().build();
     }
+
 
     /**
      *localhost
      * @return
      */
     @Bean(name = "testDataSource")
-    @Qualifier("testDataSource")
     @Primary
     @ConfigurationProperties(prefix = "spring.test.datasource")
     public DataSource test() {
 
         return DataSourceBuilder.create().build();
     }
+
 }

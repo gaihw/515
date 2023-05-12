@@ -11,13 +11,13 @@ import java.util.Random;
 
 
 /**
- * kline多线程
+ * depth多线程
  *
  * @author gaihw
  * @date 2022/9/24 16:21
  */
 @Slf4j
-public class SendKlineNotice implements Runnable{
+public class SendDepthNotice implements Runnable{
 
     /**
      * 自增ID
@@ -27,10 +27,7 @@ public class SendKlineNotice implements Runnable{
      * 币种表
      */
     public JSONObject instruments;
-    /**
-     * k线刻度
-     */
-    public List<String> scale;
+
     /**
      * 线程锁标识
      */
@@ -42,69 +39,63 @@ public class SendKlineNotice implements Runnable{
     /**
      * mq的exchange
      */
-    public String kline;
+    public String depth;
     /**
      * mq实例
      */
     public AmqpTemplate rabbitMQTemplate;
 
-    SendKlineNotice(String kline,int num,JSONObject instruments,List<String> scale,String channel,AmqpTemplate rabbitMQTemplate){
+    SendDepthNotice(String depth, int num, JSONObject instruments, String channel, AmqpTemplate rabbitMQTemplate){
         super();
         this.num = num;
         this.instruments = instruments;
-        this.scale = scale;
         this.channel = channel;
-        this.kline = kline;
+        this.depth = depth;
         this.rabbitMQTemplate = rabbitMQTemplate;
     }
 
     @Override
     public void run() {
-        if (flag) {
-            while (true) {
-                synchronized (SendKlineNotice.class) {
-                    klineRun(kline,instruments,scale,channel,rabbitMQTemplate);
-                }
-            }
-        }else {
-            while (true)
-                klineRun(kline,instruments,scale,channel,rabbitMQTemplate);
-        }
+//        if (flag) {
+//            while (true) {
+//                synchronized (SendDepthNotice.class) {
+//                    depthRun(depth,instruments,channel,rabbitMQTemplate);
+//                }
+//            }
+//        }else {
+//            while (true)
+//                depthRun(depth,instruments,channel,rabbitMQTemplate);
+//        }
+        while (true)
+            depthRun(depth,instruments,channel,rabbitMQTemplate);
     }
 
     /**
      * 发送消息
-     * @param kline
+     * @param depth
      * @param instruments
-     * @param scale
      * @param channel
      * @param rabbitMQTemplate
      */
-    public synchronized void klineRun(String kline,JSONObject instruments, List<String> scale,  String channel,AmqpTemplate rabbitMQTemplate){
+    public synchronized void depthRun(String depth,JSONObject instruments,  String channel,AmqpTemplate rabbitMQTemplate){
         long time ;
         Random random = new Random();
         int rTmp;
         String p;
         String routingKey;
-        for (String key : instruments.keySet()) {
-            for (String s : scale) {
-
-                time = System.currentTimeMillis();
-                rTmp = random.nextInt(100);
-                p = "{\"status\":\"ok\",\"event_rep\":\"\",\"channel\":\"market_" + channel + "." + key + "_kline_" + s + "\",\"ts\":" + time + ",\"tick\":" +
-                        "{\"id\":" + num + ",\"amount\":" + random.nextInt(100000) + ",\"open\":" + instruments.getBigDecimal(key) + ",\"close\":" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.01)))) + ",\"high\":" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.01)))) + ",\"low\":" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.01)))) + ",\"vol\":" + random.nextInt(1000000) + ",\"mrid\":-1000}}";
-
-                routingKey = "market_" + channel + "." + key + "_kline_" + s + "_-1000_" + time + "_" + time + "_" + time;
-
-                try {
-                    rabbitMQTemplate.convertAndSend(kline, routingKey, GzipUtil.compress(p));
-                    log.info("======第{}推消息======routingKey={}======>{}", num, routingKey, p);
-//                    Thread.sleep(10);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                num ++;
-            }
+        for (String key:instruments.keySet()) {
+            rTmp = random.nextInt(100);
+            time = System.currentTimeMillis();
+            p = "{\"asks\":[[" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.05)))) + "," + random.nextInt(1000) + "],[" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.03)))) + "," + random.nextInt(1000) + "]],\"bids\":[[" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.02)))) + "," + random.nextInt(1000) + "],[" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.01)))) + "," + random.nextInt(1000) + "]]}";
+            routingKey = "market_" + channel + "." + key + "_depth_step0_" + num + "_" + time;
+            rabbitMQTemplate.convertAndSend(depth, routingKey, p);
+            log.info("======第{}推消息======routingKey={}======>{}", num, routingKey, p);
+//            try {
+////                Thread.sleep(3);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+            num ++;
         }
     }
 }

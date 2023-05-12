@@ -1,7 +1,13 @@
+package com.zmj.demo;
+
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.LoggerContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.commons.codec.binary.Base64;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.security.*;
@@ -24,28 +30,23 @@ public class ExchangeDemo {
     public static long timestamp = System.currentTimeMillis();
     // ---------- Exchange Settings ----------
     // Exchange privateKey must pkcs8 format
-    //public static String pri = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDDTP5d+TLqdxOHjGPMqwPDFF99JeT1uOhpkvwlitOPA40sMZtpL3Zn/WaMzyA696tWskerLREtKJoOc/FX28pDH7O62T2+CWnIa3Yy2hXV+x0bBW0Q5pVJwkfQvOof2Z8Qoaa+k1IVHyXTnuqfrOMqzG9DUoydc1/kv4UzNoJ17+4+uPTOS5oJCuB1fCjllunuGYFwybiLUx3W06SNdi0K2xqp8ywryVM+NWkvrt9x23LcHmdloCgZC3JZ0DlYnTl9hnDkLNDxJjVLcpDpvOQuZp+gn+dNZORvWn2bMRiLVMNBTV/8sWlnWkJY8Jlnl0nZ9jvw9e6vokp3RPqcc/CnAgMBAAECggEACKUe2WAPjetpdOWVAVlMmFUNiQelY+8kco/sE2laxgjdNeiYPYa5Ug8YfAErJxERh4vqujwLd5lFgIBHXaFACcqcdRfqsL/P6+w91jBrKQatmiWaV1Yto48zCJ1kK7bBYMYXEHaK+p5fWUe+kQThJWLZRfygdtPFmeWUatjt23SIkm12WudIrGEJZOENsMIcmrcVR3BRk9fLrYmI41s7uO5PACDK2DaAKRwgDMSltr9rxD0y0/Y3aEQYJbOZ7az9wJjgvBLfcqb5EzabrtR3NBM/EsW/DyFh7NmhVhf/vhqLdFWIL8Jcsz5B8lAHGoy0XV2Gigma8DuqYpPDHoTQ6QKBgQD0cz+ERBLFoObl0PU3kU1j0Mi4ETNstt6piATJj8l+YL7ZzpdaerGzPSESeZjp0cfVFEATg3A0zJ1uEpaQ162YvfLl/DlK395JP+RKC4dzQUN2ESeUd0HUkjchCltHSy33F3Je689Ug9uCjJGs3sM+fdsrgBwlfLel3UU9uEL9VQKBgQDMh0Hz0R1sN/vvh/v+fpMAFcEJCmCkPND6UsKj2N2QNJCRHyZBrLzgMWmob5q578AXPIgxt+nwbp/tWjheAAQ9VQIsT6yd2PF3MRaJdGOtxJfPSJ/17Mbtx9JskALs3MMH6pWvgGB/K8WX8wZJ73mDGkjIpckFfBtjXeQOOpbWCwKBgQDab/3rMHVh2nVaGc52eEYiktg5+0zrscHo1l4Iy48vej4xHbYMKSWP2GksPDKThl0+oBjeFw72b32idcPL7J74pYxfTXLY4JGe/RP/wquoJ0KkR5IJzkOqM3pF8R496AVMDsyp26hqimVmFDy8sFbiCc8G4TTFntvwwHh2PajG/QKBgQDKgY2alE1WjiPjqbem5roz1lY31k+TrieYAoN3aU0O8AzHs5jUY+zq6eHchQwk165RE30iBSAbD91HTBINeGS6OUYai5S1AU0rn63Z0SS0s7c/5H+FJrhcTIIbPYe38GkmmG02xJxGrhdJeLWcVQDx/v9bs1JTHOudOiSIthgMuwKBgFIpsPwYyAypzjFlGzhOAFAKGq6IRbNBW/rcegGNA+RZRFILLhZNQ0FiVvdr6lWYcDVrMDGOauw/8Mf1FPs+TiZ5uye1j7qQX6v2qmH2heT45SYnpi2UPY77fWQEjx43rl8RvdunCNibpqbnqh4pSRAtXbG6QyDgSVXeJ1M/fvWy";
+    public static String pri = "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDLwKjH6TuinYyK9TnJjNvQPfW6fKxuQ/E2WqP4M8uSClIBVt1b2uqKXqHt1N/e6ep8rlbVmOk12aa/PBAuqseZdSuaZ6FD1WBLS0v761Shm1hvi5YUTSlszg0NzA/UAapXxpGXQlPL+Gblv+YgY2QUorO+mkokvScZmbGTWTI/WwBgOyp0OduVvqyDZ7wrPyGvmhB4SW9VB88xiVOMRenQd7tDyrA5dnnSHdZY50YU1gDICmlLEU8W6GsrMUSXf5iD/2MJlO++ZyIdEttMdjpK2wzPomwmlxJAVMyrWEXW0GuEMGhG40IZZUT9jPKZB8s4ZPRGHwQclJW95fa4I38JAgMBAAECggEAJK38NHDiUXX3VRSsYIJBGA3vbLEBAaCtjdFnb0kzvoipFqCinOSeEGbU09Hcs258zhE8hJtQcGdMQ2T2rNAFurSDMvqw51tESIm3lhRZWfZzRzFjxSfW60V0yCUSPGJIXiDbGNXR7Ag9zeJr9SyvWZ+oqAlyi4aZwVwPwazvBMR04bnyF3fJGME8RUVmCA5biE5Xwa/ykO8hUq21NkzV2Ii58nVzJdk5UmszRwTCCfg/Qyrdr89Uq5Nyv3h0/Rn/McPnjXafUC+qvQEm0m3OI6hxmWiw6bYirObJ3xek42N23+5pcxmvnAaq4izqs8C/kbVzzDfvFHEWHzew2Vgv2QKBgQDnxRGoTp/j80N67XYc23sZO4DzZ9hMwCjJXheYyTpi3xdRGKllmOq5h74hgZnEUEMKUfTtJrj6PMubwRep8VDl0k5jP+G+0v9tz8rxd6/mWUPEElXyJAOoxgnTp+gHq5UjKqezvNtjJegfhl3JfoDEchNJMBQqB7A3FHWxHeSD2wKBgQDhDcGTeZ79OKDXF3K+e4uJ77Isjm4ttylbR3dJaIR4zx+y9pbR0xh2ess1NITm9E4Fcizmn76bsy7FBchw/1edemEpxEWCcgB8WSyTsmP6QN1uG40WiPREIjVM/VR4FOry3tJ+bvg7hgj+6RstxqcRe97kuYaBdNbyo8Hxpl/v6wKBgD1E9ocEyfXrwCIGFlxIlUE1XsB56k9X2TBqhFhqkdnDWhmhKF7oTtzfCp828JxaD27x/YqX2vykB7tUD1popdcrgndwUtAsXUP9U4wD9OczH9v8cOYDKUh7metvDsLAVDuosg6s1V5fjf6PecmjfIzyDzEg2aPGxom5CefZnChTAoGABOvBFNFu+Yh4c9uOZb3b0jtMgQ7oN9WucNGCOTew1ddpkQc1Swc7nLOYp+QrF8W1wwa5Fp3dlBf56NL0jAv5RXc8kqY5At4tRorIn74h04IBlXvCvQBnnunEkpdjdnC2pnLa1WrlwJ9wqOo97uVOF+LGf+fSmhgM7ydHgVoq9NsCgYBy8taA69M3TgpB90BXt9bc3NUEu+yUELzbXkF439twjMpQCAw42zmcdytBme4XomShbcPhs6Bhnxa6UTK79gkb/deB5iB82l7zqiLQb9Ff0O0unKNg76OG/KidW/2IdH5bFfDzED/hzk9Q9qPLfVUynnFGHKOCA0jLRCX0glgUHA==";
     // song
     // Exchange 5fu3
-    //public static String heard_5fu3 = "xxOi";
+    public static String heard_5fu3 = "song";
     // Exchange use privateKey create jwt token for SaaSservice
-    public static String heard_sfg6 = "eyJhbGciOiJSUzI1NiJ9.eyJhcmVhIjoiODYiLCJ1aWQiOiI4ODg4ODg4OCIsIm1vYmlsZSI6IjEzODg4ODg4ODg4IiwiaW52aXRlIjoiIiwiZW1haWwiOiI4ODhAeHh4LmNvbSIsImV4cCI6MTY4MTEwOTgxMH0.KOvFMn2tATeLIDDE79Gz4vdJVV625LzfdiLWzxFwX8MVqe_i6rSRub8Vtjl92lw3knkOxTxMDuWbqeX83LFyBxBCTSK40GftntO9IhwQ11-9r2BDRcEaLrz8TMRDd0Dzp8efExhDeGiAKIQNINsEDgRaWxALfuQ3YJo7ypTERDAWWk97KJv8s8UgThq56ZTGgRtvZJXHoF4HkfK3klEdGRAsaGTfnXrBQ90wDsfzGRvEK7wCs9YvEsqsMA7SADSYz-lmxxPwuaG_KgBgvVcHyJHZBV59iHj8Xl04Qnzp-k-IvpTIKP-XZWr2TflEErWqAWgfQEbiTH1McyOrv1dw2A";
+    public static String heard_sfg6 = "=eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiI1MTkwNjE2OCIsImVtYWlsIjoiLS0iLCJtb2JpbGUiOiIxNjYqKioqMDAwOSIsIm5pY2tuYW1lIjoiMTY2KioqKjAwMDkiLCJhcmVhIjoibnVsbCIsImludml0ZSI6IjYzMDIzMTEyIiwiZXhwIjoxNjgzMTcwMzgzfQ.RrXocevOEUCZRmHPVKZc4Ha_SuvrKE_BbINK1IaTNWbLAdcPx2GfrtAqFOh4eU56ffeg9Ym43a06im1BGEaDTFN-dnry4Yq9mTfmRnQgq8uoiJIw2eibs3SQLJprqwsaxaYjcI1Gk5KOGk8VrzPGfTCK6cXjWeND6QlasVY--rfY2gm0VGmIx8OdojO1MiwekhvHPqWs5hjqr4cZpF1397-1b3D-zKT0cJCjIPF-FJgScbAtyQ9aJbYQIKPFRnGHkQ2ridZAY5kpbwatcCBTkwpeXcsYW68GxDio_tUxxzAigshc9B1xenqzwOb5GORccEVz6tQFF6cjtOCL3L75XA";
     //
     // ---------- SaaSservice Settings ----------
     // SaaSservice svcID
-    //public static String svcId = "EXTEST";
-    // SaaSservice publickey
-    //public static String pubKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw0z+Xfky6ncTh4xjzKsDwxRffSXk9bjoaZL8JYrTjwONLDGbaS92Z/1mjM8gOverVrJHqy0RLSiaDnPxV9vKQx+zutk9vglpyGt2MtoV1fsdGwVtEOaVScJH0LzqH9mfEKGmvpNSFR8l057qn6zjKsxvQ1KMnXNf5L+FMzaCde/uPrj0zkuaCQrgdXwo5Zbp7hmBcMm4i1Md1tOkjXYtCtsaqfMsK8lTPjVpL67fcdty3B5nZaAoGQtyWdA5WJ05fYZw5CzQ8SY1S3KQ6bzkLmafoJ/nTWTkb1p9mzEYi1TDQU1f/LFpZ1pCWPCZZ5dJ2fY78PXur6JKd0T6nHPwpwIDAQAB";
-    // SaaSservice domain
-    //public static String host = "https://x.chimchim.top";
-
-    // ----------
-    public static String pri = "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDLwKjH6TuinYyK9TnJjNvQPfW6fKxuQ/E2WqP4M8uSClIBVt1b2uqKXqHt1N/e6ep8rlbVmOk12aa/PBAuqseZdSuaZ6FD1WBLS0v761Shm1hvi5YUTSlszg0NzA/UAapXxpGXQlPL+Gblv+YgY2QUorO+mkokvScZmbGTWTI/WwBgOyp0OduVvqyDZ7wrPyGvmhB4SW9VB88xiVOMRenQd7tDyrA5dnnSHdZY50YU1gDICmlLEU8W6GsrMUSXf5iD/2MJlO++ZyIdEttMdjpK2wzPomwmlxJAVMyrWEXW0GuEMGhG40IZZUT9jPKZB8s4ZPRGHwQclJW95fa4I38JAgMBAAECggEAJK38NHDiUXX3VRSsYIJBGA3vbLEBAaCtjdFnb0kzvoipFqCinOSeEGbU09Hcs258zhE8hJtQcGdMQ2T2rNAFurSDMvqw51tESIm3lhRZWfZzRzFjxSfW60V0yCUSPGJIXiDbGNXR7Ag9zeJr9SyvWZ+oqAlyi4aZwVwPwazvBMR04bnyF3fJGME8RUVmCA5biE5Xwa/ykO8hUq21NkzV2Ii58nVzJdk5UmszRwTCCfg/Qyrdr89Uq5Nyv3h0/Rn/McPnjXafUC+qvQEm0m3OI6hxmWiw6bYirObJ3xek42N23+5pcxmvnAaq4izqs8C/kbVzzDfvFHEWHzew2Vgv2QKBgQDnxRGoTp/j80N67XYc23sZO4DzZ9hMwCjJXheYyTpi3xdRGKllmOq5h74hgZnEUEMKUfTtJrj6PMubwRep8VDl0k5jP+G+0v9tz8rxd6/mWUPEElXyJAOoxgnTp+gHq5UjKqezvNtjJegfhl3JfoDEchNJMBQqB7A3FHWxHeSD2wKBgQDhDcGTeZ79OKDXF3K+e4uJ77Isjm4ttylbR3dJaIR4zx+y9pbR0xh2ess1NITm9E4Fcizmn76bsy7FBchw/1edemEpxEWCcgB8WSyTsmP6QN1uG40WiPREIjVM/VR4FOry3tJ+bvg7hgj+6RstxqcRe97kuYaBdNbyo8Hxpl/v6wKBgD1E9ocEyfXrwCIGFlxIlUE1XsB56k9X2TBqhFhqkdnDWhmhKF7oTtzfCp828JxaD27x/YqX2vykB7tUD1popdcrgndwUtAsXUP9U4wD9OczH9v8cOYDKUh7metvDsLAVDuosg6s1V5fjf6PecmjfIzyDzEg2aPGxom5CefZnChTAoGABOvBFNFu+Yh4c9uOZb3b0jtMgQ7oN9WucNGCOTew1ddpkQc1Swc7nLOYp+QrF8W1wwa5Fp3dlBf56NL0jAv5RXc8kqY5At4tRorIn74h04IBlXvCvQBnnunEkpdjdnC2pnLa1WrlwJ9wqOo97uVOF+LGf+fSmhgM7ydHgVoq9NsCgYBy8taA69M3TgpB90BXt9bc3NUEu+yUELzbXkF439twjMpQCAw42zmcdytBme4XomShbcPhs6Bhnxa6UTK79gkb/deB5iB82l7zqiLQb9Ff0O0unKNg76OG/KidW/2IdH5bFfDzED/hzk9Q9qPLfVUynnFGHKOCA0jLRCX0glgUHA==";
-    public static String heard_5fu3 = "song";
     public static String svcId = "song";
+    // SaaSservice publickey
     public static String pubKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsG4BBS1dCNtY7XNeE6MC7/hlICZT7jhqA7iJn90BQbTdoAB0Vvqohe8gNOO/NebuNl+Y2dyf5NX46XaClJXCigHrwZOwb1QzBHu/EEfthFrMw8dw8RxH9/5kjzkMAIPAmVEa2EnrmFT4pRDU6XU9OK6g6HQhhjj6n0lGF4xnjry56u5MfVjoeTuHgfGgRrHFrOMMHpx3E/c6yHinwYmc1RPEtrRsKwQdHvjQygvAzHxWkjqiC6I0Wjzrn3evAY/icIV84/yaEukYmEmABwYgnmR+TM+t1TQNMEZg+gCt1KWn2yb2+GpxSwQ5vV6gnLQUd7+856WDoJRbe5QGG+pf4wIDAQAB";
-    //public static String host = "http://127.0.0.1:7002";
+    // SaaSservice domain
     public static String host = "https://x.chimchim.top";
+//    public static String host = "https://dev1.123kj.top";
+
+    //public static String host = "http://127.0.0.1:7002";
     //---- example end
 
     /**
@@ -57,19 +58,22 @@ public class ExchangeDemo {
      * 商户=Exchange  合约服务=SaaSservice
      */
     public static void main(String[] args) {
+        ((LoggerContext) LoggerFactory.getILoggerFactory())
+                .getLoggerList()
+                .forEach(logger -> logger.setLevel(Level.ERROR));
         /**
          * 生成jwt-token示例
          */
-        //createJwtToken();
+        createJwtToken();
         /**
          * use TinyTrader’s perpetual SDK to your app , must get sdk token: accessToken
          * 可以使用此方法传入jwt-token模拟app-sdk的自动注册和登录
          */
-        //getToken();
+//        getToken();
         /**
          * get SaaSservice balance
           */
-        //balance();
+//        balance();
         /**
          * asset from  Exchange to SaaSservice
           */
@@ -77,7 +81,7 @@ public class ExchangeDemo {
         /**
         * asset from SaaSservice to Exchange
          */
-        //assetout();
+//        assetout();
         /**
          * 永续/期权正在持仓的仓位订单输出接口(数据从旧到新排序)
          */
@@ -85,20 +89,22 @@ public class ExchangeDemo {
         /**
          * 永续/期权已完成仓位订单输出接口 (数据从旧到新排序)
          */
-        //positionfinishlist();
+//        positionfinishlist();
+        /**
+         * 永续/期权支持的币对列表输出接口
+         */
+//        positionsymbol();
     }
 
     /**
-     * 永续/期权正在持仓的仓位订单输出接口(数据从旧到新排序)
+     * 永续/期权支持的币对列表输出接口
      */
-    public static void positionlist(){
+    public static void positionsymbol(){
         Map<String, Object> tem = new HashMap<>();
         tem.put("svc_id", svcId);
         tem.put("timestamp", timestamp);
         //
-        String user_id = "all";
         String type = "options"; // futures options
-        tem.put("user_id", user_id);
         tem.put("type", type);
         //
         String sign = sign(tem, pri);
@@ -110,7 +116,65 @@ public class ExchangeDemo {
 
         String header = "{\"5fu3\":\"" + heard_5fu3 + "\",\"sfg6\":\"" + heard_sfg6 + "\"}";
         String param = "{\"svc_id\":\"" + svcId + "\",\"sign\":\"" + sign + "\",\"timestamp\":" + timestamp
+                + ",\"type\":\"" + type
+                + "\"}";
+        //
+        String response = new HttpUtil().postByJson( host + "/saasapi/positionsymbol", param, header);
+        System.out.println("================================================================================================");
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonObject = mapper.readTree(response);
+            //
+            System.out.println("positionsymbol detail: ");
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("================================================================================================");
+    }
+
+    /**
+     * 永续/期权正在持仓的仓位订单输出接口(数据从旧到新排序)
+     */
+    public static void positionlist(){
+        Map<String, Object> tem = new HashMap<>();
+        tem.put("svc_id", svcId);
+        tem.put("timestamp", timestamp);
+        //
+        String user_id = "51905041";
+        String type = "futures"; // futures options
+        tem.put("user_id", user_id);
+        tem.put("type", type);
+        // 币种
+        String symbol = ""; // 币对 btc, eth等
+        // 方向
+        String direction = ""; // LONG:多;SHORT:空
+        // 租户用户id
+        String tenant_user_id = "";
+        //
+        if (!symbol.equals("")) {
+            tem.put("symbol", symbol);
+        }
+        if (!direction.equals("")) {
+            tem.put("direction", direction);
+        }
+        if (!tenant_user_id.equals("")) {
+            tem.put("tenant_user_id", tenant_user_id);
+        }
+        //
+        String sign = sign(tem, pri);
+        System.out.println(sign);
+        tem.put("sign", sign);
+
+        boolean verify = verify(tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"5fu3\":\"" + heard_5fu3 + "\",\"sfg6\":\"" + heard_sfg6 + "\"}";
+        String param = "{\"svc_id\":\"" + svcId + "\",\"sign\":\"" + sign + "\",\"timestamp\":" + timestamp
                 + ",\"user_id\":\"" + user_id
+                + (!symbol.equals("") ? "\",\"symbol\":\"" + symbol : "")
+                + (!direction.equals("") ? "\",\"direction\":\"" + direction : "")
+                + (!tenant_user_id.equals("") ? "\",\"tenant_user_id\":\"" + tenant_user_id : "")
                 + "\",\"type\":\"" + type
                 + "\"}";
         //
@@ -122,6 +186,9 @@ public class ExchangeDemo {
             //
             System.out.println("positionlist detail: ");
             System.out.println(jsonObject);
+            for (JsonNode j: jsonObject.get("data").get("list")) {
+                System.out.println(""+j.get("symbol")+"==="+j.get("net_profit"));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -137,17 +204,33 @@ public class ExchangeDemo {
         tem.put("timestamp", timestamp);
         //
         String user_id = "all";
-        String type = "options"; // futures options
+        String type = "futures"; // futures options
         String start_time = "2022-04-01 00:00:01";
         String end_time = "2024-04-08 00:00:01";
         Integer id = 0;
-        Integer pagesize = 10;
+        Integer pagesize = 20;
         tem.put("user_id", user_id);
         tem.put("type", type);
         tem.put("start_time", start_time);
         tem.put("end_time", end_time);
         tem.put("id", id);
         tem.put("pagesize", pagesize);
+        // 币种
+        String symbol = ""; // 币对 btc, eth等
+        // 方向
+        String direction = ""; // LONG:多;SHORT:空
+        // 租户用户id
+        String tenant_user_id = "2985";
+        //
+        if (!symbol.equals("")) {
+            tem.put("symbol", symbol);
+        }
+        if (!direction.equals("")) {
+            tem.put("direction", direction);
+        }
+        if (!tenant_user_id.equals("")) {
+            tem.put("tenant_user_id", tenant_user_id);
+        }
         //
         String sign = sign(tem, pri);
         System.out.println(sign);
@@ -161,6 +244,9 @@ public class ExchangeDemo {
                 + ",\"id\":" + id
                 + ",\"pagesize\":" + pagesize
                 + ",\"user_id\":\"" + user_id
+                + (!symbol.equals("") ? "\",\"symbol\":\"" + symbol : "")
+                + (!direction.equals("") ? "\",\"direction\":\"" + direction : "")
+                + (!tenant_user_id.equals("") ? "\",\"tenant_user_id\":\"" + tenant_user_id : "")
                 + "\",\"type\":\"" + type
                 + "\",\"start_time\":\"" + start_time
                 + "\",\"end_time\":\"" + end_time
@@ -199,17 +285,17 @@ public class ExchangeDemo {
         // 超期时间 毫秒 有效期一年
         Long exp = System.currentTimeMillis() + 3600*24*365*1000;
         Date expDate = new Date(exp);
-        Map<String, String> claims = new HashMap<>();
+        Map<String, Object> claims = new HashMap<>();
         // uid,email,mobile,area,invite,exp
-        claims.put("uid", "88888888");
-        claims.put("email", "888@xxx.com");
-        claims.put("mobile", "13888888888");
+        claims.put("uid", "20232023");
+        claims.put("email", "20232023@xxx.com");
+        claims.put("mobile", "13820232023");
         claims.put("area", "86");
         claims.put("invite", "");
         String token = Jwts.builder()
                 .setClaims(claims)
                 .setExpiration(expDate)
-                .signWith(privateKey)
+                .signWith(SignatureAlgorithm.RS256,privateKey)
                 .compact();
         System.out.println("jwt token: \n");
         System.out.println(token);
@@ -252,8 +338,8 @@ public class ExchangeDemo {
         tem.put("svc_id", svcId);
         tem.put("timestamp", timestamp);
         // V1.2
-        //tem.put("type", type);
-        //typeParam = ",\"sign\":\"" + sign + "\"";
+        tem.put("type", type);
+        typeParam = ",\"type\":\"" + type + "\"";
         //
         String sign = sign(tem, pri);
         System.out.println(sign);
@@ -298,8 +384,8 @@ public class ExchangeDemo {
         tem.put("amount", amount);
         tem.put("coin", coin);
         // V1.2
-        //tem.put("type", type);
-        //typeParam = ",\"sign\":\"" + sign + "\"";
+        tem.put("type", type);
+        typeParam = ",\"type\":\"" + type + "\"";
         //
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
@@ -313,7 +399,7 @@ public class ExchangeDemo {
         System.out.println(verify);
 
         String header = "{\"5fu3\":\"" + heard_5fu3 + "\",\"sfg6\":\"" + heard_sfg6 + "\"}";
-        String param = "{\"svc_id\":\"" + svcId + "\""+typeParam+",\"type\":\"" + type + "\",\"timestamp\":" + timestamp + ",\"ex_order_id\":\"" + ex_order_id + "\",\"amount\":" + amount + ",\"coin\":\"" + coin + "\",\"create_time\":\""+simpleDateFormat.format(date)+"\"}";
+        String param = "{\"svc_id\":\"" + svcId + "\""+typeParam+",\"sign\":\"" + sign + "\",\"timestamp\":" + timestamp + ",\"ex_order_id\":\"" + ex_order_id + "\",\"amount\":" + amount + ",\"coin\":\"" + coin + "\",\"create_time\":\""+simpleDateFormat.format(date)+"\"}";
         //
         String response = new HttpUtil().postByJson( host + "/saasapi/assetin", param, header);
         System.out.println("================================================================================================");
@@ -335,7 +421,7 @@ public class ExchangeDemo {
 
     public static void assetout() {
         // 可选参数 type账户类型:  futures合约(默认值), options期权
-        String type = "futures";
+        String type = "options";
         //
         String typeParam = "";
         //
@@ -349,8 +435,8 @@ public class ExchangeDemo {
         tem.put("amount", amount);
         tem.put("coin", coin);
         // V1.2
-        //tem.put("type", type);
-        //typeParam = ",\"sign\":\"" + sign + "\"";
+        tem.put("type", type);
+        typeParam = ",\"type\":\"" + type + "\"";
         //
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();

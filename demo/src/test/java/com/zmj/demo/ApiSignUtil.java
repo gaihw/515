@@ -18,6 +18,7 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.sql.*;
 import java.util.*;
+import java.util.Date;
 import java.util.function.Function;
 
 /**
@@ -31,10 +32,15 @@ import java.util.function.Function;
 public class ApiSignUtil {
     public static String pri="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDDTP5d+TLqdxOHjGPMqwPDFF99JeT1uOhpkvwlitOPA40sMZtpL3Zn/WaMzyA696tWskerLREtKJoOc/FX28pDH7O62T2+CWnIa3Yy2hXV+x0bBW0Q5pVJwkfQvOof2Z8Qoaa+k1IVHyXTnuqfrOMqzG9DUoydc1/kv4UzNoJ17+4+uPTOS5oJCuB1fCjllunuGYFwybiLUx3W06SNdi0K2xqp8ywryVM+NWkvrt9x23LcHmdloCgZC3JZ0DlYnTl9hnDkLNDxJjVLcpDpvOQuZp+gn+dNZORvWn2bMRiLVMNBTV/8sWlnWkJY8Jlnl0nZ9jvw9e6vokp3RPqcc/CnAgMBAAECggEACKUe2WAPjetpdOWVAVlMmFUNiQelY+8kco/sE2laxgjdNeiYPYa5Ug8YfAErJxERh4vqujwLd5lFgIBHXaFACcqcdRfqsL/P6+w91jBrKQatmiWaV1Yto48zCJ1kK7bBYMYXEHaK+p5fWUe+kQThJWLZRfygdtPFmeWUatjt23SIkm12WudIrGEJZOENsMIcmrcVR3BRk9fLrYmI41s7uO5PACDK2DaAKRwgDMSltr9rxD0y0/Y3aEQYJbOZ7az9wJjgvBLfcqb5EzabrtR3NBM/EsW/DyFh7NmhVhf/vhqLdFWIL8Jcsz5B8lAHGoy0XV2Gigma8DuqYpPDHoTQ6QKBgQD0cz+ERBLFoObl0PU3kU1j0Mi4ETNstt6piATJj8l+YL7ZzpdaerGzPSESeZjp0cfVFEATg3A0zJ1uEpaQ162YvfLl/DlK395JP+RKC4dzQUN2ESeUd0HUkjchCltHSy33F3Je689Ug9uCjJGs3sM+fdsrgBwlfLel3UU9uEL9VQKBgQDMh0Hz0R1sN/vvh/v+fpMAFcEJCmCkPND6UsKj2N2QNJCRHyZBrLzgMWmob5q578AXPIgxt+nwbp/tWjheAAQ9VQIsT6yd2PF3MRaJdGOtxJfPSJ/17Mbtx9JskALs3MMH6pWvgGB/K8WX8wZJ73mDGkjIpckFfBtjXeQOOpbWCwKBgQDab/3rMHVh2nVaGc52eEYiktg5+0zrscHo1l4Iy48vej4xHbYMKSWP2GksPDKThl0+oBjeFw72b32idcPL7J74pYxfTXLY4JGe/RP/wquoJ0KkR5IJzkOqM3pF8R496AVMDsyp26hqimVmFDy8sFbiCc8G4TTFntvwwHh2PajG/QKBgQDKgY2alE1WjiPjqbem5roz1lY31k+TrieYAoN3aU0O8AzHs5jUY+zq6eHchQwk165RE30iBSAbD91HTBINeGS6OUYai5S1AU0rn63Z0SS0s7c/5H+FJrhcTIIbPYe38GkmmG02xJxGrhdJeLWcVQDx/v9bs1JTHOudOiSIthgMuwKBgFIpsPwYyAypzjFlGzhOAFAKGq6IRbNBW/rcegGNA+RZRFILLhZNQ0FiVvdr6lWYcDVrMDGOauw/8Mf1FPs+TiZ5uye1j7qQX6v2qmH2heT45SYnpi2UPY77fWQEjx43rl8RvdunCNibpqbnqh4pSRAtXbG6QyDgSVXeJ1M/fvWy";
     public static String pubKey="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw0z+Xfky6ncTh4xjzKsDwxRffSXk9bjoaZL8JYrTjwONLDGbaS92Z/1mjM8gOverVrJHqy0RLSiaDnPxV9vKQx+zutk9vglpyGt2MtoV1fsdGwVtEOaVScJH0LzqH9mfEKGmvpNSFR8l057qn6zjKsxvQ1KMnXNf5L+FMzaCde/uPrj0zkuaCQrgdXwo5Zbp7hmBcMm4i1Md1tOkjXYtCtsaqfMsK8lTPjVpL67fcdty3B5nZaAoGQtyWdA5WJ05fYZw5CzQ8SY1S3KQ6bzkLmafoJ/nTWTkb1p9mzEYi1TDQU1f/LFpZ1pCWPCZZ5dJ2fY78PXur6JKd0T6nHPwpwIDAQAB";
-    public static String host = "test1.123kj.top";
+//    public static String pri = "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDLwKjH6TuinYyK9TnJjNvQPfW6fKxuQ/E2WqP4M8uSClIBVt1b2uqKXqHt1N/e6ep8rlbVmOk12aa/PBAuqseZdSuaZ6FD1WBLS0v761Shm1hvi5YUTSlszg0NzA/UAapXxpGXQlPL+Gblv+YgY2QUorO+mkokvScZmbGTWTI/WwBgOyp0OduVvqyDZ7wrPyGvmhB4SW9VB88xiVOMRenQd7tDyrA5dnnSHdZY50YU1gDICmlLEU8W6GsrMUSXf5iD/2MJlO++ZyIdEttMdjpK2wzPomwmlxJAVMyrWEXW0GuEMGhG40IZZUT9jPKZB8s4ZPRGHwQclJW95fa4I38JAgMBAAECggEAJK38NHDiUXX3VRSsYIJBGA3vbLEBAaCtjdFnb0kzvoipFqCinOSeEGbU09Hcs258zhE8hJtQcGdMQ2T2rNAFurSDMvqw51tESIm3lhRZWfZzRzFjxSfW60V0yCUSPGJIXiDbGNXR7Ag9zeJr9SyvWZ+oqAlyi4aZwVwPwazvBMR04bnyF3fJGME8RUVmCA5biE5Xwa/ykO8hUq21NkzV2Ii58nVzJdk5UmszRwTCCfg/Qyrdr89Uq5Nyv3h0/Rn/McPnjXafUC+qvQEm0m3OI6hxmWiw6bYirObJ3xek42N23+5pcxmvnAaq4izqs8C/kbVzzDfvFHEWHzew2Vgv2QKBgQDnxRGoTp/j80N67XYc23sZO4DzZ9hMwCjJXheYyTpi3xdRGKllmOq5h74hgZnEUEMKUfTtJrj6PMubwRep8VDl0k5jP+G+0v9tz8rxd6/mWUPEElXyJAOoxgnTp+gHq5UjKqezvNtjJegfhl3JfoDEchNJMBQqB7A3FHWxHeSD2wKBgQDhDcGTeZ79OKDXF3K+e4uJ77Isjm4ttylbR3dJaIR4zx+y9pbR0xh2ess1NITm9E4Fcizmn76bsy7FBchw/1edemEpxEWCcgB8WSyTsmP6QN1uG40WiPREIjVM/VR4FOry3tJ+bvg7hgj+6RstxqcRe97kuYaBdNbyo8Hxpl/v6wKBgD1E9ocEyfXrwCIGFlxIlUE1XsB56k9X2TBqhFhqkdnDWhmhKF7oTtzfCp828JxaD27x/YqX2vykB7tUD1popdcrgndwUtAsXUP9U4wD9OczH9v8cOYDKUh7metvDsLAVDuosg6s1V5fjf6PecmjfIzyDzEg2aPGxom5CefZnChTAoGABOvBFNFu+Yh4c9uOZb3b0jtMgQ7oN9WucNGCOTew1ddpkQc1Swc7nLOYp+QrF8W1wwa5Fp3dlBf56NL0jAv5RXc8kqY5At4tRorIn74h04IBlXvCvQBnnunEkpdjdnC2pnLa1WrlwJ9wqOo97uVOF+LGf+fSmhgM7ydHgVoq9NsCgYBy8taA69M3TgpB90BXt9bc3NUEu+yUELzbXkF439twjMpQCAw42zmcdytBme4XomShbcPhs6Bhnxa6UTK79gkb/deB5iB82l7zqiLQb9Ff0O0unKNg76OG/KidW/2IdH5bFfDzED/hzk9Q9qPLfVUynnFGHKOCA0jLRCX0glgUHA==";
+//    public static String pubKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsG4BBS1dCNtY7XNeE6MC7/hlICZT7jhqA7iJn90BQbTdoAB0Vvqohe8gNOO/NebuNl+Y2dyf5NX46XaClJXCigHrwZOwb1QzBHu/EEfthFrMw8dw8RxH9/5kjzkMAIPAmVEa2EnrmFT4pRDU6XU9OK6g6HQhhjj6n0lGF4xnjry56u5MfVjoeTuHgfGgRrHFrOMMHpx3E/c6yHinwYmc1RPEtrRsKwQdHvjQygvAzHxWkjqiC6I0Wjzrn3evAY/icIV84/yaEukYmEmABwYgnmR+TM+t1TQNMEZg+gCt1KWn2yb2+GpxSwQ5vV6gnLQUd7+856WDoJRbe5QGG+pf4wIDAQAB";
+
+    public static String host = "x.chimchim.top";
     public static String heard_5fu3 = "xxOi";
-    public static String heard_sfg6 = "eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiI1MTkwNjEyMSIsImVtYWlsIjoiLS0iLCJtb2JpbGUiOiIxNzgqKioqMDAxMCIsIm5pY2tuYW1lIjoiMTc4KioqKjAwMTAiLCJleHAiOjE2NjM2MTcwNTB9.wEbJk58eNLweAu6qnM2qrOZfVgQM2cxSfrv0MaeJ9GJAQnofVPymDT5wDPqtu_nkMlXrTXywR5DIVOLljyVgcKtbNUFF2OEc59lckTxrRfHf15rKPTKaL1ay95-7UsARH_vHGZfq93I2MtKAqSIzQkPnfVBQjomLzr7kMpvT24-vXtH1kjjdEVVFyvAI17vjdfGocjxWyZNPvIE-7q9sOsyOYBMdrGH-G-p-yxKvg1PX-vAEpCQUY5-ou-eJIEmi_YbtMYKb4-SBeR6AevKgmr_dJOAf1MrX39WzNytggRSliJrnBVisMR0BOFbe2fjVz8HKo4Tr0gIsGEsPqXeQXA";
-    public static String userId = "51906115";
+    public static String heard_sfg6 = "eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiI1MTkwNjEzNyIsImVtYWlsIjoiLS0iLCJtb2JpbGUiOiIxNTUqKioqMDA0MSIsIm5pY2tuYW1lIjoiMTU1KioqKjAwNDEiLCJhcmVhIjoibnVsbCIsImludml0ZSI6IjExIiwiZXhwIjoxNjgxNDAxNzY3fQ.D1szzciQKU0SXmCVdVTt15Oxq8pNhbGLRaGa6T5N-TnEPurXLXC9sSWxWixf2rBNh6tavyU2amMK3je5vIKdm2jI2WUoguKnogYboodXAqqNWxJCicqJ_zETwrq94LFH39w_D1Hlff0e4PnOQC9Ou5HXT9EiVNRriskOqaGNat-9anDtTogS-DbVS0983DUOG-DkwkLsnrJAA-jNFFtO5jxXUlp2XbxqNHB4PxaFhv2BecttzjhS2Wp7YdcQ3_i0NiqVgGHZzM3M2W9NZW3d506yZwIg2jEPu2aaqgQxYhA4jbt47-wpVgA7lFHruBpcXrqrazT0D_5h2BCp2a_11Q" +
+            "";
+    public static String userId = "51906137";
+    public static String svcId = "EXTEST";
     public static long timestamp = System.currentTimeMillis();
 
     public static void main(String[] args) {
@@ -55,8 +61,87 @@ public class ApiSignUtil {
 
 //        token();
 //        balance();
-        assetin();
+
+        // userId 用户ID，all为全部用户
+        // type 订单类型：默认为futures合约订单, options期权订单
+//        positionlist("111","options");
+        String startTime = "2022-04-01 00:00:01";
+        String endTime = "2024-04-01 10:00:01";
+        long id = 6l;
+        long pageSize = 1l;
+
+//        positionfinishlist("1111","futures",startTime,endTime,id,pageSize);
+
+        for (int i = 0; i <3 ; i++) {
+//            System.out.println("------------"+i+"------------");
+//            assetin();
+            assetout();
+
+        }
 //        assetout();
+    }
+
+    /**
+     * 永续/期权已完成仓位订单输出接口 (数据从旧到新排序)
+     * @param userId 用户ID，all为全部用户
+     * @param type 账户类型：默认为futures合约订单, options期权订单
+     * @param startTime 开始时间
+     * @param endTime 结束时间
+     * @param id 查询起始标志：从此id开始的pagesize条，第一条开始id传0
+     * @param pageSize 每页条数
+     */
+    private static void positionfinishlist(String userId, String type, String startTime ,String endTime , Long id , Long pageSize) {
+        Map<String ,Object> tem=new HashMap<>();
+        tem.put("svc_id",svcId);
+        long timestamp = System.currentTimeMillis();
+        tem.put("timestamp",timestamp);
+        tem.put("user_id",userId);
+        tem.put("type",type);
+        tem.put("start_time",startTime);
+        tem.put("end_time",endTime);
+        tem.put("id",id);
+        tem.put("pagesize",pageSize);
+        // 给参数进行签名
+        String sign = sign(tem, pri);
+        System.out.println(sign);
+        tem.put("sign",sign);
+        // 验签
+        boolean verify = verify1(tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"5fu3\":\""+heard_5fu3+"\",\"sfg6\":\""+heard_sfg6+"\"}";
+        String param = "{\"svc_id\":\""+svcId+"\",\"sign\":\""+sign+"\",\"timestamp\":"+timestamp+",\"user_id\":\""+userId+"\",\"type\":\""+type+"\",\"start_time\":\""+startTime+"\",\"end_time\":\""+endTime+"\",\"id\":"+id+",\"pagesize\":"+pageSize+"}";
+        System.out.println("================================================================================================");
+        System.out.println(param);
+        System.out.println(new HttpUtil().postByJson("https://"+host+"/saasapi/positionfinishlist",param,header));
+        System.out.println("================================================================================================");
+    }
+
+    /**
+     * 永续/期权正在持仓的仓位订单输出接口(数据从旧到新排序)
+     * @param userId 用户ID，all为全部用户
+     * @param type 订单类型：默认为futures合约订单, options期权订单
+     */
+    private static void positionlist(String userId,String type) {
+        Map<String ,Object> tem=new HashMap<>();
+        tem.put("svc_id",svcId);
+        long timestamp = System.currentTimeMillis();
+        tem.put("timestamp",timestamp);
+        tem.put("user_id",userId);
+        tem.put("type",type);
+        // 给参数进行签名
+        String sign = sign(tem, pri);
+        System.out.println(sign);
+        tem.put("sign",sign);
+        // 验签
+        boolean verify = verify1(tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"5fu3\":\""+heard_5fu3+"\",\"sfg6\":\""+heard_sfg6+"\"}";
+        String param = "{\"svc_id\":\""+svcId+"\",\"sign\":\""+sign+"\",\"timestamp\":"+timestamp+",\"user_id\":\""+userId+"\",\"type\":\""+type+"\"}";
+        System.out.println("================================================================================================");
+        System.out.println(new HttpUtil().postByJson("https://"+host+"/saasapi/positionlist",param,header));
+        System.out.println("================================================================================================");
     }
 
     /**
@@ -64,14 +149,15 @@ public class ApiSignUtil {
      */
 
     public static void assetout(){
-        String svc_id = "EXTEST";
+        String svc_id = svcId;
         String coin = "usdt";
         int currencyId = 6;
         Jedis jedis = new Jedis("localhost",6379);
         jedis.auth("123456");
+        jedis.select(6);
         int tansferout = Integer.parseInt(jedis.get("saas:api:EXTEST_TEST_TANSFEROUT"));
         String ex_order_id = "EXTEST_test_tansferout_"+String.format("%03d",tansferout);
-        BigDecimal amount = BigDecimal.valueOf(22);
+        BigDecimal amount = BigDecimal.valueOf(60);
         Map<String ,Object> tem=new HashMap<>();
         tem.put("svc_id",svc_id);
         tem.put("timestamp",timestamp);
@@ -89,7 +175,8 @@ public class ApiSignUtil {
 
         String header = "{\"5fu3\":\""+heard_5fu3+"\",\"sfg6\":\""+heard_sfg6+"\"}";
         String param = "{\"svc_id\":\""+svc_id+"\",\"sign\":\""+sign+"\",\"timestamp\":"+timestamp+",\"ex_order_id\":\""+ex_order_id+"\",\"amount\":"+amount+",\"coin\":\""+coin+"\",\"create_time\":\"2022-08-15 09:01:02\"}";
-        JSONObject j = JSONObject.parseObject(new HttpUtil().postByJson("http://"+host+"/saasapi/assetout",param,header));
+        System.out.println(param);
+        JSONObject j = JSONObject.parseObject(new HttpUtil().postByJson("https://"+host+"/saasapi/assetout",param,header));
         System.out.println("================================================================================================");
         System.out.println(j);
         System.out.println("================================================================================================");
@@ -106,11 +193,12 @@ public class ApiSignUtil {
         String coin = "usdt";
         Jedis jedis = new Jedis("localhost",6379);
         jedis.auth("123456");
+        jedis.select(6);
         int tansferin = Integer.parseInt(jedis.get("saas:api:EXTEST_TEST_TANSFERIN"));
         String ex_order_id = "EXTEST_test_tansferin_"+String.format("%03d",tansferin);
         BigDecimal amount = BigDecimal.valueOf(1000);
         Map<String ,Object> tem=new HashMap<>();
-        tem.put("svc_id","EXTEST");
+        tem.put("svc_id",svcId);
         tem.put("timestamp",timestamp);
         tem.put("ex_order_id",ex_order_id);
         tem.put("amount",amount);
@@ -125,9 +213,9 @@ public class ApiSignUtil {
         System.out.println(verify);
 
         String header = "{\"5fu3\":\""+heard_5fu3+"\",\"sfg6\":\""+heard_sfg6+"\"}";
-        String param = "{\"svc_id\":\"EXTEST\",\"sign\":\""+sign+"\",\"timestamp\":"+timestamp+",\"ex_order_id\":\""+ex_order_id+"\",\"amount\":"+amount+",\"coin\":\""+coin+"\",\"create_time\":\"2022-08-15 09:01:02\"}";
+        String param = "{\"svc_id\":\""+svcId+"\",\"sign\":\""+sign+"\",\"timestamp\":"+timestamp+",\"ex_order_id\":\""+ex_order_id+"\",\"amount\":"+amount+",\"coin\":\""+coin+"\",\"create_time\":\"2022-08-15 09:01:02\"}";
         System.out.println("=======params======="+param);
-        JSONObject j = JSONObject.parseObject(new HttpUtil().postByJson("http://"+host+"/saasapi/assetin",param,header));
+        JSONObject j = JSONObject.parseObject(new HttpUtil().postByJson("https://"+host+"/saasapi/assetin",param,header));
 
         System.out.println("================================================================================================");
         System.out.println(j);
@@ -144,9 +232,10 @@ public class ApiSignUtil {
      */
     public static void balance(){
         Map<String ,Object> tem=new HashMap<>();
-        tem.put("svc_id","EXTEST");
+        tem.put("svc_id",svcId);
         long timestamp = System.currentTimeMillis();
         tem.put("timestamp",timestamp);
+//        tem.put("type","futures");
         String sign = sign(tem, pri);
         System.out.println(sign);
         tem.put("sign",sign);
@@ -155,9 +244,9 @@ public class ApiSignUtil {
         System.out.println(verify);
 
         String header = "{\"5fu3\":\""+heard_5fu3+"\",\"sfg6\":\""+heard_sfg6+"\"}";
-        String param = "{\"svc_id\":\"EXTEST\",\"sign\":\""+sign+"\",\"timestamp\":"+timestamp+"}";
+        String param = "{\"svc_id\":\""+svcId+"\",\"sign\":\""+sign+"\",\"timestamp\":"+timestamp+"}";
         System.out.println("================================================================================================");
-        System.out.println(new HttpUtil().postByJson("http://"+host+"/saasapi/balance",param,header));
+        System.out.println(new HttpUtil().postByJson("https://"+host+"/saasapi/balance",param,header));
         System.out.println("================================================================================================");
     }
 
@@ -170,7 +259,7 @@ public class ApiSignUtil {
         String header = "{\"5fu3\":\""+heard_5fu3+"\",\"sfg6\":\""+heard_sfg6+"\"}";
         String param = null;
         System.out.println("================================================================================================");
-        System.out.println(new HttpUtil().postByJson("http://"+host+"/saasapi/token",param,header));
+        System.out.println(new HttpUtil().postByJson("https://"+host+"/saasapi/token",param,header));
         System.out.println("================================================================================================");
     }
 

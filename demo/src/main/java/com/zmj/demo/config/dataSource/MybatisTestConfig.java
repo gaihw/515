@@ -19,16 +19,16 @@ public class MybatisTestConfig {
     @Qualifier("testDataSource")
     private DataSource testDataSource;
 
-    @Bean
-    public SqlSessionFactory testSqlSessionFactory() throws Exception {
+    @Bean(name = "testSqlSessionFactory")
+    public SqlSessionFactory testSqlSessionFactory(@Qualifier("testDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(testDataSource);
+        bean.setDataSource(dataSource);
         return bean.getObject();
     }
 
     @Bean
-    public SqlSessionTemplate testSqlSessionTemplate() throws Exception {
-        SqlSessionTemplate template = new SqlSessionTemplate(testSqlSessionFactory());
+    public SqlSessionTemplate testSqlSessionTemplate(@Qualifier("testSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory);
         return template;
     }
 }

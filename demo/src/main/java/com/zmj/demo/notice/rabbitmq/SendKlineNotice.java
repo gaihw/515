@@ -60,16 +60,25 @@ public class SendKlineNotice implements Runnable{
 
     @Override
     public void run() {
-        if (flag) {
-            while (true) {
-                synchronized (SendKlineNotice.class) {
-                    klineRun(kline,instruments,scale,channel,rabbitMQTemplate);
-                }
-            }
-        }else {
-            while (true)
-                klineRun(kline,instruments,scale,channel,rabbitMQTemplate);
+//        if (flag) {
+//            while (true) {
+//                synchronized (SendKlineNotice.class) {
+//                    klineRun(kline,instruments,scale,channel,rabbitMQTemplate);
+//                }
+//            }
+//        }else {
+//            while (true)
+//                klineRun(kline,instruments,scale,channel,rabbitMQTemplate);
+//        }
+        while (true) {
+            klineRun(kline, instruments, scale, channel, rabbitMQTemplate);
+//            try {
+//                Thread.sleep(3);
+//            } catch (InterruptedException e) {
+//                log.error(e.toString());
+//            }
         }
+
     }
 
     /**
@@ -92,14 +101,14 @@ public class SendKlineNotice implements Runnable{
                 time = System.currentTimeMillis();
                 rTmp = random.nextInt(100);
                 p = "{\"status\":\"ok\",\"event_rep\":\"\",\"channel\":\"market_" + channel + "." + key + "_kline_" + s + "\",\"ts\":" + time + ",\"tick\":" +
-                        "{\"id\":" + num + ",\"amount\":" + random.nextInt(100000) + ",\"open\":" + instruments.getBigDecimal(key) + ",\"close\":" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.01)))) + ",\"high\":" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.01)))) + ",\"low\":" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.01)))) + ",\"vol\":" + random.nextInt(1000000) + ",\"mrid\":-1000}}";
+                        "{\"id\":" + num + ",\"amount\":" + random.nextInt(100000) + ",\"open\":" + instruments.getBigDecimal(key) + ",\"close\":" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.02)))) + ",\"high\":" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.03)))) + ",\"low\":" + instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.01)))) + ",\"vol\":" + random.nextInt(1000000) + ",\"mrid\":-1000}}";
 
-                routingKey = "market_" + channel + "." + key + "_kline_" + s + "_-1000_" + time + "_" + time + "_" + time;
+                routingKey = "market_" + channel + "." + key + "_kline_" + s + "_"+num+"_" + time + "_" + time + "_" + time;
 
                 try {
                     rabbitMQTemplate.convertAndSend(kline, routingKey, GzipUtil.compress(p));
                     log.info("======第{}推消息======routingKey={}======>{}", num, routingKey, p);
-//                    Thread.sleep(10);
+//                    Thread.sleep(1);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

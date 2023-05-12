@@ -1,7 +1,8 @@
 package com.zmj.demo.config.websocket;
 
-import com.zmj.demo.client.ReConnectWSClient;
-import com.zmj.demo.client.WSClient;
+import com.zmj.demo.dao.dev.OptionsInfoDao;
+import com.zmj.demo.wsClient.ReConnectWSClient;
+import com.zmj.demo.wsClient.WSClient;
 import com.zmj.demo.domain.websocket.SocketDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,9 @@ public class WebSocketConfig {
 
     @Autowired
     private SocketDomain socketDomain;
+
+    @Autowired
+    private OptionsInfoDao optionsInfoDao;
 
 //    @Bean
     public WSClient wSClient() {
@@ -44,7 +48,8 @@ public class WebSocketConfig {
                     error -> {
                         // todo 字符串消息处理
                         System.out.println("异常:" + error.getMessage());
-                    });
+                    },
+                    optionsInfoDao.getList());
             try {
                 webSocketClient.connect();
             } catch (Exception e) {

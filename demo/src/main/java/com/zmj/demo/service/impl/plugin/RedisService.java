@@ -1,6 +1,5 @@
 package com.zmj.demo.service.impl.plugin;
 
-import org.springframework.data.redis.core.BoundValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.serializer.RedisSerializer;
@@ -8,7 +7,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +23,7 @@ public class RedisService {
         //更改在redis里面查看key编码问题
         RedisSerializer redisSerializer =new StringRedisSerializer();
         redisTemplate.setKeySerializer(redisSerializer);
-        ValueOperations<String,Object> vo = redisTemplate.opsForValue();
+        ValueOperations<String, Object> vo = redisTemplate.opsForValue();
         vo.set(key, value);
     }
 

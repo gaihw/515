@@ -120,18 +120,19 @@ public class FeeCalc {
             for (UserDistributorChain u:userPartner) {
                 userPartnerTmp.add(u);
             }
-            userPartner = userPartnerTmp;
+//            userPartner = userPartnerTmp;
         }
 
         //重置
-        userPartnerTmp.clear();
+        userPartner.clear();
         //合伙人的列表长度-2大于配置的层级比例，根据层级返佣
-        if (userPartner.size()-2 > Config.level){
-            userPartnerTmp.add(userPartner.get(0));
+        if (userPartnerTmp.size()-2 > Config.level){
+            userPartner.add(userPartnerTmp.get(0));
             for (int i = 1; i <= Config.level; i++) {
-                userPartnerTmp.add(userPartner.get(i));
+                userPartner.add(userPartnerTmp.get(i));
             }
-            userPartnerTmp.add(userPartner.get(userPartner.size()-1));
+            userPartner.add(userPartnerTmp.get(userPartnerTmp.size()-1));
+        }else {
             userPartner = userPartnerTmp;
         }
 

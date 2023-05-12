@@ -38,9 +38,10 @@ public class TopicExchangeRabbitMQConfig {
     }
 
     @Bean
-    public FanoutExchange fanoutExchangeTicker(){
-        return new FanoutExchange(ticker);
+    public TopicExchange topicExchange() {
+        return new TopicExchange(ticker);
     }
+
 
     // 声明消息队列
     @Bean
@@ -53,7 +54,6 @@ public class TopicExchangeRabbitMQConfig {
         return new Queue("tfbee.test.l2quote.l2quote-0",true);
     }
 
-
     // 向扇形交换机上绑定队列
     @Bean
     Binding bindingQueueExchange(Queue messageQueue, FanoutExchange fanoutExchange) {
@@ -62,9 +62,9 @@ public class TopicExchangeRabbitMQConfig {
     }
 
     @Bean
-    Binding bindingQueueExchangeTicker(Queue messageQueueTicker, FanoutExchange fanoutExchangeTicker) {
+    BindingBuilder.TopicExchangeRoutingKeyConfigurer bindingQueueExchangeTicker(Queue messageQueueTicker, TopicExchange topicExchangeTicker) {
         return BindingBuilder.bind( messageQueueTicker )
-                .to( fanoutExchangeTicker );
+                .to( topicExchangeTicker );
     }
 
 

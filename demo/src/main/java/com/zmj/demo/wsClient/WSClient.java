@@ -1,4 +1,4 @@
-package com.zmj.demo.client;
+package com.zmj.demo.wsClient;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.common.GzipUtil;
@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.net.URI;
 import java.nio.ByteBuffer;
 import java.util.concurrent.Executors;
@@ -70,7 +71,7 @@ public class WSClient extends WebSocketClient {
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_index_price\",\"cb_id\":\"10001\"}}");
 
         //最新成交价market_qoz6.btcusdt_ticker
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_GjFt.btcusdt_ticker\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_GjFt.btcusdt_ticker\",\"cb_id\":\"10001\"}}");
 
         //市场深度行情数据
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_GjFt.btcusdt_depth_step0\",\"cb_id\":\"10001\",\"asks\":150,\"bids\":150}}");
@@ -83,18 +84,16 @@ public class WSClient extends WebSocketClient {
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ltcusdt_funding_rate\",\"cb_id\":\"10001\"}}");
 
 //        web最新成交
-        webSocketClient.send("{\"event\":\"req\",\"params\":{\"channel\":\"market_GjFt.ethusdt_spot_fills\",\"cb_id\":\"10001000\"}}");
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ty9f.ethusdt_spot_fills\",\"cb_id\":\"10001000\"}}");
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_ticker\",\"cb_id\":\"Android_qoz6\"}}");
-
+//        webSocketClient.send("{\"event\":\"req\",\"params\":{\"channel\":\"market_GjFt.ethusdt_spot_fills\",\"cb_id\":\"10001000\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ty9f.ethusdt_spot_fills\",\"cb_id\":\"10001000\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_ticker\",\"cb_id\":\"Android_qoz6\"}}");
+        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_awgf.btcusdt_depth_step0\",\"cb_id\":\"10001001\"}}");
         //测试环境
 //        scheduledThreadPool.scheduleAtFixedRate(() -> {
 //            System.out.println("发送：：：{\"event\":\"ping\"}");
 //            webSocketClient.send("{\"event\":\"ping\"}");
 //                    }, 0, 5, TimeUnit.SECONDS);
-////        4b20aa3891319166970ef7dcaec61a74e3161b7f8c4ae5e5ee9dc6d31468ebab   测试
-////        f0eeb723286bc4c111039ef203d54eb9731273f51ab6a156c83cda9425d6a853   模拟
-//        webSocketClient.send("{\"event\":\"signin\",\"params\":{\"token\":\"b043218d3d35c745e1172be5cee583f03a8277fdcc2d0049533ba27936174fbb\"}}");
+//        webSocketClient.send("{\"event\":\"signin\",\"params\":{\"token\":\"b181853e6aac2bdb7dfb7e2ea8d538b80e33b02db9be77b95bafd207b8206d20\"}}");
 //        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"cfd\",\"type\":\"position_change\",\"zip\":false}}");
 
     }
@@ -128,11 +127,13 @@ public class WSClient extends WebSocketClient {
             webSocketClient.send("{\"pong\": \"" + time + "\"}");
             log.info("发送：：：{\"pong\":\"{}\"}",time);
         }
-        if (res.contains("market_btcusdt_depth_step0")){
+        if (res.contains("market_saas.btcusdt_depth_step0")){
             try {
                 if (JSONObject.parseObject(res).getJSONObject("tick") != null) {
-                    String bids_0 = JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("bids").getJSONArray(0).getString(0);
-                    redisService.set("btc", bids_0);
+                    BigDecimal bids_0 = JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("bids").getJSONArray(0).getBigDecimal(0);
+                    BigDecimal asks_0 = JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("asks").getJSONArray(0).getBigDecimal(0);
+                    System.out.println(bids_0.compareTo(asks_0)+"   "+bids_0+"   "+asks_0);
+//                                    redisService.set("btc", bids_0);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
