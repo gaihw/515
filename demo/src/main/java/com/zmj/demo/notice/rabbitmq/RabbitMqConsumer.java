@@ -25,7 +25,7 @@ public class RabbitMqConsumer {
 
 
 //    @RabbitListener(queues = "tfbee.demo.Ch3Q.queue.externalLatestTicker")
-//    @RabbitListener(queues = "tfbee.dev.xxOi.queue.optionTicker")
+    @RabbitListener(queues = "tfbee.test.l2quote.l2quote")
     @RabbitHandler
     public void getQueueMessage(String  msg) {
         System.out.println(queueOptionTicker+" Receive , Msg: " + msg);

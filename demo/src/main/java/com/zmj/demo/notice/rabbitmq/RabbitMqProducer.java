@@ -147,11 +147,12 @@ public class RabbitMqProducer {
         instruments.put("pepeusdt", BigDecimal.valueOf(0.0000011971));
 
         String p;
-        long i = 30012959652l;
+        long i = 30013297664l;
 //        while (true){
             for (String key:instruments.keySet()) {
+                rTmp = random.nextInt(100);
                 p = "[{\"id\":"+i+",\"symbol\":\""+channel+"."+key+"\",\"ts\":"+System.currentTimeMillis()+",\"publish-ts\":"+System.currentTimeMillis()+",\"order-type\":\"buy-market\",\"items\":[{\"order-id\":"+i+",\"seq-id\":"+i+",\"role\":\"maker\",\"price\":"+instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.01))))+",\"filled-amount\":0.01,\"state\":\"filled\"},{\"order-id\":"+i+",\"seq-id\":"+i+",\"role\":\"taker\",\"state\":\"filled\",\"price\":"+instruments.getBigDecimal(key).multiply(BigDecimal.ONE.add(BigDecimal.valueOf(rTmp).multiply(BigDecimal.valueOf(0.01))))+",\"unfilled-amount\":0}]}]";
-                rabbitMQTemplate.convertAndSend(ticker,"",p);
+                rabbitMQTemplate.convertAndSend(ticker,"#."+key,p);
                 log.info("======第{}推消息======>{}",i,p);
                 Thread.sleep(1);
                 i ++;

@@ -67,12 +67,22 @@ spring:
 
   rabbitmq:
     #测试环境
-    ssl:
-      enabled: true
-    host: b-47fa98e5-facd-4c12-a1cd-bc861b9192e8.mq.ap-southeast-1.amazonaws.com
-    port: 5671
-    username: saas-rmq-test
-    password: nPOd6exIGhRFeDFpaml
+#    ssl:
+#      enabled: true
+#    host: b-47fa98e5-facd-4c12-a1cd-bc861b9192e8.mq.ap-southeast-1.amazonaws.com
+#    port: 5671
+#    username: saas-rmq-test
+#    password: nPOd6exIGhRFeDFpaml
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+    test:
+      exchangeTopic: amq.topic
+      exchangeFanout: amq.fanout
+      exchangeDirect: amq.direct
+      exchangeHeaders: amq.headers
     saas:
       channel: GjFt
       queue:

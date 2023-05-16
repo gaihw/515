@@ -29,9 +29,9 @@ public class OpenAPIDemo {
     public static long timestamp = System.currentTimeMillis();
     // ---------- SaaSservice Settings ----------
     // api key
-    public static String apiKey = "06065c747863e2f910dd557b379b2345bd8298bdc50973b015ac8b6d4e0cc4a6";
+    public static String apiKey = "de2403dbf08fd9add5896b89ccc9a22ca42dd65c0e5bd30f893b3efa240722c1";
     // private key
-    public static String pri = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMjFZndok8o9GbJwqZu936ka1zDtqna8UilbwXgvFKpDnqLqSB+4k0C0QoaMn2lGPsKyEs4Iwi0L+H2K1RI4jTBTNUDDcHF0tpRd4DMJ1vuUOJI0uxYuN8UHm4UKuI+8+2Mnh/ti564XbETalLufSwFUD/wkZMYCtFkQlnQ8Q/7zAgMBAAECgYAGcOLJKOc44T3uThP65ZwDylMmBDHoTkFah1GNIAGLNtEji92Veu/qbv4FYASLNZA04c6dooVMOaqWqHoOdBb/a9fTl1hr9qXZWxxZ31A4/eV4dK17LKsJFOi7YsDcPoRhOxXHtEElSXV790Hu3gObaNrRpXpeI1AkEwB7WmTVtQJBAOVP+corBR6WBvW9v6ixnIrPO9WqV7v7Lq6lQpYNgGmnDmBxL9utuEzuhir0nK8uwxE4UVOVuyhbv6Nh+rjlut0CQQDgIxQOo3HtzUSpAeHLrJv2ixU2OQDorvNByhX0TauegEGa0/l9BFHjuSw9jICYgdxuhsH5iSNdkbfo940xR3wPAkEA2B4l53ngG1F+QcCRj6XFSbXCSL+AbHRxLLwoI0+aRPjjPdWvKzVwy2DKJlXgDeLeia4wR7yIZaMC3DMNn5E0KQJALDF+cOx1OEgy84f1d21PSytdQVW4AikMuboY3hS6dAQh619EYAwMAXSvbmtXp7pjNj/H22XY3UgwFPVKl57arQJATQllXvkDahTjScaJq+Hro4mTa7pkvscGtWxChs1qJrHxlgsVGSnWcJIas7nT+c+t/zbWadAkwMk/aPe/aWRHvg==";
+    public static String pri = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAImDSwu9qP1NL8PPoiRC1Jj0m/ppHrz5CtyvuBXEo3i9mc2cjMbv0c5tTsCcnS8uJtQGoim466rRisQeIaN69KlMxfo/VNYdmmCJokGlxdfP+W8QgZLBfH8wFmZgNBYKQUg/PRoSKEoQTT+Yqk2spETdRkWVTEdZjoYylgazdE+NAgMBAAECgYAO8pPGl8arRhJ3mqB5iD7beNdi+GiWymFuYgwaEvu2r7Fswrl2FHJ+Ga6noZPfzDNR9SiibWScoatlAbt5WEUI3wPRPSxIsfthXlJOFQ2iCdlf16Yb994nU66VSINGdM6x6tUJXytuebLOz+J2O84EvloCHM31VsK+DRSY65JftwJBAPnMMjCGTvV7LycQHdDY2K2cPEeZqDGkCYhGOtNc9Oqvll0+r+iWamlEPeHLhgth12kiEmAOdvzn1cdgq8eLfSMCQQCM7V/hbNRZW2cPS6xqnsX0hnOhQ7vYpySPfnEL3vhw7ZktDyW9R1Tvm/ECYRit5+E7MTXFqh511tHei3N7xgOPAkEAppV3TwbydyC8NEe6KoHCFh0f0fv1v40OUlPLfRL7vdp04yAf/XL56dN5lS+9569LETCIoohi74vH9BtS01MBkwJALUgwoLxZVwT5jn6gPfoaXUG+cbjT6P97zeew50GTzqVprILLe5AqCHuw6zTLu0Vgp6ZeQs8wzmhiMwHX75NmnQJBAOXqy8RZOl3I1FscWfJLip7lbHPyx/bDTQd1dcKFN5UD9D5LU4jM6KTDEoFOjkyWMUkQXWM2Gfmhsyy9MPwLbNg=";
     // public key
     public static String pubKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDIxWZ3aJPKPRmycKmbvd+pGtcw7ap2vFIpW8F4LxSqQ56i6kgfuJNAtEKGjJ9pRj7CshLOCMItC/h9itUSOI0wUzVAw3BxdLaUXeAzCdb7lDiSNLsWLjfFB5uFCriPvPtjJ4f7YueuF2xE2pS7n0sBVA/8JGTGArRZEJZ0PEP+8wIDAQAB";
     //
@@ -48,28 +48,124 @@ public class OpenAPIDemo {
         /**
          * 下单
          */
-        create();
+//        create();
+        /**
+         * 平仓
+         */
+//        close();
+        /**
+         * 撤单
+         */
+        cancel();
     }
 
+    private static void cancel() {
+        String url = host + "/openapi/v1/order/cancel";
+
+        String category = "futures"; // 订单类别：futures永续合约,options期权,spot现货
+        String symbol = "btc"; // 币对名称, 如 btc,eth
+        String id = "386809"; // 订单ID
+        String positionType = "market"; // 订单类型：limit=限价单,market=市价单
+
+
+        Map<String, Object> tem = new HashMap<>();
+        tem.put("category", category);
+        tem.put("symbol", symbol);
+        tem.put("positionType", positionType);
+        tem.put("id", id);
+
+        String sign = sign(timestamp+apiKey+recv, tem, pri);
+        System.out.println("签名["+sign+"]");
+
+        boolean verify = verify(sign, timestamp+apiKey+recv, tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"X-SAASAPI-API-KEY\":\"" + apiKey + "\",\"X-SAASAPI-TIMESTAMP\":\"" + timestamp + "\",\"X-SAASAPI-SIGN\":\"" + sign + "\",\"X-SAASAPI-RECV-WINDOW\":\"" + recv + "\"}";
+        String param = "{\"category\":\"" + category
+                + "\",\"symbol\":\"" + symbol
+                + "\",\"positionType\":\"" + positionType
+                + "\",\"id\":\"" + id
+                + "\"}";
+        //
+        String response = new HttpUtil().postByJson( url, param, header);
+        System.out.println("================================================================================================");
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonObject = mapper.readTree(response);
+            //
+            System.out.println("detail: ");
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("================================================================================================");
+    }
+
+    public static void close(){
+        String url = host + "/openapi/v1/order/close";
+
+        String category = "futures"; // 订单类别：futures永续合约,options期权,spot现货
+        String symbol = "btc"; // 币对名称, 如 btc,eth
+        String closeType = "689859396487745536"; // 平仓类型：all全平,687748042004402176(仓位id) 非全平
+        String positionType = "limit"; // 订单类型：limit=限价单,market=市价单
+        String closeRate = "0.1";// 平仓比例
+        String closeNum = "3";// 	平仓数量
+        String price = "-27001";// 平仓价格(限价单必传)
+
+        Map<String, Object> tem = new HashMap<>();
+        tem.put("category", category);
+        tem.put("symbol", symbol);
+        tem.put("positionType", positionType);
+        tem.put("closeType", closeType);
+//        tem.put("closeRate", closeRate);
+        tem.put("closeNum", closeNum);
+        tem.put("price", price);
+
+        String sign = sign(timestamp+apiKey+recv, tem, pri);
+        System.out.println("签名["+sign+"]");
+
+        boolean verify = verify(sign, timestamp+apiKey+recv, tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"X-SAASAPI-API-KEY\":\"" + apiKey + "\",\"X-SAASAPI-TIMESTAMP\":\"" + timestamp + "\",\"X-SAASAPI-SIGN\":\"" + sign + "\",\"X-SAASAPI-RECV-WINDOW\":\"" + recv + "\"}";
+        String param = "{\"category\":\"" + category
+                + "\",\"symbol\":\"" + symbol
+                + "\",\"positionType\":\"" + positionType
+                + "\",\"closeType\":\"" + closeType
+                + "\",\"closeNum\":\""+closeNum
+                + "\",\"price\":\""+price+"\""
+                + "}";
+        //
+        String response = new HttpUtil().postByJson( url, param, header);
+        System.out.println("================================================================================================");
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonObject = mapper.readTree(response);
+            //
+            System.out.println("detail: ");
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("================================================================================================");
+    }
 
     /**
-     * 详情对账接口
+     * 下单
      */
     public static void create(){
         String url = host + "/openapi/v1/order/create";
 
-        timestamp = 1683772968951l;
         Map<String, Object> tem = new HashMap<>();
         String category = "futures"; // 订单类别：futures永续合约,options期权,spot现货
-        String symbol = "btc"; // 币对名称, 如 btc,eth
+        String symbol = "eth"; // 币对名称, 如 btc,eth
         String positionType = "limit"; // 订单类型：limit=限价单,market=市价单
         String positionModel = "cross"; // 仓位模式 fix=逐仓 cross=全仓
         String positionSide = "short"; // 持仓方向：long=买多,short=买空
-        BigDecimal leverage = new BigDecimal(71); // 杠杆 整数, 最小为1
-        BigDecimal quantity = new BigDecimal(1); // 开仓数量, 最小为1
+        BigDecimal leverage = BigDecimal.valueOf(11.12).setScale(16,BigDecimal.ROUND_UP); // 杠杆 整数, 最小为1
+        BigDecimal quantity = BigDecimal.valueOf(10); // 开仓数量, 最小为1
         String quantityUnit = "cont"; // 合约下单单位：usdt=按u下单/cont=按张下单，默认是usdt
-        BigDecimal price = new BigDecimal(27710.690332049962); // 订单价格：限价才需要，市价不需要
-//        {"category":"futures","symbol":"btc","positionType":"limit","positionModel":"cross","positionSide":"short","leverage":71,"quantity":1,"quantityUnit":"cont","price":27710.690332049962}
+        BigDecimal price = BigDecimal.valueOf(1829).setScale(16,BigDecimal.ROUND_UP); // 订单价格：限价才需要，市价不需要
         tem.put("category", category);
         tem.put("symbol", symbol);
         tem.put("positionType", positionType);
@@ -92,13 +188,14 @@ public class OpenAPIDemo {
                 + "\",\"positionType\":\"" + positionType
                 + "\",\"positionModel\":\"" + positionModel
                 + "\",\"positionSide\":\"" + positionSide
-                + "\",\"leverage\":" + leverage
-                + ",\"quantity\":" + quantity
-                + ",\"quantityUnit\":\"" + quantityUnit
-                + "\",\"price\":" + price
-                + "}";
+                + "\",\"leverage\":\"" + leverage
+                + "\",\"quantity\":\"" + quantity
+                + "\",\"quantityUnit\":\"" + quantityUnit
+                + "\",\"price\":\"" + price
+                + "\"}";
         //
         String response = new HttpUtil().postByJson( url, param, header);
+        System.out.println("参数["+param+"]");
         System.out.println("================================================================================================");
         try{
             ObjectMapper mapper = new ObjectMapper();

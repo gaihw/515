@@ -31,41 +31,41 @@ public class TopicExchangeRabbitMQConfig {
     @Value("${spring.rabbitmq.l2quote.exchange.kline}")
     private String kline;
 
-    // 声明扇形交换机
-    @Bean
-    public FanoutExchange fanoutExchange() {
-        return new FanoutExchange(fanoutExchangeName);
-    }
+//    // 声明扇形交换机
+//    @Bean
+//    public FanoutExchange fanoutExchange() {
+//        return new FanoutExchange(fanoutExchangeName);
+//    }
 
-    @Bean
-    public TopicExchange topicExchange() {
-        return new TopicExchange(ticker);
-    }
+//    @Bean
+//    public TopicExchange topicExchange() {
+//        return new TopicExchange(ticker);
+//    }
 
 
     // 声明消息队列
-    @Bean
-    public Queue messageQueue() {
-        return new Queue(queueBindingKey,true);
-    }
-
-    @Bean
-    public Queue messageQueueTicker(){
-        return new Queue("tfbee.test.l2quote.l2quote-0",true);
-    }
+//    @Bean
+//    public Queue messageQueue() {
+//        return new Queue(queueBindingKey,true);
+//    }
+//
+//    @Bean
+//    public Queue messageQueueTicker(){
+//        return new Queue("tfbee.test.l2quote.l2quote-0-adausdt",true);
+//    }
 
     // 向扇形交换机上绑定队列
-    @Bean
-    Binding bindingQueueExchange(Queue messageQueue, FanoutExchange fanoutExchange) {
-        return BindingBuilder.bind( messageQueue )
-                .to( fanoutExchange );
-    }
+//    @Bean
+//    Binding bindingQueueExchange(Queue messageQueue, FanoutExchange fanoutExchange) {
+//        return BindingBuilder.bind( messageQueue )
+//                .to( fanoutExchange );
+//    }
 
-    @Bean
-    BindingBuilder.TopicExchangeRoutingKeyConfigurer bindingQueueExchangeTicker(Queue messageQueueTicker, TopicExchange topicExchangeTicker) {
-        return BindingBuilder.bind( messageQueueTicker )
-                .to( topicExchangeTicker );
-    }
+//    @Bean
+//    BindingBuilder.TopicExchangeRoutingKeyConfigurer bindingQueueExchangeTicker(Queue messageQueueTicker, TopicExchange topicExchangeTicker) {
+//        return BindingBuilder.bind( messageQueueTicker )
+//                .to( topicExchangeTicker );
+//    }
 
 
 
