@@ -5,59 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fdfc3a4-deb0-4585-a76e-85c24df24c29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev/OptionsInfoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/dev1/OptionsInfoChain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/ExchangeDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/SaaSserviceDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test6.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test7.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test8.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lambdaPackage/Test9.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/throwPackage/BaseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/throwPackage/Test1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/throwPackage/Test2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/throwPackage/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/throwPackage/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/winCoin/GridPrice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/prometheus/MicrometerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/prometheus/PrometheusMetricsAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rocketmq/ComsumerListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rocketmq/MQService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rocketmq/MessageBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/wsClient/Books.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/wsClient/OKWSClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/LinkedJsonObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gcPackage/GcTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/t2023072901/Child.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/t2023072901/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/t2023072902/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/t2023072903/Child.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/t2023072903/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/winCoin/Option.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/client/ReConnectWSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/wsClient/ReConnectWSClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/client/WSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/wsClient/WSClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/FeeCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/common/dev1/FeeCalc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/DataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/DataSourceConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisDemoDataConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisDemoDataConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisTestAliConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisDevConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisTestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/dataSource/MybatisTestConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/DemoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/websocket/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/config/websocket/WebSocketConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/testAli/SmsEmailCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev/SmsEmailCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/JsonResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/domain/JsonResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev/OptionsInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/dao/dev/OptionsInfoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/RabbitMqProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendDepthNotice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendDepthNotice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendKlineNotice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/SendKlineNotice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/ToolServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/ToolServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/plugin/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/service/impl/plugin/RedisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/local/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/notice/rabbitmq/local/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/wsClient/ReConnectWSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/wsClient/ReConnectWSClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/wsClient/WSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/zmj/demo/wsClient/WSClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/ApiSignUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/ApiSignUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/ExchangeDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/ExchangeDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/OpenAPIDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/OpenAPIDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/TestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/TestDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/openapi/Sign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/test/java/com/zmj/demo/openapi/Sign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/listFilterPackage/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/listFilterPackage/Test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/old/Calc/AlgorithmDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/old/Calc/AlgorithmDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/winCoin/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/winCoin/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/listFilterPackage/Test1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/listFilterPackage/Test1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/old/Calc/AlgorithmDemo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/old/Calc/AlgorithmDemo$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/old/Calc/AlgorithmDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/old/Calc/AlgorithmDemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/winCoin/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/winCoin/Login.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +46,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -118,19 +98,47 @@
       <recent name="$PROJECT_DIR$/src/main/java/threadPackage/resource/p2" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="test.t2023072903" />
       <recent name="lambdaPackage" />
       <recent name="test.stringTest" />
       <recent name="allin.prometheus" />
       <recent name="allin" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GridPrice">
+  <component name="RunManager" selected="Application.GcTest">
     <configuration name="AlgorithmDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="old.Calc.AlgorithmDemo" />
       <module name="gai01" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="old.Calc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Child" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.t2023072903.Child" />
+      <module name="gai01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.t2023072903.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GcTest" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gcPackage.GcTest" />
+      <module name="gai01" />
+      <option name="VM_PARAMETERS" value="-XX:NewSize=5242880 -XX:MaxNewSize=5242880 -XX:InitialHeapSize=10485760 -XX:MaxHeapSize=10485760 -XX:SurvivorRatio=8 -XX:PretenureSizeThreshold=10485760 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Xloggc:gc.log" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gcPackage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -164,19 +172,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lambdaPackage.Test4" />
-      <module name="gai01" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lambdaPackage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Test6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lambdaPackage.Test6" />
       <module name="gai01" />
@@ -190,13 +185,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.GcTest" />
+      <item itemvalue="Application.AlgorithmDemo" />
+      <item itemvalue="Application.Child" />
+      <item itemvalue="Application.GridPrice" />
+      <item itemvalue="Application.Login" />
+      <item itemvalue="Application.Test6" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Child" />
         <item itemvalue="Application.GridPrice" />
         <item itemvalue="Application.AlgorithmDemo" />
         <item itemvalue="Application.Login" />
         <item itemvalue="Application.Test6" />
-        <item itemvalue="Application.Test4" />
       </list>
     </recent_temporary>
   </component>

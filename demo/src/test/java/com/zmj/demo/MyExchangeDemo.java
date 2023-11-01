@@ -30,6 +30,7 @@ import java.util.function.Function;
  */
 @Data
 public class ApiSignUtil {
+    // 测试环境为saas-api服务，所对应的公私钥
     public static String pri="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDDTP5d+TLqdxOHjGPMqwPDFF99JeT1uOhpkvwlitOPA40sMZtpL3Zn/WaMzyA696tWskerLREtKJoOc/FX28pDH7O62T2+CWnIa3Yy2hXV+x0bBW0Q5pVJwkfQvOof2Z8Qoaa+k1IVHyXTnuqfrOMqzG9DUoydc1/kv4UzNoJ17+4+uPTOS5oJCuB1fCjllunuGYFwybiLUx3W06SNdi0K2xqp8ywryVM+NWkvrt9x23LcHmdloCgZC3JZ0DlYnTl9hnDkLNDxJjVLcpDpvOQuZp+gn+dNZORvWn2bMRiLVMNBTV/8sWlnWkJY8Jlnl0nZ9jvw9e6vokp3RPqcc/CnAgMBAAECggEACKUe2WAPjetpdOWVAVlMmFUNiQelY+8kco/sE2laxgjdNeiYPYa5Ug8YfAErJxERh4vqujwLd5lFgIBHXaFACcqcdRfqsL/P6+w91jBrKQatmiWaV1Yto48zCJ1kK7bBYMYXEHaK+p5fWUe+kQThJWLZRfygdtPFmeWUatjt23SIkm12WudIrGEJZOENsMIcmrcVR3BRk9fLrYmI41s7uO5PACDK2DaAKRwgDMSltr9rxD0y0/Y3aEQYJbOZ7az9wJjgvBLfcqb5EzabrtR3NBM/EsW/DyFh7NmhVhf/vhqLdFWIL8Jcsz5B8lAHGoy0XV2Gigma8DuqYpPDHoTQ6QKBgQD0cz+ERBLFoObl0PU3kU1j0Mi4ETNstt6piATJj8l+YL7ZzpdaerGzPSESeZjp0cfVFEATg3A0zJ1uEpaQ162YvfLl/DlK395JP+RKC4dzQUN2ESeUd0HUkjchCltHSy33F3Je689Ug9uCjJGs3sM+fdsrgBwlfLel3UU9uEL9VQKBgQDMh0Hz0R1sN/vvh/v+fpMAFcEJCmCkPND6UsKj2N2QNJCRHyZBrLzgMWmob5q578AXPIgxt+nwbp/tWjheAAQ9VQIsT6yd2PF3MRaJdGOtxJfPSJ/17Mbtx9JskALs3MMH6pWvgGB/K8WX8wZJ73mDGkjIpckFfBtjXeQOOpbWCwKBgQDab/3rMHVh2nVaGc52eEYiktg5+0zrscHo1l4Iy48vej4xHbYMKSWP2GksPDKThl0+oBjeFw72b32idcPL7J74pYxfTXLY4JGe/RP/wquoJ0KkR5IJzkOqM3pF8R496AVMDsyp26hqimVmFDy8sFbiCc8G4TTFntvwwHh2PajG/QKBgQDKgY2alE1WjiPjqbem5roz1lY31k+TrieYAoN3aU0O8AzHs5jUY+zq6eHchQwk165RE30iBSAbD91HTBINeGS6OUYai5S1AU0rn63Z0SS0s7c/5H+FJrhcTIIbPYe38GkmmG02xJxGrhdJeLWcVQDx/v9bs1JTHOudOiSIthgMuwKBgFIpsPwYyAypzjFlGzhOAFAKGq6IRbNBW/rcegGNA+RZRFILLhZNQ0FiVvdr6lWYcDVrMDGOauw/8Mf1FPs+TiZ5uye1j7qQX6v2qmH2heT45SYnpi2UPY77fWQEjx43rl8RvdunCNibpqbnqh4pSRAtXbG6QyDgSVXeJ1M/fvWy";
     public static String pubKey="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw0z+Xfky6ncTh4xjzKsDwxRffSXk9bjoaZL8JYrTjwONLDGbaS92Z/1mjM8gOverVrJHqy0RLSiaDnPxV9vKQx+zutk9vglpyGt2MtoV1fsdGwVtEOaVScJH0LzqH9mfEKGmvpNSFR8l057qn6zjKsxvQ1KMnXNf5L+FMzaCde/uPrj0zkuaCQrgdXwo5Zbp7hmBcMm4i1Md1tOkjXYtCtsaqfMsK8lTPjVpL67fcdty3B5nZaAoGQtyWdA5WJ05fYZw5CzQ8SY1S3KQ6bzkLmafoJ/nTWTkb1p9mzEYi1TDQU1f/LFpZ1pCWPCZZ5dJ2fY78PXur6JKd0T6nHPwpwIDAQAB";
 //    public static String pri = "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDLwKjH6TuinYyK9TnJjNvQPfW6fKxuQ/E2WqP4M8uSClIBVt1b2uqKXqHt1N/e6ep8rlbVmOk12aa/PBAuqseZdSuaZ6FD1WBLS0v761Shm1hvi5YUTSlszg0NzA/UAapXxpGXQlPL+Gblv+YgY2QUorO+mkokvScZmbGTWTI/WwBgOyp0OduVvqyDZ7wrPyGvmhB4SW9VB88xiVOMRenQd7tDyrA5dnnSHdZY50YU1gDICmlLEU8W6GsrMUSXf5iD/2MJlO++ZyIdEttMdjpK2wzPomwmlxJAVMyrWEXW0GuEMGhG40IZZUT9jPKZB8s4ZPRGHwQclJW95fa4I38JAgMBAAECggEAJK38NHDiUXX3VRSsYIJBGA3vbLEBAaCtjdFnb0kzvoipFqCinOSeEGbU09Hcs258zhE8hJtQcGdMQ2T2rNAFurSDMvqw51tESIm3lhRZWfZzRzFjxSfW60V0yCUSPGJIXiDbGNXR7Ag9zeJr9SyvWZ+oqAlyi4aZwVwPwazvBMR04bnyF3fJGME8RUVmCA5biE5Xwa/ykO8hUq21NkzV2Ii58nVzJdk5UmszRwTCCfg/Qyrdr89Uq5Nyv3h0/Rn/McPnjXafUC+qvQEm0m3OI6hxmWiw6bYirObJ3xek42N23+5pcxmvnAaq4izqs8C/kbVzzDfvFHEWHzew2Vgv2QKBgQDnxRGoTp/j80N67XYc23sZO4DzZ9hMwCjJXheYyTpi3xdRGKllmOq5h74hgZnEUEMKUfTtJrj6PMubwRep8VDl0k5jP+G+0v9tz8rxd6/mWUPEElXyJAOoxgnTp+gHq5UjKqezvNtjJegfhl3JfoDEchNJMBQqB7A3FHWxHeSD2wKBgQDhDcGTeZ79OKDXF3K+e4uJ77Isjm4ttylbR3dJaIR4zx+y9pbR0xh2ess1NITm9E4Fcizmn76bsy7FBchw/1edemEpxEWCcgB8WSyTsmP6QN1uG40WiPREIjVM/VR4FOry3tJ+bvg7hgj+6RstxqcRe97kuYaBdNbyo8Hxpl/v6wKBgD1E9ocEyfXrwCIGFlxIlUE1XsB56k9X2TBqhFhqkdnDWhmhKF7oTtzfCp828JxaD27x/YqX2vykB7tUD1popdcrgndwUtAsXUP9U4wD9OczH9v8cOYDKUh7metvDsLAVDuosg6s1V5fjf6PecmjfIzyDzEg2aPGxom5CefZnChTAoGABOvBFNFu+Yh4c9uOZb3b0jtMgQ7oN9WucNGCOTew1ddpkQc1Swc7nLOYp+QrF8W1wwa5Fp3dlBf56NL0jAv5RXc8kqY5At4tRorIn74h04IBlXvCvQBnnunEkpdjdnC2pnLa1WrlwJ9wqOo97uVOF+LGf+fSmhgM7ydHgVoq9NsCgYBy8taA69M3TgpB90BXt9bc3NUEu+yUELzbXkF439twjMpQCAw42zmcdytBme4XomShbcPhs6Bhnxa6UTK79gkb/deB5iB82l7zqiLQb9Ff0O0unKNg76OG/KidW/2IdH5bFfDzED/hzk9Q9qPLfVUynnFGHKOCA0jLRCX0glgUHA==";
@@ -37,9 +38,11 @@ public class ApiSignUtil {
 
     public static String host = "x.chimchim.top";
     public static String heard_5fu3 = "xxOi";
-    public static String heard_sfg6 = "eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiI1MTkwNjEzNyIsImVtYWlsIjoiLS0iLCJtb2JpbGUiOiIxNTUqKioqMDA0MSIsIm5pY2tuYW1lIjoiMTU1KioqKjAwNDEiLCJhcmVhIjoibnVsbCIsImludml0ZSI6IjExIiwiZXhwIjoxNjgxNDAxNzY3fQ.D1szzciQKU0SXmCVdVTt15Oxq8pNhbGLRaGa6T5N-TnEPurXLXC9sSWxWixf2rBNh6tavyU2amMK3je5vIKdm2jI2WUoguKnogYboodXAqqNWxJCicqJ_zETwrq94LFH39w_D1Hlff0e4PnOQC9Ou5HXT9EiVNRriskOqaGNat-9anDtTogS-DbVS0983DUOG-DkwkLsnrJAA-jNFFtO5jxXUlp2XbxqNHB4PxaFhv2BecttzjhS2Wp7YdcQ3_i0NiqVgGHZzM3M2W9NZW3d506yZwIg2jEPu2aaqgQxYhA4jbt47-wpVgA7lFHruBpcXrqrazT0D_5h2BCp2a_11Q" +
+    public static String heard_sfg6 = "eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiI1MTkwNjIwNiIsImVtYWlsIjoiLS0iLCJtb2JpbGUiOiIxNjYqKioqMDAyMiIsIm5pY2tuYW1lIjoiMTY2KioqKjAwMjIiLCJhcmVhIjoibnVsbCIsImludml0ZSI6IjU3NjAwMjc3IiwiZXhwIjoxNjk3NDUyOTIxfQ.F9-1Qob13PORgm7jqZa_BcoHgeKoTkvyaS97mxvb3UOwOPYeqTtYdeb4v8OWlMuwgjn1P_mUP78FL7ycOVV5k1tzyzVDxoybcRFMo-qRrqgfpk2y_Uh6eqbqkEdiyDSJWZwrcZ4kClxIeyama9uYlJkOQ5japO6rss3UjsLrf6yxjhd9fI35UPhinoyXKy7dUCl6NxUPLYN3Ut8GlPBKuJTOU8FGf6a7RTpdbg_Zbo3uWGZoOagwEVx4llU8LwlK4giIIvhyoR0-v7dOrYK4dQVR_v2YXTlK-WVAfcmK9uAuLi9Vnw_9XrkZdRxYV9Hdf5LeSPpH7PHoi5iXPIkH2g" +
             "";
-    public static String userId = "51906137";
+    // userId：开发环境为xplus，测试环境为saas-api,则测试环境user_tenant_relation表中tenant_uid
+    public static String userId = "51906206";
+
     public static String svcId = "EXTEST";
     public static long timestamp = System.currentTimeMillis();
 
@@ -72,10 +75,10 @@ public class ApiSignUtil {
 
 //        positionfinishlist("1111","futures",startTime,endTime,id,pageSize);
 
-        for (int i = 0; i <3 ; i++) {
+        for (int i = 0; i <1 ; i++) {
 //            System.out.println("------------"+i+"------------");
-//            assetin();
-            assetout();
+            assetin();
+//            assetout();
 
         }
 //        assetout();
@@ -157,7 +160,7 @@ public class ApiSignUtil {
         jedis.select(6);
         int tansferout = Integer.parseInt(jedis.get("saas:api:EXTEST_TEST_TANSFEROUT"));
         String ex_order_id = "EXTEST_test_tansferout_"+String.format("%03d",tansferout);
-        BigDecimal amount = BigDecimal.valueOf(60);
+        BigDecimal amount = BigDecimal.valueOf(111.33);
         Map<String ,Object> tem=new HashMap<>();
         tem.put("svc_id",svc_id);
         tem.put("timestamp",timestamp);
@@ -194,7 +197,7 @@ public class ApiSignUtil {
         Jedis jedis = new Jedis("localhost",6379);
         jedis.auth("123456");
         jedis.select(6);
-        int tansferin = Integer.parseInt(jedis.get("saas:api:EXTEST_TEST_TANSFERIN"));
+        int tansferin = 90001;//Integer.parseInt(jedis.get("saas:api:EXTEST_TEST_TANSFERIN"));
         String ex_order_id = "EXTEST_test_tansferin_"+String.format("%03d",tansferin);
         BigDecimal amount = BigDecimal.valueOf(1000);
         Map<String ,Object> tem=new HashMap<>();
