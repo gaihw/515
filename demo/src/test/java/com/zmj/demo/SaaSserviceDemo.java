@@ -46,7 +46,7 @@ public class SaaSserviceDemo {
         /**
          * get Exchange userinfo
          */
-        //userinfo();
+        userinfo();
         /**
          * get asset transfer detail from  Exchange to SaaSservice
          */

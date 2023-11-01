@@ -8,7 +8,13 @@ import com.zmj.demo.dao.dev.OptionsInfoDao;
 import com.zmj.demo.domain.JsonResult;
 import com.zmj.demo.domain.dev1.OptionsInfoChain;
 import com.zmj.demo.service.impl.plugin.RedisService;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Metrics;
+import io.micrometer.core.instrument.config.MeterFilter;
+import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import redis.clients.jedis.Jedis;
 
+import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,6 +30,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.*;
 
@@ -39,12 +47,19 @@ public class TestController {
     @Autowired
     private OptionsInfoDao optionsInfoDao;
 
+    // prometheus 收集
+    @Autowired
+    MeterRegistry registry;
+    private Counter counter;
+    private Counter simpleCounter;
+    private Counter failCounter;
+
     private JSONObject tokenList = new JSONObject();
 
+    @RequestMapping(value = "/v1/testfile/test.json",method = RequestMethod.GET)
+    public String test(){
 
-    @RequestMapping(value = "/v1/test",method = RequestMethod.GET)
-    public JSONObject test(){
-        return JSONObject.parseObject("{\"status\":\"success\",\"errorCode\":\"\",\"errorMsg\":\"\",\"data\":{\"accessNumberList\":[1,2,2,1,15000000001],\"levelNameList\":[\"四级\",\"一级\",\"三级\",\"二级\",\"其他\"]}}");
+        return "jfVDKG2xESgL6dPYC7Nlak4bEupDkig5Kasu9wDSokdbdloHV1Zt9cYKVJngP1Vk78b93n5BPVL1z+isoUk/+rbeD1jJGfCXGx244fLAgQSpTdEK0bRA1yQkZUFElpuISALSzkd6rhfrpIabGyyYjhXARmtaRY/KWJWP6c3VAUspu+0IYenlYs4zbtEM/Qhazl5oj27h2J7zM+dr19W3WTKpjGBKcw7OocdtBJEk/2odblkAUimijXbLm2arohApQ9GXxrPf/u8TmH5UYvM6JVbUMfttCKlanGWG089YoAbgjz99CNSQF5tjcIr4zclcJoBSFxdi4qxMQepadlzsqQ==";
     }
     @RequestMapping(value = "/v1/test1",method = RequestMethod.POST)
     public JSONObject test01(){
@@ -311,8 +326,9 @@ public class TestController {
             }
             headers = "{\"Content-Type\":\"application/json\",\"X-Authorization\":\""+token+"\",\"5fu3\":\"xxOi\"}";
             rTmp = r.nextInt(optionsInfoChains.size());
-            if (symbol == null )
-                symbol = optionsInfoChains.get(rTmp).getInstrumentName();
+//            if (symbol == null )
+//                symbol = optionsInfoChains.get(rTmp).getInstrumentName();
+            symbol = optionsInfoChains.get(rTmp).getInstrumentName();
             // 期权标记价格和delta
             optionsTicker = JSONObject.parseObject(redisService.get("options::ticker::"+symbol+"_ticker").toString());
             ticker = optionsTicker.getBigDecimal("mp");
@@ -866,6 +882,37 @@ public class TestController {
             }
         }
         return new JsonResult<>(0,"success");
+    }
+
+    @PostConstruct
+    private void init(){
+        counter = registry.counter("http_requests_add_total","save","carson");
+        failCounter=  registry.counter("http_requests_add_fail_total","save","carson");
+
+        registry.config()
+                .meterFilter(MeterFilter.denyNameStartsWith("jvm"))
+                .meterFilter(MeterFilter.denyNameStartsWith("hikaricp"))
+                .meterFilter(MeterFilter.denyNameStartsWith("rabbitmq"))
+                .meterFilter(MeterFilter.denyNameStartsWith("tomcat"))
+                .meterFilter(MeterFilter.denyNameStartsWith("system"))
+                .meterFilter(MeterFilter.denyNameStartsWith("process"))
+                .meterFilter(MeterFilter.denyNameStartsWith("jdbc"));
+    }
+
+    @RequestMapping(value="/heap/test",method = RequestMethod.GET)
+    public String testHeapUsed(@RequestParam("name") String name,@RequestParam("age")  Integer age) {
+        counter.increment();
+        if(RandomUtils.nextInt(0,1000)<185){
+            failCounter.increment();
+            return "error";
+        }else{
+            return "name="+name+"  age="+age;
+        }
+    }
+
+    @RequestMapping(value="/heap/SimpleMeterRegistry",method = RequestMethod.GET)
+    public String SimpleMeterRegistry() {
+        return "success";
     }
 
 

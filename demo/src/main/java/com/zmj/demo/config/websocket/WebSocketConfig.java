@@ -1,6 +1,7 @@
 package com.zmj.demo.config.websocket;
 
 import com.zmj.demo.dao.dev.OptionsInfoDao;
+import com.zmj.demo.wsClient.OKWSClient;
 import com.zmj.demo.wsClient.ReConnectWSClient;
 import com.zmj.demo.wsClient.WSClient;
 import com.zmj.demo.domain.websocket.SocketDomain;
@@ -20,10 +21,11 @@ public class WebSocketConfig {
     @Autowired
     private OptionsInfoDao optionsInfoDao;
 
-//    @Bean
-    public WSClient wSClient() {
+    @Bean
+    public OKWSClient wSClient() {
         try {
-            WSClient webSocketClient = new WSClient(new URI(socketDomain.getUrl()));
+            OKWSClient webSocketClient = new OKWSClient(new URI("wss://wsaws.okx.com:8443/ws/v5/public"));
+//            OKWSClient webSocketClient = new OKWSClient(new URI("wss://test.deribit.com/den/ws"));
             webSocketClient.connect();
             return webSocketClient;
         } catch (URISyntaxException e) {

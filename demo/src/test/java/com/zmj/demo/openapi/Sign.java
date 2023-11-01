@@ -23,15 +23,27 @@ import java.util.TreeMap;
 
 public class Sign {
     public static void main(String[] args) {
+        String apiKey = "41d34976-9dbb-4c35-8184-c241c09d3bbc";
+        String apiSecret = "DF7CD24FB8FE7408CE46C7EBE5B3C07C";
+
+        // -------------ok websocket 签名------------
+        long timestamp = System.currentTimeMillis()/1000;
+        String method = "GET";
+        String requestPath = "/users/self/verify";
+//        sign:签名字符串，签名算法如下：
+//        先将timestamp 、 method 、requestPath 进行字符串拼接，再使用HMAC SHA256方法将拼接后的字符串和SecretKey加密，然后进行Base64编码
+        String s = sign(timestamp+method+requestPath,apiSecret);
+        System.out.println(s);
+        String p = "{\"op\":\"login\",\"args\":[{\"apiKey\":\""+apiKey+"\",\"passphrase\":\"Menghuan1314521@\",\"timestamp\":\""+timestamp+"\",\"sign\":\""+s+"\"}]}";
+
+        System.out.println(p);
+        // --------------------------------------------------
+
+
         System.out.println(urlEncode(sign("AccessKeyId%3D65341b08-7adc-46a0-bd9b-906c23755e13%26SignatureMethod%3DHmacSHA256%26SignatureVersion%3D2%26Timestamp%3D1611113700559%26streams%3DSPOT%40ORDER%3ABTC_USDT", "0A1A00957981761B1E6038A5CD9854E2")));
         System.out.println(urlEncode(createSignature("AccessKeyId%3D65341b08-7adc-46a0-bd9b-906c23755e13%26SignatureMethod%3DHmacSHA256%26SignatureVersion%3D2%26Timestamp%3D1611113700559%26streams%3DSPOT%40ORDER%3ABTC_USDT", "0A1A00957981761B1E6038A5CD9854E2")));
         System.out.println(createSignature("AccessKeyId=65341b08-7adc-46a0-bd9b-906c23755e13&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=1611113700559&streams=SPOT%40ORDER%3ABTC_USDT", "0A1A00957981761B1E6038A5CD9854E2"));
 
-
-        //样例:
-        String apiKey = "65341b08-7adc-46a0-bd9b-906c23755e13";
-        String apiSecret = "0A1A00957981761B1E6038A5CD9854E2";
-        String timestamp = "1611113700559";
         Map<String,String> paramMap = new HashMap();
         StringBuilder sb = new StringBuilder(1024);
         SortedMap<String, String> map = new TreeMap<>();
@@ -39,7 +51,7 @@ public class Sign {
         map.put("AccessKeyId", apiKey);
         map.put("SignatureVersion", "2");
         map.put("SignatureMethod", "HmacSHA256");
-        map.put("Timestamp", timestamp);
+        map.put("Timestamp", String.valueOf(timestamp));
         map.put("streams","SPOT@ORDER:BTC_USDT");
 
 // build signature body:

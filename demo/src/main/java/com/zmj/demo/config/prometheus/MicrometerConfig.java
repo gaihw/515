@@ -1,4 +1,4 @@
-package com.zmj.demo.config.micrometerConfig;
+package com.zmj.demo.config.prometheus;
 
 import io.micrometer.core.instrument.Meter;
 import io.micrometer.core.instrument.MeterRegistry;

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author gaihw
  * @date 2023/5/16 14:40
  */
-@Component
+//@Component
 public class Consumer {
 
     /**

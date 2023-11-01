@@ -8,13 +8,13 @@ import com.zmj.demo.common.HttpUtil;
 import org.apache.kafka.common.protocol.types.Field;
 import org.junit.Test;
 import org.slf4j.LoggerFactory;
+import redis.clients.jedis.Jedis;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class TestDemo {
 
@@ -47,6 +47,11 @@ public class TestDemo {
         System.out.println(list);
         list = list.subList(1 + 1, list.size());
         System.out.println(list);
+        Random r = new Random();
+        for (int i = 0; i < 100; i++) {
+            System.out.println(Math.abs(r.nextGaussian()));
+            System.out.println(Math.sqrt(100));
+        }
 
     }
 
@@ -750,13 +755,15 @@ public class TestDemo {
 //            System.out.println(v);
 //        }
 //        System.out.println(Math.sqrt(0.0000000009));
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10000; i++) {
 //            System.out.println(Math.abs(r.nextGaussian()));
 //            System.out.println(20.693+ r.nextGaussian() * Math.sqrt(2));
-            System.out.println(BigDecimal.valueOf(Math.abs(r.nextGaussian() * Math.sqrt(100))));
+//            System.out.println(BigDecimal.valueOf(Math.abs(r.nextGaussian() * Math.sqrt(100))));
+            if (Math.abs(r.nextGaussian() / 5) >= 1)
+                System.out.println("有");
         }
 
-        System.out.println(String.format("%.2f", 3.424324444));
+//        System.out.println(String.format("%.2f", 3.424324444));
     }
 
     /**
@@ -798,5 +805,459 @@ public class TestDemo {
         return code;
     }
 
+    /**
+     * 批量撤单
+     * @throws IOException
+     * @throws SQLException
+     */
+    @Test
+    public void test19() throws IOException, SQLException {
+
+        String userId = "51906195";
+
+        JSONObject user = new JSONObject();
+        user.put("51906166","06065c747863e2f910dd557b379b2345bd8298bdc50973b015ac8b6d4e0cc4a6,MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMjFZndok8o9GbJwqZu936ka1zDtqna8UilbwXgvFKpDnqLqSB+4k0C0QoaMn2lGPsKyEs4Iwi0L+H2K1RI4jTBTNUDDcHF0tpRd4DMJ1vuUOJI0uxYuN8UHm4UKuI+8+2Mnh/ti564XbETalLufSwFUD/wkZMYCtFkQlnQ8Q/7zAgMBAAECgYAGcOLJKOc44T3uThP65ZwDylMmBDHoTkFah1GNIAGLNtEji92Veu/qbv4FYASLNZA04c6dooVMOaqWqHoOdBb/a9fTl1hr9qXZWxxZ31A4/eV4dK17LKsJFOi7YsDcPoRhOxXHtEElSXV790Hu3gObaNrRpXpeI1AkEwB7WmTVtQJBAOVP+corBR6WBvW9v6ixnIrPO9WqV7v7Lq6lQpYNgGmnDmBxL9utuEzuhir0nK8uwxE4UVOVuyhbv6Nh+rjlut0CQQDgIxQOo3HtzUSpAeHLrJv2ixU2OQDorvNByhX0TauegEGa0/l9BFHjuSw9jICYgdxuhsH5iSNdkbfo940xR3wPAkEA2B4l53ngG1F+QcCRj6XFSbXCSL+AbHRxLLwoI0+aRPjjPdWvKzVwy2DKJlXgDeLeia4wR7yIZaMC3DMNn5E0KQJALDF+cOx1OEgy84f1d21PSytdQVW4AikMuboY3hS6dAQh619EYAwMAXSvbmtXp7pjNj/H22XY3UgwFPVKl57arQJATQllXvkDahTjScaJq+Hro4mTa7pkvscGtWxChs1qJrHxlgsVGSnWcJIas7nT+c+t/zbWadAkwMk/aPe/aWRHvg==");
+        user.put("51906155","1a9da8d194b0b7693a372a3b04073aac165f4e8a25ad17738888e90f897f35f6,MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAN2G0cjlKF2ek+g0mWZuhAptMgfFdXxdq7CXOGLK5537vkYwGdyayf8Yx6ztOF7jj7WH5WXfhqz2CxtADq8G/4zoK2Eyb6D5qmr5D7JXAfuYiVhRHYG4nsyVgFQy94BsLVf8sjDEIxomOPsGlkioKMR0bipgrLYULjzOMPGV6tbTAgMBAAECgYBA/E9ncT41tJLsMB3+LBaFHoJqQDVWbf4zWDE83gwzTsoDOhIkIq52LLVK1+5M+9HJLZwQlhGihK0+abzFALcPecWTYWG5UqyPavfEmZlTbvpEjh5oe59WEG+tDuJk8JcTblr/crCZprGdK1ujxy9k9cKFLmHoiQ4LSufavYj5vQJBAO0uVvNcJml2AJRiCWhyd1BUvdpLAv6bNISgqhr06FRa15s6vXV22zI34ziowznUnERujB+Lu8OlsuQ1Tvn5oH8CQQDvGoFqVKEnRbfSyiXXUbLKIVeDu3UlRiSkah7gvM1vjV3Jn1+T4w4kBgxYvvl8X9wIgt8OajwkF2CyMfDtNh+tAkEAn6LG5zkoqWbA8R4jEueoIqtGtTwzocY4zOOOWmJoVQ5ne5VHm14KHny7NJFyBORy4SQ+r6TPFdna0/qFU36OZQJBAIa1fTIl6gFRQyasIzOzYLKGpGKga3iLkztaWnktheSSVcOxWczdAGuFSNF7Dt5mt3XIHdlmOunujdj3UBClDKUCQQDU1sQQNiY7fjDNR5c8GMCfDN2beZA43Z+0DxUsIGoNouOpM3xTneFPp4uwhAEyiLkcUO6+pP+8SKm//NX/K4LI");
+        user.put("51906156","4b56ddca4ba38a5d543fbac60f33ecdcbd49d6b15a8747332f49a28fa4eadbf5,MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAN41qI5ipbWhDi/KwwdNPvU38hk8LIvWPPnJKWkghNF5Yvz1lj0w1Z1U1T3wdK8DpPzrJtw2oQuzPZC9jv4CNSC+zEYk2kcc95UsnAacrq5x9LOc3XILmapLgcRYcKXkOP66j5QhsCI4vy1FfrBWRykXrAX8WTmvuwyO2760YAOdAgMBAAECgYAMyoDv5UzNpj43URAl8PPhUL2eZ0DXMddjt4krNISAvGCO2CI0VoXNXy9BOAC3fFm4d17OyVQ+5Kv0E31SMNVW+Dh62efmmHzVorWFbPd7ThD0UOn8doGqvuEiW6lcit0QJJVhIg9vP1Xf+x15HFxCWlZmNkLX7EOqE8ayiM6+sQJBAORDyTAxtXwMHhtP7ycfWJNQgsF0dwKNVKmJdgAIepy8+T7xFFJAnZNgVJUzDwAIS6vGs9nCxiqBkOB7xQgZaWUCQQD5NYZlWyQcZRhMfnfavqYk7R0nHuuZCYj/yzswWtrRB014zSwCBTICOlm5ZEglmWACskmBjaalLjH9YPAsGqnZAkEArh8nMSQ6FE4KCTuIaod2wakAlSGKRuAYXNsGsC/HmBhu6Jxtq/CuQuWQn9866gNp9ba1Kr9w+qurIBJJ0kvQIQJBAOVe/nQLjxETe2nsfSQ4lXMnSs3XB8GzpQTKaY/4D66UqhmlvfueDIlAa5TXWBBDOrtAnadAWUFvY1NzBZuSbwECQBof9mqXqm2xdQmpHNnKiGQ2BUclJWFDAXkN7EdHX9NSPXeS0EfNNRzF9ENx3EL2PSTCf1ZntyfXCqHk3nj+FJg=");
+        user.put("51906157","08f4fd168cff59008a53d151d8100b15502febebc01c6e326bb8988e8d463623,MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAKXVIHJWXLCsknEAYHCyNuHIMxb7iJL6JeLsc+9AI/pjxDSJcSn9toskF+CnkiPGqnLfjeg0d40NTntfEPmEsaIOxnaqezZNy0lHlNN7Y/mNWu2NE8ZSBu9f5+nT1/v0U+EyP0rmvZFOUbe2mtcP6UwbyBHY5Pr3JnzQfkjwHiRtAgMBAAECgYAb8n7ZHhJZaP/2ANL/8xzaMK/hgesKoBMl+uTv726QymL82qPiaIJs0RygDQWNN3Quz1ueREdYk2NEWellr7XyvQ2dd/5tnp9tl1m4rLOsDggxRH4HoMkYez17XZkC/JKRJJL1jhObMewBaRyV4btjXOKJH7Q+EdX9ZSbxqMg68QJBAMal63dvnInSHZ1UVsa8UwvWzsb1PRVDEV1hmFkDcri3ZP7GLbtngmirn+YTxTfczpGS3dX2FXQaUeEHFJntMH0CQQDVtc56YpesKAhLSdVQFNgHF+2M2xn3wH6PIDtyZWe1h1F5YfegDCREVXcF5t9C4LLGP4RyV+revu6L6AqavnaxAkEAkSS4SHtPiE/y/XqbMPh3QWZBjZOwfvGTJYTiuN9RGnA9pf4NeimmWm5UFdsKNcfrUuhZmDUG9d8pRl9TCSkKTQJBAMCKVSW0UBwd0SMruRC2Rs9VQoNmHyY0epGuo4B0VhSZftESb4v1hHNAYMSjdcCGOusb7NMr3IKkmLzZ6Tvzn3ECQQDGaav8tVNairueQnjj4pPpfl3Ca960fviEVy0n8CFd7/Q7FtASf+MAn95mpG2lNVFIAvRzQtDQJkeO9U5k/4HC");
+        user.put("51906161","de2403dbf08fd9add5896b89ccc9a22ca42dd65c0e5bd30f893b3efa240722c1,MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAImDSwu9qP1NL8PPoiRC1Jj0m/ppHrz5CtyvuBXEo3i9mc2cjMbv0c5tTsCcnS8uJtQGoim466rRisQeIaN69KlMxfo/VNYdmmCJokGlxdfP+W8QgZLBfH8wFmZgNBYKQUg/PRoSKEoQTT+Yqk2spETdRkWVTEdZjoYylgazdE+NAgMBAAECgYAO8pPGl8arRhJ3mqB5iD7beNdi+GiWymFuYgwaEvu2r7Fswrl2FHJ+Ga6noZPfzDNR9SiibWScoatlAbt5WEUI3wPRPSxIsfthXlJOFQ2iCdlf16Yb994nU66VSINGdM6x6tUJXytuebLOz+J2O84EvloCHM31VsK+DRSY65JftwJBAPnMMjCGTvV7LycQHdDY2K2cPEeZqDGkCYhGOtNc9Oqvll0+r+iWamlEPeHLhgth12kiEmAOdvzn1cdgq8eLfSMCQQCM7V/hbNRZW2cPS6xqnsX0hnOhQ7vYpySPfnEL3vhw7ZktDyW9R1Tvm/ECYRit5+E7MTXFqh511tHei3N7xgOPAkEAppV3TwbydyC8NEe6KoHCFh0f0fv1v40OUlPLfRL7vdp04yAf/XL56dN5lS+9569LETCIoohi74vH9BtS01MBkwJALUgwoLxZVwT5jn6gPfoaXUG+cbjT6P97zeew50GTzqVprILLe5AqCHuw6zTLu0Vgp6ZeQs8wzmhiMwHX75NmnQJBAOXqy8RZOl3I1FscWfJLip7lbHPyx/bDTQd1dcKFN5UD9D5LU4jM6KTDEoFOjkyWMUkQXWM2Gfmhsyy9MPwLbNg=");
+        user.put("51906162","d2dd1070c0b689296aee2aa82a6e8a1f63c852a7f7fa1ac4794deec84d4f16ee,MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJxtioDvLBI1PNZR/whYdUVWVq8OHdr10imzrPDj6W+6yxG72BwVxdIW7CTGWy9YQXcan6aV6dhc1e2oEISw97qGdHjrzeQ3rNFR0Yg5o8dZj1dU9LIhQaq7U4rUqT6EpZU4a+j4mj2nCDz+9KbREIr54i/uaB9UIXxWQwzE9naRAgMBAAECf33IU/dUxkF7D8fn7LO+AaTBvOS6AqqJ/+s8GB4QIU1jQjwP/vv9pWKB3y8aPrqAJFDZfLOqvTPTsVoQ3l/dOW+boZ+9D4Qsor2/NdUUvKudTY20UO7Z5cPA6FQ6ekleq1x7hM8B8pk63Fp/m9an72XqZvRz4wWBdY/ElTiGrdcCQQDjqGqUnrZdz+qa9rSP59Tw4y8YFayoWDdEMlk5G9UtuPgiC74w5bMk0fkb7OknR92dzEgrsHKU2Sw6nBhGyI3nAkEAr+b8Qz4GjzLTq+Ldxfp7DbFCyr2GE7PJqlRO/agnBHa9JTVQlFf3ebAqvgT/ilIE0+KN6OCgVepK2eCGTtmYxwJBALeKn6sErljB+Q5Imlhu+2Hed6h+SP5MaPpFcWO2ic9cEkk4mHTJq/2if6lA/tSZfxXqjcETd72DvcHe+T+QD78CQEKRpfJErPLQh27LYqakDqG17dMQOoeGSNGfKm2wj2OPFDHapW4ehFeXJfXXqmXMeGs/l/kD2WnqSv19jRaWHs0CQQCb3oO/0KHfYnfSE3qB3qpCHPXXrJmv7aTNOjPSoWRmYieowR7cCfv+Xro07bx0PjXeuv7Za5ZO9gXf+YXH3EOU");
+        user.put("51906195","db297b2a707e32bf075b55a0b0ed872f4008f7f95951720dab31c2b78af0efcd,MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAImhg+FaTeKoC0nZzoIN25qvuB3yEPvJs7JnZyJBC+NuH34zyk0g3u+Tsa1HIBrY2BmpGFv7Z6Af4vApj5BgNvbsKxMUGvIrtJpcWHNLUeWR/9f2n7m16ZdVMkyS5d5LlK/9dg1CctQ6UjWIJ9pxpXeC/YRgCUSOAvU29JhBWHTjAgMBAAECgYAzMv6YiruGofTxGDGWeAlF1jCsEyz2Pea3a3gWahQ+Gu1kSWfsoVnNzie+ykLLOffKM/l33mKCUtpddViO4PwQ+q3Jg4ofXvLyrNMcBhUqYOrmLTgbYrwZ6qcKDliqcfTH7/MSVyuHOcyZhr3vX3ZvMNFedwHQmBqh5nGOcZBygQJBAKV5Wsha4xUoNATmDX8sFaJLpxwxgkVuSumyTOl8QxOiST5Q++fHwlz6vOxve/hEHmNyxgbvXHbmM2CgVkg9UTECQQDU7LrtlhxZbsWFCrqLU6GWL1liMqbhw/RbBnsBi56NF6MNqAE+dywvim0bU6s9DAPTYxn93uYDFe6Ow5hA8MJTAkEAjT4co1AQ7Qo3/MZxVs/GV5XDumj4DVOrVfb/d3y9tJCdfDecDaeQ29SaViaC5tMeLTzWkyzU/BhaWmwBuf+8wQJAFRXkZQbKg+i+UrB/TLDZfZ/uwBS4Bf97wU/g+oQzDVHb6cxLYz419/dDWsNsX71C27oipsteB8wyNZ0VBMlS1QJAD+C7fpRHaBcZYi9D8aMrU58eZb0+2KotLDOjjG4FAjoo+htB9CAcZPMsp18P2V/XWWe8V4AWtbU+Y1qSs6WNfg==");
+        user.put("51906163","8f999d5ff2a1047f3b5cc0e86a66b13a27a8cf6b4e30a2513e718eae9313b0f2,MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAK1lDd63LzBUsK3Qzgn49GYsGl1lbwrQYjQbG6LMaUljlAmbq/RGmc8/lE5FGu/jlxf6+T9RF9pQ56C8Ut+c9stYtJgoaXb+2Yk0qPAm2qEY2VOnd9LfKhEL49/t4HkkCi4Ilhm9SRBK+jqYuQR0krxXq17BxIof2JzOT6YTMDIdAgMBAAECgYAZcmUwtE2WmDc9qxEx4XlsrThJUKOVQLPI1dmecMVa4eRN7Ky1ss7L3ZbUTcwAPLRl7o05v5ryjUERE9JNwuls/DiQRYGTkmqBhOBmZB2Sg4hXmXmsAiDpAZSvogaFzURfZMPA26JlXX9tDQ1oJr2WR3XdmSTBeyptPQfmbDeOgQJBAOipn2L7czBe8Dj9ITTKzPCKFJM9l5gRShFixOuO8tYdmLjezC2sRt43v+OEBZhW8hBajgGe8kvXDHUaUcKH0PECQQC+yYjfW8fCZI+GIjgfC42lmTX7HuId7D5r5mBoGMhELYKz3vjUW1YSFPoHma5rptDMZUg7o6IoVJju+iXyD/PtAkACuCjSwVmhURrBr8O5mD04+oQvDGM/NcSF23+tuSgBdKsaThBY4FCbvE8T27EtDKcbpdNPFYqDdGoC3GHkQi4hAkA6vm0RcP4R4cq7Xz/udy03BvSzDLBMzFfv+zBF/RN0wpqS7Z2qLTFUQfc2beBhryxtMuZJzrl4N4wbURRr8vOFAkEAv5V/nRMT5kw0wcBruZE3lkZU3TAt+AUYGR8gadhNYv4LtdJgiI0KQjRwd9GsnxvxF4vlXcEnvXFIZ5fE86vp/w==");
+        user.put("51906210","ee50c189ab052ec333d74629f3d347a323918adba12467587866094fe2c3f00e,MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBALjSG91Fcc5WtyaqORb7kMvrC1eNgzYBPs6PJcEs+cPgQMrKVr3MhrOhq7unLpnNOqA8KxyJ2aKHv/E9tExXGaL5Yj9ioUmLzqGffl10zj3fTuC5pmq80zoqNL5LD3V1hhJyGHcl/EoMUCAGA1m2wPKfHe7COChHLxk2qv+tPdYPAgMBAAECgYAiN7gz88b5ukFHdc2DDUlGD7q2V3ta9MkRihwl0zNcyfiE8wgzNJodyMlYQUAV9pKrlugubPEvr61gNxnZ5mhW3MVIb7XAI0SRN2zZp3L1wMqv4s3F6o2N8o1TjQiq6FJNXPDbjsxBGglG6LobwT3oIIX9Jwyw798CQ8JzjaU8gQJBAOtI3z8BrOrZ4JN4XCd30kqAbLnLjZnpZIwPNuPqD1ejNLkmo3QJzcwn/SU4dN8hIL7zQyxcsAQqq3nS/2sBHI8CQQDJF9IHlFkvx18N+/XhpdosxT1le8ykFGlTrw7b5AFGsnDenI6SoVpOr4xcSvvlSvQT9hlvOqKlx/JWNy5Ih26BAkEA5OMYYsfzeuiH446EP9T924JBwyE1WJRHP0WRxXiugjgAE1p2Sm07Ki+AwZPBhktI+tnV8DMe/H6yICpWVbdYGwJBAMQ0gbDzhbGgjZZPaLEp6Z4VNLp3+Et/vuTvwUe7R6N7J7WMe2+GD18G2aSTZQNsBooTbO2iAGBQnpqQbJBH1AECQEK3G9Kqznb/xNZjQBKdK4J+RjvT6pL4X+qq6sTstGzx9Iar0dWVhnGZLOl7HuT0iOW23w9lJUPBk5DBikSY3fA=");
+        user.put("51906209","288a2de6296f67f7cd691aea3d30b58d2984e3510de6dd49761e708c7ad5defd,MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAI18PIY7Q/WiuodftV+uc+EHxd+tW7Z56IVnMRAjKC0c3arl80gcMp8ixCgx1Zt7vfdxn2qnMDI1R9WjJv7VyIfiV6kt0TmFpdsYTBgeZUxn0yWwCG4XeVZ52mznqHFGSKnW7JwmmAsMdN2rNluBgZ30N/CzLYlCCqiSddr5LFr9AgMBAAECgYATCbURMNdXraJgxeGfctd337Zh/y84khXWIYkKDVkCHQC81r1SJi0vmZuAdxgxmEh7C8hyLvX+w4mbdx0vrC+T2GKa7P/7GiBoCge5z7jl0IdER7PJFZJRL1XPcn37Carus1OPgVqzDHc1F1MdoMo7q20RLWmpovA/YEmDcxvPwQJBAPVGA+1i/puv5ObK7TtEtZtDkHf1vvf2+wM6wOCHT3h/Avkn11RGnsO4XcY9ls6Hr3SrSxnuVlD48urnuz6H+KECQQCTrD/nwvNsucNvvKeDlXoPxvaDeefwTzpsRlMHKRmR0BX0xGktO9PbonVIdzWZXIhlQYdv6bgVk97VF3yIt7jdAkEA5hUl/fwNZ7KbAb1+yUhtLBc3YLDQ0f+H/MGSyY1lCV3sRhoPrukIagV7QknoPBmgh8tgChVAN3kxNxbm2YPnwQJAS+pCFAgBkgRRdzC5wQhn7pJvChnyZXSlaSIh7s1vKqmZj/Iky68083Up6+30rPmH2N3+HUc+bkFNTai8SaCBNQJAD9i7Y+Gp6B3S+jVw+jvjDgVqZlFlgkVV9/4+r1XovkK0EfrvqCKxiJUEC87tHiKt//aEY8znvb/LVn4ASN2U7A==");
+        user.put("51906208","efb0f31c21b1acbb31445971f4a59c77ebc986d388e5a0a2d0fb5651d61633f4,MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIBl8x/oXtb3/WcK/020PDWTZpt47f3LH5CdtK8Nf75KcKOu/amCnjtEKWtm76nesySBkDV2TFv5I6UmwWg6xyRZUoljyTzbj9WeT5bdsJQE9NEBWP7nPsvh1L/tqlgkflWabmbuAe6aKr+VmmyIxtr3fnVJ4fXkr7O6RnUlasdXAgMBAAECgYAju/v7q+DFRFSGmpVuS1Scdo8Ogwv9X8xDo9iXBZNBYxdRPtEDHcKq7O/4H7hg1wWVieeYMXnT+RU2EACw4PbuHY+iL/j7/i5HG81VanIfYHjGISeOSzgtNMH57ELe0qDF+F1ClknLODVCO4FOLgWYhHUwwG/TCf/QkbkzMVU2UQJBAM7mM/28H1AoTpWithYjnSu1vvygiqVpC2QtzWabthYB3onhI2UvrA4QFC6s6yHLa+O+vzLCBWwJs7Jk/JDcnGcCQQCe3o7LkwykvdzU5GnRY5N9fMMKtgii5c8+N1zikkN27Dw2RNdpWTQyLBTVNDTiICLXvL8yk7t5zvRlFFuYuaeRAkAZg8YRmmt6JR5b0a8G1+mABG/DE8FFWMjw170m1DkGScC53CvTRKfBLDZw8x4kEsQBV/qYNdkZU7D3ZQDIlIwtAkBVVhD38uYQu9eaF5NroQRBnLmb0En1TmIy9kQThCNvBtgVAod/FCaAaMNL/r4FVOPCZKWDQm2qsWr/vJ6y+86xAkEAo19saZf8VptFsnQ7JsOgf3Lea8TsQlxmwH0mlE0f03+UxdrQ6koxTghDl0/G5t+v3SzC9vzMSF1A3CpxrDYU7A==");
+        user.put("51906207","72bee5d05fa0d422061a1daef6f1493a09a03302ac20f4800c30a40d2ca24b0f,MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKxS1HZOzFKhTrKWTDqP8rOGC2jWcAS7x9qfU/a/Tp0jFomQalQ9pVNDplx7uWtbTxRsD1fg6nMtI0+78HV13jwd3pdlbpUaXKw9Jhe4gI5Bp2LX9/8XchRfyWVk0XEi5ZpdT4yg1VjjgZ8ExTSHv0fAG2mBl+zR7YjuFzlubpi/AgMBAAECgYA80iNQ+nDdPTfEio2vIb1cpZQDVaRF120reY6uCUma5pZ+ySzuPK/MWpUuETEZdinMIHOt5aF6M1VCQCgXnRlpc1De6RcFLCLiOGp7W76IQVrqOGlGWW3S3a8nET7/TqMjcYjjYrM2oief1oqvlZ+Sl5/6h3PBu4SQwFs23/vW8QJBAOotRAhtqpydzNu5285LEqKeO+fwbEnXfWVVVlRQXmNXIzjEe6z4vSe7Q8Hvndzwwafur2/sNQaZuAVTEcgNKDkCQQC8Ye/KU/78fSOslbTB3pTpVyM/ocRglowBQnUfpMgXdb1sofGDwOF8u2kxbjqMwcs9yVcC04OnFuXqgRKkTZi3AkEAkB4tiXZckqh25B8dDHedT2FMgvCu5D7vWEbNq3QOstp0vcIGTyyB1Qrlp1wdblTpCb3WUG4xMA+4deZqwhB+2QJAejrllpc3nGYp7oJYfW5JmrmCUnhI7g7gmrSfQD/v4GDx3nmZNk7BP+huEbee39OiZt2rylapVpIh7i1/hgIfMwJAPSdRjDK4SNIp/6axF+YOJ9G5/OE9oXEkRxEBYrLdqzXp2vJgAK7sQRsDoMMsJbE3S8spggznlxAnvNpjFOD7Rw==");
+        user.put("51906206","0e4a5939f2177b19a4e645ef9c3de02c8cd34c62988439d3737e39db85b55fcc,MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJhEduIaSXIqITCtSwRAiyggLQvWGNK4xKlTKKOjCqMvrIgHOVYoyPPURiH9U76YCVCbajWNadan3YNva2EXLN7RDzmVdRCmThi3fb0Uq8i2glK3vm5tLiuXDX0qeI9ifkQtVRE273rVq+FGd85oMdmMDSTgs0JFqdNqzEFK0npxAgMBAAECgYARtB4dZkCFV0wiGHfpH+b+DJWoM2WR9H0bEcnfErkNJaEZ9LsQHzBUFylrUMSgm5Uzq8oyvUUhucU5v6XctUDYXk18f/7sDUsOmPG4uu+UKAAqmaGT59MV9KHqC5YHBA4yxWLRWEOnnugdahYkNjh22jiSEgJjdN4CHQBntZp9pQJBAMS3+CUjboTMbpPU4Uni6mMy63znaXlJ6z+C2dMExleSZVw663YBVO9C0NgSI10qpzkxe3m+VmIhgaxmHPF1W9UCQQDGJ0TiDi+Zp10vgAycjaacVshj9wcOSEKJBHIweBLrYivAOaDgCFleUXfnJqODe+BMi19ElqZRXKkpnU81xP4tAkAUOmKe1wTfTPI161b7NQUrDCpg3p7e5PX2wurJIx2OFbSshjZ+HObx72nwPfU6+E7Xt7ndq+/QCWf/JUTmo029AkAKhA79yC7ygpVJbgw9Sq8q4Nglpfhz45XUW64LsHOglkcoHmbRPOAxRzWLyNsooSxYI5VcuHn/G2HG2ZhYjCnJAkEAtKdtLcGneRINWYdj8hgA+R7lvRxo/qHRC5wOICzJ2DRchWo6AY2MiOvg7D54tneH+5R/oZ9SjHtbaQmi53PLXA==");
+        user.put("51906205","7e22ea6a55db7a8ab390a48d9e0f9b37d3d04bf7ae5227a76d8c3b0495ec5ed4,MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIUYJ+sXWGK8N5BlZUwCvi1Ya+rrAcGX2l/iqZcq9gv875omoKksZ3NK8uepNGIpcYtHwTgjthmxC1rne/eG5Uu3sRARKHVbznmkbYYK2Ui1FPgU3pt1fmFThAkVz+Gj0lQ4zXW5RDYebOyxAY7+NRQaPPkmTKrow4b5hEzaWZ4PAgMBAAECgYAhCAq4LNYRwxajLpcCU1fxlxVJe0O3UUGwNGfUjaP8+6xXfKi4871E/t/kILlQd2qnn4pTrYE/RRJFYFgC6aa0UZs/kUWvqUpnKsY3JFRVxU9GGBY9tk5jXwZOmQD4q+HLpF1g6Vx+FT48jtdv+ONduBfa1O438xnaIze57vZDMQJBAPXh9q+gGH636I5Y3MDjT1atkIKHVAMfzr53zeVWKzTjPlb5O7JE2uE14K2OBRtG8AU5LKKAamF0LCxvNocGjokCQQCKkh9Od+aFIsXzqyVunDYQrraLvaqgmB7gQVt7RoSKwPH+dWCPr+W3wZ53cz4UrUkP8BAeW2884cIQz5BzpmHXAkEAs66RKv5/Z/rVQ1DE4WA7Vkg31ms2haH031OFbxZtNJTrtXskmL2ghfttWObz7F8Gf4qsh4P4OYc/0Kjk2/96oQJAEkzP454EDIsWF2L/04a/wR5Br1zB/ul4EmevPC2I7YYjr1YzBWbWcJkaY24Nwc9MudUbW9b5btHlvjCbRBqyCwJAHps19VUwtlpSFDrSFP8Y16MSz/VCt9hRk5NbAOjRBCCEqnVKXCtdQbsSfaQYBBdjHPIVIhOEbMHUHrlVd4tH+g==");
+        user.put("51906204","3bcd2eee0b6f53d8f290688d665f376097a68b40e81c11b828127c5c055a8cec,MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKOJvdw0t2A6fxXLKRvOc11o6bmexKFyk06WBMHsXq8vFd2sKgJUBhQ9LFQc2rTLxzFsxAiu2vMwE8RdLqfG33lL9k3CXBRCvOpr2FowfCZOL+5ygIHSwpM2ctXJ5klPjZ4/SHPOWQT5RtsuiW7JOvE5xk3c088omDChY0rKfpMDAgMBAAECgYABYboZNnqhb2ujSFHhaomXLaLuF5DeSoYr6yxjqZya05ccKQDd3Lb4zEJttsebX0XDTw1QmuvJwgtqKoB6UprWwTP3okNa1YIYyUV5JexEbTHHTIQopj2123Qiy6ktvpNpY4YRCNQDHRZ3z+a9MJkEUXHJGMEoAzFHRjZ1TdE/YQJBAPEpg8Dj3YAoQJiAWwS2D2yqtjpOewAAdsCHYDokS7SIpo3/f47OpPXTzfuIx36MhCHpK1O15MxjgOCmHlhrsTECQQCtmZa/6MPqX1F6X78Pt2K9iFqW2AHuX4yaUfq4U/BajvdClGQCs+KCkjMQnrmrweHuasZ+fhocu7iFI5y0TxpzAkAIMPLKsHKrkbJv+5wb0ts/Q6Ug4d2HqHxgGbkJAIaZwTJ3DECW5ynvN5x9eK3d/IPYawUPuNPmpVKRTtMlCbNhAkEAqqg0JBCEmGB/zpdVUfPro3rp4yQSMe3IYOR6Xr5VqBCnTdJmxqlj4QwsGwiOaiS9IA3jd/IrZVe9O1UY9cBVtQJBAIOPE6erZrlLVTK6vHf2I5r0lRNIZfRixx0PZE6sPvutTii6fPGHAylEEjmpwk5Yk34jy8023JPwHMqm8kz4qUg=");
+        user.put("51906203","ae4b24c7efb78465e9e317a3a165b6ffadb47436361fe6ff23fa923708ee55bb,MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAKKP2GSsUXEov8a69v/cwO6JgTLCrMmmYl1FlcxpQ1MAm18hvPdJEDaVABpr/rNGkAKl7XuWn/MUOuj2GEnu/Od4UusYY+dUcQ3NRSb9+9z7mA2bhd/haSGgz+JVo3VZRVDeRyJxNmZTWf+U5Jn+n4ysXLgEsS/+rMHkKrFveKQVAgMBAAECfzwqgSzBmmMHcfNbv49zZPTkb60Z4FnB+yYKWycMzp4p21eaZRYhNJ7/BsrArcQsmaBhSUQ0u358PlF6xAKZMYDjQMJXRuC5b0q2d/K6yqc2D/w03EcL2IuboCLvuSLX1FzXd22vjsY7ttTemlpk0j6KVbPVd0G0UajpYte5d2kCQQDPWFj5oSyFAANbYOzUgr+beqCYxXCNtmDxMYx4umN1ibRrgw58+lAnHQOXujIJSyNhVBj1uki5sywTpEI3T+FpAkEAyLVG4+XwKyKkuiNJKYAvmvkYhuJAS+9L9Lq4UB48Q73Bz8QGCIkybnbmJd7UCnkwQLAnuLneB021nRDkc3CrzQJBAMYp7qdttanLMGomAVK9PzjugwxfLsoRsybxLwq3QJU2LbvO/orNhMtM/IEHUAj3yfGcOVqoVhc8uXRwOWS5sHkCQFYfw22ji21XDkx5O7m9MbBUVzv59hEfe/5l6RUoBEAlOvdGbDhZdvSDvLpfZamg2x3G+SSBTU7g/5+IUh9fJ7kCQQDHg/7Xvw+0XPLLWA4FOOBka34TQDpoh0KHzuoEnotd4wegULJynDf7qp4sJ7GtQGGgcyhP8dYQtcM/gvUyKxKc");
+        user.put("51906202","c83071ae209f090626bb17c0807fd420bd6039c28cfc2f0d6dac83c4958b56cc,MIICdAIBADANBgkqhkiG9w0BAQEFAASCAl4wggJaAgEAAoGBALqzArbPb3eKkSDwL4r1kRsmbgRGWi2MI870kHfOGCwQV6ShVRtioati2MmLSMWdcXcbjPE9TWprMcWt7vZWZ9ePRvuaEg4fz10mlJG7HXqT9OcWAwqI49bP51Ppuh8+D6pTUhLuE4/CaDUr//rOCTuWsN2HGpYbrYq3Lqi1zPExAgMBAAECfw9Qn+hfG8WymDUbfsrnWf/gJyYynzMdS9KuPSuWvGTg8k+O7GxSqvBkK2RdCJstTyF2IRmo7bDNGkgc/H04mUvxhhfCr/6T4J5XWDnBc5oU+mQjC2IDsZd7YS3cjk4lEZMNojtaHibWLRU3yjIxcS2IQ8xkLy8Tsa7CXi9SCPUCQQDoN4f/w0rHiqC+Hwc5d9T0lOXe6NgGtG7IIcbKrQWDTE5efHWPqkFyULi3vAm21D6SP9RiW2pqPxF4xG2yoI7nAkEAzdIOnPxqx4t8ym6hqidiKpcwk1DQREyWppjrtJEpkaI15htINZPtWEk6ssT9fSRGePMZhns0sutPJWrpemX0JwJANybBMRhj0UJ2bNEXuSlhtXkLo0Zv0B/YU8XZ3db8ATQFROGQVj+cbZcIV/Lb58U+2yM3wOhvPK6f6qvUVeFWLwJAAcI5vb2qa+oVNuWbHAkaHaMNFzUpkmvVHbdQzEoxQL1SGJVDGLIa5RY7Giv0vo0AzSfGoA+Nc7nvAzLWq+UTIQJBALcI+GAqCG+Zy92svvalcO9jnz9TEnbXasC6SEqxACVISRTOOO3o60Z6qJwAyCttvZ/pK5De/g4t1qB2XT9rk64=");
+        user.put("51906201","13adc9e668379fb8a6413c752756d541cdef654c7f9fb7be1dc3d7bd3072e05d,MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAM4EItFxgOeSdnfVkSlAPkhGHfdsa4+2zR2Xz/umSJiSohm1Myamg4/+PPq3x7vLUFXoTBM/FjMS3CUn63eqnicraRwz8ygEjv73AbmRPr3G5qSbB4/GOA55ExGz6i2+AwEPsg7Z9i43sTTm0ue+CnwQCPoseiAc7knO/kIkP8UVAgMBAAECgYA6vCIjHV2XaAHfi2Nt49N97oOnoWEPIZpcCAazY8aJvTB67Nau+8VBfcXr4w6OQ1pdi7N4v0E4gXWDIFz5Cos486uiUvxDSbot3CvM2+mTh1C7XNQLxua3adOaTLWUMXuTlYn2BrZLhKfTAXMt2CyK62JQeEWmcHgKkN4fsORppwJBAOSaoH57X0xYvo6Y45cL+9I32yyqbFE0hagIvX4jQQ/sPEXjjm+QNUwushgtah4ndvHMDXaEMRbmRYJoYDTr1EsCQQDmtIiC0Dp3kDLhRb1k/HzuPxlesqAsRjT992Kj1yXoufLz8a21m00UikqBV34c6yoAs6zHojIoZOkRvHpfyTAfAkEApgiETrjuUzYVWN5EVl1WzazR3BP/Tc92z79hWa7jP1xVvnDy76Zuf2Fe6l55t2L0adPJZ23FdZtTms6SKX2rFwJAXOGYCBpvP421fk6Ghq7EWWLcAu0lYU3OreS4OMA4ye57Ks1FI1Vn/foDLvmbk2b2HRw5VpItYWfnEbXxCrlD/wJAF00dKw/Li98zAF3HLE9QSM/FGJjeOrmQNsyuKlRhyQKf2dHA7vMR0P/VxkGJeEnmqUXhz9qjMXK2aKkiokVzlw==");
+        user.put("51906200","37739d40055b9b894eb9a722c30c3bd556a66293f2c65fb56a328ff484d50ae1,MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIIFpU7t/DGLktRSmFOe0znG4dKqeQdh+5O68kdc057KrKOqsv+kWXCnFp6f3pDm6zgVduYJoR/gk8QxlwMjKCcOIL1w4Wskl3wDOaitySq9PfHRpLoDiZGd22oCjb+1Us/sYTrbJHb6Me24b2MgmTa0mW8Z0iX96ywDC1VlbtNDAgMBAAECgYAGknHtdZRf8Wa78Xl+ZIuCItcZK/NIQqN1WfzhZ8QJ6PxXDwuaZgrDhjoivwC5QRHro2jGn/76b+YREgvzUAkAZ5bwvqNbRFrYoXWl+JI3jSVdZ+3WJ9KlQfFPshmKOOoOaWOOXDLkUQ4yUfoU+ZSAeXIwNKH8tUrtbAnTvBaUMQJBAOkg99XGJprJScNQK2Ix7EGLcZ245bTt33WbFJX2ZmR1gp+V8ptJaCsQQKHpNyPRZOocOhUmSlRhsk96pHNOnJMCQQCOxyap/gqlw31hmP+nmZ8ooa8aKe40hRtNplMXV12o9bS6FX7ARrrRZKQAshaHkt2FKQdGAok6ybjGAv1DMcyRAkBSAu4MvyNvimYvlnFcnvFc8YArmxL7/j6BMeghBUhqCMjF+Usag81ocNQ74T4rlIsqrHlmXU0CuEexHBTkF4CPAkA6DGP+1ydTD7DpPkAqzv1zkpDTbVrIhZl9L3M22TFeIU9yHI0k9Vy9B1LaaY1ZX2+q1Ox9HUjX2u3Bq7N2X0fRAkEAtUEXn1SaMD+5QQbrG8Kl0+xCVnHFHhrPkMZXR/QNJrdOYP2zQ5jSboNYdYfQQPC3MtV4BwteCp56z1zPXZF05w==");
+        File plan = new File("/Users/mac/Desktop/plan.txt");
+        FileWriter fw = new FileWriter(plan, false);
+        JSONObject jsonObject;
+        List list = new ArrayList<>();
+        // 批量撤单，每笔撤单数量
+        int p = 20;
+        int t = 0;
+        for (String s :user.keySet()) {
+            int account = getPlanOrder(0,s);
+            System.out.println("挂单总量="+account);
+            for (int i = 5000; i < account + 5000; i = i + 5000) {
+                ResultSet resultSet = getPlanOrder(0,s, i-5000, i);
+                try {
+                    while (resultSet.next()) {
+
+                        jsonObject = new JSONObject();
+//                        System.out.println(resultSet);
+                        jsonObject.put("symbol", resultSet.getString("contract_symbol"));
+                        jsonObject.put("orderId", resultSet.getInt("id"));
+                        jsonObject.put("orderLinkId", resultSet.getString("client_order_id"));
+                        list.add(jsonObject);
+                        t++;
+                        if (t == p) {
+                            fw.write(user.getString(s).replace(",",";")+";"+list + "\n");
+                            fw.flush();
+                            list.clear();
+                            t = 0;
+                        }
+                    }
+                }finally{
+                    // 关闭资源
+                    try {
+                        if (resultSet!=null) resultSet.close();
+                    }catch (SQLException se){
+                        se.printStackTrace();
+                    }
+                }
+                list.clear();
+            }
+        }
+
+
+    }
+    @Test
+    public void test19_1() throws IOException, SQLException {
+
+        String userId = "51906164";
+
+        File plan = new File("/Users/mac/Desktop/plan.txt");
+        FileWriter fw = new FileWriter(plan, false);
+        JSONObject jsonObject;
+        List list = new ArrayList<>();
+        // 批量撤单，每笔撤单数量
+        int p = 20;
+        int t = 0;
+        int account = getPlanOrder(0,userId);
+        System.out.println("挂单总量="+account);
+        for (int i = 5000; i < account + 5000; i = i + 5000) {
+            ResultSet resultSet = getPlanOrder(0,userId, i-5000, i);
+            try {
+                while (resultSet.next()) {
+
+                    jsonObject = new JSONObject();
+//                        System.out.println(resultSet);
+                    jsonObject.put("symbol", resultSet.getString("contract_symbol"));
+                    jsonObject.put("orderId", resultSet.getInt("id"));
+                    jsonObject.put("orderLinkId", resultSet.getString("client_order_id"));
+                    list.add(jsonObject);
+                    t++;
+                    if (t == p) {
+                        fw.write(list + "\n");
+                        fw.flush();
+                        list.clear();
+                        t = 0;
+                    }
+                }
+            }finally{
+                // 关闭资源
+                try {
+                    if (resultSet!=null) resultSet.close();
+                }catch (SQLException se){
+                    se.printStackTrace();
+                }
+            }
+        }
+
+
+    }
+
+    /**
+     * 仓位保存
+     * @throws IOException
+     * @throws SQLException
+     */
+    @Test
+    public void test20() throws IOException, SQLException {
+
+        String userId = "51906168";
+        int account = getPlanOrder(1,userId);
+        System.out.println("仓位总量="+account);
+
+        File plan = new File("/Users/mac/Desktop/position.txt");
+        FileWriter fw = new FileWriter(plan, false);
+        JSONObject jsonObject;
+        List list = new ArrayList<>();
+        // 批量撤单，每笔撤单数量
+        int p = 20;
+        int t = 0;
+        String symbol;
+        int leverage;
+        int quantity;
+        int closedQuantity;
+        int freezeQuantity;
+        int unfreezeQuantity;
+        BigDecimal openPrice;
+        String type="";
+        String direction;
+        BigDecimal price = BigDecimal.ZERO;
+        String orderLinkId;
+        Random r = new Random();
+        int rTmp ;
+        for (int i = 5000; i < account + 5000; i = i + 5000) {
+            ResultSet resultSet = getPlanOrder(1,userId, i-5000, i);
+            try {
+                while (resultSet.next()) {
+                    rTmp = r.nextInt(100);
+                    symbol = resultSet.getString("symbol");
+                    leverage = resultSet.getInt("leverage");
+                    openPrice = resultSet.getBigDecimal("open_price");
+                    quantity = resultSet.getInt("quantity");
+                    closedQuantity = resultSet.getInt("closed_quantity");
+                    freezeQuantity = resultSet.getInt("freeze_quantity");
+                    unfreezeQuantity = resultSet.getInt("unfreeze_quantity");
+                    direction = resultSet.getString("direction");
+                    orderLinkId = String.valueOf(System.currentTimeMillis());
+                    for (int j = 0; j < quantity-closedQuantity-(freezeQuantity-unfreezeQuantity); j++) {
+                        // 市价/限价平仓
+                        if (rTmp <= 50) {
+                            type = "market";
+                        } else {
+                            type = "limit";
+                            if (direction.equalsIgnoreCase("long")) {
+                                price = openPrice.multiply(BigDecimal.ONE.add(BigDecimal.valueOf(Math.abs(r.nextGaussian() / 5))));
+                            } else {
+                                price = openPrice.multiply(BigDecimal.ONE.subtract(BigDecimal.valueOf(Math.abs(r.nextGaussian() / 5))));
+                            }
+                        }
+                        jsonObject = new JSONObject();
+                        jsonObject.put("symbol", symbol);
+                        jsonObject.put("leverage", leverage);
+                        jsonObject.put("quantity", 1);
+                        jsonObject.put("type", type);
+                        jsonObject.put("direction", direction);
+                        jsonObject.put("price", price);
+                        jsonObject.put("orderLinkId", orderLinkId);
+                        list.add(jsonObject);
+                        t++;
+                        if (t == p) {
+                            fw.write(list + "\n");
+                            fw.flush();
+                            list.clear();
+                            t = 0;
+                        }
+//                        if (accountTmp != 0 && accountTmp <= 20 && t == accountTmp){
+//                            fw.write(list + "\n");
+//                            fw.flush();
+//                            list.clear();
+//                            t = 0;
+//                        }
+                    }
+
+                }
+            }finally{
+                // 关闭资源
+                try {
+                    if (resultSet!=null) resultSet.close();
+                }catch (SQLException se){
+                    se.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    @Test
+    public void test21() throws FileNotFoundException {
+        ((LoggerContext) LoggerFactory.getILoggerFactory())
+                .getLoggerList()
+                .forEach(logger -> logger.setLevel(Level.ERROR));
+        com.zmj.demo.HttpUtil httpUtil = new com.zmj.demo.HttpUtil();
+        String symbol = "AVAX-USDT";
+        String after = "1688029200";
+//        时间粒度，默认值1m
+//        如 [1m/3m/5m/15m/30m/1H/2H/4H]
+        String bar = "1m";
+        String url = "https://www.okx.com/api/v5/market/history-candles?instId="+symbol+"&after="+after+"000&bar="+bar;
+        String header = "{\"User-Agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36\"}";
+        String r = httpUtil.get(url,header);
+        System.out.println(r);
+        /**
+        // 处理数据
+        JSONArray res = JSONObject.parseObject(r).getJSONArray("data");// 开、高、低、收
+        JSONObject res1 = new JSONObject();
+        for (int i = 0; i < res.size(); i++) {
+            JSONObject res2 = new JSONObject();
+            res2.put("okopen",res.getJSONArray(i).getBigDecimal(1));
+            res2.put("okhign",res.getJSONArray(i).getBigDecimal(2));
+            res2.put("oklow",res.getJSONArray(i).getBigDecimal(3));
+            res2.put("okclose",res.getJSONArray(i).getBigDecimal(4));
+            res1.put(res.getJSONArray(i).getString(0),res2);
+        }
+
+        File websocket = new File("/Users/mac/Desktop/websocket.txt");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(websocket));
+        String d = bufferedReader.lines().collect(Collectors.toList()).get(0);
+        JSONArray data = JSONObject.parseObject(d).getJSONArray("data");
+        String id;
+        BigDecimal open = BigDecimal.ZERO;
+        BigDecimal close = BigDecimal.ZERO;
+        BigDecimal hign = BigDecimal.ZERO;
+        BigDecimal low = BigDecimal.ZERO;
+
+        String okid;
+        BigDecimal okopen = BigDecimal.ZERO;
+        BigDecimal okclose = BigDecimal.ZERO;
+        BigDecimal okhign = BigDecimal.ZERO;
+        BigDecimal oklow = BigDecimal.ZERO;
+        BigDecimal rate = BigDecimal.valueOf(1);
+        int account = 0;
+        for (int i = 0; i < 100; i++) {
+            id = data.getJSONObject(i).getString("id");
+            open = data.getJSONObject(i).getBigDecimal("open");
+            close = data.getJSONObject(i).getBigDecimal("close");
+            hign = data.getJSONObject(i).getBigDecimal("high");
+            low = data.getJSONObject(i).getBigDecimal("low");
+
+//            okid = res.getJSONArray(99-i).getString(0);
+//            okopen = res.getJSONArray(99-i).getBigDecimal(1);
+//            okhign = res.getJSONArray(99-i).getBigDecimal(2);
+//            oklow = res.getJSONArray(99-i).getBigDecimal(3);
+//            okclose = res.getJSONArray(99-i).getBigDecimal(4);
+            if (res1.getJSONObject(id+"000") != null) {
+                okopen = res1.getJSONObject(id + "000").getBigDecimal("okopen");
+                okhign = res1.getJSONObject(id + "000").getBigDecimal("okhign");
+                oklow = res1.getJSONObject(id + "000").getBigDecimal("oklow");
+                okclose = res1.getJSONObject(id + "000").getBigDecimal("okclose");
+            }
+
+//            if (open.subtract(okopen).abs().compareTo(rate) == 1
+//                    || close.subtract(okclose).abs().compareTo(rate) == 1
+//                    || hign.subtract(okhign).abs().compareTo(rate) == 1
+//                    || low.subtract(oklow).abs().compareTo(rate) == 1){
+//                System.out.println("k线对比有误差! 时间:"+id+"   ok时间:"+okid+"  开【"+open+" "+okopen+"】  收【"+close+" "+okclose+"】    高【"+hign+" "+okhign+"】  低【"+low+" "+oklow+"】");
+//                account++;
+//            }
+            if (open.compareTo(okopen) == 0
+                    || close.compareTo(okclose) == 0
+                    || hign.compareTo(okhign) == 0
+                    || low.compareTo(oklow) == 0){
+//                System.out.println("k线对比有相同值! 时间:"+id+"   开【"+open+" "+okopen+"】  收【"+close+" "+okclose+"】    高【"+hign+" "+okhign+"】  低【"+low+" "+oklow+"】");
+//                System.out.println(id);
+                account++;
+            }else {
+                System.out.println("k线对比有误差! 时间:"+id+"   开【"+open+" "+okopen+"】  收【"+close+" "+okclose+"】    高【"+hign+" "+okhign+"】  低【"+low+" "+oklow+"】");
+            }
+        }
+        System.out.println("ok总条数:"+res.size());
+        System.out.println("对比相同总条数:"+account);
+        */
+
+
+    }
+
+
+    @Test
+    public void test22() throws IOException {
+        Jedis jedis = new Jedis("locklevel-redis-dev1-india.8wuaih.ng.0001.apse1.cache.amazonaws.com",6379);
+        String key = "kubiex:market:orderbook:spot:linkusdt";
+        String value = jedis.get(key);
+        System.out.println(value);
+        JSONObject jsonObject = JSONObject.parseObject(value);
+        // 买
+        JSONArray bids = jsonObject.getJSONArray("bids");
+        // 卖
+        JSONArray asks = jsonObject.getJSONArray("asks");
+        File orderbook = new File("/Users/mac/Desktop/orderbook.txt");
+        FileWriter fw = new FileWriter(orderbook, true);
+        for (int i = 0; i < 10; i++) {
+            fw.write("价格         数量\n");
+            for (int j = 0; j < 10; j++) {
+                fw.write(asks.getJSONArray(9-j).get(0)+"      "+asks.getJSONArray(9-j).get(1)+"\n");
+            }
+            fw.write("\n");
+            for (int j = 0; j < 10; j++) {
+                fw.write(bids.getJSONArray(j).get(0)+"      "+bids.getJSONArray(j).get(1)+"\n");
+            }
+            fw.write("\n\n\n");
+            fw.flush();
+        }
+
+    }
+
+    @Test
+    public void test23(){
+        Jedis jedis = new Jedis("locklevel-redis-dev1-india.8wuaih.ng.0001.apse1.cache.amazonaws.com",6379);
+        String key = "kubiex:market:orderbook:spot:linkusdt";
+        String value = jedis.get(key);
+//        System.out.println(value);
+        JSONObject jj = JSONObject.parseObject(value);
+
+        JSONArray bids = jj.getJSONArray("bids");
+        JSONArray asks = jj.getJSONArray("asks");
+        System.out.println("bids="+bids.size());
+        System.out.println("asks="+asks.size());
+        BigDecimal sum1 = BigDecimal.ZERO;
+        for (int i = 0; i < bids.size(); i++) {
+            sum1 = sum1.add(bids.getJSONArray(i).getBigDecimal(1));
+        }
+        System.out.println(sum1);
+        BigDecimal sum2 = BigDecimal.ZERO;
+        for (int i = 0; i < asks.size(); i++) {
+            sum2 = sum2.add(asks.getJSONArray(i).getBigDecimal(1));
+        }
+        System.out.println(sum2);
+    }
+    @Test
+    public void test24(){
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            double number = random.nextGaussian();
+            while (number < -1 || number > 1) {
+                number = random.nextGaussian();
+            }
+            System.out.println(number);
+        }
+    }
+    /**
+     * 查询用户挂单数据
+     * @param type 0-订单 1-仓位
+     * @param userId
+     * @param start
+     * @param end
+     * @return
+     */
+    public ResultSet getPlanOrder(int type,String userId , int start ,int end ){
+
+        Connection conn = null;
+        Statement pre = null;
+        String sql = "";
+        if (type == 0) {
+            if (userId == ""){
+                sql = "select id , user_id,client_order_id, contract_symbol from swap_order where margin_type = 'CROSSED' and price_type = 'LIMIT' and side = 'buy' and state = 'ENTRY' order by id desc limit " + start + "," + end;
+            }else {
+                sql = "select id , user_id,client_order_id, contract_symbol from swap_order where user_id = " + userId + " and margin_type = 'CROSSED' and price_type = 'LIMIT' and side = 'buy' and state = 'ENTRY' order by id desc limit " + start + "," + end;
+
+            }            }else {
+            sql = "select symbol , direction, leverage, open_price, quantity, closed_quantity, freeze_quantity, unfreeze_quantity from position where user_id = " + userId + "  order by id desc limit " + start + "," + end;
+        }
+        System.out.println(sql);
+//        sql = "select id,client_order_id,contract_symbol  where user_id = " + userId +" and margin_type = 'CROSSED' and price_type = 'LIMIT' and side = 'buy' and state = 'ENTRY' ";
+        ResultSet resultSet = null;
+        try{
+            // 注册 JDBC 驱动
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            // 打开链接
+            conn = DriverManager.getConnection("jdbc:mysql://locklevel-mysql-dev1-india.cluster-cwgnjbpmvvmh.ap-southeast-1.rds.amazonaws.com:3306/bib_cfd","dev1_idina_master_rw","4x&v_6bu^x!x$m$#*rv_$tx6c+udfo9@");
+
+            pre = conn.createStatement();
+
+            resultSet = pre.executeQuery(sql);
+
+            return resultSet;
+
+        }catch(SQLException se){
+            // 处理 JDBC 错误
+            se.printStackTrace();
+        }catch(Exception e){
+            // 处理 Class.forName 错误
+            e.printStackTrace();
+        }
+        return null;
+    }
+    /**
+     * 查询某个用户，所有挂单数量
+     * @param type 0-订单 1-仓位
+     * @param userId
+     * @return
+     */
+    public int getPlanOrder(int type,String userId){
+
+        Connection conn = null;
+        Statement pre = null;
+        String sql = "";
+        if (type == 0){
+            sql = "select count(1) c from swap_order where user_id = " + userId +" and margin_type = 'CROSSED' and price_type = 'LIMIT' and side = 'buy' and state = 'ENTRY' ";
+        }else {
+            sql = "select count(1) c from position where user_id = " + userId;
+        }
+//        sql = "select id,client_order_id,contract_symbol  where user_id = " + userId +" and margin_type = 'CROSSED' and price_type = 'LIMIT' and side = 'buy' and state = 'ENTRY' ";
+        ResultSet resultSet = null;
+        try{
+            // 注册 JDBC 驱动
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            // 打开链接
+            conn = DriverManager.getConnection("jdbc:mysql://locklevel-mysql-dev1-india.cluster-cwgnjbpmvvmh.ap-southeast-1.rds.amazonaws.com:3306/bib_cfd","dev1_idina_master_rw","4x&v_6bu^x!x$m$#*rv_$tx6c+udfo9@");
+
+            pre = conn.createStatement();
+
+            resultSet = pre.executeQuery(sql);
+
+            ResultSetMetaData me = resultSet.getMetaData();
+            while (resultSet.next()) {
+                return resultSet.getInt("c");
+            }
+
+        }catch(SQLException se){
+            // 处理 JDBC 错误
+            se.printStackTrace();
+        }catch(Exception e){
+            // 处理 Class.forName 错误
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
 }

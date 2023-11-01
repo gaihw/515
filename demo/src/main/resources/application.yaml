@@ -1,6 +1,26 @@
 server:
   port: 10090
 
+management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    export:
+      prometheus:
+        enabled: true
+        step: 1m
+        descriptions: true
+  web:
+    server:
+      auto-time-requests: true
+  endpoints:
+    prometheus:
+      id: springmetrics
+    web:
+      exposure:
+#        include: health,info,env,prometheus,metrics,httptrace,threaddump,heapdump,springmetrics
+#        include: "*"
+        include: prometheus
 spring:
   application:
     name: SPRING-BOOT-ZMJPROJECT01
@@ -65,18 +85,24 @@ spring:
       session-timeout-ms: 15000
       auto-coomit-interval-ms: 100
 
+  rocketmq:
+    nameServer: localhost:9876
+    consumer:
+      group: test1
+
   rabbitmq:
     #测试环境
-#    ssl:
-#      enabled: true
+    ssl:
+      enabled: true
 #    host: b-47fa98e5-facd-4c12-a1cd-bc861b9192e8.mq.ap-southeast-1.amazonaws.com
-#    port: 5671
-#    username: saas-rmq-test
-#    password: nPOd6exIGhRFeDFpaml
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+    host: b-11403535-6e07-45b9-8dbf-54b6da0e86b5.mq.ap-southeast-1.amazonaws.com
+    port: 5671
+    username: saas-rmq-test
+    password: nPOd6exIGhRFeDFpaml
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
 
     test:
       exchangeTopic: amq.topic
@@ -84,28 +110,28 @@ spring:
       exchangeDirect: amq.direct
       exchangeHeaders: amq.headers
     saas:
-      channel: GjFt
+      channel: xxOi
       queue:
-        fundingrate: tfbee.test.GjFt.queue.fundingrate
-        externalTicker: tfbee.test.GjFt.queue.externalLatestTicker
-        externalDepth: tfbee.test.GjFt.queue.externalDepth
-        indexPrice: tfbee.test.GjFt.queue.indexprice
-        markPrice: tfbee.test.GjFt.queues.markprice
+        fundingrate: tfbee.dev.GjFt.queue.fundingrate
+        externalTicker: tfbee.dev.GjFt.queue.externalLatestTicker
+        externalDepth: tfbee.dev.GjFt.queue.externalDepth
+        indexPrice: tfbee.dev.GjFt.queue.indexprice
+        markPrice: tfbee.dev.GjFt.queues.markprice
       exchange:
-        fundingrate: tfbee.test.exchange.fundingrate
-        externalTicker: tfbee.test.exchange.externalLatestTicker
-        externalDepth: tfbee.test.exchange.externalDepth
-        indexPrice: tfbee.test.exchange.indexprice
-        markPrice: tfbee.test.exchange.markprice
+        fundingrate: tfbee.dev.exchange.fundingrate
+        externalTicker: tfbee.dev.exchange.externalLatestTicker
+        externalDepth: tfbee.dev.exchange.externalDepth
+        indexPrice: tfbee.dev.exchange.indexprice
+        markPrice: tfbee.dev.exchange.markprice
     l2quote:
       exchange:
-        ticker: tfbee.test.l2quote_topic
-        depth: tfbee.test.orderbook
-        indexPrice: tfbee.test.indexprice
-        markPrice: tfbee.test.markprice
-        fundingrate: tfbee.test.fundingrate
-        spotfills: tfbee.test.spotfills
-        kline: tfbee.test.kline
+        ticker: tfbee.dev.l2quote_topic
+        depth: tfbee.dev.orderbook
+        indexPrice: tfbee.dev.indexprice
+        markPrice: tfbee.dev.markprice
+        fundingrate: tfbee.dev.fundingrate
+        spotfills: tfbee.dev.spotfills
+        kline: tfbee.dev.kline
     options:
       exchange:
         optionTicker: tfbee.dev.exchange.optionTicker
@@ -135,6 +161,8 @@ socket:
     reConnectNum: 20
     #    url: wss://www-demo.manniwd.com/v1/np/ws
     url: wss://dev1.123kj.top/v1/np/ws
+#    url: wss://dev.bigkoin.com/v1/pusher/ws
+#    url: wss://dev1.123kj.top/v1/pusher/ws
 #    url: wss://np-dev1.tfbeee.com/v1/np/ws
 #    url: wss://www-demo.hpx.today/v1/np/ws
 #    url: ws://localhost:8081/websocket/test

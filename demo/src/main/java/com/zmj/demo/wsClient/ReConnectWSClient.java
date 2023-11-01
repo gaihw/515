@@ -1,5 +1,6 @@
 package com.zmj.demo.wsClient;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.zmj.demo.common.GzipUtil;
 import com.zmj.demo.dao.dev.OptionsInfoDao;
@@ -17,13 +18,21 @@ import org.springframework.data.redis.core.RedisTemplate;
 
 import javax.annotation.Resource;
 import javax.net.ssl.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.Socket;
 import java.net.URI;
 import java.nio.ByteBuffer;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -100,6 +109,7 @@ public class ReConnectWSClient {
      */
     private List<OptionsInfoChain> optionsInfoChains;
 
+    ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(1);
     public ReConnectWSClient(
             URI serverUri,
             String key,
@@ -213,10 +223,10 @@ public class ReConnectWSClient {
 
 
         // hpx模拟
-        String channel = "qoz6";
+        String channel = "xxOi";
         // 币王模拟
 //        String channel = "Mt4y";
-//                        String[] instruments = {"btcusdt","ethusdt", "ltcusdt", "eosusdt", "bchusdt", "trxusdt", "filusdt", "linkusdt", "dotusdt", "xrpusdt","dogeusdt","shibusdt", "adausdt", "maticusdt", "solusdt", "bnbusdt", "avaxusdt", "lunausdt", "manausdt", "axsusdt", "uniusdt", "fttusdt", "chzusdt", "apeusdt", "ftmusdt", "blkusdt", "dashusdt", "atomusdt"};
+                        String[] instruments = {"btcusdt","ethusdt", "ltcusdt", "eosusdt", "bchusdt", "trxusdt", "filusdt", "linkusdt", "dotusdt", "xrpusdt","dogeusdt","shibusdt", "adausdt", "maticusdt", "solusdt", "bnbusdt", "avaxusdt", "lunausdt", "manausdt", "axsusdt", "uniusdt", "fttusdt", "chzusdt", "apeusdt", "ftmusdt", "blkusdt", "dashusdt", "atomusdt"};
         //最新成交价market_qoz6.btcusdt_ticker
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_"+channel+".btcusdt_ticker\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_"+channel+".ethusdt_ticker\",\"cb_id\":\"10001\"}}");
@@ -232,7 +242,7 @@ public class ReConnectWSClient {
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_"+channel+".shibusdt_ticker\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_"+channel+".adausdt_ticker\",\"cb_id\":\"10001\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_"+channel+".matiusdt_ticker\",\"cb_id\":\"10001\"}}");
-//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_"+channel+".solusdt_ticker\",\"cb_id\":\"10001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_"+channel+".btcusdt_ticker\",\"cb_id\":\"10001\"}}");
                         //市场深度行情数据
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.BTC-230314-20300-C_depth_step0\",\"cb_id\":\"10001\",\"asks\":150,\"bids\":150}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ty9f.btcusdt_depth_step0\",\"cb_id\":\"10001\",\"asks\":150,\"bids\":150}}");
@@ -257,16 +267,58 @@ public class ReConnectWSClient {
           //期权指数价格
 //       webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_index_price\",\"cb_id\":\"10001\"}}");
 
+                        // web 全量期权实时成交推送
+//                        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_options_trade_history_xxOi\",\"cb_id\":\"10001\"}}");
+                        // web 期权列表推送
+//                        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_legend_review_xxOi\",\"cb_id\":\"10001\"}}");
+//
                         for (OptionsInfoChain oic: optionsInfoChains) {
                             webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_"+channel+"."+oic.getInstrumentName()+"_ticker\",\"cb_id\":\"Android_xxOi_saas_1.0.3\"}}");
                             webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_"+channel+"."+oic.getInstrumentName()+"_depth_step0\",\"cb_id\":\"10001\",\"asks\":150,\"bids\":150}}");
                         }
                         webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_btcusdt_index_price\",\"cb_id\":\"10001\"}}");
+
+//                        webSocketClient.send("{\"event\":\"unsubscribe\",\"params\":{\"biz\":\"cfd\",\"type\":\"position_change\",\"zip\":false}}");
+
+
+                        // pusher消息推送
+//                        scheduledThreadPool.scheduleAtFixedRate(() -> {
+//                            System.out.println("发送：：：{\"event\":\"ping\"}");
+//                            webSocketClient.send("{\"event\":\"ping\"}");
+//
+//                        }, 1, 5, TimeUnit.SECONDS);
+//                        webSocketClient.send("{\"event\":\"signin\",\"params\":{\"token\":\"8f0bd6a9fc75aab472c52e99870ed01e6caa084c13e108fbf0e18d999cd2845a\"}}");
+//                        // 订阅仓位变化
+//                        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"topic\":\"futures\",\"type\":\"position\",\"symbol\":\"trxusdt\",\"zip\":false}}");
+////                        // 订阅资产变化
+//                        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"topic\":\"futures\",\"type\":\"assets\",\"zip\":false}}");
+////                        // 订单变化
+//                        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"topic\":\"futures\",\"type\":\"order\",\"symbol\":\"linkusdt\",\"zip\":false}}");
+
+
+                        // 现货行情推送
+                        // 盘口深度订阅   返回和永续相同
+//                        for (String s:instruments) {
+////                            webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.spot."+s+"_depth_step0\",\"cb_id\":\"10001\"}}");
+//                            webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.spot."+s+"_kline_1min\",\"cb_id\":\"10001\"}}");
+//                            webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.spot."+s+"_trade_ticker\",\"cb_id\":\"10001\"}}");
+//
+//                        }
+//                        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.spot.btcusdt_depth_step0\",\"cb_id\":\"10001\"}}");
+                        // k线订阅             返回和永续相同
+//                        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.spot.btcusdt_kline_60min\",\"cb_id\":\"10001\"}}");
+//                        webSocketClient.send("{\"event\":\"req\",\"params\":{\"channel\":\"market_xxOi.spot.btcusdt_kline_1min\",\"cb_id\":\"123456\",\"endIdx\":1687819320,\"pageSize\":100}}");
+                        // 实时成交            返回和永续相同
+//                        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.spot.btcusdt_trade_ticker\",\"cb_id\":\"10001\"}}");
+                        // 单币对24H行情       返回和永续相同
+//                        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_xxOi.spot.btcusdt_ticker\",\"cb_id\":\"10001\"}}");
+                        // 列表最新行情         返回和永续相同
+//                        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_spot_review_xxOi\",\"cb_id\":\"10001\"}}");
                     }
 
                     @Override
                     public void onMessage(String text) {
-                        log.info("[{}]ReConnectWSClient [onMessage-String]接收到服务端数据：text={}", key, text);
+//                        log.info("[{}]ReConnectWSClient [onMessage-String]接收到服务端数据：text={}", key, text);
                         msgStr.accept(text);
                     }
 
@@ -286,11 +338,112 @@ public class ReConnectWSClient {
                             webSocketClient.send("{\"pong\": \"" + time + "\"}");
 //                            log.info("发送：：：{\"pong\":\"{}\"}",time);
                         }
+                        if (res.contains("market") && res.contains("usdt_depth_step0") && res.contains("tick") ){
+                            JSONArray bids = JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("bids");
+                            JSONArray asks = JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("asks");
+                            List<BigDecimal> bidsList = new ArrayList<>();
+                            List<BigDecimal> asksList = new ArrayList<>();
+                            List<BigDecimal> bidsList1 = new ArrayList<>();
+                            List<BigDecimal> asksList1 = new ArrayList<>();
+                            for (int i = 0; i < Math.min(bids.size(),asks.size()); i++) {
+                                bidsList.add(bids.getJSONArray(i).getBigDecimal(0));
+                                asksList.add(asks.getJSONArray(i).getBigDecimal(0));
+                                bidsList1.add(bids.getJSONArray(i).getBigDecimal(0));
+                                asksList1.add(asks.getJSONArray(i).getBigDecimal(0));
+                            }
 
+                            File orderbook = new File("/Users/mac/Desktop/orderbook.txt");
+                            FileWriter fw = null;
+                            try {
+                                fw = new FileWriter(orderbook, true);
+                                fw.write("价格         数量\n");
+                                BigDecimal price;
+                                BigDecimal quantity;
+                                BigDecimal totala = BigDecimal.ZERO;
+                                BigDecimal totalb = BigDecimal.ZERO;
+                                for (int j = 0; j < 10; j++) {
+                                    price = asks.getJSONArray(9-j).getBigDecimal(0);
+                                    quantity = asks.getJSONArray(9-j).getBigDecimal(1);
+                                    totala = totala.add(price.multiply(quantity));
+                                    fw.write(price+"      "+quantity+"         "+totala+"\n");
+                                }
+                                fw.write("\n");
+                                for (int j = 0; j < 10; j++) {
+                                    price = bids.getJSONArray(j).getBigDecimal(0);
+                                    quantity = bids.getJSONArray(j).getBigDecimal(1);
+                                    totalb = totalb.add(price.multiply(quantity));
+                                    fw.write(price+"      "+quantity+"         "+totalb+"\n");
+                                }
+                                fw.write("\n");
+                                fw.write("---------------------------\n");
+                                fw.flush();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+//                            System.out.println("bidsList-before【"+bidsList+"】");
+                            Collections.sort(bidsList, new Comparator<BigDecimal>() {
+                                @Override
+                                public int compare(BigDecimal p1, BigDecimal p2) {
+                                    return p2.subtract(p1).compareTo(BigDecimal.ZERO) ;
+                                }
+                            });
+//                            System.out.println("bidsList-after 【"+bidsList+"】");
+//                            System.out.println("asksList-before【"+asksList+"】");
+                            Collections.sort(asksList, new Comparator<BigDecimal>() {
+                                @Override
+                                public int compare(BigDecimal p1, BigDecimal p2) {
+                                    return p1.subtract(p2).compareTo(BigDecimal.ZERO) ;
+                                }
+                            });
+//                            log.info("买一:{},卖一:{}",bidsList1.get(0),asksList1.get(0));
+//                            System.out.println("asksList-after 【"+asksList+"】");
+                            if (!bidsList.equals(bidsList1) || !asksList.equals(asksList1) || asksList1.get(0).compareTo(bidsList1.get(0)) <= 0){
+                                System.out.println("数据异常!");
+                                log.info("盘口数据异常!");
+                            }
+                            long time = JSONObject.parseObject(res).getJSONObject("tick").getLong("ts")/1000;
+                            if (time == Books.time) {
+                                if (asksList1.get(0).subtract(Books.okAsks).abs().compareTo(BigDecimal.valueOf(0.0001)) == 1 || bidsList1.get(0).subtract(Books.okBids).abs().compareTo(BigDecimal.valueOf(0.0001)) == 1) {
+                                    log.info("与ok买一卖一档偏差稍大，时间:{},买一:{},ok买一:{},卖一:{},ok卖一:{}", time, bidsList1.get(0), Books.okBids, asksList1.get(0), Books.okAsks);
+                                }
+                            }
+                        }
+                        // 列表最新行情
+                        if (res.contains("market_spot_review_xxOi") && res.contains("data")){
+                            JSONObject data = JSONObject.parseObject(res).getJSONObject("data");
+                            String symbol = "shibusdt";
+                            System.out.println(data.getJSONObject("spot."+symbol).getString("close")+"  "+data.getJSONObject("spot."+symbol).getString("rose")+"  "+data.getJSONObject("spot."+symbol).getString("rose"));
+                        }
+                        // k线
                         if(res.contains("market_") && res.contains("usdt_kline_") && res.contains("tick")){
                             JSONObject tick = JSONObject.parseObject(res).getJSONObject("tick");
-                            System.out.println(tick.getBigDecimal("open").setScale(3, BigDecimal.ROUND_UP)+"======="+tick.getBigDecimal("close").setScale(3, BigDecimal.ROUND_UP)+"======="+tick.getBigDecimal("high").setScale(3, BigDecimal.ROUND_UP)+"======="+tick.getBigDecimal("low").setScale(3, BigDecimal.ROUND_UP));
+                            if (tick.getBigDecimal("open").compareTo(BigDecimal.ONE) == 0
+                                    || tick.getBigDecimal("high").compareTo(BigDecimal.ONE) == 0
+                                    || tick.getBigDecimal("low").compareTo(BigDecimal.ONE) == 0
+                                    || tick.getBigDecimal("close").compareTo(BigDecimal.ONE) == 0
+                            ){
+                                System.out.println("---------"+JSONObject.parseObject(res).getString("channel")+"   k线价格为1---------");
+                            }
+//                            System.out.println("收盘:"+tick.getBigDecimal("close").setScale(3, BigDecimal.ROUND_UP));
+//                            System.out.println(tick.getBigDecimal("open").setScale(3, BigDecimal.ROUND_UP)+"======="+tick.getBigDecimal("close").setScale(3, BigDecimal.ROUND_UP)+"======="+tick.getBigDecimal("high").setScale(3, BigDecimal.ROUND_UP)+"======="+tick.getBigDecimal("low").setScale(3, BigDecimal.ROUND_UP));
+
                         }
+                        // 实时成交
+                        if (res.contains("market_") && res.contains("usdt_trade_ticker") && res.contains("tick")){
+//                            System.out.println(res);
+                            if (JSONObject.parseObject(res).getJSONObject("tick") != null) {
+//                                System.out.println("实时成交:" + JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("data").getJSONObject(0).getString("price"));
+                                if(res.contains("trx") || res.contains("fil") || res.contains("link") || res.contains("dot") || res.contains("xrp") || res.contains("doge") || res.contains("shib")
+                                        || res.contains("shib")){
+                                    if (JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("data").getJSONObject(0).getBigDecimal("vol").compareTo(BigDecimal.valueOf(100)) == -1){
+                                        System.out.println("-----------"+JSONObject.parseObject(res).getString("channel")+"   实时成交数量异常!---------"+JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("data").getJSONObject(0).getBigDecimal("vol"));
+                                    }
+                                }
+//                            System.out.println(res);
+                            }
+                        }
+                        // 标记价格
                         if (res.contains("market_") && res.contains("usdt_mark_price")){
                             try {
                                 if (JSONObject.parseObject(res).getJSONObject("data") != null) {
@@ -346,6 +499,28 @@ public class ReConnectWSClient {
                                     String channel = JSONObject.parseObject(res).getString("channel");
                                     String symbol = channel.split("_")[1];
                                     redisService.set("contract::index_price::"+symbol, JSONObject.parseObject(res).getJSONObject("data").toJSONString());
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        // web 端实时成交
+                        if (res.contains("market_options_trade_history_xxOi")){
+                            try {
+                                if (JSONObject.parseObject(res).getJSONObject("tick") != null) {
+                                    if(JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("data").getJSONObject(0).getString("symbol").contains("BTC") && JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("data").getJSONObject(0).getString("symbol").contains("-C")){
+                                        System.out.println(JSONObject.parseObject(res).getJSONObject("tick").getJSONArray("data").getJSONObject(0));
+                                    }
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        // web 端 期权列表，delta等值
+                        if (res.contains("market_legend_review_xxOi")){
+                            try {
+                                if (JSONObject.parseObject(res).getJSONObject("data") != null) {
+                                    System.out.println(JSONObject.parseObject(res).getJSONObject("data").getJSONObject("BTC-230602-46000-P"));
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();

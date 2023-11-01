@@ -26,6 +26,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
+//        response.setStatus(302);
         //获取请求头部的token，如果为空，重新登录
         String token = request.getHeader("token");
         JSONObject jsonObject = new JSONObject();

@@ -72,6 +72,7 @@ public class AuthConfig implements WebMvcConfigurer {
          * */
         registry.addInterceptor(initAuthInterceptor())
                 .addPathPatterns("/api/auto/**")
+//                .addPathPatterns("/api/tool/**")
                 .addPathPatterns("/index")
                 .excludePathPatterns("/login/**","/register/**");
 

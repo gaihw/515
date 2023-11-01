@@ -2,9 +2,13 @@ package com.zmj.demo;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.kafka.common.protocol.types.Field;
+import org.json.JSONException;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
@@ -41,7 +45,7 @@ public class OpenAPIDemo {
     public static String host = "https://dev1.123kj.top";
     //---- example end
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JSONException {
         ((LoggerContext) LoggerFactory.getILoggerFactory())
                 .getLoggerList()
                 .forEach(logger -> logger.setLevel(Level.ERROR));
@@ -50,15 +54,288 @@ public class OpenAPIDemo {
          */
 //        create();
         /**
+         * 批量下单
+         */
+        batch_create_open();
+        /**
          * 平仓
          */
 //        close();
         /**
          * 撤单
          */
-        cancel();
+//        cancel();
+        /**
+         * 委托列表
+         */
+        current();
+        /**
+         * 持仓列表
+         */
+//        positions();
+        /**
+         * 查询余额
+         */
+//        balance();
+        /**
+         * 转账
+         */
+//        transfer();
+        /**
+         * 查询币种
+         */
+//        symbol();
+
+
     }
 
+    private static void batch_create_open() throws JSONException {
+
+        String url = host + "/openapi/v1/futures/order/batch_create/buy";
+
+        String param = "[" +
+                "{" +
+                "\"category\":\"futures\"," +
+                "\"symbol\":\"btc\"," +
+                "\"side\":\"buy\"," +
+                "\"positionType\":\"limit\"," +
+                "\"positionSide\":\"long\"," +
+                "\"leverage\":\"100\"," +
+                "\"quantity\":\"1\"," +
+                "\"orderLinkId\":\"Test1\"," +
+                "\"price\":\"20000\"" +
+                "}," +
+                "{" +
+                "\"category\":\"futures\"," +
+                "\"symbol\":\"btc\"," +
+                "\"side\":\"buy\"," +
+                "\"positionType\":\"limit\"," +
+                "\"positionSide\":\"long\"," +
+                "\"leverage\":\"100\"," +
+                "\"quantity\":\"11\"," +
+                "\"orderLinkId\":\"Test2\"," +
+                "\"price\":\"20001\"" +
+                "}"+
+                "]";
+
+        List list = new ArrayList<>();
+        LinkedJsonObject jb = new LinkedJsonObject();
+        jb.put("category","futures");
+        jb.put("symbol","btc");
+        jb.put("side","buy");
+        jb.put("positionType","limit");
+        jb.put("positionSide","long");
+        jb.put("leverage","100");
+        jb.put("quantity","1");
+        jb.put("orderLinkId","Test1");
+        jb.put("price","20000");
+        list.add(0,jb);
+
+        LinkedJsonObject jb1 = new LinkedJsonObject();
+        jb1.put("category","futures");
+        jb1.put("symbol","btc");
+        jb1.put("side","buy");
+        jb1.put("positionType","limit");
+        jb1.put("positionSide","long");
+        jb1.put("leverage","100");
+        jb1.put("quantity","11");
+        jb1.put("orderLinkId","Test2");
+        jb1.put("price","20001");
+        list.add(1,jb1);
+
+        String sign = signByBatch(timestamp+apiKey+recv, list.toString().replaceAll("\\s*", ""), pri);
+        System.out.println("签名["+sign+"]");
+
+
+        String header = "{\"X-SAASAPI-API-KEY\":\"" + apiKey + "\",\"X-SAASAPI-TIMESTAMP\":\"" + timestamp + "\",\"X-SAASAPI-SIGN\":\"" + sign + "\",\"X-SAASAPI-RECV-WINDOW\":\"" + recv + "\"}";
+
+        //
+        String response = new HttpUtil().postByJson( url, list.toString().replaceAll("\\s*", ""), header);
+        System.out.println("参数["+list.toString().replaceAll("\\s*", ""));
+        System.out.println("================================================================================================");
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonObject = mapper.readTree(response);
+            //
+            System.out.println("detail: ");
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("================================================================================================");
+    }
+
+    private static void symbol() {
+        String url = host + "/openapi/v1/symbol";
+        Map<String, Object> tem = new HashMap<>();
+
+        String sign = sign(timestamp+apiKey+recv, tem, pri);
+        System.out.println("签名["+sign+"]");
+
+        boolean verify = verify(sign, timestamp+apiKey+recv, tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"X-SAASAPI-API-KEY\":\"" + apiKey + "\",\"X-SAASAPI-TIMESTAMP\":\"" + timestamp + "\",\"X-SAASAPI-SIGN\":\"" + sign + "\",\"X-SAASAPI-RECV-WINDOW\":\"" + recv + "\"}";
+
+        //
+        String response = new HttpUtil().get( url, header);
+        System.out.println("================================================================================================");
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonObject = mapper.readTree(response);
+            //
+            System.out.println("detail: ");
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("================================================================================================");
+    }
+
+    private static void transfer() {
+        String url = host + "/openapi/v1/transfer";
+
+        String fromBiz = "futures"; // 业务：futures永续合约,options期权,spot现货
+        String toBiz = "spot"; // 目标业务：futures永续合约,options期权,spot现货
+        String amount = "1"; // 划转数量
+
+        Map<String, Object> tem = new HashMap<>();
+        //签名
+        tem.put("fromBiz", fromBiz);
+        tem.put("toBiz", toBiz);
+        tem.put("amount", amount);
+
+        String sign = sign(timestamp+apiKey+recv, tem, pri);
+        System.out.println("签名["+sign+"]");
+
+        boolean verify = verify(sign, timestamp+apiKey+recv, tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"X-SAASAPI-API-KEY\":\"" + apiKey + "\",\"X-SAASAPI-TIMESTAMP\":\"" + timestamp + "\",\"X-SAASAPI-SIGN\":\"" + sign + "\",\"X-SAASAPI-RECV-WINDOW\":\"" + recv + "\"}";
+        String param = "{\"fromBiz\":\"" + fromBiz
+                + "\",\"toBiz\":\"" + toBiz
+                + "\",\"amount\":\"" + amount
+                + "\"}";
+
+        //
+        String response = new HttpUtil().postByJson( url, param, header);
+        System.out.println("================================================================================================");
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonObject = mapper.readTree(response);
+            //
+            System.out.println("detail: ");
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("================================================================================================");
+    }
+
+    private static void balance() {
+        String url = host + "/openapi/v1/balance";
+        Map<String, Object> tem = new HashMap<>();
+
+        String sign = sign(timestamp+apiKey+recv, tem, pri);
+        System.out.println("签名["+sign+"]");
+
+        boolean verify = verify(sign, timestamp+apiKey+recv, tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"X-SAASAPI-API-KEY\":\"" + apiKey + "\",\"X-SAASAPI-TIMESTAMP\":\"" + timestamp + "\",\"X-SAASAPI-SIGN\":\"" + sign + "\",\"X-SAASAPI-RECV-WINDOW\":\"" + recv + "\"}";
+
+        //
+        String response = new HttpUtil().get( url, header);
+        System.out.println("================================================================================================");
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonObject = mapper.readTree(response);
+            //
+            System.out.println("detail: ");
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("================================================================================================");
+    }
+
+    private static void positions() {
+        String url = host + "/openapi/v1/order/positions";
+
+        String category = "futures"; // 订单类别：futures永续合约,options期权,spot现货
+        String symbol = "btc"; // 币对名称, 如 btc,eth
+        String positionModel = "fix"; // 仓位模式 fix=逐仓 cross=全仓
+        int page = 1;
+        int pageSize = 10;
+
+        Map<String, Object> tem = new HashMap<>();
+        //签名
+        tem.put("category", category);
+        tem.put("symbol", symbol);
+        tem.put("positionModel", positionModel);
+        tem.put("page", page);
+        tem.put("pageSize", pageSize);
+
+        String sign = sign(timestamp+apiKey+recv, tem, pri);
+        System.out.println("签名["+sign+"]");
+
+        boolean verify = verify(sign, timestamp+apiKey+recv, tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"X-SAASAPI-API-KEY\":\"" + apiKey + "\",\"X-SAASAPI-TIMESTAMP\":\"" + timestamp + "\",\"X-SAASAPI-SIGN\":\"" + sign + "\",\"X-SAASAPI-RECV-WINDOW\":\"" + recv + "\"}";
+
+        String response = new HttpUtil().get( url+"?category="+category+"&symbol="+symbol+"&positionModel="+positionModel+"&page="+page+"&pageSize="+pageSize, header);
+        System.out.println("================================================================================================");
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonObject = mapper.readTree(response);
+            //
+            System.out.println("detail: ");
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("================================================================================================");
+    }
+
+    public static void current(){
+        String url = host + "/openapi/v1/order/current";
+
+        String category = "futures"; // 订单类别：futures永续合约,options期权,spot现货
+        String symbol = "btc"; // 币对名称, 如 btc,eth
+        String positionModel = "fix"; // 仓位模式 fix=逐仓 cross=全仓
+        int page = 1;
+        int pageSize = 10;
+
+        Map<String, Object> tem = new HashMap<>();
+        //签名
+        tem.put("category", category);
+        tem.put("symbol", symbol);
+        tem.put("positionModel", positionModel);
+        tem.put("page", page);
+        tem.put("pageSize", pageSize);
+
+        String sign = sign(timestamp+apiKey+recv, tem, pri);
+        System.out.println("签名["+sign+"]");
+
+        boolean verify = verify(sign, timestamp+apiKey+recv, tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"X-SAASAPI-API-KEY\":\"" + apiKey + "\",\"X-SAASAPI-TIMESTAMP\":\"" + timestamp + "\",\"X-SAASAPI-SIGN\":\"" + sign + "\",\"X-SAASAPI-RECV-WINDOW\":\"" + recv + "\"}";
+
+        String response = new HttpUtil().get( url+"?category="+category+"&symbol="+symbol+"&positionModel="+positionModel+"&page="+page+"&pageSize="+pageSize, header);
+        System.out.println("================================================================================================");
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonObject = mapper.readTree(response);
+            //
+            System.out.println("detail: ");
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("================================================================================================");
+    }
     private static void cancel() {
         String url = host + "/openapi/v1/order/cancel";
 
@@ -304,6 +581,39 @@ public class OpenAPIDemo {
     public static String sign(String header, Map<String, Object> data, String privateKeyString) {
         try {
             String srcData = header+mapToString(data);
+            System.out.println("签名参数["+srcData+"]");
+            PrivateKey privateKey = getPrivateKey(privateKeyString);
+            byte[] keyBytes = null;
+            PKCS8EncodedKeySpec keySpec = null;
+            KeyFactory keyFactory = null;
+            PrivateKey key = null;
+            Signature signature = null;
+            String str = null;
+            keyBytes = privateKey.getEncoded();
+            keySpec = new PKCS8EncodedKeySpec(keyBytes);
+            keyFactory = KeyFactory.getInstance("RSA");
+            key = keyFactory.generatePrivate(keySpec);
+            signature = Signature.getInstance("SHA256withRSA");
+            signature.initSign(key);
+            signature.update(srcData.getBytes());
+            str = new String(Base64.encodeBase64(signature.sign()));
+
+            return str;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * 批量下单、批量撤单签名方法
+     * @param header
+     * @param data
+     * @param privateKeyString
+     * @return
+     */
+    public static String signByBatch(String header, String data, String privateKeyString) {
+        try {
+            String srcData = header+data;
             System.out.println("签名参数["+srcData+"]");
             PrivateKey privateKey = getPrivateKey(privateKeyString);
             byte[] keyBytes = null;

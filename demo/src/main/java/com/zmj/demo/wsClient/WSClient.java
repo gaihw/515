@@ -87,12 +87,12 @@ public class WSClient extends WebSocketClient {
 //        webSocketClient.send("{\"event\":\"req\",\"params\":{\"channel\":\"market_GjFt.ethusdt_spot_fills\",\"cb_id\":\"10001000\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_ty9f.ethusdt_spot_fills\",\"cb_id\":\"10001000\"}}");
 //        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_qoz6.btcusdt_ticker\",\"cb_id\":\"Android_qoz6\"}}");
-        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_awgf.btcusdt_depth_step0\",\"cb_id\":\"10001001\"}}");
+//        webSocketClient.send("{\"event\":\"sub\",\"params\":{\"channel\":\"market_awgf.btcusdt_depth_step0\",\"cb_id\":\"10001001\"}}");
         //测试环境
-//        scheduledThreadPool.scheduleAtFixedRate(() -> {
-//            System.out.println("发送：：：{\"event\":\"ping\"}");
-//            webSocketClient.send("{\"event\":\"ping\"}");
-//                    }, 0, 5, TimeUnit.SECONDS);
+        scheduledThreadPool.scheduleAtFixedRate(() -> {
+            System.out.println("发送：：：{\"event\":\"ping\"}");
+            webSocketClient.send("{\"event\":\"ping\"}");
+                    }, 0, 5, TimeUnit.SECONDS);
 //        webSocketClient.send("{\"event\":\"signin\",\"params\":{\"token\":\"b181853e6aac2bdb7dfb7e2ea8d538b80e33b02db9be77b95bafd207b8206d20\"}}");
 //        webSocketClient.send("{\"event\":\"subscribe\",\"params\":{\"biz\":\"cfd\",\"type\":\"position_change\",\"zip\":false}}");
 

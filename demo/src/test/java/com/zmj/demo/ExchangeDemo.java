@@ -29,25 +29,24 @@ public class ExchangeDemo {
     // timestamp
     public static long timestamp = System.currentTimeMillis();
     // ---------- Exchange Settings ----------
-    // Exchange privateKey must pkcs8 format
-    public static String pri = "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDLwKjH6TuinYyK9TnJjNvQPfW6fKxuQ/E2WqP4M8uSClIBVt1b2uqKXqHt1N/e6ep8rlbVmOk12aa/PBAuqseZdSuaZ6FD1WBLS0v761Shm1hvi5YUTSlszg0NzA/UAapXxpGXQlPL+Gblv+YgY2QUorO+mkokvScZmbGTWTI/WwBgOyp0OduVvqyDZ7wrPyGvmhB4SW9VB88xiVOMRenQd7tDyrA5dnnSHdZY50YU1gDICmlLEU8W6GsrMUSXf5iD/2MJlO++ZyIdEttMdjpK2wzPomwmlxJAVMyrWEXW0GuEMGhG40IZZUT9jPKZB8s4ZPRGHwQclJW95fa4I38JAgMBAAECggEAJK38NHDiUXX3VRSsYIJBGA3vbLEBAaCtjdFnb0kzvoipFqCinOSeEGbU09Hcs258zhE8hJtQcGdMQ2T2rNAFurSDMvqw51tESIm3lhRZWfZzRzFjxSfW60V0yCUSPGJIXiDbGNXR7Ag9zeJr9SyvWZ+oqAlyi4aZwVwPwazvBMR04bnyF3fJGME8RUVmCA5biE5Xwa/ykO8hUq21NkzV2Ii58nVzJdk5UmszRwTCCfg/Qyrdr89Uq5Nyv3h0/Rn/McPnjXafUC+qvQEm0m3OI6hxmWiw6bYirObJ3xek42N23+5pcxmvnAaq4izqs8C/kbVzzDfvFHEWHzew2Vgv2QKBgQDnxRGoTp/j80N67XYc23sZO4DzZ9hMwCjJXheYyTpi3xdRGKllmOq5h74hgZnEUEMKUfTtJrj6PMubwRep8VDl0k5jP+G+0v9tz8rxd6/mWUPEElXyJAOoxgnTp+gHq5UjKqezvNtjJegfhl3JfoDEchNJMBQqB7A3FHWxHeSD2wKBgQDhDcGTeZ79OKDXF3K+e4uJ77Isjm4ttylbR3dJaIR4zx+y9pbR0xh2ess1NITm9E4Fcizmn76bsy7FBchw/1edemEpxEWCcgB8WSyTsmP6QN1uG40WiPREIjVM/VR4FOry3tJ+bvg7hgj+6RstxqcRe97kuYaBdNbyo8Hxpl/v6wKBgD1E9ocEyfXrwCIGFlxIlUE1XsB56k9X2TBqhFhqkdnDWhmhKF7oTtzfCp828JxaD27x/YqX2vykB7tUD1popdcrgndwUtAsXUP9U4wD9OczH9v8cOYDKUh7metvDsLAVDuosg6s1V5fjf6PecmjfIzyDzEg2aPGxom5CefZnChTAoGABOvBFNFu+Yh4c9uOZb3b0jtMgQ7oN9WucNGCOTew1ddpkQc1Swc7nLOYp+QrF8W1wwa5Fp3dlBf56NL0jAv5RXc8kqY5At4tRorIn74h04IBlXvCvQBnnunEkpdjdnC2pnLa1WrlwJ9wqOo97uVOF+LGf+fSmhgM7ydHgVoq9NsCgYBy8taA69M3TgpB90BXt9bc3NUEu+yUELzbXkF439twjMpQCAw42zmcdytBme4XomShbcPhs6Bhnxa6UTK79gkb/deB5iB82l7zqiLQb9Ff0O0unKNg76OG/KidW/2IdH5bFfDzED/hzk9Q9qPLfVUynnFGHKOCA0jLRCX0glgUHA==";
-    // song
-    // Exchange 5fu3
     public static String heard_5fu3 = "song";
-    // Exchange use privateKey create jwt token for SaaSservice
-    public static String heard_sfg6 = "=eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiI1MTkwNjE2OCIsImVtYWlsIjoiLS0iLCJtb2JpbGUiOiIxNjYqKioqMDAwOSIsIm5pY2tuYW1lIjoiMTY2KioqKjAwMDkiLCJhcmVhIjoibnVsbCIsImludml0ZSI6IjYzMDIzMTEyIiwiZXhwIjoxNjgzMTcwMzgzfQ.RrXocevOEUCZRmHPVKZc4Ha_SuvrKE_BbINK1IaTNWbLAdcPx2GfrtAqFOh4eU56ffeg9Ym43a06im1BGEaDTFN-dnry4Yq9mTfmRnQgq8uoiJIw2eibs3SQLJprqwsaxaYjcI1Gk5KOGk8VrzPGfTCK6cXjWeND6QlasVY--rfY2gm0VGmIx8OdojO1MiwekhvHPqWs5hjqr4cZpF1397-1b3D-zKT0cJCjIPF-FJgScbAtyQ9aJbYQIKPFRnGHkQ2ridZAY5kpbwatcCBTkwpeXcsYW68GxDio_tUxxzAigshc9B1xenqzwOb5GORccEVz6tQFF6cjtOCL3L75XA";
-    //
-    // ---------- SaaSservice Settings ----------
-    // SaaSservice svcID
     public static String svcId = "song";
+    public static String pri = "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDLwKjH6TuinYyK9TnJjNvQPfW6fKxuQ/E2WqP4M8uSClIBVt1b2uqKXqHt1N/e6ep8rlbVmOk12aa/PBAuqseZdSuaZ6FD1WBLS0v761Shm1hvi5YUTSlszg0NzA/UAapXxpGXQlPL+Gblv+YgY2QUorO+mkokvScZmbGTWTI/WwBgOyp0OduVvqyDZ7wrPyGvmhB4SW9VB88xiVOMRenQd7tDyrA5dnnSHdZY50YU1gDICmlLEU8W6GsrMUSXf5iD/2MJlO++ZyIdEttMdjpK2wzPomwmlxJAVMyrWEXW0GuEMGhG40IZZUT9jPKZB8s4ZPRGHwQclJW95fa4I38JAgMBAAECggEAJK38NHDiUXX3VRSsYIJBGA3vbLEBAaCtjdFnb0kzvoipFqCinOSeEGbU09Hcs258zhE8hJtQcGdMQ2T2rNAFurSDMvqw51tESIm3lhRZWfZzRzFjxSfW60V0yCUSPGJIXiDbGNXR7Ag9zeJr9SyvWZ+oqAlyi4aZwVwPwazvBMR04bnyF3fJGME8RUVmCA5biE5Xwa/ykO8hUq21NkzV2Ii58nVzJdk5UmszRwTCCfg/Qyrdr89Uq5Nyv3h0/Rn/McPnjXafUC+qvQEm0m3OI6hxmWiw6bYirObJ3xek42N23+5pcxmvnAaq4izqs8C/kbVzzDfvFHEWHzew2Vgv2QKBgQDnxRGoTp/j80N67XYc23sZO4DzZ9hMwCjJXheYyTpi3xdRGKllmOq5h74hgZnEUEMKUfTtJrj6PMubwRep8VDl0k5jP+G+0v9tz8rxd6/mWUPEElXyJAOoxgnTp+gHq5UjKqezvNtjJegfhl3JfoDEchNJMBQqB7A3FHWxHeSD2wKBgQDhDcGTeZ79OKDXF3K+e4uJ77Isjm4ttylbR3dJaIR4zx+y9pbR0xh2ess1NITm9E4Fcizmn76bsy7FBchw/1edemEpxEWCcgB8WSyTsmP6QN1uG40WiPREIjVM/VR4FOry3tJ+bvg7hgj+6RstxqcRe97kuYaBdNbyo8Hxpl/v6wKBgD1E9ocEyfXrwCIGFlxIlUE1XsB56k9X2TBqhFhqkdnDWhmhKF7oTtzfCp828JxaD27x/YqX2vykB7tUD1popdcrgndwUtAsXUP9U4wD9OczH9v8cOYDKUh7metvDsLAVDuosg6s1V5fjf6PecmjfIzyDzEg2aPGxom5CefZnChTAoGABOvBFNFu+Yh4c9uOZb3b0jtMgQ7oN9WucNGCOTew1ddpkQc1Swc7nLOYp+QrF8W1wwa5Fp3dlBf56NL0jAv5RXc8kqY5At4tRorIn74h04IBlXvCvQBnnunEkpdjdnC2pnLa1WrlwJ9wqOo97uVOF+LGf+fSmhgM7ydHgVoq9NsCgYBy8taA69M3TgpB90BXt9bc3NUEu+yUELzbXkF439twjMpQCAw42zmcdytBme4XomShbcPhs6Bhnxa6UTK79gkb/deB5iB82l7zqiLQb9Ff0O0unKNg76OG/KidW/2IdH5bFfDzED/hzk9Q9qPLfVUynnFGHKOCA0jLRCX0glgUHA==";
+
+
+//    public static String heard_5fu3 = "xxOi";
+//    public static String svcId = "EXTEST";
+//    public static String pri="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDDTP5d+TLqdxOHjGPMqwPDFF99JeT1uOhpkvwlitOPA40sMZtpL3Zn/WaMzyA696tWskerLREtKJoOc/FX28pDH7O62T2+CWnIa3Yy2hXV+x0bBW0Q5pVJwkfQvOof2Z8Qoaa+k1IVHyXTnuqfrOMqzG9DUoydc1/kv4UzNoJ17+4+uPTOS5oJCuB1fCjllunuGYFwybiLUx3W06SNdi0K2xqp8ywryVM+NWkvrt9x23LcHmdloCgZC3JZ0DlYnTl9hnDkLNDxJjVLcpDpvOQuZp+gn+dNZORvWn2bMRiLVMNBTV/8sWlnWkJY8Jlnl0nZ9jvw9e6vokp3RPqcc/CnAgMBAAECggEACKUe2WAPjetpdOWVAVlMmFUNiQelY+8kco/sE2laxgjdNeiYPYa5Ug8YfAErJxERh4vqujwLd5lFgIBHXaFACcqcdRfqsL/P6+w91jBrKQatmiWaV1Yto48zCJ1kK7bBYMYXEHaK+p5fWUe+kQThJWLZRfygdtPFmeWUatjt23SIkm12WudIrGEJZOENsMIcmrcVR3BRk9fLrYmI41s7uO5PACDK2DaAKRwgDMSltr9rxD0y0/Y3aEQYJbOZ7az9wJjgvBLfcqb5EzabrtR3NBM/EsW/DyFh7NmhVhf/vhqLdFWIL8Jcsz5B8lAHGoy0XV2Gigma8DuqYpPDHoTQ6QKBgQD0cz+ERBLFoObl0PU3kU1j0Mi4ETNstt6piATJj8l+YL7ZzpdaerGzPSESeZjp0cfVFEATg3A0zJ1uEpaQ162YvfLl/DlK395JP+RKC4dzQUN2ESeUd0HUkjchCltHSy33F3Je689Ug9uCjJGs3sM+fdsrgBwlfLel3UU9uEL9VQKBgQDMh0Hz0R1sN/vvh/v+fpMAFcEJCmCkPND6UsKj2N2QNJCRHyZBrLzgMWmob5q578AXPIgxt+nwbp/tWjheAAQ9VQIsT6yd2PF3MRaJdGOtxJfPSJ/17Mbtx9JskALs3MMH6pWvgGB/K8WX8wZJ73mDGkjIpckFfBtjXeQOOpbWCwKBgQDab/3rMHVh2nVaGc52eEYiktg5+0zrscHo1l4Iy48vej4xHbYMKSWP2GksPDKThl0+oBjeFw72b32idcPL7J74pYxfTXLY4JGe/RP/wquoJ0KkR5IJzkOqM3pF8R496AVMDsyp26hqimVmFDy8sFbiCc8G4TTFntvwwHh2PajG/QKBgQDKgY2alE1WjiPjqbem5roz1lY31k+TrieYAoN3aU0O8AzHs5jUY+zq6eHchQwk165RE30iBSAbD91HTBINeGS6OUYai5S1AU0rn63Z0SS0s7c/5H+FJrhcTIIbPYe38GkmmG02xJxGrhdJeLWcVQDx/v9bs1JTHOudOiSIthgMuwKBgFIpsPwYyAypzjFlGzhOAFAKGq6IRbNBW/rcegGNA+RZRFILLhZNQ0FiVvdr6lWYcDVrMDGOauw/8Mf1FPs+TiZ5uye1j7qQX6v2qmH2heT45SYnpi2UPY77fWQEjx43rl8RvdunCNibpqbnqh4pSRAtXbG6QyDgSVXeJ1M/fvWy";
+
+    // Exchange use privateKey create jwt token for SaaSservice
+    public static String heard_sfg6 = "eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiI1MTkwNjIwNiIsImVtYWlsIjoiLS0iLCJtb2JpbGUiOiIxNjYqKioqMDAyMiIsIm5pY2tuYW1lIjoiMTY2KioqKjAwMjIiLCJhcmVhIjoibnVsbCIsImludml0ZSI6IjU3NjAwMjc3IiwiZXhwIjoxNjk5MzQ1MTc1fQ.YE-MRwUcTbzL15NTpPL0J5Dlk8RAVGOFx26oSL9LX4xZP5fz08lFPpcQpZS5PbUQQw9CSmWShAwzWD7I0pqLYkVUNoFhboAsjcflZMwnJ0Hz-aVcj-2q---wsmOU1pMArpbqqslIwIJOk406OnEo8K1muLxJcvek-ZPmUdoVaYsuVBPkV-4khaONl0oh7cByaugDqBf_7qNa1U7WOpVTAT1e3U3EZ_kXCRG4FOoD4iGVWj1N55Y8VsOYvGpyZUh-XCedAhYfFx8aKRkScQHdiVckEr9s5KbhbhV22Gm6McRc-u9bLv2Uoiif96PZuMdFN9uOuRTZw5RHagzMOBFFEw" +
+            "";
+
     // SaaSservice publickey
     public static String pubKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsG4BBS1dCNtY7XNeE6MC7/hlICZT7jhqA7iJn90BQbTdoAB0Vvqohe8gNOO/NebuNl+Y2dyf5NX46XaClJXCigHrwZOwb1QzBHu/EEfthFrMw8dw8RxH9/5kjzkMAIPAmVEa2EnrmFT4pRDU6XU9OK6g6HQhhjj6n0lGF4xnjry56u5MfVjoeTuHgfGgRrHFrOMMHpx3E/c6yHinwYmc1RPEtrRsKwQdHvjQygvAzHxWkjqiC6I0Wjzrn3evAY/icIV84/yaEukYmEmABwYgnmR+TM+t1TQNMEZg+gCt1KWn2yb2+GpxSwQ5vV6gnLQUd7+856WDoJRbe5QGG+pf4wIDAQAB";
     // SaaSservice domain
     public static String host = "https://x.chimchim.top";
 //    public static String host = "https://dev1.123kj.top";
-
-    //public static String host = "http://127.0.0.1:7002";
-    //---- example end
 
     /**
      * 流程：
@@ -64,7 +63,7 @@ public class ExchangeDemo {
         /**
          * 生成jwt-token示例
          */
-        createJwtToken();
+//        createJwtToken();
         /**
          * use TinyTrader’s perpetual SDK to your app , must get sdk token: accessToken
          * 可以使用此方法传入jwt-token模拟app-sdk的自动注册和登录
@@ -77,7 +76,7 @@ public class ExchangeDemo {
         /**
          * asset from  Exchange to SaaSservice
           */
-        //assetin();
+//        assetin();
         /**
         * asset from SaaSservice to Exchange
          */
@@ -85,7 +84,7 @@ public class ExchangeDemo {
         /**
          * 永续/期权正在持仓的仓位订单输出接口(数据从旧到新排序)
          */
-        positionlist();
+//        positionlist();
         /**
          * 永续/期权已完成仓位订单输出接口 (数据从旧到新排序)
          */
@@ -94,6 +93,89 @@ public class ExchangeDemo {
          * 永续/期权支持的币对列表输出接口
          */
 //        positionsymbol();
+
+        /**
+         * 永续 账户流水输出接口
+         */
+        positionbilllist();
+    }
+
+    /**
+     * 永续 账户流水输出接口
+     */
+    private static void positionbilllist() {
+
+        Map<String, Object> tem = new HashMap<>();
+        tem.put("svc_id", svcId);
+        tem.put("timestamp", timestamp);
+        //
+        String user_id = "all";
+        String type = "futures"; // futures
+        String start_time = "2021-10-01 00:00:01";
+        String end_time = "2023-10-31 23:00:01";
+
+        Integer id = 0;
+        Integer pagesize = 20;
+        tem.put("user_id", user_id);
+        tem.put("type", type);
+        tem.put("start_time", start_time);
+        tem.put("end_time", end_time);
+        tem.put("id", id);
+        tem.put("pagesize", pagesize);
+        // 租户用户id
+        String tenant_user_id = "";
+        // 类型
+        String bill_type = "27";
+        //
+        String from_user_id = "";
+        //
+        String from_tenant_user_id = "";
+        if (!tenant_user_id.equals("")) {
+            tem.put("tenant_user_id", tenant_user_id);
+        }
+        if (!bill_type.equals("")) {
+            tem.put("bill_type", bill_type);
+        }
+        if (!from_user_id.equals("")) {
+            tem.put("from_user_id", from_user_id);
+        }
+        if (!from_tenant_user_id.equals("")) {
+            tem.put("from_tenant_user_id", from_tenant_user_id);
+        }
+        //
+        String sign = sign(tem, pri);
+        System.out.println(sign);
+        tem.put("sign", sign);
+
+        boolean verify = verify(tem, pubKey);
+        System.out.println(verify);
+
+        String header = "{\"5fu3\":\"" + heard_5fu3 + "\",\"sfg6\":\"" + heard_sfg6 + "\"}";
+        String param = "{\"svc_id\":\"" + svcId + "\",\"sign\":\"" + sign + "\",\"timestamp\":" + timestamp
+                + ",\"id\":" + id
+                + ",\"pagesize\":" + pagesize
+                + ",\"user_id\":\"" + user_id
+                + (!tenant_user_id.equals("") ? "\",\"tenant_user_id\":\"" + tenant_user_id : "")
+                + (!bill_type.equals("") ? "\",\"bill_type\":\"" + bill_type : "")
+                + (!from_user_id.equals("") ? "\",\"from_user_id\":\"" + from_user_id : "")
+                + (!from_tenant_user_id.equals("") ? "\",\"from_tenant_user_id\":\"" + from_tenant_user_id : "")
+                + "\",\"type\":\"" + type
+                + "\",\"start_time\":\"" + start_time
+                + "\",\"end_time\":\"" + end_time
+                + "\"}";
+        //
+        String response = new HttpUtil().postByJson( host + "/saasapi/positionbilllist", param, header);
+        System.out.println("================================================================================================");
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonObject = mapper.readTree(response);
+            //
+            System.out.println("positionbilllist detail: ");
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("================================================================================================");
     }
 
     /**
@@ -421,13 +503,13 @@ public class ExchangeDemo {
 
     public static void assetout() {
         // 可选参数 type账户类型:  futures合约(默认值), options期权
-        String type = "options";
+        String type = "futures";
         //
         String typeParam = "";
         //
         String coin = "usdt";
         String ex_order_id = svcId + "_tansferout_" + String.valueOf(timestamp);
-        BigDecimal amount = BigDecimal.valueOf(888);
+        BigDecimal amount = BigDecimal.valueOf(10);
         Map<String, Object> tem = new HashMap<>();
         tem.put("svc_id", svcId);
         tem.put("timestamp", timestamp);
